@@ -91,7 +91,7 @@ function hexPoints(cx, cy, r) {
   }).join(" ");
 }
 
-function curvePath(x1, y1, x2, y2, bend = 0.12) {
+function curvePath(x1, y1, x2, y2, bend = 0.1) {
   const mx = (x1 + x2) / 2;
   const my = (y1 + y2) / 2;
   const dx = x2 - x1;
@@ -100,24 +100,21 @@ function curvePath(x1, y1, x2, y2, bend = 0.12) {
 }
 
 /* ── Layout constants ── */
+const COL_HUB = 450;
+const COL_GOAL = 1150;
+const COL_OBJ = 2250;
 
-/* 3 columns: Need (hub) → Goals (hexagons) → Objectives (pills) */
-const COL_HUB = 350;
-const COL_GOAL = 950;
-const COL_OBJ = 1900;
+const HUB_R = 350;
+const HEX_R = 180;
 
-const HUB_R = 310;
-const HEX_R = 160;
-
-const OBJ_BOX_W = 950;
-const OBJ_BOX_H = 80;
-const OBJ_GAP = 135;
-const GOAL_GAP = 56;
+const OBJ_BOX_W = 1100;
+const OBJ_GAP = 140;
+const GOAL_GAP = 60;
 
 /* ── Layout engine ── */
 function computeLayout() {
   const goals = [];
-  let y = 50;
+  let y = 100;
 
   for (let gi = 0; gi < GOALS.length; gi++) {
     const goal = GOALS[gi];
@@ -127,8 +124,7 @@ function computeLayout() {
     const goalY = y + totalH / 2;
     const goalData = { ...goal, x: COL_GOAL, y: goalY, objs: [] };
 
-    /* lay out objectives vertically centered on the goal */
-    let oy = goalY - totalH / 2 + OBJ_GAP / 2;
+    let oy = goalY - (totalH / 2) + (OBJ_GAP / 2);
     for (let oi = 0; oi < objCount; oi++) {
       goalData.objs.push({
         text: goal.objectives[oi],
@@ -139,21 +135,19 @@ function computeLayout() {
     }
 
     goals.push(goalData);
-    y = goalY + totalH / 2 + GOAL_GAP + 48;
+    y = goalY + totalH / 2 + GOAL_GAP + 60;
   }
 
   return goals;
 }
 
-/* ── Component ── */
 export default function NGOFlowchart() {
   const svgRef = useRef(null);
   const layout = computeLayout();
 
-  /* compute tight bounds */
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
 
-  function expand(x, y, padX = 100, padY = 100) {
+  function expand(x, y, padX = 200, padY = 200) {
     if (x - padX < minX) minX = x - padX;
     if (y - padY < minY) minY = y - padY;
     if (x + padX > maxX) maxX = x + padX;
@@ -161,46 +155,39 @@ export default function NGOFlowchart() {
   }
 
   for (const g of layout) {
-    expand(g.x, g.y, HEX_R + 30, HEX_R + 30);
+    expand(g.x, g.y, HEX_R + 50, HEX_R + 50);
     for (const o of g.objs) {
-      expand(o.x, o.y, OBJ_BOX_W / 2 + 30, 50);
+      expand(o.x, o.y, OBJ_BOX_W / 2 + 50, 60);
     }
   }
 
-  /* Hub: center vertically on goals */
   const firstY = layout[0].y;
   const lastY = layout[layout.length - 1].y;
   const hubY = (firstY + lastY) / 2;
-  expand(COL_HUB, hubY, HUB_R + 50, HUB_R + 50);
+  expand(COL_HUB, hubY, HUB_R + 100, HUB_R + 100);
 
-  /* padding */
-  minX -= 40;
-  minY -= 50;
-  maxX += 40;
-  maxY += 60;
+  minX -= 100;
+  minY -= 100;
+  maxX += 100;
+  maxY += 250;
 
   const vbW = maxX - minX;
   const vbH = maxY - minY;
 
-  /* Legend */
-  const legendW = 540;
-  const legendH = 88;
+  const legendW = 600;
+  const legendH = 100;
   const legendX = minX + vbW / 2 - legendW / 2;
-  const legendY = maxY - legendH - 16;
+  const legendY = maxY - legendH - 40;
 
-  /* Hub text lines */
   const hubLines = wrap("A fast and clear method to relay messages between a climber and their belayer", 28);
 
   const handleDownload = useCallback(() => {
     const svg = svgRef.current;
     if (!svg) return;
-
     const svgData = new XMLSerializer().serializeToString(svg);
     const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
     const url = URL.createObjectURL(svgBlob);
-
     const img = new Image();
-    /* render at 3x for crisp output */
     const scale = 3;
     const canvas = document.createElement("canvas");
     canvas.width = vbW * scale;
@@ -212,7 +199,6 @@ export default function NGOFlowchart() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       URL.revokeObjectURL(url);
-
       canvas.toBlob((blob) => {
         const a = document.createElement("a");
         a.href = URL.createObjectURL(blob);
@@ -225,207 +211,73 @@ export default function NGOFlowchart() {
   }, [vbW, vbH]);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100vh",
-        background: "#FFFFFF",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontFamily: "Arial, Helvetica, sans-serif",
-        position: "relative",
-      }}
-    >
-      <button
-        onClick={handleDownload}
-        style={{
-          position: "absolute",
-          top: 16,
-          right: 16,
-          zIndex: 10,
-          padding: "10px 20px",
-          background: "#3B82F6",
-          color: "#FFFFFF",
-          border: "none",
-          borderRadius: 8,
-          fontSize: 15,
-          fontWeight: 600,
-          cursor: "pointer",
-          boxShadow: "0 2px 8px rgba(59,130,246,0.3)",
-        }}
-      >
-        ⬇ Download PNG
-      </button>
+    <div style={{ width: "3500px", height: "4500px", background: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Inter', Arial, sans-serif", WebkitPrintColorAdjust: "exact" }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        @media print {
+          body { margin: 0; padding: 0; }
+          div { overflow: visible !important; }
+        }
+      `}</style>
       <svg
         ref={svgRef}
         viewBox={`${minX} ${minY} ${vbW} ${vbH}`}
-        style={{
-          width: "100%",
-          height: "100%",
-          maxWidth: "100vw",
-          maxHeight: "100vh",
-        }}
+        style={{ width: "100%", height: "100%", maxWidth: "100vw", maxHeight: "100vh" }}
         preserveAspectRatio="xMidYMid meet"
       >
         <defs>
-          <filter id="sh">
-            <feDropShadow
-              dx="0"
-              dy="2"
-              stdDeviation="4"
-              floodColor="#94A3B8"
-              floodOpacity="0.12"
-            />
+          <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#000" floodOpacity="0.08" />
           </filter>
         </defs>
 
         <rect x={minX} y={minY} width={vbW} height={vbH} fill="#FFFFFF" />
 
-        {/* ── Connection lines ── */}
+        {/* ── Connections ── */}
         {layout.map((goal) => (
-          <g key={goal.id + "-lines"}>
-            {/* Hub → Goal */}
+          <g key={goal.id}>
             <path
-              d={curvePath(COL_HUB + HUB_R * 0.85, hubY, goal.x - HEX_R, goal.y, 0.03)}
-              fill="none"
-              stroke={goal.color}
-              strokeWidth={3.5}
-              opacity={0.4}
+              d={curvePath(COL_HUB + HUB_R * 0.8, hubY, goal.x - HEX_R, goal.y, 0.05)}
+              fill="none" stroke={goal.color} strokeWidth={4} opacity={0.3}
             />
-            {/* Goal → Objectives */}
             {goal.objs.map((o, oi) => (
               <path
                 key={oi}
                 d={`M${goal.x + HEX_R},${goal.y} L${o.x - OBJ_BOX_W / 2},${o.y}`}
-                fill="none"
-                stroke={goal.color}
-                strokeWidth={2.5}
-                opacity={0.35}
+                fill="none" stroke={goal.color} strokeWidth={2.5} opacity={0.3}
               />
             ))}
           </g>
         ))}
 
-        {/* ── Central Hub (Need) ── */}
-        <circle
-          cx={COL_HUB}
-          cy={hubY}
-          r={HUB_R + 40}
-          fill="rgba(59,130,246,0.04)"
-          stroke="rgba(59,130,246,0.12)"
-          strokeWidth={2}
-        />
-        <circle
-          cx={COL_HUB}
-          cy={hubY}
-          r={HUB_R}
-          fill="#FFFFFF"
-          stroke="#CBD5E1"
-          strokeWidth={3.5}
-          filter="url(#sh)"
-        />
-        <text
-          x={COL_HUB}
-          y={hubY - HUB_R * 0.45}
-          textAnchor="middle"
-          fontFamily="Arial, Helvetica, sans-serif"
-          fill="#94A3B8"
-          fontSize={36}
-          fontWeight={700}
-          letterSpacing="0.14em"
-        >
-          NEED
-        </text>
+        {/* ── Hub ── */}
+        <circle cx={COL_HUB} cy={hubY} r={HUB_R + 50} fill="rgba(59,130,246,0.03)" stroke="rgba(59,130,246,0.08)" strokeWidth={2} />
+        <circle cx={COL_HUB} cy={hubY} r={HUB_R} fill="#FFFFFF" stroke="#E2E8F0" strokeWidth={4} filter="url(#sh)" />
+        <text x={COL_HUB} y={hubY - HUB_R * 0.45} textAnchor="middle" fill="#94A3B8" fontSize={42} fontWeight={800} letterSpacing="0.15em">NEED</text>
         {hubLines.map((l, li) => (
-          <text
-            key={li}
-            x={COL_HUB}
-            y={hubY - HUB_R * 0.18 + li * 46}
-            textAnchor="middle"
-            fontFamily="Arial, Helvetica, sans-serif"
-            fill="#1E40AF"
-            fontSize={40}
-            fontWeight={700}
-          >
-            {l}
-          </text>
+          <text key={li} x={COL_HUB} y={hubY - HUB_R * 0.15 + li * 52} textAnchor="middle" fill="#1E40AF" fontSize={48} fontWeight={700}>{l}</text>
         ))}
 
-        {/* ── Goal nodes (hexagons) ── */}
+        {/* ── Goals ── */}
         {layout.map((goal, gi) => {
-          const labelLines = wrap(goal.label, 12);
+          const lines = wrap(goal.label, 14);
           return (
             <g key={goal.id}>
-              <polygon
-                points={hexPoints(goal.x, goal.y, HEX_R)}
-                fill={GOAL_LIGHT_FILLS[goal.color] || "#F8FAFC"}
-                stroke={goal.color}
-                strokeWidth={3}
-                filter="url(#sh)"
-              />
-              <text
-                x={goal.x}
-                y={goal.y - 50}
-                textAnchor="middle"
-                fontFamily="Arial, Helvetica, sans-serif"
-                fill={goal.color}
-                fontSize={30}
-                fontWeight={700}
-                letterSpacing="0.06em"
-              >
-                GOAL {gi + 1}
-              </text>
-              {labelLines.map((l, li) => (
-                <text
-                  key={li}
-                  x={goal.x}
-                  y={goal.y + 2 + li * 40}
-                  textAnchor="middle"
-                  fontFamily="Arial, Helvetica, sans-serif"
-                  fill="#1E293B"
-                  fontSize={38}
-                  fontWeight={700}
-                >
-                  {l}
-                </text>
+              <polygon points={hexPoints(goal.x, goal.y, HEX_R)} fill={GOAL_LIGHT_FILLS[goal.color]} stroke={goal.color} strokeWidth={4} filter="url(#sh)" />
+              <text x={goal.x} y={goal.y - 55} textAnchor="middle" fill={goal.color} fontSize={32} fontWeight={800} letterSpacing="0.05em">GOAL {gi + 1}</text>
+              {lines.map((l, li) => (
+                <text key={li} x={goal.x} y={goal.y + 10 + li * 44} textAnchor="middle" fill="#1F2937" fontSize={40} fontWeight={700}>{l}</text>
               ))}
 
-              {/* ── Objectives (pills) ── */}
-              {goal.objs.map((obj, oi) => {
-                const lines = wrap(obj.text, 40);
-                const bH = Math.max(OBJ_BOX_H, 34 + lines.length * 48);
+              {/* ── Objectives ── */}
+              {goal.objs.map((o, oi) => {
+                const oLines = wrap(o.text, 40);
+                const oH = Math.max(90, 40 + oLines.length * 52);
                 return (
                   <g key={oi}>
-                    <rect
-                      x={obj.x - OBJ_BOX_W / 2}
-                      y={obj.y - bH / 2}
-                      width={OBJ_BOX_W}
-                      height={bH}
-                      rx={bH / 2}
-                      fill="#FFFFFF"
-                      stroke={goal.color}
-                      strokeWidth={2.5}
-                      filter="url(#sh)"
-                    />
-                    {lines.map((l, li) => (
-                      <text
-                        key={li}
-                        x={obj.x}
-                        y={
-                          obj.y -
-                          ((lines.length - 1) * 24) +
-                          li * 48 +
-                          16
-                        }
-                        textAnchor="middle"
-                        fontFamily="Arial, Helvetica, sans-serif"
-                        fill="#334155"
-                        fontSize={45}
-                        fontWeight={600}
-                      >
-                        {l}
-                      </text>
+                    <rect x={o.x - OBJ_BOX_W / 2} y={o.y - oH / 2} width={OBJ_BOX_W} height={oH} rx={oH / 2} fill="#FFFFFF" stroke={goal.color} strokeWidth={2.5} filter="url(#sh)" />
+                    {oLines.map((l, li) => (
+                      <text key={li} x={o.x} y={o.y - ((oLines.length - 1) * 26) + li * 52 + 18} textAnchor="middle" fill="#374151" fontSize={48} fontWeight={600}>{l}</text>
                     ))}
                   </g>
                 );
@@ -435,66 +287,12 @@ export default function NGOFlowchart() {
         })}
 
         {/* ── Legend ── */}
-        <rect
-          x={legendX}
-          y={legendY}
-          width={legendW}
-          height={legendH}
-          rx={12}
-          fill="#FFFFFF"
-          stroke="#3B82F6"
-          strokeWidth={2.5}
-          filter="url(#sh)"
-        />
-        <text
-          x={legendX + 28}
-          y={legendY + legendH / 2 + 9}
-          fontFamily="Arial, Helvetica, sans-serif"
-          fill="#64748B"
-          fontSize={24}
-          fontWeight={800}
-          letterSpacing="0.08em"
-        >
-          LEGEND
-        </text>
-        {/* Goal icon (hexagon) */}
-        <polygon
-          points={hexPoints(legendX + 210, legendY + legendH / 2, 24)}
-          fill="#EFF6FF"
-          stroke="#3B82F6"
-          strokeWidth={2.5}
-        />
-        <text
-          x={legendX + 256}
-          y={legendY + legendH / 2 + 9}
-          fontFamily="Arial, Helvetica, sans-serif"
-          fill="#1E293B"
-          fontSize={27}
-          fontWeight={700}
-        >
-          Goal
-        </text>
-        {/* Objective icon (pill) */}
-        <rect
-          x={legendX + 355}
-          y={legendY + legendH / 2 - 18}
-          width={72}
-          height={36}
-          rx={18}
-          fill="#FFFFFF"
-          stroke="#3B82F6"
-          strokeWidth={2}
-        />
-        <text
-          x={legendX + 452}
-          y={legendY + legendH / 2 + 9}
-          fontFamily="Arial, Helvetica, sans-serif"
-          fill="#1E293B"
-          fontSize={27}
-          fontWeight={700}
-        >
-          Obj.
-        </text>
+        <rect x={legendX} y={legendY} width={legendW} height={legendH} rx={16} fill="#FFFFFF" stroke="#3B82F6" strokeWidth={3} filter="url(#sh)" />
+        <text x={legendX + 40} y={legendY + legendH / 2 + 10} fill="#64748B" fontSize={28} fontWeight={800} letterSpacing="0.1em">LEGEND</text>
+        <polygon points={hexPoints(legendX + 240, legendY + legendH / 2, 28)} fill="#EFF6FF" stroke="#3B82F6" strokeWidth={3} />
+        <text x={legendX + 285} y={legendY + legendH / 2 + 10} fill="#111827" fontSize={30} fontWeight={700}>Goal</text>
+        <rect x={legendX + 400} y={legendY + legendH / 2 - 20} width={80} height={40} rx={20} fill="#FFFFFF" stroke="#3B82F6" strokeWidth={2.5} />
+        <text x={legendX + 505} y={legendY + legendH / 2 + 10} fill="#111827" fontSize={30} fontWeight={700}>Obj.</text>
       </svg>
     </div>
   );
