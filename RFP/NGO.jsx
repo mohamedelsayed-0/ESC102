@@ -13,58 +13,54 @@ const GOAL_LIGHT_FILLS = {
 const GOALS = [
   {
     id: "g1",
-    label: "Clear Communication",
+    label: "Clear communication between the climber and the belayer",
     color: "#3B82F6",
     objectives: [
-      "Relay messages clearly during entire belaying process",
-      "Recipient specificity & command verification",
-      "Messages relayed quickly & consistently",
-      "Only intended messages relayed",
+      "6.1.1 Messages can be sent and received across a 40-foot distance.",
+      "6.1.2 Messages can be understood in loud environments.",
+      "6.1.3 The intended recipient is easily identifiable as per ISO 9241-112:2017.",
+      "6.1.4 The messages are relayed quickly as per ISO 9241-112:2025.",
+      "6.1.5 Only intended messages are relayed; avoid inadvertent activation.",
+      "6.1.6 Must facilitate two-way communication. Each message sent must have a corresponding confirmation from the receiver.",
+      "6.1.7 Should facilitate at least 6 unique messages corresponding to commonly used commands.",
     ],
   },
   {
     id: "g2",
-    label: "Climbing Experience",
+    label: "Does not impede the climbing experience",
     color: "#10B981",
     objectives: [
-      "Does not restrict movements",
-      "Does not significantly increase weight on climber",
-      "Can be operated hands-free or with one hand",
-      "Does not distract the climber",
+      "6.2.1 Does not restrict users' range of motion.",
+      "6.2.2 Any worn components are lightweight.",
+      "6.2.3 Can be operated with at most one hand.",
     ],
   },
   {
     id: "g3",
-    label: "Belaying Experience",
+    label: "Does not impede the belaying experience",
     color: "#F59E0B",
     objectives: [
-      "No uncomfortable position for belayer",
-      "Does not make rope-pulling more difficult",
-      "Does not slow belayer reaction time",
+      "6.3.1 Does not require the belayer to remain in a position less natural than typically required.",
+      "6.3.2 Does not increase the difficulty of pulling ropes as per ISO 24553:2023.",
     ],
   },
   {
     id: "g4",
-    label: "Safety",
+    label: "Ensure the safety of climbers and belayers",
     color: "#EF4444",
     objectives: [
-      "Does not impede use of safety equipment",
-      "Should not cause greater injury during falls",
-      "Fails safely — safety checks in place",
-      "Does not introduce new hazards (e.g. entanglement)",
+      "6.4.1 Does not distract users as per ISO/TR 17427-10:2015 standard for distractions while driving.",
+      "6.4.2 More urgent messages concerning the safety of the climber should have the least latency and high salience as per ISO 11249:1996.",
     ],
   },
   {
     id: "g5",
-    label: "Ease of Operation",
+    label: "Easy to operate",
     color: "#8B5CF6",
     objectives: [
-      "Easy to set up",
-      "Should not require great force to operate",
-      "Should not require greater than normal dexterity",
-      "Actions for different messages are distinct & clear",
-      "Intuitive & easy to learn, especially for newer climbers",
-      "Operates for at least 3 consecutive hours",
+      "6.5.1 Should be quick to set up per climb.",
+      "6.5.2 Does not require great force to operate as per ISO 24553:2023.",
+      "6.5.4 Does not require greater than usual dexterity to operate as per ISO 24553:2023.",
     ],
   },
 ];
@@ -102,14 +98,35 @@ function curvePath(x1, y1, x2, y2, bend = 0.1) {
 /* ── Layout constants ── */
 const COL_HUB = 450;
 const COL_GOAL = 1150;
-const COL_OBJ = 2250;
+const COL_OBJ = 2380;
 
 const HUB_R = 350;
-const HEX_R = 180;
+const HEX_R = 235;
 
-const OBJ_BOX_W = 1100;
-const OBJ_GAP = 140;
-const GOAL_GAP = 60;
+const OBJ_BOX_W = 1300;
+const OBJ_WRAP_CHARS = 36;
+const OBJ_LINE_HEIGHT = 60;
+const OBJ_MIN_H = 124;
+const OBJ_STACK_GAP = 56;
+const GOAL_GAP = 40;
+const GROUP_GAP = 24;
+
+const GOAL_WRAP_CHARS = 14;
+const GOAL_TITLE_FONT = 38;
+const GOAL_BODY_FONT = 50;
+const GOAL_BODY_LINE_HEIGHT = 46;
+const GOAL_TITLE_OFFSET_Y = -104;
+const GOAL_BODY_CENTER_OFFSET_Y = 28;
+
+const HUB_WRAP_CHARS = 24;
+const HUB_TITLE_FONT = 46;
+const HUB_BODY_FONT = 50;
+const HUB_BODY_LINE_HEIGHT = 54;
+
+function objectiveHeight(text) {
+  const lineCount = wrap(text, OBJ_WRAP_CHARS).length;
+  return Math.max(OBJ_MIN_H, 40 + lineCount * OBJ_LINE_HEIGHT);
+}
 
 /* ── Layout engine ── */
 function computeLayout() {
@@ -118,24 +135,30 @@ function computeLayout() {
 
   for (let gi = 0; gi < GOALS.length; gi++) {
     const goal = GOALS[gi];
-    const objCount = goal.objectives.length;
-    const totalH = objCount * OBJ_GAP;
+    const objsWithHeight = goal.objectives.map((text) => ({
+      text,
+      h: objectiveHeight(text),
+    }));
+    const totalH =
+      objsWithHeight.reduce((sum, obj) => sum + obj.h, 0) +
+      Math.max(0, objsWithHeight.length - 1) * OBJ_STACK_GAP;
 
     const goalY = y + totalH / 2;
     const goalData = { ...goal, x: COL_GOAL, y: goalY, objs: [] };
 
-    let oy = goalY - (totalH / 2) + (OBJ_GAP / 2);
-    for (let oi = 0; oi < objCount; oi++) {
+    let oy = goalY - totalH / 2;
+    for (const obj of objsWithHeight) {
       goalData.objs.push({
-        text: goal.objectives[oi],
+        text: obj.text,
         x: COL_OBJ,
-        y: oy,
+        y: oy + obj.h / 2,
+        h: obj.h,
       });
-      oy += OBJ_GAP;
+      oy += obj.h + OBJ_STACK_GAP;
     }
 
     goals.push(goalData);
-    y = goalY + totalH / 2 + GOAL_GAP + 60;
+    y = goalY + totalH / 2 + GOAL_GAP + GROUP_GAP;
   }
 
   return goals;
@@ -157,7 +180,7 @@ export default function NGOFlowchart() {
   for (const g of layout) {
     expand(g.x, g.y, HEX_R + 50, HEX_R + 50);
     for (const o of g.objs) {
-      expand(o.x, o.y, OBJ_BOX_W / 2 + 50, 60);
+      expand(o.x, o.y, OBJ_BOX_W / 2 + 50, o.h / 2 + 30);
     }
   }
 
@@ -179,7 +202,7 @@ export default function NGOFlowchart() {
   const legendX = minX + vbW / 2 - legendW / 2;
   const legendY = maxY - legendH - 40;
 
-  const hubLines = wrap("A fast and clear method to relay messages between a climber and their belayer", 28);
+  const hubLines = wrap("A fast and clear method to relay messages between a climber and their belayer", HUB_WRAP_CHARS);
 
   const handleDownload = useCallback(() => {
     const svg = svgRef.current;
@@ -253,31 +276,57 @@ export default function NGOFlowchart() {
         {/* ── Hub ── */}
         <circle cx={COL_HUB} cy={hubY} r={HUB_R + 50} fill="rgba(59,130,246,0.03)" stroke="rgba(59,130,246,0.08)" strokeWidth={2} />
         <circle cx={COL_HUB} cy={hubY} r={HUB_R} fill="#FFFFFF" stroke="#E2E8F0" strokeWidth={4} filter="url(#sh)" />
-        <text x={COL_HUB} y={hubY - HUB_R * 0.45} textAnchor="middle" fill="#94A3B8" fontSize={42} fontWeight={800} letterSpacing="0.15em">NEED</text>
+        <text x={COL_HUB} y={hubY - HUB_R * 0.45} textAnchor="middle" fill="#94A3B8" fontSize={HUB_TITLE_FONT} fontWeight={800} letterSpacing="0.15em">NEED</text>
         {hubLines.map((l, li) => (
-          <text key={li} x={COL_HUB} y={hubY - HUB_R * 0.15 + li * 52} textAnchor="middle" fill="#1E40AF" fontSize={48} fontWeight={700}>{l}</text>
+          <text key={li} x={COL_HUB} y={hubY - HUB_R * 0.2 + li * HUB_BODY_LINE_HEIGHT} textAnchor="middle" fill="#1E40AF" fontSize={HUB_BODY_FONT} fontWeight={700}>{l}</text>
         ))}
 
         {/* ── Goals ── */}
         {layout.map((goal, gi) => {
-          const lines = wrap(goal.label, 14);
+          const lines = wrap(goal.label, GOAL_WRAP_CHARS);
+          const goalBodyFont = lines.length > 4 ? GOAL_BODY_FONT - 3 : GOAL_BODY_FONT;
+          const goalBodyLineHeight =
+            lines.length > 4 ? GOAL_BODY_LINE_HEIGHT - 3 : GOAL_BODY_LINE_HEIGHT;
+          const goalBodyStartY =
+            goal.y +
+            GOAL_BODY_CENTER_OFFSET_Y -
+            ((lines.length - 1) * goalBodyLineHeight) / 2;
           return (
             <g key={goal.id}>
               <polygon points={hexPoints(goal.x, goal.y, HEX_R)} fill={GOAL_LIGHT_FILLS[goal.color]} stroke={goal.color} strokeWidth={4} filter="url(#sh)" />
-              <text x={goal.x} y={goal.y - 55} textAnchor="middle" fill={goal.color} fontSize={32} fontWeight={800} letterSpacing="0.05em">GOAL {gi + 1}</text>
+              <text
+                x={goal.x}
+                y={goal.y + GOAL_TITLE_OFFSET_Y}
+                textAnchor="middle"
+                fill={goal.color}
+                fontSize={GOAL_TITLE_FONT}
+                fontWeight={800}
+                letterSpacing="0.05em"
+              >
+                GOAL {gi + 1}
+              </text>
               {lines.map((l, li) => (
-                <text key={li} x={goal.x} y={goal.y + 10 + li * 44} textAnchor="middle" fill="#1F2937" fontSize={40} fontWeight={700}>{l}</text>
+                <text
+                  key={li}
+                  x={goal.x}
+                  y={goalBodyStartY + li * goalBodyLineHeight}
+                  textAnchor="middle"
+                  fill="#1F2937"
+                  fontSize={goalBodyFont}
+                  fontWeight={700}
+                >
+                  {l}
+                </text>
               ))}
 
               {/* ── Objectives ── */}
               {goal.objs.map((o, oi) => {
-                const oLines = wrap(o.text, 40);
-                const oH = Math.max(90, 40 + oLines.length * 52);
+                const oLines = wrap(o.text, OBJ_WRAP_CHARS);
                 return (
                   <g key={oi}>
-                    <rect x={o.x - OBJ_BOX_W / 2} y={o.y - oH / 2} width={OBJ_BOX_W} height={oH} rx={oH / 2} fill="#FFFFFF" stroke={goal.color} strokeWidth={2.5} filter="url(#sh)" />
+                    <rect x={o.x - OBJ_BOX_W / 2} y={o.y - o.h / 2} width={OBJ_BOX_W} height={o.h} rx={o.h / 2} fill="#FFFFFF" stroke={goal.color} strokeWidth={2.5} filter="url(#sh)" />
                     {oLines.map((l, li) => (
-                      <text key={li} x={o.x} y={o.y - ((oLines.length - 1) * 26) + li * 52 + 18} textAnchor="middle" fill="#374151" fontSize={48} fontWeight={600}>{l}</text>
+                      <text key={li} x={o.x} y={o.y - ((oLines.length - 1) * (OBJ_LINE_HEIGHT / 2)) + li * OBJ_LINE_HEIGHT + 22} textAnchor="middle" fill="#374151" fontSize={58} fontWeight={600}>{l}</text>
                     ))}
                   </g>
                 );
@@ -288,11 +337,11 @@ export default function NGOFlowchart() {
 
         {/* ── Legend ── */}
         <rect x={legendX} y={legendY} width={legendW} height={legendH} rx={16} fill="#FFFFFF" stroke="#3B82F6" strokeWidth={3} filter="url(#sh)" />
-        <text x={legendX + 40} y={legendY + legendH / 2 + 10} fill="#64748B" fontSize={28} fontWeight={800} letterSpacing="0.1em">LEGEND</text>
+        <text x={legendX + 40} y={legendY + legendH / 2 + 10} fill="#64748B" fontSize={30} fontWeight={800} letterSpacing="0.1em">LEGEND</text>
         <polygon points={hexPoints(legendX + 240, legendY + legendH / 2, 28)} fill="#EFF6FF" stroke="#3B82F6" strokeWidth={3} />
-        <text x={legendX + 285} y={legendY + legendH / 2 + 10} fill="#111827" fontSize={30} fontWeight={700}>Goal</text>
+        <text x={legendX + 285} y={legendY + legendH / 2 + 10} fill="#111827" fontSize={32} fontWeight={700}>Goal</text>
         <rect x={legendX + 400} y={legendY + legendH / 2 - 20} width={80} height={40} rx={20} fill="#FFFFFF" stroke="#3B82F6" strokeWidth={2.5} />
-        <text x={legendX + 505} y={legendY + legendH / 2 + 10} fill="#111827" fontSize={30} fontWeight={700}>Obj.</text>
+        <text x={legendX + 505} y={legendY + legendH / 2 + 10} fill="#111827" fontSize={32} fontWeight={700}>Obj.</text>
       </svg>
     </div>
   );
