@@ -94,7 +94,7 @@
           machineOne.thresholdPercent,
           "machine",
         )}`,
-        body: `2 machines: ${thresholdCopy(machineTwo.thresholdPercent, "machine")}.`,
+        body: `2 machines: ${thresholdCopy(machineTwo.thresholdPercent, "machine")}. Under employee time, both lines mostly overlap.`,
       },
     ];
 
@@ -127,7 +127,7 @@
         </div>
       </div>
       <div class="threshold-block">
-        <h3>Machine struggle threshold at ${results.config.machineIncorrectPercent}% incorrect application</h3>
+        <h3>Machine employee-time threshold at ${results.config.machineIncorrectPercent}% incorrect application</h3>
         <div class="threshold-list">
           ${results.machineThresholds
             .map(function item(threshold) {
@@ -232,7 +232,7 @@
 
         const color = options.colors[index % options.colors.length];
         return `
-          <path d="${path}" fill="none" stroke="${color}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+          <path d="${path}" fill="none" stroke="${color}" stroke-width="3" stroke-dasharray="${series.strokeDasharray || ""}" stroke-linejoin="round" stroke-linecap="round" />
         `;
       })
       .join("");
@@ -243,7 +243,7 @@
         const y = margin.top + index * 22;
         const color = options.colors[index % options.colors.length];
         return `
-          <line x1="${width - 180}" y1="${y + 4}" x2="${width - 156}" y2="${y + 4}" stroke="${color}" stroke-width="3" />
+          <line x1="${width - 180}" y1="${y + 4}" x2="${width - 156}" y2="${y + 4}" stroke="${color}" stroke-width="3" stroke-dasharray="${series.strokeDasharray || ""}" />
           <text class="legend-text" x="${width - 148}" y="${y + 8}" font-size="12">
             ${series.label}
           </text>
@@ -307,21 +307,28 @@
       });
       renderChart(machineChart, {
         title: "Machine usefulness threshold chart",
-        series: results.machineSeries,
-        baselineY: results.baseline.meanCompletionSeconds,
+        series: results.machineSeries.map(function styleSeries(series, index) {
+          return index === 1
+            ? Object.assign({}, series, { strokeDasharray: "10 6" })
+            : series;
+        }),
+        baselineY: results.parentEmployeeBaselineSeconds,
         xMin: 0,
         xMax: 100,
         xLabel: "Parents who struggle at the machine",
-        yLabel: "Completion time",
+        yLabel: "Employee time",
         colors: colors.machine,
       });
 
-      summaryStatus.textContent = `Baseline average: ${BetaSimulation.formatDuration(
-        results.baseline.meanCompletionSeconds,
+      summaryStatus.textContent = `Current-process employee time: ${BetaSimulation.formatDuration(
+        results.parentEmployeeBaselineSeconds,
       )}. Parent break-even is about ${BetaSimulation.round(
         results.parentThresholds[0].thresholdPercent,
         1,
-      )}% compliance.`;
+      )}% compliance, and machine break-even is about ${BetaSimulation.round(
+        results.machineThresholds[0].thresholdPercent,
+        1,
+      )}% struggle.`;
       runButton.disabled = false;
     });
   }

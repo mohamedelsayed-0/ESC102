@@ -428,7 +428,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          33m 16s
+          9m 23s
         </text>
       
         <text
@@ -441,7 +441,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          to 47m 15s
+          to 45m 00s
         </text>
       
     
@@ -455,7 +455,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          Useful until about 79.9%
+          Useful until about 70.5%
         </text>
       
         <text
@@ -468,7 +468,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          of parents struggle at
+          struggle when the
         </text>
       
         <text
@@ -481,7 +481,20 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          the machine.
+          machine case still ends
+        </text>
+      
+        <text
+          x="828"
+          y="679"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="18"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          in employee redo.
         </text>
       
   
@@ -512,7 +525,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          29m 02s
+          9m 23s
         </text>
       
         <text
@@ -525,7 +538,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          to 32m 07s
+          to 45m 00s
         </text>
       
     
@@ -539,7 +552,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          The second station stays
+          Same employee-time curve
         </text>
       
         <text
@@ -552,7 +565,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          faster across the
+          as one machine, because
         </text>
       
         <text
@@ -565,7 +578,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          plotted range, even with
+          machine count does not
         </text>
       
         <text
@@ -578,7 +591,20 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          heavy struggle.
+          change the staff redo
+        </text>
+      
+        <text
+          x="1184"
+          y="702"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="18"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          work.
         </text>
       
   
@@ -669,7 +695,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          A 9-minute arrival peak creates a sharper
+          Under employee time, one and two machines
         </text>
       
         <text
@@ -682,7 +708,20 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          rush, so machine queues matter more.
+          overlap because machine count changes
+        </text>
+      
+        <text
+          x="136"
+          y="1012"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          queueing, not the staff redo path.
         </text>
       
       

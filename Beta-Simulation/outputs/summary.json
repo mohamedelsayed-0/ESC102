@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-15T18:12:19.884Z",
+  "generatedAt": "2026-03-15T18:24:32.872Z",
   "config": {
     "children": 90,
     "classrooms": 10,
@@ -39,13 +39,13 @@
   "machineThresholds": [
     {
       "machineCount": 1,
-      "thresholdPercent": 79.853,
-      "interpretation": "Useful until about 79.9% struggle"
+      "thresholdPercent": 70.526,
+      "interpretation": "Useful until about 70.5% struggle"
     },
     {
       "machineCount": 2,
-      "thresholdPercent": 100,
-      "interpretation": "Still useful at 100% struggle"
+      "thresholdPercent": 70.526,
+      "interpretation": "Useful until about 70.5% struggle"
     }
   ]
 }

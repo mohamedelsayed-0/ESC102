@@ -262,6 +262,7 @@
           fill="none"
           stroke="#2f6bb3"
           stroke-width="6"
+          stroke-dasharray=""
           stroke-linejoin="round"
           stroke-linecap="round"
         />

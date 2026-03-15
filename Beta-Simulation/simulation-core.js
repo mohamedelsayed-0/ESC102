@@ -160,6 +160,20 @@
     );
   }
 
+  function calculateMachineEmployeeSeconds(config, struggleRate) {
+    const compliantChildSeconds = config.verifySuccessMaxSeconds;
+    const failedChildSeconds = compliantChildSeconds + config.redoSeconds;
+    const incorrectRate = config.machineIncorrectPercent / 100;
+    const failedRate = struggleRate + (1 - struggleRate) * incorrectRate;
+    return (
+      config.children
+      * (
+        (1 - failedRate) * compliantChildSeconds
+        + failedRate * failedChildSeconds
+      )
+    );
+  }
+
   function simulateParentScenario(config, rng, complianceRate, incorrectRate) {
     const children = buildChildren(config, rng);
     const classroomAvailableAt = Array(config.classrooms).fill(0);
@@ -298,25 +312,11 @@
     const struggleRange = buildPercentRange(config.struggleStepPercent);
     const machineCounts = [1, 2];
 
-    return machineCounts.map(function buildSeries(machineCount, seriesIndex) {
-      const data = struggleRange.map(function point(strugglePercent, pointIndex) {
-        const estimated = estimateScenario(
-          config,
-          config.runs,
-          30000 + seriesIndex * 1000 + pointIndex * 100,
-          function runScenario(activeConfig, rng) {
-            return simulateMachineScenario(
-              activeConfig,
-              rng,
-              machineCount,
-              strugglePercent / 100,
-            );
-          },
-        );
-
+    return machineCounts.map(function buildSeries(machineCount) {
+      const data = struggleRange.map(function point(strugglePercent) {
         return {
           x: strugglePercent,
-          y: estimated.meanCompletionSeconds,
+          y: calculateMachineEmployeeSeconds(config, strugglePercent / 100),
         };
       });
 
@@ -467,7 +467,7 @@
     const machineThresholds = machineSeries.map(function mapThreshold(series) {
       return {
         machineCount: series.machineCount,
-        thresholdPercent: findMachineThreshold(series, baseline.meanCompletionSeconds),
+        thresholdPercent: findMachineThreshold(series, parentEmployeeBaselineSeconds),
       };
     });
 

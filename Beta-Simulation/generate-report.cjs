@@ -152,8 +152,8 @@ function buildMachineCsv() {
     [
       "struggle_percent",
       "machine_count",
-      "mean_completion_seconds",
-      "mean_completion_minutes",
+      "employee_time_seconds",
+      "employee_time_minutes",
     ],
     rows,
   );
@@ -395,6 +395,7 @@ function renderLineChart({
           fill="none"
           stroke="${colors[index]}"
           stroke-width="6"
+          stroke-dasharray="${line.strokeDasharray || ""}"
           stroke-linejoin="round"
           stroke-linecap="round"
         />
@@ -435,7 +436,7 @@ function renderLineChart({
   const baselineYCoord = yScale(baselineY);
   const legendItems = [
     { label: `Current process (${formatDuration(baselineY)})`, dashed: true },
-    ...series.map((line) => ({ label: line.label })),
+    ...series.map((line) => ({ label: line.label, dashed: Boolean(line.strokeDasharray) })),
   ];
   const legendColors = [theme.baseline, ...colors];
   const legend = renderLegendBlock(sidebar.x + 28, sidebar.y + 78, legendItems, legendColors);
@@ -696,7 +697,7 @@ function buildDashboardSvg() {
   const leftBullets = [
     "Parent delegation becomes useful once enough families avoid the extra 25-second redo step.",
     "Compliant child: 5 seconds of staff time. Failed parent case: 30 seconds total.",
-    "A 9-minute arrival peak creates a sharper rush, so machine queues matter more.",
+    "Under employee time, one and two machines overlap because machine count changes queueing, not the staff redo path.",
   ];
 
   return `
@@ -813,7 +814,7 @@ function buildDashboardSvg() {
         height: 232,
         eyebrow: "1 machine",
         valueLines: formatRangeLines(machineOneRange.min, machineOneRange.max),
-        body: `Useful until about ${round(machineOne.thresholdPercent, 1)}% of parents struggle at the machine.`,
+        body: `Useful until about ${round(machineOne.thresholdPercent, 1)}% struggle when the machine case still ends in employee redo.`,
         fill: "#edf6ee",
         bodyMaxChars: 24,
       })}
@@ -824,7 +825,7 @@ function buildDashboardSvg() {
         height: 232,
         eyebrow: "2 machines",
         valueLines: formatRangeLines(machineTwoRange.min, machineTwoRange.max),
-        body: "The second station stays faster across the plotted range, even with heavy struggle.",
+        body: "Same employee-time curve as one machine, because machine count does not change the staff redo work.",
         fill: "#f4f1fb",
         bodyMaxChars: 24,
       })}
@@ -1032,12 +1033,12 @@ function buildReportHtml() {
               <article class="card">
                 <h3>1 machine</h3>
                 <strong>${escapeMarkup(thresholdLabel(results.machineThresholds[0].thresholdPercent, "machine"))}</strong>
-                <p class="muted">This is the approximate struggle-rate limit before the machine queue becomes slower than the current process.</p>
+                <p class="muted">This is the struggle-rate limit before machine cases consume more employee time than the current process.</p>
               </article>
               <article class="card">
                 <h3>2 machines</h3>
                 <strong>${escapeMarkup(thresholdLabel(results.machineThresholds[1].thresholdPercent, "machine"))}</strong>
-                <p class="muted">With two machines, the queue effect stays weak enough that the machine remains faster across the full plotted range.</p>
+                <p class="muted">Under employee time, the two-machine line overlaps the one-machine line because staff work happens after the machine handoff fails.</p>
               </article>
             </div>
           </section>
@@ -1121,24 +1122,26 @@ const machineTwoThreshold = results.machineThresholds.find(
 const machineSvg = renderLineChart({
   title: "Machine Threshold",
   subtitle:
-    "The blue line is one machine. The green line is two machines. All runs use a tighter arrival rush peaking about 9 minutes before departure.",
+    "Both machine lines now use employee time. A successful machine handoff costs 5 seconds of staff time; a struggling or incorrect case costs 30 seconds total.",
   xAxisTitle: "Parents who struggle at the machine (%)",
-  yAxisTitle: "Completion time (minutes)",
-  series: results.machineSeries,
+  yAxisTitle: "Employee time (minutes)",
+  series: results.machineSeries.map((series, index) =>
+    index === 1 ? { ...series, strokeDasharray: "16 10" } : series
+  ),
   colors: ["#2f6bb3", "#4d7a58"],
-  baselineY: results.baseline.meanCompletionSeconds,
+  baselineY: results.parentEmployeeBaselineSeconds,
   legendTitle: "Legend",
   insights: [
     {
       eyebrow: "1 machine",
       value: thresholdLabel(machineOneThreshold.thresholdPercent, "machine"),
-      body: "This is where machine queue time starts to outweigh the benefit of removing the original wristband bottleneck.",
+      body: "This is where struggling machine cases start to consume more employee time than the current process.",
       fill: "#eef5fd",
     },
     {
       eyebrow: "2 machines",
       value: thresholdLabel(machineTwoThreshold.thresholdPercent, "machine"),
-      body: "The extra station keeps the queue short enough that the machine stays faster across the full plotted range.",
+      body: "This overlaps the one-machine result because machine count changes queueing, not the employee redo path.",
       fill: "#fff4ec",
     },
   ],

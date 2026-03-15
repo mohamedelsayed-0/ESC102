@@ -30,7 +30,7 @@ results.parentThresholds.forEach((threshold) => {
 });
 
 console.log("");
-console.log("Machine struggle thresholds:");
+console.log("Machine employee-time thresholds:");
 
 results.machineThresholds.forEach((threshold) => {
   const label =

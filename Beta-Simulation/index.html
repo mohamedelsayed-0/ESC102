@@ -20,11 +20,10 @@
         </div>
         <div class="hero-card">
           <p class="hero-label">Decision metrics</p>
-          <p class="hero-value">Parent: employee time. Machine: readiness time.</p>
+          <p class="hero-value">Parent: employee time. Machine: employee time.</p>
           <p class="hero-note">
-            The parent model is useful when it saves employee time. The machine
-            model is useful when it gets everyone ready faster than the current
-            process.
+            Both models are useful when they reduce employee time versus the
+            current process.
           </p>
         </div>
       </header>
@@ -186,8 +185,9 @@
             <p>
               Parent compliance now measures employee time directly: 5 seconds
               per child for attendance/check, plus 25 extra seconds for each
-              failed parent case. Machine charts still measure total readiness
-              time because the queue happens at drop-off.
+              failed parent case. The machine chart now uses the same metric:
+              5 seconds if the handoff succeeds, plus 25 extra seconds when a
+              struggling or incorrect machine case still needs employee redo.
             </p>
           </div>
         </section>
@@ -217,8 +217,9 @@
           <div class="section-title">
             <h2>Machine Threshold</h2>
             <p class="graph-note">
-              X-axis: percentage of parents who struggle and need 5 to 15 extra
-              seconds. Lines compare one machine and two machines.
+              X-axis: percentage of parents whose machine attempt still ends in
+              the employee redo path. Y-axis: employee time. The dashed line is
+              the current employee-time baseline.
             </p>
           </div>
           <div id="machine-chart" class="chart"></div>
