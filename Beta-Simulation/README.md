@@ -32,8 +32,6 @@ Parent time at the outside wristband station is intentionally excluded from the 
 - `generate-report.cjs`: static report and chart generator
 - `outputs/`: generated presentation assets
 
-`outputs/` is generated on demand and ignored by git so the repo stays clean.
-
 ## How to use it
 
 Open [index.html](/Users/mohamedelsayed/Desktop/ESC102/remote_clone/Beta-Simulation/index.html) in a browser and click `Run Simulation` after changing assumptions.
@@ -49,3 +47,5 @@ To regenerate the static visuals and HTML report:
 ```bash
 node /Users/mohamedelsayed/Desktop/ESC102/remote_clone/Beta-Simulation/generate-report.cjs
 ```
+
+The generated files in `outputs/` can be committed to the repository when you want the visuals to appear directly in the repo.

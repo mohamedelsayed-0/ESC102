@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+      <defs>
+        <linearGradient id="hero" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stop-color="#fcf7ef" />
+          <stop offset="100%" stop-color="#f0e4d0" />
+        </linearGradient>
+        <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stop-color="#b3572f" />
+          <stop offset="100%" stop-color="#d48752" />
+        </linearGradient>
+        <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="24" stdDeviation="26" flood-color="#573e2c" flood-opacity="0.12" />
+        </filter>
+      </defs>
+      <rect width="1600" height="900" rx="42" fill="url(#hero)" />
+      <rect x="48" y="48" width="1504" height="804" rx="34" fill="#fffdf8" filter="url(#cardShadow)" />
+      <rect x="92" y="92" width="510" height="252" rx="32" fill="url(#accent)" />
+      <text x="134" y="152" font-size="24" fill="#f9eadf" font-family="Avenir Next, Segoe UI, sans-serif" letter-spacing="4">
+        ESC102 / DAYCARE PROTOTYPE
+      </text>
+      <text x="134" y="220" font-size="64" fill="#fffaf5" font-family="Iowan Old Style, Palatino Linotype, serif" font-weight="700">
+        Wristband
+      </text>
+      <text x="134" y="288" font-size="64" fill="#fffaf5" font-family="Iowan Old Style, Palatino Linotype, serif" font-weight="700">
+        Simulation
+      </text>
+      <text x="672" y="150" font-size="28" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+        Decision metric: total time until every child is ready for departure.
+      </text>
+      <text x="672" y="198" font-size="28" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+        Default model: 90 children, 10 classrooms, normal arrival pattern.
+      </text>
+      <rect x="92" y="394" width="438" height="184" rx="28" fill="#fff6ef" />
+      <rect x="580" y="394" width="438" height="184" rx="28" fill="#eef5fd" />
+      <rect x="1068" y="394" width="438" height="184" rx="28" fill="#edf6ee" />
+      <text x="128" y="444" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif" letter-spacing="2">
+        CURRENT PROCESS
+      </text>
+      <text x="128" y="518" font-size="54" fill="#221f1a" font-family="Iowan Old Style, Palatino Linotype, serif" font-weight="700">
+        36m 22s
+      </text>
+      <text x="128" y="556" font-size="24" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+        One employee handles wristbands before classroom attendance.
+      </text>
+      <text x="616" y="444" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif" letter-spacing="2">
+        PARENT MODEL
+      </text>
+      <text x="616" y="516" font-size="40" fill="#221f1a" font-family="Iowan Old Style, Palatino Linotype, serif" font-weight="700">
+        Already useful at 0% compliance
+      </text>
+      <text x="616" y="556" font-size="24" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+        Even the worst plotted line (20% incorrect) beats baseline.
+      </text>
+      <text x="1104" y="444" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif" letter-spacing="2">
+        MACHINE MODEL
+      </text>
+      <text x="1104" y="500" font-size="34" fill="#221f1a" font-family="Iowan Old Style, Palatino Linotype, serif" font-weight="700">
+        1 machine: Useful until about 79.5% struggle
+      </text>
+      <text x="1104" y="548" font-size="34" fill="#221f1a" font-family="Iowan Old Style, Palatino Linotype, serif" font-weight="700">
+        2 machines: Still useful at 100% struggle
+      </text>
+      <text x="92" y="670" font-size="28" fill="#221f1a" font-family="Iowan Old Style, Palatino Linotype, serif" font-weight="700">
+        Interpretation
+      </text>
+      <text x="92" y="720" font-size="26" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+        Parent-applied wristbands stay faster because the remaining checks are distributed across classrooms instead of bottlenecking at one staff member.
+      </text>
+      <text x="92" y="764" font-size="26" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+        The machine stays competitive as long as the queue it creates is smaller than the original single-employee wristband bottleneck.
+      </text>
+      <text x="92" y="808" font-size="26" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+        Use the interactive simulator to change arrival window, timing assumptions, and error rates.
+      </text>
+    </svg>
