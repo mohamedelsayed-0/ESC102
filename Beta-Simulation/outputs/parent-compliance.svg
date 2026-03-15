@@ -1,136 +1,479 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="920" viewBox="0 0 1400 920">
+<svg xmlns="http://www.w3.org/2000/svg" width="1660" height="1120" viewBox="0 0 1660 1120">
       <defs>
-        <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="page-bg" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#fbf5eb" />
-          <stop offset="100%" stop-color="#f2eadc" />
+          <stop offset="100%" stop-color="#efe4d2" />
         </linearGradient>
-        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#674b2d" flood-opacity="0.12" />
+        <filter id="page-shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#5d4631" flood-opacity="0.12" />
         </filter>
       </defs>
-      <rect width="1400" height="920" rx="36" fill="url(#bg)" />
-      <rect x="24" y="24" width="1352" height="872" rx="30" fill="#fffdf8" filter="url(#shadow)" />
-      <text x="120" y="76" font-size="46" fill="#221f1a" font-family="Iowan Old Style, Palatino Linotype, serif" font-weight="700">
-        Parent Compliance Threshold
-      </text>
-      <text x="120" y="112" font-size="24" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-        Lower lines are better. The dashed line is the current process. Compliance moves left to right.
-      </text>
+      <rect width="1660" height="1120" rx="40" fill="url(#page-bg)" />
+      <rect x="28" y="28" width="1604" height="1064" rx="32" fill="#fffdf8" filter="url(#page-shadow)" />
       
-        <line x1="120" y1="72" x2="164" y2="72" stroke="#2f6bb3" stroke-width="6" />
-        <text x="176" y="79" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-          0% incorrect
-        </text>
-      
-        <line x1="340" y1="72" x2="384" y2="72" stroke="#4d7a58" stroke-width="6" />
-        <text x="396" y="79" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-          5% incorrect
-        </text>
-      
-        <line x1="560" y1="72" x2="604" y2="72" stroke="#c88a2f" stroke-width="6" />
-        <text x="616" y="79" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-          10% incorrect
-        </text>
-      
-        <line x1="780" y1="72" x2="824" y2="72" stroke="#8d5a97" stroke-width="6" />
-        <text x="836" y="79" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-          15% incorrect
-        </text>
-      
-        <line x1="1000" y1="72" x2="1044" y2="72" stroke="#b3572f" stroke-width="6" />
-        <text x="1056" y="79" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-          20% incorrect
-        </text>
-      
-      <rect x="956" y="132" width="330" height="120" rx="22" fill="rgba(47, 107, 179, 0.06)" />
-      
-        <text x="980" y="186" font-size="21" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-          Baseline: 36m 22s
-        </text>
-      
-        <text x="980" y="218" font-size="21" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-          Incorrect range: 0% to 20%
-        </text>
-      
-        <text x="980" y="250" font-size="21" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-          All plotted parent-model lines remain below baseline
+        <text
+          x="140"
+          y="92"
+          fill="#221f1a"
+          font-family="Iowan Old Style, Palatino Linotype, serif"
+          font-size="52"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          Parent Compliance Threshold
         </text>
       
       
-      <line x1="120" y1="800" x2="1310" y2="800" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="102" y="805" text-anchor="end" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-        25.7m
+        <text
+          x="140"
+          y="132"
+          fill="#6f6559"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="24"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          The solid line is employee time for the parent model. It assumes 5 seconds per
+        </text>
+      
+        <text
+          x="140"
+          y="162"
+          fill="#6f6559"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="24"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          child if compliant, plus 25 extra seconds for each missed or incorrect wristband.
+        </text>
+      
+      <rect x="120" y="270" width="940" height="640" rx="24" fill="rgba(249, 244, 236, 0.55)" />
+      <rect x="1095" y="150" width="450" height="860" rx="28" fill="rgba(238, 244, 249, 0.72)" />
+      
+        <text
+          x="120"
+          y="252"
+          fill="#6f6559"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="20"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          Employee time (minutes)
+        </text>
+      
+      
+      <line x1="120" y1="910" x2="1060" y2="910" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="102"
+        y="916"
+        text-anchor="end"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        3m
       </text>
     
-      <line x1="120" y1="688.3333333333334" x2="1310" y2="688.3333333333334" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="102" y="693.3333333333334" text-anchor="end" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-        27.7m
+      <line x1="120" y1="803.3333333333334" x2="1060" y2="803.3333333333334" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="102"
+        y="809.3333333333334"
+        text-anchor="end"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        10.8m
       </text>
     
-      <line x1="120" y1="576.6666666666666" x2="1310" y2="576.6666666666666" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="102" y="581.6666666666666" text-anchor="end" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-        29.6m
+      <line x1="120" y1="696.6666666666667" x2="1060" y2="696.6666666666667" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="102"
+        y="702.6666666666667"
+        text-anchor="end"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        18.5m
       </text>
     
-      <line x1="120" y1="465" x2="1310" y2="465" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="102" y="470" text-anchor="end" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-        31.6m
+      <line x1="120" y1="590" x2="1060" y2="590" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="102"
+        y="596"
+        text-anchor="end"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        26.3m
       </text>
     
-      <line x1="120" y1="353.3333333333334" x2="1310" y2="353.3333333333334" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="102" y="358.3333333333334" text-anchor="end" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-        33.6m
+      <line x1="120" y1="483.33333333333337" x2="1060" y2="483.33333333333337" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="102"
+        y="489.33333333333337"
+        text-anchor="end"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        34m
       </text>
     
-      <line x1="120" y1="241.66666666666674" x2="1310" y2="241.66666666666674" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="102" y="246.66666666666674" text-anchor="end" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-        35.5m
+      <line x1="120" y1="376.66666666666663" x2="1060" y2="376.66666666666663" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="102"
+        y="382.66666666666663"
+        text-anchor="end"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        41.8m
       </text>
     
-      <line x1="120" y1="130" x2="1310" y2="130" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="102" y="135" text-anchor="end" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-        37.5m
+      <line x1="120" y1="270" x2="1060" y2="270" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="102"
+        y="276"
+        text-anchor="end"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        49.5m
       </text>
     
-      <line x1="120" y1="130" x2="120" y2="800" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="120" y="838" text-anchor="middle" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+      <line x1="120" y1="270" x2="120" y2="910" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="120"
+        y="948"
+        text-anchor="middle"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
         0%
       </text>
     
-      <line x1="358" y1="130" x2="358" y2="800" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="358" y="838" text-anchor="middle" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+      <line x1="308" y1="270" x2="308" y2="910" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="308"
+        y="948"
+        text-anchor="middle"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
         20%
       </text>
     
-      <line x1="596" y1="130" x2="596" y2="800" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="596" y="838" text-anchor="middle" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+      <line x1="496" y1="270" x2="496" y2="910" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="496"
+        y="948"
+        text-anchor="middle"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
         40%
       </text>
     
-      <line x1="834" y1="130" x2="834" y2="800" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="834" y="838" text-anchor="middle" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+      <line x1="684" y1="270" x2="684" y2="910" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="684"
+        y="948"
+        text-anchor="middle"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
         60%
       </text>
     
-      <line x1="1072" y1="130" x2="1072" y2="800" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="1072" y="838" text-anchor="middle" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+      <line x1="872" y1="270" x2="872" y2="910" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="872"
+        y="948"
+        text-anchor="middle"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
         80%
       </text>
     
-      <line x1="1310" y1="130" x2="1310" y2="800" stroke="rgba(34, 31, 26, 0.12)" />
-      <text x="1310" y="838" text-anchor="middle" font-size="22" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
+      <line x1="1060" y1="270" x2="1060" y2="910" stroke="rgba(34, 31, 26, 0.1)" />
+      <text
+        x="1060"
+        y="948"
+        text-anchor="middle"
+        font-size="22"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
         100%
       </text>
     
-      <line x1="120" y1="194.8387096774195" x2="1310" y2="194.8387096774195" stroke="#b54a36" stroke-width="4" stroke-dasharray="14 12" />
-      <text x="1310" y="182.8387096774195" text-anchor="end" font-size="22" fill="#b54a36" font-family="Avenir Next, Segoe UI, sans-serif" font-weight="700">
-        Current process: 36m 22s
+      <line
+        x1="120"
+        y1="476.45161290322585"
+        x2="1060"
+        y2="476.45161290322585"
+        stroke="#b54a36"
+        stroke-width="4"
+        stroke-dasharray="14 10"
+      />
+      
+        <line
+          x1="383.20000000000005"
+          y1="270"
+          x2="383.20000000000005"
+          y2="910"
+          stroke="#2f6bb3"
+          stroke-width="3"
+          stroke-dasharray="10 10"
+        />
+        <rect x="295.20000000000005" y="286" width="176" height="38" rx="19" fill="rgba(47, 107, 179, 0.12)" />
+        <text
+          x="383.20000000000005"
+          y="311"
+          text-anchor="middle"
+          font-size="18"
+          fill="#2f6bb3"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-weight="700"
+        >
+          Break-even
+        </text>
+      
+      
+        <path
+          d="M 120 331.9354838709678 L 167 357.741935483871 L 214 383.54838709677415 L 261 409.35483870967744 L 308 435.1612903225806 L 355 460.96774193548384 L 402 486.77419354838713 L 449 512.5806451612902 L 496 538.3870967741935 L 543 564.1935483870968 L 590 590 L 637 615.8064516129032 L 684 641.6129032258065 L 731 667.4193548387098 L 778 693.2258064516128 L 825 719.0322580645161 L 872 744.8387096774194 L 919 770.6451612903226 L 966 796.4516129032259 L 1013 822.258064516129 L 1060 848.0645161290322"
+          fill="none"
+          stroke="#2f6bb3"
+          stroke-width="6"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        />
+      
+      <rect x="134" y="432.45161290322585" width="196" height="34" rx="17" fill="rgba(181, 74, 54, 0.12)" />
+      <text
+        x="232"
+        y="455.45161290322585"
+        text-anchor="middle"
+        font-size="17"
+        fill="#b54a36"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="700"
+      >
+        Current process
       </text>
-      <path d="M 120 704.8258307423293 L 179.5 714.793488387303 L 239 714.4682530622572 L 298.5 711.7433632836837 L 358 722.1167920982529 L 417.5 720.9645018676115 L 477 720.5738030647301 L 536.5 726.784142055669 L 596 720.418021438147 L 655.5 719.0778594395276 L 715 725.3157026884128 L 774.5 713.8423040206235 L 834 715.9378896637809 L 893.5 720.5764961586264 L 953 722.9250997140182 L 1012.5 733.2506848023052 L 1072 717.6537523884897 L 1131.5 725.1889662334024 L 1191 726.78068371303 L 1250.5 730.7223555765511 L 1310 733.0825000749983" fill="none" stroke="#2f6bb3" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" /><path d="M 120 715.0983697755421 L 179.5 703.7351749777903 L 239 705.9947570015388 L 298.5 710.7968465476209 L 358 712.169037056491 L 417.5 722.6294873471534 L 477 706.9862734533355 L 536.5 715.3852512148871 L 596 716.3718448410334 L 655.5 720.8432542110633 L 715 722.2675688033304 L 774.5 715.6237249211368 L 834 727.443816761154 L 893.5 716.5011128189925 L 953 729.3109956182371 L 1012.5 726.1704630942301 L 1072 724.7058793350918 L 1131.5 724.4766579028338 L 1191 727.5934406777006 L 1250.5 730.0167726106719 L 1310 735.1612903225807" fill="none" stroke="#4d7a58" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" /><path d="M 120 712.8852554529982 L 179.5 707.6853454387087 L 239 718.5482733006719 L 298.5 707.0481636265833 L 358 719.4025371563611 L 417.5 716.1068317389467 L 477 716.0869730717482 L 536.5 715.5402249979124 L 596 716.7682684448273 L 655.5 719.4901594416505 L 715 725.1460907754636 L 774.5 722.3395253701499 L 834 720.7808751720281 L 893.5 726.4690258867048 L 953 715.8582612672025 L 1012.5 719.8276151032205 L 1072 731.8422460742884 L 1131.5 728.5432924791872 L 1191 725.3087166233569 L 1250.5 726.206204034376 L 1310 729.1961535941373" fill="none" stroke="#c88a2f" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" /><path d="M 120 715.8378597953265 L 179.5 714.5333995079952 L 239 711.4189291009976 L 298.5 716.1078113000317 L 358 707.0066990806985 L 417.5 710.0353036621943 L 477 720.5115935807486 L 536.5 718.4826406192062 L 596 715.4952731399941 L 655.5 717.1115244911814 L 715 719.3919509568454 L 774.5 724.1913326668692 L 834 724.2261648362088 L 893.5 721.8648460812772 L 953 731.5118618352893 L 1012.5 725.8280174174632 L 1072 723.7897447469842 L 1131.5 721.2137998521562 L 1191 727.3400597268799 L 1250.5 734.8688751655116 L 1310 725.0706261879072" fill="none" stroke="#8d5a97" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" /><path d="M 120 711.2329419956438 L 179.5 716.6965611086084 L 239 715.8234099081428 L 298.5 712.8322963391099 L 358 722.7432029075117 L 417.5 717.3374253911177 L 477 715.4558265258433 L 536.5 711.8319109070319 L 596 717.5564276918147 L 655.5 726.7478429220116 L 715 716.1247797488029 L 774.5 718.853251833664 L 834 731.0838480581991 L 893.5 718.2179291171725 L 953 720.8655456264776 L 1012.5 726.2844524715074 L 1072 725.4551817761993 L 1131.5 726.3104028680755 L 1191 719.3017264621948 L 1250.5 722.992621292995 L 1310 730.2552281698075" fill="none" stroke="#b3572f" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
-      <text x="700" y="886" text-anchor="middle" font-size="24" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif">
-        Parent compliance before entering the classroom
+      <text
+        x="590"
+        y="992"
+        text-anchor="middle"
+        font-size="24"
+        fill="#6f6559"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        Parent compliance (%)
       </text>
-      <text x="40" y="460" text-anchor="middle" font-size="24" fill="#6f6559" font-family="Avenir Next, Segoe UI, sans-serif" transform="rotate(-90 40 460)">
-        Average total completion time
-      </text>
+      
+        <text
+          x="1119"
+          y="192"
+          fill="#6f6559"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="17"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="2"
+        >
+          LEGEND
+        </text>
+      
+      
+        <line
+          x1="1123"
+          y1="240"
+          x2="1161"
+          y2="240"
+          stroke="#b54a36"
+          stroke-width="4"
+          stroke-dasharray="12 8"
+          stroke-linecap="round"
+        />
+        
+        <text
+          x="1175"
+          y="246"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="20"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          Current process (34m
+        </text>
+      
+        <text
+          x="1175"
+          y="270"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="20"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          30s)
+        </text>
+      
+      
+        <line
+          x1="1123"
+          y1="302"
+          x2="1161"
+          y2="302"
+          stroke="#2f6bb3"
+          stroke-width="6"
+          stroke-dasharray=""
+          stroke-linecap="round"
+        />
+        
+        <text
+          x="1175"
+          y="308"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="20"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          Parent model
+        </text>
+      
+      
+      
+      <rect x="1109" y="372" width="422" height="313" rx="24" fill="#fff4ec" />
+      
+        <text
+          x="1133"
+          y="406"
+          fill="#6f6559"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="16"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="2"
+        >
+          DECISION
+        </text>
+      
+      
+        <text
+          x="1133"
+          y="448"
+          fill="#221f1a"
+          font-family="Iowan Old Style, Palatino Linotype, serif"
+          font-size="28"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          Useful from about 28%
+        </text>
+      
+        <text
+          x="1133"
+          y="480"
+          fill="#221f1a"
+          font-family="Iowan Old Style, Palatino Linotype, serif"
+          font-size="28"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          compliance
+        </text>
+      
+      
+        <text
+          x="1133"
+          y="538"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="19"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          This is the compliance point
+        </text>
+      
+        <text
+          x="1133"
+          y="561"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="19"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          where delegated wristbands
+        </text>
+      
+        <text
+          x="1133"
+          y="584"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="19"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          start saving employee time
+        </text>
+      
+        <text
+          x="1133"
+          y="607"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="19"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          compared with the current
+        </text>
+      
+        <text
+          x="1133"
+          y="630"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="19"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          process.
+        </text>
+      
+    
     </svg>

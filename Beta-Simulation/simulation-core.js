@@ -11,13 +11,14 @@
     children: 90,
     classrooms: 10,
     arrivalWindowMinutes: 30,
+    arrivalPeakBeforeDepartureMinutes: 9,
+    arrivalSpreadMinutes: 3.5,
     runs: 400,
     baselineWristbandSeconds: 20,
     baselineAttendanceSeconds: 3,
     verifySuccessMinSeconds: 3,
     verifySuccessMaxSeconds: 5,
     redoSeconds: 25,
-    parentIncorrectMaxPercent: 20,
     machineBaseSeconds: 12,
     machineExtraMinSeconds: 5,
     machineExtraMaxSeconds: 15,
@@ -81,8 +82,12 @@
 
   function buildChildren(config, rng) {
     const arrivalWindowSeconds = config.arrivalWindowMinutes * 60;
-    const meanArrival = arrivalWindowSeconds / 2;
-    const stdArrival = arrivalWindowSeconds / 6;
+    const meanArrival = clamp(
+      arrivalWindowSeconds - config.arrivalPeakBeforeDepartureMinutes * 60,
+      0,
+      arrivalWindowSeconds,
+    );
+    const stdArrival = Math.max(60, config.arrivalSpreadMinutes * 60);
     const children = [];
 
     for (let index = 0; index < config.children; index += 1) {
@@ -141,6 +146,18 @@
       totalCompletionSeconds: lastCompletion,
       averageFamilyProcessSeconds: totalWait / children.length,
     };
+  }
+
+  function calculateParentEmployeeSeconds(config, complianceRate) {
+    const compliantChildSeconds = config.verifySuccessMaxSeconds;
+    const failedChildSeconds = compliantChildSeconds + config.redoSeconds;
+    return (
+      config.children
+      * (
+        complianceRate * compliantChildSeconds
+        + (1 - complianceRate) * failedChildSeconds
+      )
+    );
   }
 
   function simulateParentScenario(config, rng, complianceRate, incorrectRate) {
@@ -264,45 +281,17 @@
 
   function buildParentSeries(config) {
     const complianceRange = buildPercentRange(config.complianceStepPercent);
-    const seriesCount = 5;
-    const incorrectSeries = [];
-
-    for (let index = 0; index < seriesCount; index += 1) {
-      incorrectSeries.push(
-        seriesCount === 1
-          ? 0
-          : (config.parentIncorrectMaxPercent / (seriesCount - 1)) * index,
-      );
-    }
-
-    return incorrectSeries.map(function buildSeries(incorrectPercent, seriesIndex) {
-      const data = complianceRange.map(function point(compliancePercent, pointIndex) {
-        const estimated = estimateScenario(
-          config,
-          config.runs,
-          10000 + seriesIndex * 1000 + pointIndex * 100,
-          function runScenario(activeConfig, rng) {
-            return simulateParentScenario(
-              activeConfig,
-              rng,
-              compliancePercent / 100,
-              incorrectPercent / 100,
-            );
-          },
-        );
-
-        return {
-          x: compliancePercent,
-          y: estimated.meanCompletionSeconds,
-        };
-      });
-
-      return {
-        label: `${round(incorrectPercent, 0)}% incorrect`,
-        incorrectPercent,
-        data,
-      };
-    });
+    return [
+      {
+        label: "Parent model",
+        data: complianceRange.map(function point(compliancePercent) {
+          return {
+            x: compliancePercent,
+            y: calculateParentEmployeeSeconds(config, compliancePercent / 100),
+          };
+        }),
+      },
+    ];
   }
 
   function buildMachineSeries(config) {
@@ -410,6 +399,16 @@
       1,
       Number(merged.arrivalWindowMinutes) || defaultConfig.arrivalWindowMinutes,
     );
+    merged.arrivalPeakBeforeDepartureMinutes = clamp(
+      Number(merged.arrivalPeakBeforeDepartureMinutes)
+        || defaultConfig.arrivalPeakBeforeDepartureMinutes,
+      0,
+      merged.arrivalWindowMinutes,
+    );
+    merged.arrivalSpreadMinutes = Math.max(
+      1,
+      Number(merged.arrivalSpreadMinutes) || defaultConfig.arrivalSpreadMinutes,
+    );
     merged.runs = Math.max(50, Math.round(Number(merged.runs) || defaultConfig.runs));
     merged.baselineWristbandSeconds = Math.max(
       1,
@@ -428,11 +427,6 @@
       Number(merged.verifySuccessMaxSeconds) || defaultConfig.verifySuccessMaxSeconds,
     );
     merged.redoSeconds = Math.max(1, Number(merged.redoSeconds) || defaultConfig.redoSeconds);
-    merged.parentIncorrectMaxPercent = clamp(
-      Number(merged.parentIncorrectMaxPercent) || defaultConfig.parentIncorrectMaxPercent,
-      0,
-      100,
-    );
     merged.machineBaseSeconds = Math.max(
       1,
       Number(merged.machineBaseSeconds) || defaultConfig.machineBaseSeconds,
@@ -457,13 +451,16 @@
   function runAnalysis(overrides) {
     const config = sanitizeConfig(overrides);
     const baseline = estimateScenario(config, config.runs, 1000, simulateBaseline);
+    const parentEmployeeBaselineSeconds =
+      config.children
+      * (config.baselineWristbandSeconds + config.baselineAttendanceSeconds);
     const parentSeries = buildParentSeries(config);
     const machineSeries = buildMachineSeries(config);
 
     const parentThresholds = parentSeries.map(function mapThreshold(series) {
       return {
-        incorrectPercent: series.incorrectPercent,
-        thresholdPercent: findParentThreshold(series, baseline.meanCompletionSeconds),
+        label: series.label,
+        thresholdPercent: findParentThreshold(series, parentEmployeeBaselineSeconds),
       };
     });
 
@@ -477,6 +474,7 @@
     return {
       config,
       baseline,
+      parentEmployeeBaselineSeconds,
       parentSeries,
       machineSeries,
       parentThresholds,

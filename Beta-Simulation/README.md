@@ -5,21 +5,23 @@ Standalone simulation for the daycare wristband prototype.
 ## What it models
 
 - `Current process`: one employee applies wristbands at an average of 20 seconds per child, then the child goes to classroom attendance.
-- `Parent-applied prototype`: parents can apply wristbands before classroom check-in. The main graph sweeps parent compliance and compares multiple incorrect-application rates.
+- `Parent-applied prototype`: parents can apply wristbands before classroom check-in. The main graph shows employee time versus parent compliance, using 5 seconds per child for check/attendance and 25 extra seconds for each failed parent case.
 - `Machine prototype`: one or two dispensing machines are tested. The main graph sweeps the share of parents who struggle at the machine and need an extra 5 to 15 seconds.
 
-The decision metric is the total time until all children are ready.
+The parent model is judged by employee time saved. The machine model is judged by total time until all children are ready.
 
 ## Key assumptions used from the brief
 
 - `90` children
 - `10` classrooms acting as parallel attendance/check lines
+- `30` minute arrival window with a normal-arrival peak about `9` minutes before departure
+- `3.5` minute arrival spread around that peak
 - `20` second average for the current wristband step
 - `3` seconds for current attendance
 - `3` to `5` seconds for a successful classroom wristband check
 - `25` seconds when a wristband is missing or must be redone
 - `12` seconds total machine time before any struggle delay
-- Arrivals follow a normal distribution over an editable arrival window
+- Arrivals follow a non-uniform normal distribution rather than a constant flow
 
 Parent time at the outside wristband station is intentionally excluded from the main metric because the brief specified that it is no longer daycare employee time. Machine time is included because it creates a queue at drop-off.
 

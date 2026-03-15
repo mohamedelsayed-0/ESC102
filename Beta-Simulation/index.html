@@ -19,11 +19,12 @@
           </p>
         </div>
         <div class="hero-card">
-          <p class="hero-label">Decision metric</p>
-          <p class="hero-value">Total time until every child is ready</p>
+          <p class="hero-label">Decision metrics</p>
+          <p class="hero-value">Parent: employee time. Machine: readiness time.</p>
           <p class="hero-note">
-            A solution is marked useful when its average completion time falls
-            below the current process.
+            The parent model is useful when it saves employee time. The machine
+            model is useful when it gets everyone ready faster than the current
+            process.
           </p>
         </div>
       </header>
@@ -60,6 +61,26 @@
                 min="1"
                 step="1"
                 value="30"
+              />
+            </label>
+            <label>
+              <span>Peak arrival time before departure (minutes)</span>
+              <input
+                id="arrival-peak-before-departure-minutes"
+                type="number"
+                min="0"
+                step="0.5"
+                value="9"
+              />
+            </label>
+            <label>
+              <span>Arrival spread (standard deviation, minutes)</span>
+              <input
+                id="arrival-spread-minutes"
+                type="number"
+                min="1"
+                step="0.5"
+                value="3.5"
               />
             </label>
             <label>
@@ -119,18 +140,6 @@
               />
             </label>
             <label>
-              <span>Max parent incorrect rate to graph (%)</span>
-              <input
-                id="parent-incorrect-max-percent"
-                type="number"
-                min="0"
-                max="100"
-                step="1"
-                value="20"
-              />
-            </label>
-
-            <label>
               <span>Machine base time (seconds total)</span>
               <input
                 id="machine-base-seconds"
@@ -175,10 +184,10 @@
 
           <div class="assumption-note">
             <p>
-              Parent-applied time at the outside station is intentionally not
-              counted in the main metric, matching your assumption that it is no
-              longer a daycare employee task. Machine time is counted because it
-              creates a queue at drop-off.
+              Parent compliance now measures employee time directly: 5 seconds
+              per child for attendance/check, plus 25 extra seconds for each
+              failed parent case. Machine charts still measure total readiness
+              time because the queue happens at drop-off.
             </p>
           </div>
         </section>
@@ -196,8 +205,9 @@
           <div class="section-title">
             <h2>Parent Compliance Threshold</h2>
             <p class="graph-note">
-              X-axis: parent compliance. Y-axis: average total time until all
-              children are ready. The dashed line is the current process.
+              X-axis: parent compliance. Y-axis: employee time spent handling
+              wristbands and attendance. The dashed line is the current
+              employee-time baseline.
             </p>
           </div>
           <div id="parent-chart" class="chart"></div>

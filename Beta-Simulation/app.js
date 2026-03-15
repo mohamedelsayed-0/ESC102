@@ -12,13 +12,14 @@
     children: "children",
     classrooms: "classrooms",
     arrivalWindowMinutes: "arrival-window-minutes",
+    arrivalPeakBeforeDepartureMinutes: "arrival-peak-before-departure-minutes",
+    arrivalSpreadMinutes: "arrival-spread-minutes",
     runs: "runs",
     baselineWristbandSeconds: "baseline-wristband-seconds",
     baselineAttendanceSeconds: "baseline-attendance-seconds",
     verifySuccessMinSeconds: "verify-success-min-seconds",
     verifySuccessMaxSeconds: "verify-success-max-seconds",
     redoSeconds: "redo-seconds",
-    parentIncorrectMaxPercent: "parent-incorrect-max-percent",
     machineBaseSeconds: "machine-base-seconds",
     machineExtraMinSeconds: "machine-extra-min-seconds",
     machineExtraMaxSeconds: "machine-extra-max-seconds",
@@ -79,16 +80,13 @@
     const cards = [
       {
         title: "Current Process",
-        value: BetaSimulation.formatDuration(results.baseline.meanCompletionSeconds),
-        body: `Average total time for 1 employee to band ${results.config.children} children, then send them to ${results.config.classrooms} classrooms for attendance.`,
+        value: BetaSimulation.formatDuration(results.parentEmployeeBaselineSeconds),
+        body: `Employee time for the current process. ${results.config.children} children arrive in a ${results.config.arrivalWindowMinutes}-minute window that peaks about ${BetaSimulation.round(results.config.arrivalPeakBeforeDepartureMinutes, 1)} minutes before departure.`,
       },
       {
         title: "Parent Model",
         value: thresholdCopy(parentBest.thresholdPercent, "parent"),
-        body: `Best-case line assumes ${BetaSimulation.round(
-          parentBest.incorrectPercent,
-          0,
-        )}% incorrect applications.`,
+        body: "Employee time only: 5 seconds per child if compliant, plus 25 extra seconds for each missed or incorrect wristband.",
       },
       {
         title: "Machine Model",
@@ -114,16 +112,13 @@
 
     thresholdTable.innerHTML = `
       <div class="threshold-block">
-        <h3>Parent compliance threshold by incorrect-application rate</h3>
+        <h3>Parent compliance threshold</h3>
         <div class="threshold-list">
           ${results.parentThresholds
             .map(function item(threshold) {
               return `
                 <div class="threshold-item">
-                  <span>${BetaSimulation.round(
-                    threshold.incorrectPercent,
-                    0,
-                  )}% incorrect applications</span>
+                  <span>${threshold.label}</span>
                   <strong>${thresholdCopy(threshold.thresholdPercent, "parent")}</strong>
                 </div>
               `;
@@ -284,7 +279,7 @@
           font-size="12"
           transform="rotate(-90 18 ${height / 2})"
         >
-          Total completion time
+          ${options.yLabel || "Total completion time"}
         </text>
         ${legend}
       </svg>
@@ -303,10 +298,11 @@
       renderChart(parentChart, {
         title: "Parent compliance threshold chart",
         series: results.parentSeries,
-        baselineY: results.baseline.meanCompletionSeconds,
+        baselineY: results.parentEmployeeBaselineSeconds,
         xMin: 0,
         xMax: 100,
         xLabel: "Parent compliance",
+        yLabel: "Employee time",
         colors: colors.parent,
       });
       renderChart(machineChart, {
@@ -316,12 +312,16 @@
         xMin: 0,
         xMax: 100,
         xLabel: "Parents who struggle at the machine",
+        yLabel: "Completion time",
         colors: colors.machine,
       });
 
       summaryStatus.textContent = `Baseline average: ${BetaSimulation.formatDuration(
         results.baseline.meanCompletionSeconds,
-      )}.`;
+      )}. Parent break-even is about ${BetaSimulation.round(
+        results.parentThresholds[0].thresholdPercent,
+        1,
+      )}% compliance.`;
       runButton.disabled = false;
     });
   }

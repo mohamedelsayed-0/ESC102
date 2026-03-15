@@ -1,16 +1,17 @@
 {
-  "generatedAt": "2026-03-15T03:34:00.607Z",
+  "generatedAt": "2026-03-15T18:12:19.884Z",
   "config": {
     "children": 90,
     "classrooms": 10,
     "arrivalWindowMinutes": 30,
+    "arrivalPeakBeforeDepartureMinutes": 9,
+    "arrivalSpreadMinutes": 3.5,
     "runs": 400,
     "baselineWristbandSeconds": 20,
     "baselineAttendanceSeconds": 3,
     "verifySuccessMinSeconds": 3,
     "verifySuccessMaxSeconds": 5,
     "redoSeconds": 25,
-    "parentIncorrectMaxPercent": 20,
     "machineBaseSeconds": 12,
     "machineExtraMinSeconds": 5,
     "machineExtraMaxSeconds": 15,
@@ -19,42 +20,27 @@
     "struggleStepPercent": 5
   },
   "baseline": {
-    "meanCompletionSeconds": 2182.073,
-    "meanCompletionMinutes": 36.37,
-    "formatted": "36m 22s"
+    "meanCompletionSeconds": 2662.741,
+    "meanCompletionMinutes": 44.38,
+    "formatted": "44m 23s"
+  },
+  "parentEmployeeBaseline": {
+    "seconds": 2070,
+    "minutes": 34.5,
+    "formatted": "34m 30s"
   },
   "parentThresholds": [
     {
-      "incorrectPercent": 0,
-      "thresholdPercent": 0,
-      "interpretation": "Already useful at 0% compliance"
-    },
-    {
-      "incorrectPercent": 5,
-      "thresholdPercent": 0,
-      "interpretation": "Already useful at 0% compliance"
-    },
-    {
-      "incorrectPercent": 10,
-      "thresholdPercent": 0,
-      "interpretation": "Already useful at 0% compliance"
-    },
-    {
-      "incorrectPercent": 15,
-      "thresholdPercent": 0,
-      "interpretation": "Already useful at 0% compliance"
-    },
-    {
-      "incorrectPercent": 20,
-      "thresholdPercent": 0,
-      "interpretation": "Already useful at 0% compliance"
+      "label": "Parent model",
+      "thresholdPercent": 28,
+      "interpretation": "Useful from about 28% compliance"
     }
   ],
   "machineThresholds": [
     {
       "machineCount": 1,
-      "thresholdPercent": 79.542,
-      "interpretation": "Useful until about 79.5% struggle"
+      "thresholdPercent": 79.853,
+      "interpretation": "Useful until about 79.9% struggle"
     },
     {
       "machineCount": 2,

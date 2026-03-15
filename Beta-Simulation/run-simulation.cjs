@@ -1,6 +1,7 @@
 const { formatDuration, round, runAnalysis } = require("./simulation-core.js");
 
-const results = runAnalysis({});
+const results = runAnalysis({
+});
 
 console.log("Beta-Simulation default summary");
 console.log("--------------------------------");
@@ -10,7 +11,13 @@ console.log(
   )}`,
 );
 console.log("");
-console.log("Parent compliance thresholds:");
+console.log(
+  `Current process employee time: ${formatDuration(
+    results.parentEmployeeBaselineSeconds,
+  )}`,
+);
+console.log("");
+console.log("Parent compliance threshold:");
 
 results.parentThresholds.forEach((threshold) => {
   const label =
@@ -19,9 +26,7 @@ results.parentThresholds.forEach((threshold) => {
       : threshold.thresholdPercent <= 0
         ? "already useful at 0% compliance"
         : `${round(threshold.thresholdPercent, 1)}% compliance`;
-  console.log(
-    `- ${round(threshold.incorrectPercent, 0)}% incorrect applications: ${label}`,
-  );
+  console.log(`- ${threshold.label}: ${label}`);
 });
 
 console.log("");

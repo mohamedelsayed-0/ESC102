@@ -144,11 +144,12 @@
               </p>
             </div>
             <div class="hero-card">
-              <span class="muted">Current process average</span>
-              <strong>36m 22s</strong>
+              <span class="muted">Current process employee time</span>
+              <strong>34m 30s</strong>
               <p class="muted">
                 Assumptions: 90 children, 10 classrooms,
-                30-minute normal arrival window, and 400 Monte Carlo runs per point.
+                a 30-minute arrival window peaking 9 minutes before departure,
+                and 400 Monte Carlo runs per point.
               </p>
             </div>
           </section>
@@ -158,12 +159,12 @@
             <div class="cards">
               <article class="card">
                 <h3>Parent model</h3>
-                <strong>Already useful at 0% compliance</strong>
-                <p class="muted">Across the plotted 0% to 20% incorrect range, the parent-applied model stays under the baseline.</p>
+                <strong>Useful from about 28% compliance</strong>
+                <p class="muted">Staff time uses 5 seconds per child if compliant, plus 25 extra seconds for each missed or incorrect wristband.</p>
               </article>
               <article class="card">
                 <h3>1 machine</h3>
-                <strong>Useful until about 79.5% struggle</strong>
+                <strong>Useful until about 79.9% struggle</strong>
                 <p class="muted">This is the approximate struggle-rate limit before the machine queue becomes slower than the current process.</p>
               </article>
               <article class="card">
@@ -179,32 +180,12 @@
               <h2>Parent Threshold Table</h2>
               <table>
                 <thead>
-                  <tr><th>Incorrect application rate</th><th>Useful region</th></tr>
+                  <tr><th>Series</th><th>Useful region</th></tr>
                 </thead>
                 <tbody>
         <tr>
-          <td>0%</td>
-          <td>Already useful at 0% compliance</td>
-        </tr>
-      
-        <tr>
-          <td>5%</td>
-          <td>Already useful at 0% compliance</td>
-        </tr>
-      
-        <tr>
-          <td>10%</td>
-          <td>Already useful at 0% compliance</td>
-        </tr>
-      
-        <tr>
-          <td>15%</td>
-          <td>Already useful at 0% compliance</td>
-        </tr>
-      
-        <tr>
-          <td>20%</td>
-          <td>Already useful at 0% compliance</td>
+          <td>Parent model</td>
+          <td>Useful from about 28% compliance</td>
         </tr>
       </tbody>
               </table>
@@ -218,7 +199,7 @@
                 <tbody>
         <tr>
           <td>1</td>
-          <td>Useful until about 79.5% struggle</td>
+          <td>Useful until about 79.9% struggle</td>
         </tr>
       
         <tr>
