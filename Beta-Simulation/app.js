@@ -1,0 +1,331 @@
+(function () {
+  const colors = {
+    baseline: "#B54A36",
+    parent: ["#2F6BB3", "#4D7A58", "#C88A2F", "#8D5A97", "#B3572F"],
+    machine: ["#2F6BB3", "#4D7A58"],
+    grid: "rgba(34, 32, 27, 0.12)",
+    ink: "#22201B",
+    muted: "#6D6558",
+  };
+
+  const inputMap = {
+    children: "children",
+    classrooms: "classrooms",
+    arrivalWindowMinutes: "arrival-window-minutes",
+    runs: "runs",
+    baselineWristbandSeconds: "baseline-wristband-seconds",
+    baselineAttendanceSeconds: "baseline-attendance-seconds",
+    verifySuccessMinSeconds: "verify-success-min-seconds",
+    verifySuccessMaxSeconds: "verify-success-max-seconds",
+    redoSeconds: "redo-seconds",
+    parentIncorrectMaxPercent: "parent-incorrect-max-percent",
+    machineBaseSeconds: "machine-base-seconds",
+    machineExtraMinSeconds: "machine-extra-min-seconds",
+    machineExtraMaxSeconds: "machine-extra-max-seconds",
+    machineIncorrectPercent: "machine-incorrect-percent",
+  };
+
+  const summaryCards = document.getElementById("summary-cards");
+  const thresholdTable = document.getElementById("threshold-table");
+  const parentChart = document.getElementById("parent-chart");
+  const machineChart = document.getElementById("machine-chart");
+  const summaryStatus = document.getElementById("summary-status");
+  const runButton = document.getElementById("run-button");
+
+  function readConfig() {
+    const config = {};
+
+    Object.entries(inputMap).forEach(function assignConfig(entry) {
+      const [key, elementId] = entry;
+      config[key] = Number(document.getElementById(elementId).value);
+    });
+
+    return config;
+  }
+
+  function thresholdCopy(value, mode) {
+    if (value === null) {
+      return "No useful region in the plotted range";
+    }
+
+    if (mode === "parent") {
+      if (value <= 0) {
+        return "Already useful at 0% compliance";
+      }
+
+      if (value >= 100) {
+        return "Needs almost full compliance";
+      }
+
+      return `Becomes useful at about ${BetaSimulation.round(value, 1)}% compliance`;
+    }
+
+    if (value >= 100) {
+      return "Still useful even if every parent struggles";
+    }
+
+    return `Useful until about ${BetaSimulation.round(value, 1)}% struggle`;
+  }
+
+  function renderSummary(results) {
+    const parentBest = results.parentThresholds[0];
+    const machineOne = results.machineThresholds.find(function find(machine) {
+      return machine.machineCount === 1;
+    });
+    const machineTwo = results.machineThresholds.find(function find(machine) {
+      return machine.machineCount === 2;
+    });
+
+    const cards = [
+      {
+        title: "Current Process",
+        value: BetaSimulation.formatDuration(results.baseline.meanCompletionSeconds),
+        body: `Average total time for 1 employee to band ${results.config.children} children, then send them to ${results.config.classrooms} classrooms for attendance.`,
+      },
+      {
+        title: "Parent Model",
+        value: thresholdCopy(parentBest.thresholdPercent, "parent"),
+        body: `Best-case line assumes ${BetaSimulation.round(
+          parentBest.incorrectPercent,
+          0,
+        )}% incorrect applications.`,
+      },
+      {
+        title: "Machine Model",
+        value: `1 machine: ${thresholdCopy(
+          machineOne.thresholdPercent,
+          "machine",
+        )}`,
+        body: `2 machines: ${thresholdCopy(machineTwo.thresholdPercent, "machine")}.`,
+      },
+    ];
+
+    summaryCards.innerHTML = cards
+      .map(function buildCard(card) {
+        return `
+          <article class="summary-card">
+            <h3>${card.title}</h3>
+            <strong>${card.value}</strong>
+            <p>${card.body}</p>
+          </article>
+        `;
+      })
+      .join("");
+
+    thresholdTable.innerHTML = `
+      <div class="threshold-block">
+        <h3>Parent compliance threshold by incorrect-application rate</h3>
+        <div class="threshold-list">
+          ${results.parentThresholds
+            .map(function item(threshold) {
+              return `
+                <div class="threshold-item">
+                  <span>${BetaSimulation.round(
+                    threshold.incorrectPercent,
+                    0,
+                  )}% incorrect applications</span>
+                  <strong>${thresholdCopy(threshold.thresholdPercent, "parent")}</strong>
+                </div>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+      <div class="threshold-block">
+        <h3>Machine struggle threshold at ${results.config.machineIncorrectPercent}% incorrect application</h3>
+        <div class="threshold-list">
+          ${results.machineThresholds
+            .map(function item(threshold) {
+              return `
+                <div class="threshold-item">
+                  <span>${threshold.machineCount} machine${threshold.machineCount === 1 ? "" : "s"}</span>
+                  <strong>${thresholdCopy(threshold.thresholdPercent, "machine")}</strong>
+                </div>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderChart(container, options) {
+    if (!options.series.length) {
+      container.innerHTML = '<div class="empty-chart">No data available.</div>';
+      return;
+    }
+
+    const width = 640;
+    const height = 420;
+    const margin = { top: 28, right: 20, bottom: 48, left: 62 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+
+    const allPoints = [];
+    options.series.forEach(function collectSeries(series) {
+      series.data.forEach(function collectPoint(point) {
+        allPoints.push(point);
+      });
+    });
+
+    const xMin = options.xMin;
+    const xMax = options.xMax;
+    const yMin = Math.min(
+      options.baselineY,
+      ...allPoints.map(function byY(point) {
+        return point.y;
+      }),
+    );
+    const yMax = Math.max(
+      options.baselineY,
+      ...allPoints.map(function byY(point) {
+        return point.y;
+      }),
+    );
+    const paddedYMin = Math.max(0, yMin - (yMax - yMin) * 0.08);
+    const paddedYMax = yMax + (yMax - yMin || 1) * 0.12;
+
+    function scaleX(value) {
+      return (
+        margin.left + ((value - xMin) / Math.max(1, xMax - xMin)) * innerWidth
+      );
+    }
+
+    function scaleY(value) {
+      return (
+        margin.top +
+        innerHeight -
+        ((value - paddedYMin) / Math.max(1, paddedYMax - paddedYMin)) * innerHeight
+      );
+    }
+
+    const yTicks = 5;
+    const xTicks = 5;
+
+    const gridLines = [];
+    for (let tick = 0; tick <= yTicks; tick += 1) {
+      const value = paddedYMin + ((paddedYMax - paddedYMin) / yTicks) * tick;
+      const y = scaleY(value);
+      gridLines.push(`
+        <line x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}" stroke="${colors.grid}" />
+        <text class="tick-label" x="${margin.left - 10}" y="${y + 4}" text-anchor="end" font-size="12">
+          ${BetaSimulation.round(value / 60, 1)}m
+        </text>
+      `);
+    }
+
+    for (let tick = 0; tick <= xTicks; tick += 1) {
+      const value = xMin + ((xMax - xMin) / xTicks) * tick;
+      const x = scaleX(value);
+      gridLines.push(`
+        <line x1="${x}" y1="${margin.top}" x2="${x}" y2="${height - margin.bottom}" stroke="${colors.grid}" />
+        <text class="tick-label" x="${x}" y="${height - margin.bottom + 22}" text-anchor="middle" font-size="12">
+          ${BetaSimulation.round(value, 0)}%
+        </text>
+      `);
+    }
+
+    const seriesPaths = options.series
+      .map(function drawSeries(series, index) {
+        const path = series.data
+          .map(function point(point, pointIndex) {
+            const x = scaleX(point.x);
+            const y = scaleY(point.y);
+            return `${pointIndex === 0 ? "M" : "L"} ${x} ${y}`;
+          })
+          .join(" ");
+
+        const color = options.colors[index % options.colors.length];
+        return `
+          <path d="${path}" fill="none" stroke="${color}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+        `;
+      })
+      .join("");
+
+    const baselineY = scaleY(options.baselineY);
+    const legend = options.series
+      .map(function legendItem(series, index) {
+        const y = margin.top + index * 22;
+        const color = options.colors[index % options.colors.length];
+        return `
+          <line x1="${width - 180}" y1="${y + 4}" x2="${width - 156}" y2="${y + 4}" stroke="${color}" stroke-width="3" />
+          <text class="legend-text" x="${width - 148}" y="${y + 8}" font-size="12">
+            ${series.label}
+          </text>
+        `;
+      })
+      .join("");
+
+    container.innerHTML = `
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${options.title}">
+        <rect x="0" y="0" width="${width}" height="${height}" rx="18" fill="rgba(255,255,255,0.62)" />
+        ${gridLines.join("")}
+        <line
+          x1="${margin.left}"
+          y1="${baselineY}"
+          x2="${width - margin.right}"
+          y2="${baselineY}"
+          stroke="${colors.baseline}"
+          stroke-width="2"
+          stroke-dasharray="8 6"
+        />
+        <text x="${width - margin.right}" y="${baselineY - 8}" fill="${colors.baseline}" font-size="12" text-anchor="end">
+          Current process
+        </text>
+        ${seriesPaths}
+        <text class="axis-label" x="${width / 2}" y="${height - 10}" text-anchor="middle" font-size="12">
+          ${options.xLabel}
+        </text>
+        <text
+          class="axis-label"
+          x="18"
+          y="${height / 2}"
+          text-anchor="middle"
+          font-size="12"
+          transform="rotate(-90 18 ${height / 2})"
+        >
+          Total completion time
+        </text>
+        ${legend}
+      </svg>
+    `;
+  }
+
+  function run() {
+    summaryStatus.textContent = "Running simulation...";
+    runButton.disabled = true;
+
+    window.requestAnimationFrame(function compute() {
+      const config = readConfig();
+      const results = BetaSimulation.runAnalysis(config);
+
+      renderSummary(results);
+      renderChart(parentChart, {
+        title: "Parent compliance threshold chart",
+        series: results.parentSeries,
+        baselineY: results.baseline.meanCompletionSeconds,
+        xMin: 0,
+        xMax: 100,
+        xLabel: "Parent compliance",
+        colors: colors.parent,
+      });
+      renderChart(machineChart, {
+        title: "Machine usefulness threshold chart",
+        series: results.machineSeries,
+        baselineY: results.baseline.meanCompletionSeconds,
+        xMin: 0,
+        xMax: 100,
+        xLabel: "Parents who struggle at the machine",
+        colors: colors.machine,
+      });
+
+      summaryStatus.textContent = `Baseline average: ${BetaSimulation.formatDuration(
+        results.baseline.meanCompletionSeconds,
+      )}.`;
+      runButton.disabled = false;
+    });
+  }
+
+  runButton.addEventListener("click", run);
+  run();
+})();
