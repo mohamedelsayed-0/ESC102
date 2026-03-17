@@ -5,10 +5,17 @@ Standalone simulation for the daycare wristband prototype.
 ## What it models
 
 - `Current process`: one employee applies wristbands at an average of 20 seconds per child, then the child goes to classroom attendance.
-- `Parent-applied prototype`: parents can apply wristbands before classroom check-in. The main graph shows employee time versus parent compliance, using 5 seconds per child for check/attendance and 25 extra seconds for each failed parent case.
-- `Machine prototype`: one or two dispensing machines are tested. The main graph sweeps the share of parents whose machine attempt still ends in the employee redo path.
+- `Parent-applied prototype`: parents can apply wristbands before classroom check-in. The model separates `non-compliance` from `incorrect application among compliers`.
+- `Machine prototype`: one or two dispensing machines are tested. The model separates `struggle-led redo` from `incorrect-after-machine redo`.
 
-Both the parent model and the machine model are judged by employee time saved.
+Both prototypes are judged by `employee time saved` relative to the current process.
+
+The simulation also tracks:
+- `ready-by deadline risk`
+- `mean lateness when a run misses the deadline`
+- `10th to 90th percentile confidence bands`
+- `sensitivity heatmaps`
+- `break-even tables`
 
 ## Key assumptions used from the brief
 
@@ -16,14 +23,26 @@ Both the parent model and the machine model are judged by employee time saved.
 - `10` classrooms acting as parallel attendance/check lines
 - `30` minute arrival window with a normal-arrival peak about `9` minutes before departure
 - `3.5` minute arrival spread around that peak
+- `5` minute ready-by deadline before departure
 - `20` second average for the current wristband step
 - `3` seconds for current attendance
 - `3` to `5` seconds for a successful classroom wristband check
-- `25` seconds when a wristband is missing or must be redone
+- `25` extra seconds when a wristband is missing or must be redone
 - `12` seconds total machine time before any struggle delay
-- Arrivals follow a non-uniform normal distribution rather than a constant flow
+- Late arrivals are modeled as more failure-prone than early arrivals
 
-Parent time at the outside wristband station is intentionally excluded from the main metric because it is no longer daycare employee time. Machine queue time is also excluded from the employee-time metric; the machine graph only counts employee check time and employee redo time.
+Parent time outside the classroom is intentionally excluded from the employee-time metric. Machine queue time is also excluded from the employee-time metric, but it is still included in the deadline-risk calculations.
+
+## Outputs
+
+Generated files in `outputs/`:
+
+- `decision-dashboard.svg`
+- `parent-compliance.svg`
+- `machine-threshold.svg`
+- `sensitivity-atlas.svg`
+- `report.html`
+- CSV exports for the line charts, heatmaps, and deadline-risk table
 
 ## Files
 
@@ -50,4 +69,12 @@ To regenerate the static visuals and HTML report:
 node /Users/mohamedelsayed/Desktop/ESC102/remote_clone/Beta-Simulation/generate-report.cjs
 ```
 
-The generated files in `outputs/` can be committed to the repository when you want the visuals to appear directly in the repo.
+## Important note about the default deadline metric
+
+With the current default arrival model, some children still arrive after the `ready-by` target. That means the deadline miss rate saturates at `100%` across the default scenarios. The outputs still show meaningful differences in:
+
+- employee minutes
+- average minutes past the ready-by target
+- sensitivity to compliance, incorrect application, and machine struggle
+
+If you want deadline-risk comparisons that discriminate more clearly, move arrivals earlier or redefine the target to the actual departure time instead of `5` minutes before it.

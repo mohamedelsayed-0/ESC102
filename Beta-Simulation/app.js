@@ -14,12 +14,14 @@
     arrivalWindowMinutes: "arrival-window-minutes",
     arrivalPeakBeforeDepartureMinutes: "arrival-peak-before-departure-minutes",
     arrivalSpreadMinutes: "arrival-spread-minutes",
+    departureBufferMinutes: "departure-buffer-minutes",
     runs: "runs",
     baselineWristbandSeconds: "baseline-wristband-seconds",
     baselineAttendanceSeconds: "baseline-attendance-seconds",
     verifySuccessMinSeconds: "verify-success-min-seconds",
     verifySuccessMaxSeconds: "verify-success-max-seconds",
     redoSeconds: "redo-seconds",
+    parentIncorrectPercent: "parent-incorrect-percent",
     machineBaseSeconds: "machine-base-seconds",
     machineExtraMinSeconds: "machine-extra-min-seconds",
     machineExtraMaxSeconds: "machine-extra-max-seconds",
@@ -68,6 +70,17 @@
     return `Useful until about ${BetaSimulation.round(value, 1)}% struggle`;
   }
 
+  function lateCopy(summary) {
+    if (!summary.lateProbability && !summary.meanLateSeconds) {
+      return "Met the ready-by target in every simulated day";
+    }
+
+    return `Missed the ready-by target in ${BetaSimulation.round(summary.lateProbability * 100, 0)}% of simulated days. Average finish was ${BetaSimulation.round(
+      summary.meanLateSeconds / 60,
+      1,
+    )}m past the target.`;
+  }
+
   function renderSummary(results) {
     const parentBest = results.parentThresholds[0];
     const machineOne = results.machineThresholds.find(function find(machine) {
@@ -81,12 +94,12 @@
       {
         title: "Current Process",
         value: BetaSimulation.formatDuration(results.parentEmployeeBaselineSeconds),
-        body: `Employee time for the current process. ${results.config.children} children arrive in a ${results.config.arrivalWindowMinutes}-minute window that peaks about ${BetaSimulation.round(results.config.arrivalPeakBeforeDepartureMinutes, 1)} minutes before departure.`,
+        body: `Employee time for the current process. ${lateCopy(results.baseline)}.`,
       },
       {
         title: "Parent Model",
         value: thresholdCopy(parentBest.thresholdPercent, "parent"),
-        body: "Employee time only: 5 seconds per child if compliant, plus 25 extra seconds for each missed or incorrect wristband.",
+        body: `Employee time only: 5 seconds per child if compliant, plus 25 extra seconds for each missed or incorrect wristband. ${lateCopy(results.parentDefaultSummary)}.`,
       },
       {
         title: "Machine Model",
@@ -94,7 +107,7 @@
           machineOne.thresholdPercent,
           "machine",
         )}`,
-        body: `2 machines: ${thresholdCopy(machineTwo.thresholdPercent, "machine")}. Under employee time, both lines mostly overlap.`,
+        body: `2 machines: ${thresholdCopy(machineTwo.thresholdPercent, "machine")}. With 2 machines, lighter crowding reduces failure conversion as well as deadline risk.`,
       },
     ];
 
@@ -222,6 +235,27 @@
 
     const seriesPaths = options.series
       .map(function drawSeries(series, index) {
+        const band = series.data.some(function anyBand(point) {
+          return typeof point.low === "number" && typeof point.high === "number";
+        })
+          ? `
+            <polygon
+              points="${[
+                ...series.data.map(function upper(point) {
+                  return `${scaleX(point.x)},${scaleY(point.high)}`;
+                }),
+                ...series.data
+                  .slice()
+                  .reverse()
+                  .map(function lower(point) {
+                    return `${scaleX(point.x)},${scaleY(point.low)}`;
+                  }),
+              ].join(" ")}"
+              fill="${options.bandFills ? options.bandFills[index % options.bandFills.length] : "rgba(47,107,179,0.12)"}"
+              stroke="none"
+            />
+          `
+          : "";
         const path = series.data
           .map(function point(point, pointIndex) {
             const x = scaleX(point.x);
@@ -232,6 +266,7 @@
 
         const color = options.colors[index % options.colors.length];
         return `
+          ${band}
           <path d="${path}" fill="none" stroke="${color}" stroke-width="3" stroke-dasharray="${series.strokeDasharray || ""}" stroke-linejoin="round" stroke-linecap="round" />
         `;
       })
@@ -304,6 +339,7 @@
         xLabel: "Parent compliance",
         yLabel: "Employee time",
         colors: colors.parent,
+        bandFills: ["rgba(47,107,179,0.16)"],
       });
       renderChart(machineChart, {
         title: "Machine usefulness threshold chart",
@@ -318,17 +354,24 @@
         xLabel: "Parents who struggle at the machine",
         yLabel: "Employee time",
         colors: colors.machine,
+        bandFills: ["rgba(47,107,179,0.16)", "rgba(77,122,88,0.1)"],
       });
+
+      const machineLateRisk = results.machineDefaultRiskByCount.find(function find(item) {
+        return item.machineCount === 2;
+      }).summary;
 
       summaryStatus.textContent = `Current-process employee time: ${BetaSimulation.formatDuration(
         results.parentEmployeeBaselineSeconds,
       )}. Parent break-even is about ${BetaSimulation.round(
         results.parentThresholds[0].thresholdPercent,
         1,
-      )}% compliance, and machine break-even is about ${BetaSimulation.round(
-        results.machineThresholds[0].thresholdPercent,
+      )}% compliance, machine break-even is about ${BetaSimulation.round(
+        results.machineThresholds.find(function find(item) {
+          return item.machineCount === 1;
+        }).thresholdPercent,
         1,
-      )}% struggle.`;
+      )}% struggle for 1 machine, and the 2-machine default case ${lateCopy(machineLateRisk)}`;
       runButton.disabled = false;
     });
   }

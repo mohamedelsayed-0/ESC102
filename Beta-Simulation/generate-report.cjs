@@ -20,6 +20,38 @@ function durationMinutes(seconds) {
   return round(seconds / 60, 2);
 }
 
+function percentText(value, digits = 1) {
+  return `${round(value, digits)}%`;
+}
+
+function minutesText(seconds) {
+  return `${round(seconds / 60, 1)}m`;
+}
+
+function lateText(summary) {
+  if (!summary.lateProbability && !summary.meanLateSeconds) {
+    return "Met the ready-by target in every simulated day";
+  }
+
+  return `Missed the ready-by target in ${percentText(summary.lateProbability * 100, 0)} of simulated days. Average finish was ${minutesText(summary.meanLateSeconds)} past the target.`;
+}
+
+function thresholdCellText(value, mode) {
+  if (value === null) {
+    return "No break-even";
+  }
+
+  if (mode === "machine" && value >= 100) {
+    return "Still ahead at 100%";
+  }
+
+  if (mode === "parent" && value <= 0) {
+    return "0%";
+  }
+
+  return `${round(value, 1)}%`;
+}
+
 function thresholdLabel(value, mode) {
   if (value === null) {
     return "No useful region in the plotted range";
@@ -97,9 +129,47 @@ function renderTextLines({
     .join("");
 }
 
-function renderWrappedText(options) {
-  const lines = wrapText(options.text, options.maxChars);
-  return renderTextLines({ ...options, lines });
+function hexToRgb(hex) {
+  const clean = hex.replace("#", "");
+  const normalized = clean.length === 3
+    ? clean
+        .split("")
+        .map((char) => `${char}${char}`)
+        .join("")
+    : clean;
+
+  return {
+    r: Number.parseInt(normalized.slice(0, 2), 16),
+    g: Number.parseInt(normalized.slice(2, 4), 16),
+    b: Number.parseInt(normalized.slice(4, 6), 16),
+  };
+}
+
+function withAlpha(hex, alpha) {
+  const rgb = hexToRgb(hex);
+  return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
+}
+
+function interpolateColor(startHex, endHex, ratio) {
+  const start = hexToRgb(startHex);
+  const end = hexToRgb(endHex);
+  const t = Math.max(0, Math.min(1, ratio));
+
+  return `rgb(${Math.round(start.r + (end.r - start.r) * t)}, ${Math.round(
+    start.g + (end.g - start.g) * t,
+  )}, ${Math.round(start.b + (end.b - start.b) * t)})`;
+}
+
+function getHeatColor(value, maxAbsValue) {
+  if (maxAbsValue <= 0) {
+    return "#f6efe3";
+  }
+
+  if (value >= 0) {
+    return interpolateColor("#f4efe6", "#4f8a69", value / maxAbsValue);
+  }
+
+  return interpolateColor("#f4efe6", "#c3674f", Math.abs(value) / maxAbsValue);
 }
 
 function writeCsv(filename, header, rows) {
@@ -108,26 +178,29 @@ function writeCsv(filename, header, rows) {
 }
 
 function buildParentCsv() {
-  const rows = [];
-
-  results.parentSeries.forEach((series) => {
-    series.data.forEach((point) => {
-      rows.push([
-        point.x,
-        series.label,
-        round(point.y, 3),
-        durationMinutes(point.y),
-      ]);
-    });
+  const series = results.parentSeries[0];
+  const rows = series.data.map(function toRow(point) {
+    return [
+      point.x,
+      series.incorrectPercent,
+      round(point.y, 3),
+      round(point.low, 3),
+      round(point.high, 3),
+      round(point.lateProbability * 100, 3),
+      durationMinutes(point.y),
+    ];
   });
 
   writeCsv(
     "parent-compliance.csv",
     [
       "compliance_percent",
-      "series_label",
-      "employee_time_seconds",
-      "employee_time_minutes",
+      "incorrect_percent",
+      "mean_employee_seconds",
+      "p10_employee_seconds",
+      "p90_employee_seconds",
+      "late_probability_percent",
+      "mean_employee_minutes",
     ],
     rows,
   );
@@ -136,12 +209,15 @@ function buildParentCsv() {
 function buildMachineCsv() {
   const rows = [];
 
-  results.machineSeries.forEach((series) => {
-    series.data.forEach((point) => {
+  results.machineSeries.forEach(function eachSeries(series) {
+    series.data.forEach(function toRow(point) {
       rows.push([
         point.x,
         series.machineCount,
+        results.config.machineIncorrectPercent,
         round(point.y, 3),
+        round(point.low, 3),
+        round(point.high, 3),
         durationMinutes(point.y),
       ]);
     });
@@ -152,10 +228,83 @@ function buildMachineCsv() {
     [
       "struggle_percent",
       "machine_count",
-      "employee_time_seconds",
-      "employee_time_minutes",
+      "incorrect_percent",
+      "mean_employee_seconds",
+      "p10_employee_seconds",
+      "p90_employee_seconds",
+      "mean_employee_minutes",
     ],
     rows,
+  );
+}
+
+function buildHeatmapCsv(filename, rows) {
+  writeCsv(
+    filename,
+    [
+      "x_percent",
+      "y_percent",
+      "employee_minutes_saved",
+      "late_probability_percent",
+    ],
+    rows.map(function toRow(point) {
+      return [
+        point.x,
+        point.y,
+        round(point.employeeMinutesSaved, 3),
+        round(point.lateProbability, 3),
+      ];
+    }),
+  );
+}
+
+function buildDeadlineRiskCsv() {
+  const machineOneRisk = results.machineDefaultRiskByCount.find(function find(item) {
+    return item.machineCount === 1;
+  }).summary;
+  const machineTwoRisk = results.machineDefaultRiskByCount.find(function find(item) {
+    return item.machineCount === 2;
+  }).summary;
+
+  writeCsv(
+    "deadline-risk.csv",
+    [
+      "scenario",
+      "mean_employee_seconds",
+      "late_probability_percent",
+      "mean_late_minutes",
+      "p90_late_minutes",
+    ],
+    [
+      [
+        "Current process",
+        round(results.baseline.meanEmployeeSeconds, 3),
+        round(results.baseline.lateProbability * 100, 3),
+        round(results.baseline.meanLateSeconds / 60, 3),
+        round(results.baseline.p90LateSeconds / 60, 3),
+      ],
+      [
+        "Parent default",
+        round(results.parentDefaultSummary.meanEmployeeSeconds, 3),
+        round(results.parentDefaultSummary.lateProbability * 100, 3),
+        round(results.parentDefaultSummary.meanLateSeconds / 60, 3),
+        round(results.parentDefaultSummary.p90LateSeconds / 60, 3),
+      ],
+      [
+        "1 machine default",
+        round(machineOneRisk.meanEmployeeSeconds, 3),
+        round(machineOneRisk.lateProbability * 100, 3),
+        round(machineOneRisk.meanLateSeconds / 60, 3),
+        round(machineOneRisk.p90LateSeconds / 60, 3),
+      ],
+      [
+        "2 machine default",
+        round(machineTwoRisk.meanEmployeeSeconds, 3),
+        round(machineTwoRisk.lateProbability * 100, 3),
+        round(machineTwoRisk.meanLateSeconds / 60, 3),
+        round(machineTwoRisk.p90LateSeconds / 60, 3),
+      ],
+    ],
   );
 }
 
@@ -164,27 +313,37 @@ function buildSummaryJson() {
     generatedAt: new Date().toISOString(),
     config: results.config,
     baseline: {
+      employeeSeconds: round(results.baseline.meanEmployeeSeconds, 3),
+      employeeMinutes: durationMinutes(results.baseline.meanEmployeeSeconds),
       meanCompletionSeconds: round(results.baseline.meanCompletionSeconds, 3),
-      meanCompletionMinutes: durationMinutes(results.baseline.meanCompletionSeconds),
-      formatted: formatDuration(results.baseline.meanCompletionSeconds),
+      lateProbabilityPercent: round(results.baseline.lateProbability * 100, 3),
+      meanLateMinutes: round(results.baseline.meanLateSeconds / 60, 3),
     },
-    parentEmployeeBaseline: {
-      seconds: round(results.parentEmployeeBaselineSeconds, 3),
-      minutes: durationMinutes(results.parentEmployeeBaselineSeconds),
-      formatted: formatDuration(results.parentEmployeeBaselineSeconds),
-    },
-    parentThresholds: results.parentThresholds.map((item) => ({
-      label: item.label,
-      thresholdPercent:
-        item.thresholdPercent === null ? null : round(item.thresholdPercent, 3),
-      interpretation: thresholdLabel(item.thresholdPercent, "parent"),
-    })),
-    machineThresholds: results.machineThresholds.map((item) => ({
-      machineCount: item.machineCount,
-      thresholdPercent:
-        item.thresholdPercent === null ? null : round(item.thresholdPercent, 3),
-      interpretation: thresholdLabel(item.thresholdPercent, "machine"),
-    })),
+    parentThresholds: results.parentThresholdTable.map(function mapRow(item) {
+      return {
+        incorrectPercent: item.incorrectPercent,
+        thresholdPercent:
+          item.thresholdPercent === null ? null : round(item.thresholdPercent, 3),
+        savedMinutesAtDefault: round(item.savedMinutesAtDefault, 3),
+      };
+    }),
+    machineThresholds: results.machineThresholdTable.map(function mapRow(item) {
+      return {
+        incorrectPercent: item.incorrectPercent,
+        oneMachineThresholdPercent:
+          item.oneMachineThresholdPercent === null ? null : round(item.oneMachineThresholdPercent, 3),
+        twoMachineThresholdPercent:
+          item.twoMachineThresholdPercent === null ? null : round(item.twoMachineThresholdPercent, 3),
+        savedMinutesAtDefaultOne: round(item.savedMinutesAtDefaultOne, 3),
+        savedMinutesAtDefaultTwo: round(item.savedMinutesAtDefaultTwo, 3),
+      };
+    }),
+    deadlineRiskSaturated:
+      results.baseline.lateProbability >= 0.999
+      && results.parentDefaultSummary.lateProbability >= 0.999
+      && results.machineDefaultRiskByCount.every(function allLate(item) {
+        return item.summary.lateProbability >= 0.999;
+      }),
   };
 
   fs.writeFileSync(
@@ -193,40 +352,39 @@ function buildSummaryJson() {
   );
 }
 
-function getSeriesRange(series) {
-  const values = [];
-  series.data.forEach((point) => values.push(point.y));
-  return {
-    min: Math.min(...values),
-    max: Math.max(...values),
-  };
-}
-
-function formatRangeLines(minSeconds, maxSeconds) {
-  return [formatDuration(minSeconds), `to ${formatDuration(maxSeconds)}`];
-}
-
 function getSeriesBounds(series, baselineY) {
   const values = [baselineY];
-  series.forEach((line) => {
-    line.data.forEach((point) => values.push(point.y));
+
+  series.forEach(function eachSeries(line) {
+    line.data.forEach(function eachPoint(point) {
+      values.push(point.y);
+      if (typeof point.low === "number") {
+        values.push(point.low);
+      }
+      if (typeof point.high === "number") {
+        values.push(point.high);
+      }
+    });
   });
 
   const min = Math.min(...values);
   const max = Math.max(...values);
   const padding = Math.max(20, (max - min) * 0.12);
-  return { min: Math.max(0, min - padding), max: max + padding };
+
+  return {
+    min: Math.max(0, min - padding),
+    max: max + padding,
+  };
 }
 
 function renderLegendBlock(x, y, items, colors) {
   let cursorY = y;
 
   const rows = items
-    .map((item, index) => {
-      const lines = wrapText(item.label, 22);
-      const rowHeight = Math.max(30, lines.length * 24);
-      const swatchY = cursorY + 12;
-      const textY = cursorY + 18;
+    .map(function renderItem(item, index) {
+      const lines = wrapText(item.label, 21);
+      const rowHeight = Math.max(28, lines.length * 24);
+      const swatchY = cursorY + 11;
       const markup = `
         <line
           x1="${x}"
@@ -235,13 +393,13 @@ function renderLegendBlock(x, y, items, colors) {
           y2="${swatchY}"
           stroke="${colors[index]}"
           stroke-width="${item.dashed ? 4 : 6}"
-          stroke-dasharray="${item.dashed ? "12 8" : ""}"
+          stroke-dasharray="${item.dashed ? "12 8" : item.strokeDasharray || ""}"
           stroke-linecap="round"
         />
         ${renderTextLines({
           lines,
           x: x + 52,
-          y: textY,
+          y: cursorY + 18,
           fontSize: 20,
           lineHeight: 24,
           fill: "#5f574b",
@@ -256,12 +414,11 @@ function renderLegendBlock(x, y, items, colors) {
 }
 
 function renderInsightCard({ x, y, width, eyebrow, value, body, fill }) {
-  const valueLines = wrapText(value, 24);
-  const bodyLines = wrapText(body, 28);
+  const valueLines = wrapText(value, 23);
+  const bodyLines = wrapText(body, 32);
   const valueHeight = valueLines.length * 32;
-  const bodyHeight = bodyLines.length * 23;
   const bodyStartY = y + 102 + valueHeight;
-  const height = 30 + 34 + 26 + valueHeight + 18 + bodyHeight + 26;
+  const height = 32 + 36 + 24 + valueHeight + 18 + bodyLines.length * 22 + 26;
 
   return {
     height,
@@ -291,30 +448,30 @@ function renderInsightCard({ x, y, width, eyebrow, value, body, fill }) {
         lines: bodyLines,
         x: x + 24,
         y: bodyStartY,
-        fontSize: 19,
-        lineHeight: 23,
+        fontSize: 18,
+        lineHeight: 22,
         fill: "#5f574b",
       })}
     `,
   };
 }
 
-function renderLineChart({
+function renderBandChartPage({
   title,
   subtitle,
   xAxisTitle,
-  yAxisTitle = "Completion time (minutes)",
+  yAxisTitle,
   series,
   colors,
   baselineY,
-  legendTitle,
-  insights,
   thresholdMarkers = [],
+  insights,
+  bandNote,
 }) {
   const width = 1660;
-  const height = 1120;
+  const height = 1440;
   const plot = { x: 120, y: 270, width: 940, height: 640 };
-  const sidebar = { x: 1095, y: 150, width: 450, height: 860 };
+  const sidebar = { x: 1095, y: 150, width: 450, height: 1180 };
   const bounds = getSeriesBounds(series, baselineY);
   const plotRight = plot.x + plot.width;
   const plotBottom = plot.y + plot.height;
@@ -340,9 +497,9 @@ function renderLineChart({
     );
   }
 
+  const grid = [];
   const yTicks = 6;
   const xTicks = 5;
-  const grid = [];
 
   for (let index = 0; index <= yTicks; index += 1) {
     const value = bounds.min + ((bounds.max - bounds.min) / yTicks) * index;
@@ -380,21 +537,68 @@ function renderLineChart({
     `);
   }
 
-  const pathMarkup = series
-    .map((line, index) => {
+  const bandMarkup = series
+    .map(function renderBand(line, index) {
+      if (line.showBand === false) {
+        return "";
+      }
+      if (!line.data.some(function any(point) {
+        return typeof point.low === "number" && typeof point.high === "number";
+      })) {
+        return "";
+      }
+
+      const upper = line.data
+        .map(function upperPoint(point) {
+          return `${xScale(point.x)},${yScale(point.high)}`;
+        })
+        .join(" ");
+      const lower = line.data
+        .slice()
+        .reverse()
+        .map(function lowerPoint(point) {
+          return `${xScale(point.x)},${yScale(point.low)}`;
+        })
+        .join(" ");
+
+      return `
+        <polygon
+          points="${upper} ${lower}"
+          fill="${withAlpha(colors[index], 0.18)}"
+          stroke="none"
+        />
+      `;
+    })
+    .join("");
+
+  const lineMarkup = series
+    .map(function renderSeries(line, index) {
       const path = line.data
-        .map((point, pointIndex) => {
+        .map(function pathPoint(point, pointIndex) {
           const command = pointIndex === 0 ? "M" : "L";
           return `${command} ${xScale(point.x)} ${yScale(point.y)}`;
         })
         .join(" ");
 
       return `
+        ${line.outlineStroke
+          ? `
+            <path
+              d="${path}"
+              fill="none"
+              stroke="${line.outlineStroke}"
+              stroke-width="${line.outlineWidth || 10}"
+              stroke-dasharray="${line.strokeDasharray || ""}"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+            />
+          `
+          : ""}
         <path
           d="${path}"
           fill="none"
           stroke="${colors[index]}"
-          stroke-width="6"
+          stroke-width="${line.strokeWidth || 6}"
           stroke-dasharray="${line.strokeDasharray || ""}"
           stroke-linejoin="round"
           stroke-linecap="round"
@@ -404,9 +608,17 @@ function renderLineChart({
     .join("");
 
   const markerMarkup = thresholdMarkers
-    .filter((marker) => marker.x >= 0 && marker.x <= 100)
-    .map((marker) => {
+    .filter(function keep(marker) {
+      return marker.x >= 0 && marker.x <= 100;
+    })
+    .map(function renderMarker(marker) {
       const markerX = xScale(marker.x);
+      const pillWidth = Math.max(176, marker.label.length * 8.5 + 40);
+      const pillX = Math.max(
+        plot.x + 10,
+        Math.min(plotRight - pillWidth - 10, markerX - pillWidth / 2),
+      );
+      const pillCenterX = pillX + pillWidth / 2;
       return `
         <line
           x1="${markerX}"
@@ -417,9 +629,9 @@ function renderLineChart({
           stroke-width="3"
           stroke-dasharray="10 10"
         />
-        <rect x="${markerX - 88}" y="${plot.y + 16}" width="176" height="38" rx="19" fill="${marker.fill}" />
+        <rect x="${pillX}" y="${plot.y + 16}" width="${pillWidth}" height="38" rx="19" fill="${marker.fill}" />
         <text
-          x="${markerX}"
+          x="${pillCenterX}"
           y="${plot.y + 41}"
           text-anchor="middle"
           font-size="18"
@@ -436,14 +648,34 @@ function renderLineChart({
   const baselineYCoord = yScale(baselineY);
   const legendItems = [
     { label: `Current process (${formatDuration(baselineY)})`, dashed: true },
-    ...series.map((line) => ({ label: line.label, dashed: Boolean(line.strokeDasharray) })),
+    ...series.map(function toLegend(line) {
+      return {
+        label: line.label,
+        strokeDasharray: line.strokeDasharray,
+      };
+    }),
   ];
-  const legendColors = [theme.baseline, ...colors];
-  const legend = renderLegendBlock(sidebar.x + 28, sidebar.y + 78, legendItems, legendColors);
+  const legend = renderLegendBlock(
+    sidebar.x + 28,
+    sidebar.y + 78,
+    legendItems,
+    [theme.baseline, ...colors],
+  );
 
-  let insightY = legend.nextY + 38;
+  const bandNoteMarkup = bandNote
+    ? renderTextLines({
+        lines: wrapText(bandNote, 30),
+        x: sidebar.x + 28,
+        y: legend.nextY + 10,
+        fontSize: 18,
+        lineHeight: 22,
+        fill: "#5f574b",
+      })
+    : "";
+  const bandNoteHeight = bandNote ? wrapText(bandNote, 30).length * 22 + 24 : 0;
+  let insightY = legend.nextY + 26 + bandNoteHeight;
   const insightMarkup = insights
-    .map((insight) => {
+    .map(function renderInsight(insight) {
       const card = renderInsightCard({
         x: sidebar.x + 14,
         y: insightY,
@@ -461,16 +693,16 @@ function renderLineChart({
   return `
     <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
       <defs>
-        <linearGradient id="page-bg" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="band-page-bg" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="${theme.backgroundTop}" />
           <stop offset="100%" stop-color="${theme.backgroundBottom}" />
         </linearGradient>
-        <filter id="page-shadow" x="-20%" y="-20%" width="140%" height="140%">
+        <filter id="band-page-shadow" x="-20%" y="-20%" width="140%" height="140%">
           <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#5d4631" flood-opacity="0.12" />
         </filter>
       </defs>
-      <rect width="${width}" height="${height}" rx="40" fill="url(#page-bg)" />
-      <rect x="28" y="28" width="${width - 56}" height="${height - 56}" rx="32" fill="${theme.card}" filter="url(#page-shadow)" />
+      <rect width="${width}" height="${height}" rx="40" fill="url(#band-page-bg)" />
+      <rect x="28" y="28" width="${width - 56}" height="${height - 56}" rx="32" fill="${theme.card}" filter="url(#band-page-shadow)" />
       ${renderTextLines({
         lines: [title],
         x: 140,
@@ -482,7 +714,7 @@ function renderLineChart({
         fontWeight: 700,
       })}
       ${renderTextLines({
-        lines: wrapText(subtitle, 82),
+        lines: wrapText(subtitle, 84),
         x: 140,
         y: 132,
         fontSize: 24,
@@ -510,8 +742,9 @@ function renderLineChart({
         stroke-width="4"
         stroke-dasharray="14 10"
       />
+      ${bandMarkup}
       ${markerMarkup}
-      ${pathMarkup}
+      ${lineMarkup}
       <rect x="${plot.x + 14}" y="${baselineYCoord - 44}" width="196" height="34" rx="17" fill="rgba(181, 74, 54, 0.12)" />
       <text
         x="${plot.x + 112}"
@@ -535,7 +768,7 @@ function renderLineChart({
         ${escapeMarkup(xAxisTitle)}
       </text>
       ${renderTextLines({
-        lines: [legendTitle.toUpperCase()],
+        lines: ["LEGEND"],
         x: sidebar.x + 24,
         y: sidebar.y + 42,
         fontSize: 17,
@@ -545,25 +778,13 @@ function renderLineChart({
         letterSpacing: 2,
       })}
       ${legend.markup}
+      ${bandNoteMarkup}
       ${insightMarkup}
     </svg>
   `.trim();
 }
 
-function renderStatCard({
-  x,
-  y,
-  width,
-  height,
-  eyebrow,
-  valueLines,
-  body,
-  fill,
-  bodyMaxChars = 28,
-  bodyFontSize = 18,
-  bodyLineHeight = 23,
-}) {
-  const bodyLines = wrapText(body, bodyMaxChars);
+function renderStatCard({ x, y, width, height, eyebrow, valueLines, body, fill }) {
   return `
     <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="28" fill="${fill}" />
     ${renderTextLines({
@@ -587,27 +808,41 @@ function renderStatCard({
       fontWeight: 700,
     })}
     ${renderTextLines({
-      lines: bodyLines,
+      lines: wrapText(body, 30),
       x: x + 28,
       y: y + 154,
-      fontSize: bodyFontSize,
-      lineHeight: bodyLineHeight,
+      fontSize: 18,
+      lineHeight: 23,
       fill: "#5f574b",
     })}
   `;
 }
 
-function renderAssumptionChip({
-  x,
-  y,
-  width,
-  height,
-  label,
-  value,
-  fill,
-  valueMaxChars = 20,
-}) {
-  const valueLines = wrapText(value, valueMaxChars);
+function renderCalloutPanel({ x, y, width, height, title, body, fill }) {
+  return `
+    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="30" fill="${fill}" />
+    ${renderTextLines({
+      lines: [title.toUpperCase()],
+      x: x + 28,
+      y: y + 42,
+      fontSize: 18,
+      lineHeight: 20,
+      fill: "#6f6559",
+      fontWeight: 700,
+      letterSpacing: 2,
+    })}
+    ${renderTextLines({
+      lines: wrapText(body, 28),
+      x: x + 28,
+      y: y + 90,
+      fontSize: 22,
+      lineHeight: 28,
+      fill: "#5f574b",
+    })}
+  `;
+}
+
+function renderAssumptionChip({ x, y, width, height, label, value, fill, maxChars = 20 }) {
   return `
     <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="24" fill="${fill}" />
     ${renderTextLines({
@@ -621,7 +856,7 @@ function renderAssumptionChip({
       letterSpacing: 2,
     })}
     ${renderTextLines({
-      lines: valueLines,
+      lines: wrapText(value, maxChars),
       x: x + 24,
       y: y + 74,
       fontSize: 24,
@@ -636,8 +871,8 @@ function renderAssumptionChip({
 function renderBulletPanel({ x, y, width, height, title, bullets, fill }) {
   let bulletY = y + 92;
   const bulletMarkup = bullets
-    .map((bullet) => {
-      const lines = wrapText(bullet, 46);
+    .map(function renderBullet(bullet) {
+      const lines = wrapText(bullet, 56);
       const markup = `
         <circle cx="${x + 28}" cy="${bulletY - 7}" r="6" fill="#b3572f" />
         ${renderTextLines({
@@ -670,44 +905,302 @@ function renderBulletPanel({ x, y, width, height, title, bullets, fill }) {
   `;
 }
 
-function buildDashboardSvg() {
-  const width = 1600;
-  const height = 1060;
-  const baseline = formatDuration(results.baseline.meanCompletionSeconds);
-  const employeeBaseline = formatDuration(results.parentEmployeeBaselineSeconds);
-  const machineOne = results.machineThresholds.find((item) => item.machineCount === 1);
-  const machineTwo = results.machineThresholds.find((item) => item.machineCount === 2);
-  const parentRange = results.parentSeries.reduce(
-    (range, series) => {
-      const next = getSeriesRange(series);
-      return {
-        min: Math.min(range.min, next.min),
-        max: Math.max(range.max, next.max),
-      };
-    },
-    { min: Infinity, max: -Infinity },
+function renderHeatmapPanel({
+  x,
+  y,
+  width,
+  height,
+  title,
+  subtitle,
+  xLabel,
+  yLabel,
+  xValues,
+  yValues,
+  cells,
+  thresholdRows,
+}) {
+  const panelX = x + 72;
+  const panelY = y + 154;
+  const plotWidth = width - 122;
+  const plotHeight = height - 246;
+  const cellWidth = plotWidth / xValues.length;
+  const cellHeight = plotHeight / yValues.length;
+  const maxAbs = Math.max(
+    ...cells.map(function value(point) {
+      return Math.abs(point.employeeMinutesSaved);
+    }),
+    1,
   );
-  const machineOneRange = getSeriesRange(
-    results.machineSeries.find((item) => item.machineCount === 1),
-  );
-  const machineTwoRange = getSeriesRange(
-    results.machineSeries.find((item) => item.machineCount === 2),
+  const cellMap = new Map(
+    cells.map(function toEntry(point) {
+      return [`${point.x}:${point.y}`, point];
+    }),
   );
 
-  const leftBullets = [
-    "Parent delegation becomes useful once enough families avoid the extra 25-second redo step.",
-    "Compliant child: 5 seconds of staff time. Failed parent case: 30 seconds total.",
-    "Under employee time, one and two machines overlap because machine count changes queueing, not the staff redo path.",
+  const cellMarkup = yValues
+    .map(function renderRow(yValue, rowIndex) {
+      return xValues
+        .map(function renderCell(xValue, columnIndex) {
+          const cell = cellMap.get(`${xValue}:${yValue}`);
+          const cellX = panelX + columnIndex * cellWidth;
+          const cellY = panelY + rowIndex * cellHeight;
+
+          return `
+            <rect
+              x="${cellX}"
+              y="${cellY}"
+              width="${cellWidth + 0.5}"
+              height="${cellHeight + 0.5}"
+              fill="${getHeatColor(cell.employeeMinutesSaved, maxAbs)}"
+              stroke="rgba(255,255,255,0.45)"
+              stroke-width="1"
+            />
+          `;
+        })
+        .join("");
+    })
+    .join("");
+
+  const thresholdPoints = thresholdRows
+    .filter(function keep(row) {
+      return typeof row.thresholdPercent === "number" && row.thresholdPercent >= 0 && row.thresholdPercent <= 100;
+    })
+    .map(function toPoint(row) {
+      const xIndex = xValues.indexOf(
+        xValues.reduce(function nearest(best, current) {
+          return Math.abs(current - row.thresholdPercent) < Math.abs(best - row.thresholdPercent)
+            ? current
+            : best;
+        }, xValues[0]),
+      );
+      const yIndex = yValues.indexOf(row.incorrectPercent);
+      return {
+        x: panelX + xIndex * cellWidth + cellWidth / 2,
+        y: panelY + yIndex * cellHeight + cellHeight / 2,
+      };
+    });
+
+  const thresholdLine = thresholdPoints.length
+    ? `
+      <path
+        d="${thresholdPoints
+          .map(function toPath(point, index) {
+            return `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`;
+          })
+          .join(" ")}"
+        fill="none"
+        stroke="rgba(255,255,255,0.95)"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      ${thresholdPoints
+        .map(function renderPoint(point) {
+          return `<circle cx="${point.x}" cy="${point.y}" r="6.5" fill="#ffffff" stroke="#2f6bb3" stroke-width="2" />`;
+        })
+        .join("")}
+    `
+    : "";
+
+  const yTicks = yValues
+    .map(function renderYTick(value, index) {
+      return renderTextLines({
+        lines: [`${value}%`],
+        x: panelX - 20,
+        y: panelY + index * cellHeight + cellHeight / 2 + 7,
+        fontSize: 20,
+        lineHeight: 22,
+        fill: "#6f6559",
+        textAnchor: "end",
+        fontWeight: 700,
+      });
+    })
+    .join("");
+
+  const xTicks = xValues
+    .filter(function everyFifth(_, index) {
+      return index % 4 === 0 || index === xValues.length - 1;
+    })
+    .map(function renderXTick(value) {
+      const index = xValues.indexOf(value);
+      return renderTextLines({
+        lines: [`${value}%`],
+        x: panelX + index * cellWidth + cellWidth / 2,
+        y: panelY + plotHeight + 36,
+        fontSize: 19,
+        lineHeight: 21,
+        fill: "#6f6559",
+        textAnchor: "middle",
+        fontWeight: 700,
+      });
+    })
+    .join("");
+
+  return `
+    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="30" fill="rgba(255,255,255,0.72)" />
+    ${renderTextLines({
+      lines: [title],
+      x: x + 28,
+      y: y + 44,
+      fontSize: 34,
+      lineHeight: 36,
+      fill: "#221f1a",
+      fontFamily: "Iowan Old Style, Palatino Linotype, serif",
+      fontWeight: 700,
+    })}
+    ${renderTextLines({
+      lines: wrapText(subtitle, 50),
+      x: x + 28,
+      y: y + 84,
+      fontSize: 18,
+      lineHeight: 22,
+      fill: "#6f6559",
+    })}
+    ${renderTextLines({
+      lines: [yLabel],
+      x: panelX,
+      y: y + 128,
+      fontSize: 17,
+      lineHeight: 19,
+      fill: "#6f6559",
+      fontWeight: 700,
+    })}
+    <rect
+      x="${panelX}"
+      y="${panelY}"
+      width="${plotWidth}"
+      height="${plotHeight}"
+      rx="18"
+      fill="rgba(249, 244, 236, 0.25)"
+      stroke="rgba(111, 101, 89, 0.18)"
+      stroke-width="1.5"
+    />
+    ${cellMarkup}
+    ${thresholdLine}
+    ${yTicks}
+    ${xTicks}
+    ${renderTextLines({
+      lines: [xLabel],
+      x: panelX + plotWidth / 2,
+      y: y + height - 22,
+      fontSize: 20,
+      lineHeight: 22,
+      fill: "#6f6559",
+      textAnchor: "middle",
+      fontWeight: 700,
+    })}
+    <rect x="${x + width - 204}" y="${y + 30}" width="170" height="16" rx="8" fill="url(#heat-legend)" />
+    ${renderTextLines({
+      lines: ["Loses staff time"],
+      x: x + width - 208,
+      y: y + 24,
+      fontSize: 13,
+      lineHeight: 15,
+      fill: "#6f6559",
+      textAnchor: "end",
+      fontWeight: 700,
+    })}
+    ${renderTextLines({
+      lines: ["Saves staff time"],
+      x: x + width - 34,
+      y: y + 24,
+      fontSize: 13,
+      lineHeight: 15,
+      fill: "#6f6559",
+      textAnchor: "start",
+      fontWeight: 700,
+    })}
+  `;
+}
+
+function renderTablePanel({ x, y, width, title, columns, rows, fill = "rgba(255,255,255,0.72)" }) {
+  const rowHeight = 38;
+  const headerY = y + 94;
+  const bodyStartY = headerY + 24;
+  const totalHeight = 120 + rows.length * rowHeight;
+  const columnWidth = width / columns.length;
+
+  return `
+    <rect x="${x}" y="${y}" width="${width}" height="${totalHeight}" rx="28" fill="${fill}" />
+    ${renderTextLines({
+      lines: [title],
+      x: x + 24,
+      y: y + 44,
+      fontSize: 30,
+      lineHeight: 32,
+      fill: "#221f1a",
+      fontFamily: "Iowan Old Style, Palatino Linotype, serif",
+      fontWeight: 700,
+    })}
+    ${columns
+      .map(function renderColumn(column, index) {
+        return renderTextLines({
+          lines: [column],
+          x: x + 24 + index * columnWidth,
+          y: headerY,
+          fontSize: 15,
+          lineHeight: 17,
+          fill: "#6f6559",
+          fontWeight: 700,
+          letterSpacing: 1.2,
+        });
+      })
+      .join("")}
+    <line x1="${x + 20}" y1="${headerY + 14}" x2="${x + width - 20}" y2="${headerY + 14}" stroke="rgba(34,31,26,0.12)" />
+    ${rows
+      .map(function renderRow(row, rowIndex) {
+        const rowY = bodyStartY + rowIndex * rowHeight;
+        return `
+          <line x1="${x + 20}" y1="${rowY + 18}" x2="${x + width - 20}" y2="${rowY + 18}" stroke="rgba(34,31,26,0.08)" />
+          ${row
+            .map(function renderCell(cell, cellIndex) {
+              return renderTextLines({
+                lines: [cell],
+                x: x + 24 + cellIndex * columnWidth,
+                y: rowY + 10,
+                fontSize: 18,
+                lineHeight: 20,
+                fill: "#221f1a",
+              });
+            })
+            .join("")}
+        `;
+      })
+      .join("")}
+  `;
+}
+
+function buildDashboardSvg() {
+  const width = 1600;
+  const height = 1260;
+  const machineOneRisk = results.machineDefaultRiskByCount.find(function find(item) {
+    return item.machineCount === 1;
+  }).summary;
+  const machineTwoRisk = results.machineDefaultRiskByCount.find(function find(item) {
+    return item.machineCount === 2;
+  }).summary;
+  const parentThreshold = results.parentThresholds[0];
+  const machineOneThreshold = results.machineThresholds.find(function find(item) {
+    return item.machineCount === 1;
+  });
+  const machineTwoThreshold = results.machineThresholds.find(function find(item) {
+    return item.machineCount === 2;
+  });
+  const bullets = [
+    "Failures are now split into separate buckets: non-compliance versus incorrect parent application, and struggle-led redo versus incorrect-after-machine.",
+    "Late arrivals are modeled as more error-prone, so the break-even thresholds are less optimistic than the earlier independent model.",
   ];
+  const caution =
+    `The arrival curve peaks about ${results.config.arrivalPeakBeforeDepartureMinutes} minutes before departure, but the ready-by target is ${results.config.departureBufferMinutes} minutes before departure. Some children arrive after the target itself, so the clearer comparison is how far past the target each option finishes.`;
 
   return `
     <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
       <defs>
-        <linearGradient id="hero-bg" x1="0" x2="1" y1="0" y2="1">
+        <linearGradient id="dash-bg" x1="0" x2="1" y1="0" y2="1">
           <stop offset="0%" stop-color="#fcf6ec" />
           <stop offset="100%" stop-color="#eee0cb" />
         </linearGradient>
-        <linearGradient id="accent-bg" x1="0" x2="1" y1="0" y2="1">
+        <linearGradient id="dash-accent" x1="0" x2="1" y1="0" y2="1">
           <stop offset="0%" stop-color="#b3572f" />
           <stop offset="100%" stop-color="#d48450" />
         </linearGradient>
@@ -715,9 +1208,9 @@ function buildDashboardSvg() {
           <feDropShadow dx="0" dy="24" stdDeviation="26" flood-color="#5b432e" flood-opacity="0.12" />
         </filter>
       </defs>
-      <rect width="${width}" height="${height}" rx="40" fill="url(#hero-bg)" />
+      <rect width="${width}" height="${height}" rx="40" fill="url(#dash-bg)" />
       <rect x="30" y="30" width="${width - 60}" height="${height - 60}" rx="34" fill="#fffdf8" filter="url(#dash-shadow)" />
-      <rect x="88" y="88" width="620" height="256" rx="34" fill="url(#accent-bg)" />
+      <rect x="88" y="88" width="620" height="256" rx="34" fill="url(#dash-accent)" />
       ${renderTextLines({
         lines: ["ESC102 / DAYCARE FIELD TRIP"],
         x: 128,
@@ -770,100 +1263,292 @@ function buildDashboardSvg() {
         x: 792,
         y: 270,
         width: 316,
-        height: 126,
-        label: "Arrivals",
-        value: `${results.config.arrivalWindowMinutes}m window, peak ${round(results.config.arrivalPeakBeforeDepartureMinutes, 1)}m before departure`,
+        height: 118,
+        label: "Ready-by deadline",
+        value: `${results.config.departureBufferMinutes} minutes before departure`,
         fill: "#fdf3ea",
-        valueMaxChars: 17,
+        maxChars: 18,
       })}
       ${renderAssumptionChip({
         x: 1128,
         y: 270,
         width: 316,
-        height: 126,
-        label: "Machine",
-        value: `${results.config.machineBaseSeconds}s base + 5 to 15s struggle time`,
+        height: 154,
+        label: "Correlation",
+        value: "Late arrivals are more likely to fail",
         fill: "#eef6f0",
-        valueMaxChars: 18,
+        maxChars: 14,
       })}
       ${renderStatCard({
         x: 88,
-        y: 424,
-        width: 332,
-        height: 214,
+        y: 430,
+        width: 320,
+        height: 248,
         eyebrow: "Current process",
-        valueLines: [employeeBaseline],
-        body: "Employee time for wristbanding and attendance in the current process.",
+        valueLines: [
+          formatDuration(results.baseline.meanEmployeeSeconds),
+          `${minutesText(results.baseline.meanLateSeconds)} past target`,
+        ],
+        body: `Missed the ready-by target in ${percentText(results.baseline.lateProbability * 100, 0)} of simulated days.`,
         fill: "#fff4ec",
       })}
       ${renderStatCard({
-        x: 444,
-        y: 424,
-        width: 332,
-        height: 214,
-        eyebrow: "Parent model",
-        valueLines: formatRangeLines(parentRange.min, parentRange.max),
-        body: "5 seconds per child if compliant, plus 25 extra seconds for every missed or incorrect wristband.",
+        x: 432,
+        y: 430,
+        width: 320,
+        height: 248,
+        eyebrow: "Parent default",
+        valueLines: [
+          formatDuration(results.parentDefaultSummary.meanEmployeeSeconds),
+          `${minutesText(results.parentDefaultSummary.meanLateSeconds)} past target`,
+        ],
+        body: `${results.config.defaultParentCompliancePercent}% compliance and ${results.config.parentIncorrectPercent}% wrong among parents who try. Break-even: ${round(parentThreshold.thresholdPercent, 1)}% compliance.`,
         fill: "#eef5fd",
-        bodyMaxChars: 26,
       })}
       ${renderStatCard({
-        x: 800,
-        y: 456,
-        width: 332,
-        height: 232,
-        eyebrow: "1 machine",
-        valueLines: formatRangeLines(machineOneRange.min, machineOneRange.max),
-        body: `Useful until about ${round(machineOne.thresholdPercent, 1)}% struggle when the machine case still ends in employee redo.`,
+        x: 776,
+        y: 430,
+        width: 320,
+        height: 248,
+        eyebrow: "1 machine default",
+        valueLines: [
+          formatDuration(machineOneRisk.meanEmployeeSeconds),
+          `${minutesText(machineOneRisk.meanLateSeconds)} past target`,
+        ],
+        body: `${results.config.defaultMachineStrugglePercent}% struggle and ${results.config.machineIncorrectPercent}% wrong after machine use. Break-even: ${round(machineOneThreshold.thresholdPercent, 1)}% struggle.`,
         fill: "#edf6ee",
-        bodyMaxChars: 24,
       })}
       ${renderStatCard({
-        x: 1156,
-        y: 456,
-        width: 332,
-        height: 232,
-        eyebrow: "2 machines",
-        valueLines: formatRangeLines(machineTwoRange.min, machineTwoRange.max),
-        body: "Same employee-time curve as one machine, because machine count does not change the staff redo work.",
+        x: 1120,
+        y: 430,
+        width: 320,
+        height: 248,
+        eyebrow: "2 machines default",
+        valueLines: [
+          formatDuration(machineTwoRisk.meanEmployeeSeconds),
+          `${minutesText(machineTwoRisk.meanLateSeconds)} past target`,
+        ],
+        body: `Same inputs, but less crowding reduces failure conversion. Break-even: ${round(machineTwoThreshold.thresholdPercent, 1)}% struggle.`,
         fill: "#f4f1fb",
-        bodyMaxChars: 24,
       })}
       ${renderBulletPanel({
         x: 88,
-        y: 700,
-        width: 1400,
-        height: 270,
-        title: "What This Means",
-        bullets: leftBullets,
+        y: 724,
+        width: 820,
+        height: 360,
+        title: "What Changed",
+        bullets,
+        fill: "#fff9f1",
+      })}
+      ${renderCalloutPanel({
+        x: 944,
+        y: 724,
+        width: 496,
+        height: 360,
+        title: "Deadline caveat",
+        body: caution,
         fill: "#fff9f1",
       })}
     </svg>
   `.trim();
 }
 
-function buildReportHtml() {
-  const parentRows = results.parentThresholds
-    .map(
-      (item) => `
-        <tr>
-          <td>${escapeMarkup(item.label)}</td>
-          <td>${escapeMarkup(thresholdLabel(item.thresholdPercent, "parent"))}</td>
-        </tr>
-      `,
-    )
-    .join("");
+function buildAtlasSvg() {
+  const width = 1660;
+  const height = 1440;
+  const heatParentXValues = Array.from(
+    new Set(results.parentHeatmap.map(function pick(point) {
+      return point.x;
+    })),
+  );
+  const heatParentYValues = Array.from(
+    new Set(results.parentHeatmap.map(function pick(point) {
+      return point.y;
+    })),
+  );
+  const heatMachineXValues = Array.from(
+    new Set(results.machineHeatmap.map(function pick(point) {
+      return point.x;
+    })),
+  );
+  const heatMachineYValues = Array.from(
+    new Set(results.machineHeatmap.map(function pick(point) {
+      return point.y;
+    })),
+  );
+  const machineOneRisk = results.machineDefaultRiskByCount.find(function find(item) {
+    return item.machineCount === 1;
+  }).summary;
+  const machineTwoRisk = results.machineDefaultRiskByCount.find(function find(item) {
+    return item.machineCount === 2;
+  }).summary;
 
-  const machineRows = results.machineThresholds
-    .map(
-      (item) => `
-        <tr>
-          <td>${item.machineCount}</td>
-          <td>${escapeMarkup(thresholdLabel(item.thresholdPercent, "machine"))}</td>
-        </tr>
-      `,
-    )
-    .join("");
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+      <defs>
+        <linearGradient id="atlas-bg" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#fbf5eb" />
+          <stop offset="100%" stop-color="#efe4d2" />
+        </linearGradient>
+        <linearGradient id="heat-legend" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#c3674f" />
+          <stop offset="50%" stop-color="#f4efe6" />
+          <stop offset="100%" stop-color="#4f8a69" />
+        </linearGradient>
+        <filter id="atlas-shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#5d4631" flood-opacity="0.12" />
+        </filter>
+      </defs>
+      <rect width="${width}" height="${height}" rx="40" fill="url(#atlas-bg)" />
+      <rect x="28" y="28" width="${width - 56}" height="${height - 56}" rx="32" fill="#fffdf8" filter="url(#atlas-shadow)" />
+      ${renderTextLines({
+        lines: ["Sensitivity Atlas"],
+        x: 140,
+        y: 92,
+        fontSize: 52,
+        lineHeight: 54,
+        fill: "#221f1a",
+        fontFamily: "Iowan Old Style, Palatino Linotype, serif",
+        fontWeight: 700,
+      })}
+      ${renderTextLines({
+        lines: wrapText("Heatmaps show employee minutes saved versus the current process. White dots mark the estimated break-even contour.", 96),
+        x: 140,
+        y: 132,
+        fontSize: 24,
+        lineHeight: 30,
+        fill: "#6f6559",
+      })}
+      ${renderHeatmapPanel({
+        x: 88,
+        y: 178,
+        width: 708,
+        height: 474,
+        title: "Parent Heatmap",
+        subtitle: "Green cells save employee time; red cells add employee time versus the current process.",
+        xLabel: "Parent compliance (%)",
+        yLabel: "Wrong among parents who tried (%)",
+        xValues: heatParentXValues,
+        yValues: heatParentYValues,
+        cells: results.parentHeatmap,
+        thresholdRows: results.parentThresholdTable,
+      })}
+      ${renderHeatmapPanel({
+        x: 852,
+        y: 178,
+        width: 708,
+        height: 474,
+        title: "1-Machine Heatmap",
+        subtitle: "Green cells save employee time; red cells add employee time versus the current process.",
+        xLabel: "Machine struggle (%)",
+        yLabel: "Wrong after machine use (%)",
+        xValues: heatMachineXValues,
+        yValues: heatMachineYValues,
+        cells: results.machineHeatmap,
+        thresholdRows: results.machineThresholdTable.map(function mapRow(item) {
+          return {
+            incorrectPercent: item.incorrectPercent,
+            thresholdPercent: item.oneMachineThresholdPercent,
+          };
+        }),
+      })}
+      ${renderTablePanel({
+        x: 88,
+        y: 702,
+        width: 480,
+        title: "Parent Break-even Table",
+        columns: ["Incorrect", "Break-even", "Saved @ 70%"],
+        rows: results.parentThresholdTable.map(function mapRow(item) {
+          return [
+            `${item.incorrectPercent}%`,
+            item.thresholdPercent === null ? "None" : `${round(item.thresholdPercent, 1)}%`,
+            `${round(item.savedMinutesAtDefault, 1)}m`,
+          ];
+        }),
+      })}
+      ${renderTablePanel({
+        x: 604,
+        y: 702,
+        width: 560,
+        title: "Machine Break-even Table",
+        columns: ["Incorrect", "1 machine", "2 machines"],
+        rows: results.machineThresholdTable.map(function mapRow(item) {
+          return [
+            `${item.incorrectPercent}%`,
+            thresholdCellText(item.oneMachineThresholdPercent, "machine"),
+            thresholdCellText(item.twoMachineThresholdPercent, "machine"),
+          ];
+        }),
+      })}
+      ${renderTablePanel({
+        x: 1200,
+        y: 702,
+        width: 360,
+        title: "Deadline Risk Table",
+        columns: ["Scenario", "Missed target", "Avg past target"],
+        rows: [
+          [
+            "Current",
+            percentText(results.baseline.lateProbability * 100, 0),
+            minutesText(results.baseline.meanLateSeconds),
+          ],
+          [
+            "Parent",
+            percentText(results.parentDefaultSummary.lateProbability * 100, 0),
+            minutesText(results.parentDefaultSummary.meanLateSeconds),
+          ],
+          [
+            "1 machine",
+            percentText(machineOneRisk.lateProbability * 100, 0),
+            minutesText(machineOneRisk.meanLateSeconds),
+          ],
+          [
+            "2 machines",
+            percentText(machineTwoRisk.lateProbability * 100, 0),
+            minutesText(machineTwoRisk.meanLateSeconds),
+          ],
+        ],
+      })}
+      ${renderBulletPanel({
+        x: 88,
+        y: 980,
+        width: 930,
+        height: 300,
+        title: "Interpretation",
+        bullets: [
+          "Parent heatmap: move right to model higher parent compliance. Move down to model more parents who tried but still put the band on incorrectly.",
+          "Machine heatmap: move right to model more families struggling at the machine. Move down to model more machine attempts that still need staff correction.",
+        ],
+        fill: "#fff9f1",
+      })}
+      ${renderCalloutPanel({
+        x: 1052,
+        y: 980,
+        width: 508,
+        height: 300,
+        title: "Why the deadline saturates",
+        body: "Because the arrival curve still extends past the ready-by target, the miss rate stays at 100% in the default setup. The more useful comparison is the average minutes each option finishes past that target.",
+        fill: "#fff9f1",
+      })}
+    </svg>
+  `.trim();
+}
+
+function buildParentFailureMixText(counts) {
+  return `${Math.round(counts.success || 0)} correct, ${Math.round(counts.nonCompliant || 0)} no band, ${Math.round(counts.incorrectApplied || 0)} still needed redo.`;
+}
+
+function buildMachineFailureMixText(counts) {
+  return `${Math.round(counts.success || 0)} clean, ${Math.round(counts.struggleRedo || 0)} redo after struggle, ${Math.round(counts.incorrectAfterMachine || 0)} still needed correction.`;
+}
+
+function buildReportHtml() {
+  const machineOneRisk = results.machineDefaultRiskByCount.find(function find(item) {
+    return item.machineCount === 1;
+  }).summary;
+  const machineTwoRisk = results.machineDefaultRiskByCount.find(function find(item) {
+    return item.machineCount === 2;
+  }).summary;
 
   return `
     <!DOCTYPE html>
@@ -935,16 +1620,6 @@ function buildReportHtml() {
             font-size: 2rem;
             margin: 12px 0 8px;
           }
-          .grid {
-            display: grid;
-            grid-template-columns: repeat(12, minmax(0, 1fr));
-            gap: 18px;
-          }
-          .panel {
-            padding: 24px;
-          }
-          .panel.wide { grid-column: span 12; }
-          .panel.half { grid-column: span 6; }
           .cards {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -970,21 +1645,9 @@ function buildReportHtml() {
             line-height: 1.2;
             margin-bottom: 8px;
           }
-          table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 12px;
-          }
-          th, td {
-            padding: 12px 10px;
-            text-align: left;
-            border-top: 1px solid var(--border);
-          }
-          th {
-            color: var(--muted);
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+          .panel {
+            padding: 24px;
+            margin-top: 18px;
           }
           img {
             width: 100%;
@@ -995,8 +1658,7 @@ function buildReportHtml() {
           }
           .muted { color: var(--muted); }
           @media (max-width: 980px) {
-            .hero, .cards, .grid { grid-template-columns: 1fr; }
-            .panel.half { grid-column: span 12; }
+            .hero, .cards { grid-template-columns: 1fr; }
           }
         </style>
       </head>
@@ -1007,98 +1669,91 @@ function buildReportHtml() {
               <p class="eyebrow">ESC102 / Beta-Simulation</p>
               <h1>Daycare Wristband Prototype Report</h1>
               <p class="muted">
-                This report compares the current wristband process against two proposed alternatives:
-                parents applying wristbands before class check-in, and a dispensing machine with one or two stations.
+                The upgraded simulation now tracks separate failure types, late-arrival correlation, employee minutes,
+                confidence bands, and a ready-by deadline set ${results.config.departureBufferMinutes} minutes before departure.
               </p>
             </div>
             <div class="hero-card">
               <span class="muted">Current process employee time</span>
-              <strong>${formatDuration(results.parentEmployeeBaselineSeconds)}</strong>
+              <strong>${formatDuration(results.baseline.meanEmployeeSeconds)}</strong>
               <p class="muted">
-                Assumptions: ${results.config.children} children, ${results.config.classrooms} classrooms,
-                a ${results.config.arrivalWindowMinutes}-minute arrival window peaking ${round(results.config.arrivalPeakBeforeDepartureMinutes, 1)} minutes before departure,
-                and ${results.config.runs} Monte Carlo runs per point.
+                Default deadline risk: missed the ready-by target in ${percentText(results.baseline.lateProbability * 100, 0)}
+                of simulated days, with an average finish ${minutesText(results.baseline.meanLateSeconds)} past the target.
               </p>
             </div>
           </section>
 
-          <section class="panel wide">
+          <section class="panel">
             <h2>Decision Summary</h2>
             <div class="cards">
               <article class="card">
-                <h3>Parent model</h3>
-                <strong>${escapeMarkup(thresholdLabel(results.parentThresholds[0].thresholdPercent, "parent"))}</strong>
-                <p class="muted">Staff time uses 5 seconds per child if compliant, plus 25 extra seconds for each missed or incorrect wristband.</p>
+                <h3>Parent default</h3>
+                <strong>${formatDuration(results.parentDefaultSummary.meanEmployeeSeconds)}</strong>
+                <p class="muted">${thresholdLabel(results.parentThresholds[0].thresholdPercent, "parent")}. ${lateText(results.parentDefaultSummary)}</p>
               </article>
               <article class="card">
-                <h3>1 machine</h3>
-                <strong>${escapeMarkup(thresholdLabel(results.machineThresholds[0].thresholdPercent, "machine"))}</strong>
-                <p class="muted">This is the struggle-rate limit before machine cases consume more employee time than the current process.</p>
+                <h3>1 machine default</h3>
+                <strong>${formatDuration(machineOneRisk.meanEmployeeSeconds)}</strong>
+                <p class="muted">${thresholdLabel(results.machineThresholds.find((item) => item.machineCount === 1).thresholdPercent, "machine")}. ${lateText(machineOneRisk)}</p>
               </article>
               <article class="card">
-                <h3>2 machines</h3>
-                <strong>${escapeMarkup(thresholdLabel(results.machineThresholds[1].thresholdPercent, "machine"))}</strong>
-                <p class="muted">Under employee time, the two-machine line overlaps the one-machine line because staff work happens after the machine handoff fails.</p>
+                <h3>2 machines default</h3>
+                <strong>${formatDuration(machineTwoRisk.meanEmployeeSeconds)}</strong>
+                <p class="muted">${thresholdLabel(results.machineThresholds.find((item) => item.machineCount === 2).thresholdPercent, "machine")}. ${lateText(machineTwoRisk)}</p>
               </article>
             </div>
           </section>
 
-          <div class="grid" style="margin-top: 18px;">
-            <section class="panel half">
-              <h2>Parent Threshold Table</h2>
-              <table>
-                <thead>
-                  <tr><th>Series</th><th>Useful region</th></tr>
-                </thead>
-                <tbody>${parentRows}</tbody>
-              </table>
-            </section>
-            <section class="panel half">
-              <h2>Machine Threshold Table</h2>
-              <table>
-                <thead>
-                  <tr><th>Machines</th><th>Useful region</th></tr>
-                </thead>
-                <tbody>${machineRows}</tbody>
-              </table>
-            </section>
-            <section class="panel wide">
-              <h2>Decision Dashboard</h2>
-              <img src="./decision-dashboard.svg" alt="Simulation decision dashboard" />
-            </section>
-            <section class="panel wide">
-              <h2>Parent Compliance Threshold</h2>
-              <img src="./parent-compliance.svg" alt="Parent compliance threshold chart" />
-            </section>
-            <section class="panel wide">
-              <h2>Machine Threshold</h2>
-              <img src="./machine-threshold.svg" alt="Machine threshold chart" />
-            </section>
-          </div>
+          <section class="panel">
+            <h2>Dashboard</h2>
+            <img src="./decision-dashboard.svg" alt="Simulation decision dashboard" />
+          </section>
+
+          <section class="panel">
+            <h2>Parent Employee-Time Curve</h2>
+            <img src="./parent-compliance.svg" alt="Parent compliance chart with confidence band" />
+          </section>
+
+          <section class="panel">
+            <h2>Machine Employee-Time Curve</h2>
+            <img src="./machine-threshold.svg" alt="Machine threshold chart with confidence band" />
+          </section>
+
+          <section class="panel">
+            <h2>Sensitivity Atlas</h2>
+            <img src="./sensitivity-atlas.svg" alt="Parent and machine heatmaps with break-even tables" />
+          </section>
         </div>
       </body>
     </html>
   `.trim();
 }
 
-const parentSvg = renderLineChart({
-  title: "Parent Compliance Threshold",
+const parentIncorrectPercent = results.parentSeries[0].incorrectPercent;
+const parentFailureMix = buildParentFailureMixText(results.parentDefaultSummary.meanFailureCounts);
+const machineFailureMix = buildMachineFailureMixText(results.machineDefaultSummary.meanFailureCounts);
+const machineOneRisk = results.machineDefaultRiskByCount.find(function find(item) {
+  return item.machineCount === 1;
+}).summary;
+const machineTwoRisk = results.machineDefaultRiskByCount.find(function find(item) {
+  return item.machineCount === 2;
+}).summary;
+const machineOneThreshold = results.machineThresholds.find(function find(item) {
+  return item.machineCount === 1;
+});
+const machineTwoThreshold = results.machineThresholds.find(function find(item) {
+  return item.machineCount === 2;
+});
+
+const parentSvg = renderBandChartPage({
+  title: "Parent Compliance",
   subtitle:
-    "The solid line is employee time for the parent model. It assumes 5 seconds per child if compliant, plus 25 extra seconds for each missed or incorrect wristband.",
+    "Employee time versus parent compliance. Each child costs about 3 to 5 seconds to verify when the band is usable, plus 25 extra seconds if staff must redo it.",
   xAxisTitle: "Parent compliance (%)",
   yAxisTitle: "Employee time (minutes)",
   series: results.parentSeries,
   colors: ["#2f6bb3"],
   baselineY: results.parentEmployeeBaselineSeconds,
-  legendTitle: "Legend",
-  insights: [
-    {
-      eyebrow: "Decision",
-      value: thresholdLabel(results.parentThresholds[0].thresholdPercent, "parent"),
-      body: "This is the compliance point where delegated wristbands start saving employee time compared with the current process.",
-      fill: "#fff4ec",
-    },
-  ],
   thresholdMarkers:
     results.parentThresholds[0].thresholdPercent === null
       ? []
@@ -1110,61 +1765,97 @@ const parentSvg = renderLineChart({
             fill: "rgba(47, 107, 179, 0.12)",
           },
         ],
-});
-
-const machineOneThreshold = results.machineThresholds.find(
-  (item) => item.machineCount === 1,
-);
-const machineTwoThreshold = results.machineThresholds.find(
-  (item) => item.machineCount === 2,
-);
-
-const machineSvg = renderLineChart({
-  title: "Machine Threshold",
-  subtitle:
-    "Both machine lines now use employee time. A successful machine handoff costs 5 seconds of staff time; a struggling or incorrect case costs 30 seconds total.",
-  xAxisTitle: "Parents who struggle at the machine (%)",
-  yAxisTitle: "Employee time (minutes)",
-  series: results.machineSeries.map((series, index) =>
-    index === 1 ? { ...series, strokeDasharray: "16 10" } : series
-  ),
-  colors: ["#2f6bb3", "#4d7a58"],
-  baselineY: results.parentEmployeeBaselineSeconds,
-  legendTitle: "Legend",
+  bandNote: "Blue shading = the middle 80% of simulated days for this parent curve.",
   insights: [
     {
-      eyebrow: "1 machine",
-      value: thresholdLabel(machineOneThreshold.thresholdPercent, "machine"),
-      body: "This is where struggling machine cases start to consume more employee time than the current process.",
+      eyebrow: "Break-even",
+      value: thresholdLabel(results.parentThresholds[0].thresholdPercent, "parent"),
+      body: `This is based on ${parentIncorrectPercent}% incorrect application among parents who try before entering.`,
+      fill: "#fff4ec",
+    },
+    {
+      eyebrow: "Default case",
+      value: `${formatDuration(results.parentDefaultSummary.meanEmployeeSeconds)} staff time`,
+      body: `${results.config.defaultParentCompliancePercent}% compliance and ${results.config.parentIncorrectPercent}% wrong among parents who try. ${lateText(results.parentDefaultSummary)}`,
       fill: "#eef5fd",
     },
     {
-      eyebrow: "2 machines",
-      value: thresholdLabel(machineTwoThreshold.thresholdPercent, "machine"),
-      body: "This overlaps the one-machine result because machine count changes queueing, not the employee redo path.",
-      fill: "#fff4ec",
+      eyebrow: "Failure mix",
+      value: "Average out of 90",
+      body: parentFailureMix,
+      fill: "#f4f1fb",
     },
   ],
-  thresholdMarkers:
-    machineOneThreshold.thresholdPercent === null
-      ? []
-      : [
-          {
-            x: machineOneThreshold.thresholdPercent,
-            label: `1-machine crossover`,
-            color: "#2f6bb3",
-            fill: "rgba(47, 107, 179, 0.12)",
-          },
-        ],
 });
 
+const machineSvg = renderBandChartPage({
+  title: "Machine Struggle Threshold",
+  subtitle:
+    "Employee time versus the share of families who struggle at the machine. Both lines use the same staff-time metric as the parent chart.",
+  xAxisTitle: "Parents who struggle at the machine (%)",
+  yAxisTitle: "Employee time (minutes)",
+  series: results.machineSeries.map(function styleMachineSeries(line, index) {
+    if (index === 0) {
+      return Object.assign({}, line, {
+        showBand: true,
+        strokeWidth: 6,
+      });
+    }
+
+    return Object.assign({}, line, {
+      showBand: false,
+      strokeWidth: 7,
+      outlineStroke: "#fffdf8",
+      outlineWidth: 12,
+    });
+  }),
+  colors: ["#2f6bb3", "#4d7a58"],
+  baselineY: results.parentEmployeeBaselineSeconds,
+  thresholdMarkers: [machineOneThreshold, machineTwoThreshold]
+    .filter(function keep(item) {
+      return item && typeof item.thresholdPercent === "number";
+    })
+    .map(function toMarker(item) {
+      return {
+        x: item.thresholdPercent,
+        label: item.machineCount === 1 ? "1-machine" : "2-machines",
+        color: item.machineCount === 1 ? "#2f6bb3" : "#4d7a58",
+        fill: item.machineCount === 1 ? "rgba(47, 107, 179, 0.12)" : "rgba(77, 122, 88, 0.12)",
+      };
+    }),
+  insights: [
+    {
+      eyebrow: "Break-even",
+      value: `${thresholdLabel(machineOneThreshold.thresholdPercent, "machine")} / ${thresholdLabel(machineTwoThreshold.thresholdPercent, "machine")}`,
+      body: "Option C is applied here: with 2 machines, lighter crowding lowers wrong-after-machine cases and lowers the share of struggle cases that become redo.",
+      fill: "#eef5fd",
+    },
+    {
+      eyebrow: "Default case",
+      value: `${formatDuration(results.machineDefaultSummary.meanEmployeeSeconds)} staff time`,
+      body: `${results.config.defaultMachineStrugglePercent}% struggle and ${results.config.machineIncorrectPercent}% wrong after machine use. 1 machine finished ${minutesText(machineOneRisk.meanLateSeconds)} past target on average. 2 machines finished ${minutesText(machineTwoRisk.meanLateSeconds)} past target on average.`,
+      fill: "#fff4ec",
+    },
+    {
+      eyebrow: "Failure mix",
+      value: "Average out of 90",
+      body: machineFailureMix,
+      fill: "#f4f1fb",
+    },
+  ],
+});
+
+fs.writeFileSync(path.join(outputDir, "decision-dashboard.svg"), `${buildDashboardSvg()}\n`);
 fs.writeFileSync(path.join(outputDir, "parent-compliance.svg"), `${parentSvg}\n`);
 fs.writeFileSync(path.join(outputDir, "machine-threshold.svg"), `${machineSvg}\n`);
-fs.writeFileSync(path.join(outputDir, "decision-dashboard.svg"), `${buildDashboardSvg()}\n`);
+fs.writeFileSync(path.join(outputDir, "sensitivity-atlas.svg"), `${buildAtlasSvg()}\n`);
 fs.writeFileSync(path.join(outputDir, "report.html"), `${buildReportHtml()}\n`);
 
 buildParentCsv();
 buildMachineCsv();
+buildHeatmapCsv("parent-heatmap.csv", results.parentHeatmap);
+buildHeatmapCsv("machine-heatmap.csv", results.machineHeatmap);
+buildDeadlineRiskCsv();
 buildSummaryJson();
 
 console.log("Generated static report assets:");
@@ -1172,3 +1863,4 @@ console.log(`- ${path.join(outputDir, "report.html")}`);
 console.log(`- ${path.join(outputDir, "decision-dashboard.svg")}`);
 console.log(`- ${path.join(outputDir, "parent-compliance.svg")}`);
 console.log(`- ${path.join(outputDir, "machine-threshold.svg")}`);
+console.log(`- ${path.join(outputDir, "sensitivity-atlas.svg")}`);

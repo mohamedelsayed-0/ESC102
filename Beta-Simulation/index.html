@@ -86,6 +86,16 @@
               <span>Simulation runs per point</span>
               <input id="runs" type="number" min="50" step="50" value="400" />
             </label>
+            <label>
+              <span>Ready-by buffer before departure (minutes)</span>
+              <input
+                id="departure-buffer-minutes"
+                type="number"
+                min="0"
+                step="1"
+                value="5"
+              />
+            </label>
 
             <label>
               <span>Current wristband time (seconds, avg)</span>
@@ -139,6 +149,17 @@
               />
             </label>
             <label>
+              <span>Parent incorrect among compliers (%)</span>
+              <input
+                id="parent-incorrect-percent"
+                type="number"
+                min="0"
+                max="100"
+                step="1"
+                value="20"
+              />
+            </label>
+            <label>
               <span>Machine base time (seconds total)</span>
               <input
                 id="machine-base-seconds"
@@ -183,11 +204,10 @@
 
           <div class="assumption-note">
             <p>
-              Parent compliance now measures employee time directly: 5 seconds
-              per child for attendance/check, plus 25 extra seconds for each
-              failed parent case. The machine chart now uses the same metric:
-              5 seconds if the handoff succeeds, plus 25 extra seconds when a
-              struggling or incorrect machine case still needs employee redo.
+              Both prototype charts measure employee time directly. The model
+              now separates failure types, makes late arrivals more failure-prone,
+              and checks whether everyone is ready by a deadline set before
+              departure.
             </p>
           </div>
         </section>
@@ -219,7 +239,8 @@
             <p class="graph-note">
               X-axis: percentage of parents whose machine attempt still ends in
               the employee redo path. Y-axis: employee time. The dashed line is
-              the current employee-time baseline.
+              the current employee-time baseline. One and two machines overlap
+              here because machine count affects deadline risk, not employee redo time.
             </p>
           </div>
           <div id="machine-chart" class="chart"></div>

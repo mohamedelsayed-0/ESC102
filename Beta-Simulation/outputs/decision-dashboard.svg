@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1060" viewBox="0 0 1600 1060">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1260" viewBox="0 0 1600 1260">
       <defs>
-        <linearGradient id="hero-bg" x1="0" x2="1" y1="0" y2="1">
+        <linearGradient id="dash-bg" x1="0" x2="1" y1="0" y2="1">
           <stop offset="0%" stop-color="#fcf6ec" />
           <stop offset="100%" stop-color="#eee0cb" />
         </linearGradient>
-        <linearGradient id="accent-bg" x1="0" x2="1" y1="0" y2="1">
+        <linearGradient id="dash-accent" x1="0" x2="1" y1="0" y2="1">
           <stop offset="0%" stop-color="#b3572f" />
           <stop offset="100%" stop-color="#d48450" />
         </linearGradient>
@@ -12,9 +12,9 @@
           <feDropShadow dx="0" dy="24" stdDeviation="26" flood-color="#5b432e" flood-opacity="0.12" />
         </filter>
       </defs>
-      <rect width="1600" height="1060" rx="40" fill="url(#hero-bg)" />
-      <rect x="30" y="30" width="1540" height="1000" rx="34" fill="#fffdf8" filter="url(#dash-shadow)" />
-      <rect x="88" y="88" width="620" height="256" rx="34" fill="url(#accent-bg)" />
+      <rect width="1600" height="1260" rx="40" fill="url(#dash-bg)" />
+      <rect x="30" y="30" width="1540" height="1200" rx="34" fill="#fffdf8" filter="url(#dash-shadow)" />
+      <rect x="88" y="88" width="620" height="256" rx="34" fill="url(#dash-accent)" />
       
         <text
           x="128"
@@ -133,7 +133,7 @@
       
   
       
-    <rect x="792" y="270" width="316" height="126" rx="24" fill="#fdf3ea" />
+    <rect x="792" y="270" width="316" height="118" rx="24" fill="#fdf3ea" />
     
         <text
           x="816"
@@ -145,7 +145,7 @@
           text-anchor="start"
           letter-spacing="2"
         >
-          ARRIVALS
+          READY-BY DEADLINE
         </text>
       
     
@@ -159,25 +159,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          30m window, peak
+          5 minutes before
         </text>
       
         <text
           x="816"
           y="372"
-          fill="#221f1a"
-          font-family="Iowan Old Style, Palatino Linotype, serif"
-          font-size="24"
-          font-weight="700"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          9m before
-        </text>
-      
-        <text
-          x="816"
-          y="400"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="24"
@@ -190,7 +177,7 @@
       
   
       
-    <rect x="1128" y="270" width="316" height="126" rx="24" fill="#eef6f0" />
+    <rect x="1128" y="270" width="316" height="154" rx="24" fill="#eef6f0" />
     
         <text
           x="1152"
@@ -202,7 +189,7 @@
           text-anchor="start"
           letter-spacing="2"
         >
-          MACHINE
+          CORRELATION
         </text>
       
     
@@ -216,7 +203,7 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          12s base + 5 to
+          Late arrivals
         </text>
       
         <text
@@ -229,16 +216,29 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          15s struggle time
+          are more
+        </text>
+      
+        <text
+          x="1152"
+          y="400"
+          fill="#221f1a"
+          font-family="Iowan Old Style, Palatino Linotype, serif"
+          font-size="24"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          likely to fail
         </text>
       
   
       
-    <rect x="88" y="424" width="332" height="214" rx="28" fill="#fff4ec" />
+    <rect x="88" y="430" width="320" height="248" rx="28" fill="#fff4ec" />
     
         <text
           x="116"
-          y="462"
+          y="468"
           fill="#6f6559"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -252,7 +252,7 @@
     
         <text
           x="116"
-          y="518"
+          y="524"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="30"
@@ -260,13 +260,26 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          34m 30s
+          34m 32s
+        </text>
+      
+        <text
+          x="116"
+          y="560"
+          fill="#221f1a"
+          font-family="Iowan Old Style, Palatino Linotype, serif"
+          font-size="30"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          19.4m past target
         </text>
       
     
         <text
           x="116"
-          y="578"
+          y="584"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -274,12 +287,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          Employee time for
+          Missed the ready-by target in
         </text>
       
         <text
           x="116"
-          y="601"
+          y="607"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -287,29 +300,16 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          wristbanding and attendance
-        </text>
-      
-        <text
-          x="116"
-          y="624"
-          fill="#5f574b"
-          font-family="Avenir Next, Segoe UI, sans-serif"
-          font-size="18"
-          font-weight="400"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          in the current process.
+          100% of simulated days.
         </text>
       
   
       
-    <rect x="444" y="424" width="332" height="214" rx="28" fill="#eef5fd" />
+    <rect x="432" y="430" width="320" height="248" rx="28" fill="#eef5fd" />
     
         <text
-          x="472"
-          y="462"
+          x="460"
+          y="468"
           fill="#6f6559"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -317,13 +317,13 @@
           text-anchor="start"
           letter-spacing="2"
         >
-          PARENT MODEL
+          PARENT DEFAULT
         </text>
       
     
         <text
-          x="472"
-          y="518"
+          x="460"
+          y="524"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="30"
@@ -331,12 +331,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          7m 30s
+          28m 25s
         </text>
       
         <text
-          x="472"
-          y="554"
+          x="460"
+          y="560"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="30"
@@ -344,13 +344,13 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          to 45m 00s
+          4.1m past target
         </text>
       
     
         <text
-          x="472"
-          y="578"
+          x="460"
+          y="584"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -358,12 +358,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          5 seconds per child if
+          70% compliance and 20% wrong
         </text>
       
         <text
-          x="472"
-          y="601"
+          x="460"
+          y="607"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -371,12 +371,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          compliant, plus 25 extra
+          among parents who try.
         </text>
       
         <text
-          x="472"
-          y="624"
+          x="460"
+          y="630"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -384,29 +384,16 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          seconds for every missed
-        </text>
-      
-        <text
-          x="472"
-          y="647"
-          fill="#5f574b"
-          font-family="Avenir Next, Segoe UI, sans-serif"
-          font-size="18"
-          font-weight="400"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          or incorrect wristband.
+          Break-even: 47.3% compliance.
         </text>
       
   
       
-    <rect x="800" y="456" width="332" height="232" rx="28" fill="#edf6ee" />
+    <rect x="776" y="430" width="320" height="248" rx="28" fill="#edf6ee" />
     
         <text
-          x="828"
-          y="494"
+          x="804"
+          y="468"
           fill="#6f6559"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -414,13 +401,13 @@
           text-anchor="start"
           letter-spacing="2"
         >
-          1 MACHINE
+          1 MACHINE DEFAULT
         </text>
       
     
         <text
-          x="828"
-          y="550"
+          x="804"
+          y="524"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="30"
@@ -428,12 +415,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          9m 23s
+          25m 03s
         </text>
       
         <text
-          x="828"
-          y="586"
+          x="804"
+          y="560"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="30"
@@ -441,13 +428,13 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          to 45m 00s
+          14.4m past target
         </text>
       
     
         <text
-          x="828"
-          y="610"
+          x="804"
+          y="584"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -455,12 +442,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          Useful until about 70.5%
+          30% struggle and 20% wrong
         </text>
       
         <text
-          x="828"
-          y="633"
+          x="804"
+          y="607"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -468,12 +455,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          struggle when the
+          after machine use. Break-even:
         </text>
       
         <text
-          x="828"
-          y="656"
+          x="804"
+          y="630"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -481,29 +468,16 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          machine case still ends
-        </text>
-      
-        <text
-          x="828"
-          y="679"
-          fill="#5f574b"
-          font-family="Avenir Next, Segoe UI, sans-serif"
-          font-size="18"
-          font-weight="400"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          in employee redo.
+          72% struggle.
         </text>
       
   
       
-    <rect x="1156" y="456" width="332" height="232" rx="28" fill="#f4f1fb" />
+    <rect x="1120" y="430" width="320" height="248" rx="28" fill="#f4f1fb" />
     
         <text
-          x="1184"
-          y="494"
+          x="1148"
+          y="468"
           fill="#6f6559"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -511,13 +485,13 @@
           text-anchor="start"
           letter-spacing="2"
         >
-          2 MACHINES
+          2 MACHINES DEFAULT
         </text>
       
     
         <text
-          x="1184"
-          y="550"
+          x="1148"
+          y="524"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="30"
@@ -525,12 +499,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          9m 23s
+          20m 15s
         </text>
       
         <text
-          x="1184"
-          y="586"
+          x="1148"
+          y="560"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="30"
@@ -538,13 +512,13 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          to 45m 00s
+          4.5m past target
         </text>
       
     
         <text
-          x="1184"
-          y="610"
+          x="1148"
+          y="584"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -552,12 +526,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          Same employee-time curve
+          Same inputs, but less crowding
         </text>
       
         <text
-          x="1184"
-          y="633"
+          x="1148"
+          y="607"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -565,12 +539,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          as one machine, because
+          reduces failure conversion.
         </text>
       
         <text
-          x="1184"
-          y="656"
+          x="1148"
+          y="630"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -578,42 +552,16 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          machine count does not
-        </text>
-      
-        <text
-          x="1184"
-          y="679"
-          fill="#5f574b"
-          font-family="Avenir Next, Segoe UI, sans-serif"
-          font-size="18"
-          font-weight="400"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          change the staff redo
-        </text>
-      
-        <text
-          x="1184"
-          y="702"
-          fill="#5f574b"
-          font-family="Avenir Next, Segoe UI, sans-serif"
-          font-size="18"
-          font-weight="400"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          work.
+          Break-even: 100% struggle.
         </text>
       
   
       
-    <rect x="88" y="700" width="1400" height="270" rx="30" fill="#fff9f1" />
+    <rect x="88" y="724" width="820" height="360" rx="30" fill="#fff9f1" />
     
         <text
           x="116"
-          y="748"
+          y="772"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="32"
@@ -621,15 +569,15 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          What This Means
+          What Changed
         </text>
       
     
-        <circle cx="116" cy="785" r="6" fill="#b3572f" />
+        <circle cx="116" cy="809" r="6" fill="#b3572f" />
         
         <text
           x="136"
-          y="792"
+          y="816"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="22"
@@ -637,12 +585,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          Parent delegation becomes useful once enough
+          Failures are now split into separate buckets:
         </text>
       
         <text
           x="136"
-          y="820"
+          y="844"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="22"
@@ -650,15 +598,28 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          families avoid the extra 25-second redo step.
+          non-compliance versus incorrect parent application, and
+        </text>
+      
+        <text
+          x="136"
+          y="872"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          struggle-led redo versus incorrect-after-machine.
         </text>
       
       
-        <circle cx="116" cy="867" r="6" fill="#b3572f" />
+        <circle cx="116" cy="919" r="6" fill="#b3572f" />
         
         <text
           x="136"
-          y="874"
+          y="926"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="22"
@@ -666,12 +627,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          Compliant child: 5 seconds of staff time.
+          Late arrivals are modeled as more error-prone, so the
         </text>
       
         <text
           x="136"
-          y="902"
+          y="954"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="22"
@@ -679,28 +640,12 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          Failed parent case: 30 seconds total.
-        </text>
-      
-      
-        <circle cx="116" cy="949" r="6" fill="#b3572f" />
-        
-        <text
-          x="136"
-          y="956"
-          fill="#5f574b"
-          font-family="Avenir Next, Segoe UI, sans-serif"
-          font-size="22"
-          font-weight="400"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          Under employee time, one and two machines
+          break-even thresholds are less optimistic than the
         </text>
       
         <text
           x="136"
-          y="984"
+          y="982"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="22"
@@ -708,12 +653,44 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          overlap because machine count changes
+          earlier independent model.
+        </text>
+      
+      
+  
+      
+    <rect x="944" y="724" width="496" height="360" rx="30" fill="#fff9f1" />
+    
+        <text
+          x="972"
+          y="766"
+          fill="#6f6559"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="18"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="2"
+        >
+          DEADLINE CAVEAT
+        </text>
+      
+    
+        <text
+          x="972"
+          y="814"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          The arrival curve peaks
         </text>
       
         <text
-          x="136"
-          y="1012"
+          x="972"
+          y="842"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="22"
@@ -721,9 +698,112 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          queueing, not the staff redo path.
+          about 9 minutes before
         </text>
       
+        <text
+          x="972"
+          y="870"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          departure, but the ready-by
+        </text>
+      
+        <text
+          x="972"
+          y="898"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          target is 5 minutes before
+        </text>
+      
+        <text
+          x="972"
+          y="926"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          departure. Some children
+        </text>
+      
+        <text
+          x="972"
+          y="954"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          arrive after the target
+        </text>
+      
+        <text
+          x="972"
+          y="982"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          itself, so the clearer
+        </text>
+      
+        <text
+          x="972"
+          y="1010"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          comparison is how far past
+        </text>
+      
+        <text
+          x="972"
+          y="1038"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          the target each option
+        </text>
+      
+        <text
+          x="972"
+          y="1066"
+          fill="#5f574b"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="22"
+          font-weight="400"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          finishes.
+        </text>
       
   
     </svg>

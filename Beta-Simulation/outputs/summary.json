@@ -1,51 +1,106 @@
 {
-  "generatedAt": "2026-03-15T18:24:32.872Z",
+  "generatedAt": "2026-03-17T21:05:09.036Z",
   "config": {
     "children": 90,
     "classrooms": 10,
     "arrivalWindowMinutes": 30,
     "arrivalPeakBeforeDepartureMinutes": 9,
     "arrivalSpreadMinutes": 3.5,
+    "departureBufferMinutes": 5,
+    "rushWindowMinutes": 10,
     "runs": 400,
     "baselineWristbandSeconds": 20,
     "baselineAttendanceSeconds": 3,
     "verifySuccessMinSeconds": 3,
     "verifySuccessMaxSeconds": 5,
     "redoSeconds": 25,
+    "parentIncorrectPercent": 20,
     "machineBaseSeconds": 12,
     "machineExtraMinSeconds": 5,
     "machineExtraMaxSeconds": 15,
-    "machineIncorrectPercent": 5,
+    "machineIncorrectPercent": 20,
     "complianceStepPercent": 5,
-    "struggleStepPercent": 5
+    "struggleStepPercent": 5,
+    "defaultParentCompliancePercent": 70,
+    "defaultMachineStrugglePercent": 30,
+    "parentIncorrectSweep": [
+      10,
+      20,
+      30,
+      40
+    ],
+    "machineIncorrectSweep": [
+      10,
+      20,
+      30,
+      40
+    ],
+    "parentRushCompliancePenaltyPercent": 25,
+    "parentRushIncorrectLiftPercent": 15,
+    "machineRushStruggleLiftPercent": 20,
+    "machineRushIncorrectLiftPercent": 10,
+    "machineStruggleIncorrectLiftPercent": 60,
+    "machineTwoIncorrectReductionPercent": 15,
+    "machineTwoStruggleFailureReductionPercent": 35
   },
   "baseline": {
+    "employeeSeconds": 2072.24,
+    "employeeMinutes": 34.54,
     "meanCompletionSeconds": 2662.741,
-    "meanCompletionMinutes": 44.38,
-    "formatted": "44m 23s"
-  },
-  "parentEmployeeBaseline": {
-    "seconds": 2070,
-    "minutes": 34.5,
-    "formatted": "34m 30s"
+    "lateProbabilityPercent": 100,
+    "meanLateMinutes": 19.379
   },
   "parentThresholds": [
     {
-      "label": "Parent model",
-      "thresholdPercent": 28,
-      "interpretation": "Useful from about 28% compliance"
+      "incorrectPercent": 10,
+      "thresholdPercent": 43.547,
+      "savedMinutesAtDefault": 7.813
+    },
+    {
+      "incorrectPercent": 20,
+      "thresholdPercent": 47.264,
+      "savedMinutesAtDefault": 6.127
+    },
+    {
+      "incorrectPercent": 30,
+      "thresholdPercent": 52.851,
+      "savedMinutesAtDefault": 3.886
+    },
+    {
+      "incorrectPercent": 40,
+      "thresholdPercent": 60.946,
+      "savedMinutesAtDefault": 1.721
     }
   ],
   "machineThresholds": [
     {
-      "machineCount": 1,
-      "thresholdPercent": 70.526,
-      "interpretation": "Useful until about 70.5% struggle"
+      "incorrectPercent": 10,
+      "oneMachineThresholdPercent": 100,
+      "twoMachineThresholdPercent": 100,
+      "savedMinutesAtDefaultOne": 13.42,
+      "savedMinutesAtDefaultTwo": 17.209
     },
     {
-      "machineCount": 2,
-      "thresholdPercent": 70.526,
-      "interpretation": "Useful until about 70.5% struggle"
+      "incorrectPercent": 20,
+      "oneMachineThresholdPercent": 72,
+      "twoMachineThresholdPercent": 100,
+      "savedMinutesAtDefaultOne": 9.392,
+      "savedMinutesAtDefaultTwo": 14.118
+    },
+    {
+      "incorrectPercent": 30,
+      "oneMachineThresholdPercent": 55.697,
+      "twoMachineThresholdPercent": 100,
+      "savedMinutesAtDefaultOne": 5.594,
+      "savedMinutesAtDefaultTwo": 11.019
+    },
+    {
+      "incorrectPercent": 40,
+      "oneMachineThresholdPercent": 44.441,
+      "twoMachineThresholdPercent": 84.027,
+      "savedMinutesAtDefaultOne": 2.892,
+      "savedMinutesAtDefaultTwo": 7.596
     }
-  ]
+  ],
+  "deadlineRiskSaturated": true
 }
