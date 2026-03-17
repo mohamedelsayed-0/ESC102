@@ -445,7 +445,7 @@
       
       
       
-      <rect x="1109" y="400" width="422" height="342" rx="24" fill="#eef5fd" />
+      <rect x="1109" y="400" width="422" height="254" rx="24" fill="#eef5fd" />
       
         <text
           x="1133"
@@ -511,67 +511,15 @@
           text-anchor="start"
           letter-spacing="0"
         >
-          Option C is applied here: with 2
-        </text>
-      
-        <text
-          x="1133"
-          y="620"
-          fill="#5f574b"
-          font-family="Avenir Next, Segoe UI, sans-serif"
-          font-size="18"
-          font-weight="400"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          machines, lighter crowding
-        </text>
-      
-        <text
-          x="1133"
-          y="642"
-          fill="#5f574b"
-          font-family="Avenir Next, Segoe UI, sans-serif"
-          font-size="18"
-          font-weight="400"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          lowers wrong-after-machine cases
-        </text>
-      
-        <text
-          x="1133"
-          y="664"
-          fill="#5f574b"
-          font-family="Avenir Next, Segoe UI, sans-serif"
-          font-size="18"
-          font-weight="400"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          and lowers the share of struggle
-        </text>
-      
-        <text
-          x="1133"
-          y="686"
-          fill="#5f574b"
-          font-family="Avenir Next, Segoe UI, sans-serif"
-          font-size="18"
-          font-weight="400"
-          text-anchor="start"
-          letter-spacing="0"
-        >
-          cases that become redo.
+          
         </text>
       
     
-      <rect x="1109" y="760" width="422" height="278" rx="24" fill="#fff4ec" />
+      <rect x="1109" y="672" width="422" height="278" rx="24" fill="#fff4ec" />
       
         <text
           x="1133"
-          y="794"
+          y="706"
           fill="#6f6559"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="16"
@@ -585,7 +533,7 @@
       
         <text
           x="1133"
-          y="836"
+          y="748"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="28"
@@ -599,7 +547,7 @@
       
         <text
           x="1133"
-          y="894"
+          y="806"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -612,7 +560,7 @@
       
         <text
           x="1133"
-          y="916"
+          y="828"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -625,7 +573,7 @@
       
         <text
           x="1133"
-          y="938"
+          y="850"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -638,7 +586,7 @@
       
         <text
           x="1133"
-          y="960"
+          y="872"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -651,7 +599,7 @@
       
         <text
           x="1133"
-          y="982"
+          y="894"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -663,11 +611,11 @@
         </text>
       
     
-      <rect x="1109" y="1056" width="422" height="234" rx="24" fill="#f4f1fb" />
+      <rect x="1109" y="968" width="422" height="234" rx="24" fill="#f4f1fb" />
       
         <text
           x="1133"
-          y="1090"
+          y="1002"
           fill="#6f6559"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="16"
@@ -681,7 +629,7 @@
       
         <text
           x="1133"
-          y="1132"
+          y="1044"
           fill="#221f1a"
           font-family="Iowan Old Style, Palatino Linotype, serif"
           font-size="28"
@@ -695,7 +643,7 @@
       
         <text
           x="1133"
-          y="1190"
+          y="1102"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -708,7 +656,7 @@
       
         <text
           x="1133"
-          y="1212"
+          y="1124"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"
@@ -721,7 +669,7 @@
       
         <text
           x="1133"
-          y="1234"
+          y="1146"
           fill="#5f574b"
           font-family="Avenir Next, Segoe UI, sans-serif"
           font-size="18"

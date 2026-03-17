@@ -1827,7 +1827,7 @@ const machineSvg = renderBandChartPage({
     {
       eyebrow: "Break-even",
       value: `${thresholdLabel(machineOneThreshold.thresholdPercent, "machine")} / ${thresholdLabel(machineTwoThreshold.thresholdPercent, "machine")}`,
-      body: "Option C is applied here: with 2 machines, lighter crowding lowers wrong-after-machine cases and lowers the share of struggle cases that become redo.",
+      body: "",
       fill: "#eef5fd",
     },
     {
