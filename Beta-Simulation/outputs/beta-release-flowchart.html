@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beta Release Flowchart</title>
+    <style>
+      :root {
+        --bg: #f2e6d8;
+        --frame: rgba(255, 253, 248, 0.92);
+        --shadow: 0 28px 56px rgba(69, 51, 36, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at top left, rgba(240, 197, 168, 0.68), transparent 28%),
+          radial-gradient(circle at top right, rgba(67, 118, 176, 0.12), transparent 26%),
+          linear-gradient(180deg, #fbf6ef 0%, var(--bg) 100%);
+        padding: 24px;
+      }
+
+      .frame {
+        width: min(98vw, 3240px);
+        padding: 18px;
+        border-radius: 32px;
+        background: var(--frame);
+        box-shadow: var(--shadow);
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <img src="./beta-release-flowchart.svg" alt="Beta release wristband process flowchart" />
+    </div>
+  </body>
+</html>
