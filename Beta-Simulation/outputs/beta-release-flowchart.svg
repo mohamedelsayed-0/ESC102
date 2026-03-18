@@ -53,10 +53,10 @@
     <path d="M1620 660 C1760 660 1760 430 1940 430 C2060 430 2120 520 2120 660" stroke="#6c8599" stroke-width="4" />
     <path d="M1620 660 C1760 660 1760 890 1940 890 C2060 890 2120 800 2120 660" stroke="#6c8599" stroke-width="4" />
 
-    <path d="M2120 660 C2380 660 2620 650 2860 610" stroke="#6c8599" stroke-width="4" marker-end="url(#arrow-blue)" />
+    <path d="M2120 660 C2360 660 2550 648 2768 618" stroke="#6c8599" stroke-width="4" marker-end="url(#arrow-blue)" />
     <path d="M2120 660 C2140 740 2178 826 2200 885" stroke="#b57f75" stroke-width="4" marker-end="url(#arrow-red)" />
     <path d="M2520 885 H2570" stroke="#b57f75" stroke-width="4" marker-end="url(#arrow-red)" />
-    <path d="M2890 885 C2965 885 2980 790 2950 744 C2928 712 2895 704 2862 704" stroke="#7c9481" stroke-width="4" marker-end="url(#arrow-green)" />
+    <path d="M2890 885 C2960 885 2978 790 2948 744 C2926 712 2894 704 2772 704" stroke="#7c9481" stroke-width="4" marker-end="url(#arrow-green)" />
   </g>
 
   <circle cx="2120" cy="660" r="8" fill="#6c8599" />
@@ -85,8 +85,8 @@
   </g>
 
   <g filter="url(#node-shadow)" class="font">
-    <rect x="2870" y="530" width="280" height="220" rx="14" fill="#edf4ee" stroke="#d8e0d8" stroke-width="1.5" />
-    <text x="3010" y="690" class="primary" text-anchor="middle">Attendance</text>
+    <rect x="2780" y="530" width="360" height="220" rx="14" fill="#edf4ee" stroke="#d8e0d8" stroke-width="1.5" />
+    <text x="2960" y="640" fill="#1e2833" font-size="56" font-weight="700" text-anchor="middle" dominant-baseline="middle">Attendance</text>
 
     <rect x="2200" y="825" width="320" height="120" rx="12" fill="#fbf1ef" stroke="#ebd9d4" stroke-width="1.5" />
     <text x="2360" y="874" class="secondary" text-anchor="middle">Failure /</text>
