@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CTMF Handbook for Mohamed Elsayed's ESC102 Student Engineer Design Portfolio.">
+    <title>CTMF Handbook | Mohamed Elsayed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/profile.png">
+    <meta name="theme-color" content="#10151c">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="nav-shell">
+            <a class="site-mark" href="index.html">
+                <span class="site-mark__eyebrow">ESC102 20261</span>
+                <span class="site-mark__title">Student Engineer Design Portfolio</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation"
+                data-nav-toggle>Menu</button>
+            <nav class="site-nav" data-nav>
+                <a href="index.html">Home</a>
+                <a href="position.html">Position</a>
+                <a href="projects.html">Projects</a>
+                <a href="ctmfs.html">CTMF Handbook</a>
+                <a href="references.html">References</a>
+                <a href="pdf-submission.html">PDF Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-shell page-stack">
+        <section class="hero-band reveal">
+            <div class="hero-layout">
+                <div>
+                    <p class="eyebrow">CTMF Handbook</p>
+                    <h1>Nine concepts, tools, models, and frameworks</h1>
+                    <p class="hero-lead">
+                        Each entry below records how a CTMF appeared in real work, what it helped reveal, when it can
+                        fail, and whether it suits or corrects my default design habits.
+                    </p>
+                </div>
+                <aside class="hero-side-note">
+                    <dl>
+                        <div>
+                            <dt>Coverage</dt>
+                            <dd>Frame, Diverge, Converge, Represent</dd>
+                        </div>
+                        <div>
+                            <dt>Project distribution</dt>
+                            <dd>3 entries for Praxis I, 3 for CIV102, 3 for Gaussian</dd>
+                        </div>
+                        <div>
+                            <dt>Evaluation rule</dt>
+                            <dd>Only CTMFs tied to evidence or credible retrospective analysis are included</dd>
+                        </div>
+                    </dl>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section-card reveal">
+            <div class="section-header">
+                <p class="section-kicker">What counts as a CTMF here</p>
+                <h2>Working rule for this portfolio</h2>
+            </div>
+            <div class="grid-2">
+                <article class="info-card">
+                    <span class="card-label">Praxis strands</span>
+                    <h3>Frame, Diverge, Converge, Represent</h3>
+                    <p>A CTMF is not included because it sounds formal. It is included because it changed how the work
+                        was framed, widened, narrowed, or made legible enough to communicate and test.</p>
+                </article>
+                <article class="info-card">
+                    <span class="card-label">Evaluation pattern</span>
+                    <h3>Utility is part of the evidence</h3>
+                    <p>Each entry asks the same questions: what it is, where it was used, what it revealed, where it
+                        fails, and whether it fits or counteracts my own habits as a designer.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-card reveal">
+            <div class="section-header">
+                <p class="section-kicker">Praxis I CTMFs</p>
+                <h2>Backpack strap project</h2>
+            </div>
+            <div class="entry-grid">
+                <article class="entry-card" id="ctmf-stakeholder-framing">
+                    <div class="entry-header">
+                        <div>
+                            <h3>Stakeholder and requirement framing</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#praxis-1">Praxis I</a></p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-frame">Frame</span>
+                        </div>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Definition</h4>
+                        <p>Making success criteria explicit by naming affected users, constraints, and failure cases
+                            before choosing a concept.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Evidence</h4>
+                        <p>The project shifted from "loose straps are annoying" to a more complete frame around comfort,
+                            snagging, access, adjustability, and manufacturability, which later justified the simulation
+                            parameters.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Utility and fit</h4>
+                        <p>This CTMF was useful because it prevented a superficial fix. It also counters my habit of
+                            jumping into modeling too early by forcing the decision criteria to exist first.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Failure modes and reminder</h4>
+                        <p>If the stakeholder set is too narrow, the later metrics will only optimize for one user
+                            experience. Use this before modeling, and revisit it whenever the team starts arguing over
+                            outputs that were never defined.</p>
+                    </div>
+                </article>
+
+                <article class="entry-card" id="ctmf-prototype-branching">
+                    <div class="entry-header">
+                        <div>
+                            <h3>Prototype branching</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#praxis-1">Praxis I</a></p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-diverge">Diverge</span>
+                        </div>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Definition</h4>
+                        <p>Keeping multiple concept directions distinct long enough that they can be compared on more
+                            than aesthetic preference.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Evidence</h4>
+                        <p>The backpack work retained elastic, inside-bag adjustment, and shoulder-side adjustment as
+                            separate directions instead of collapsing immediately into one blended idea.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Utility and fit</h4>
+                        <p>This was useful because it delayed premature convergence and made later modeling meaningful.
+                            It is not my default strength, so it works as a deliberate correction to my preference for
+                            early structure.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Failure modes and reminder</h4>
+                        <p>Branching fails when concepts are kept alive only performatively and never compared on real
+                            criteria. Use it to protect real option space, then close it decisively once evidence is
+                            available.</p>
+                    </div>
+                </article>
+
+                <article class="entry-card" id="ctmf-biomechanical-simulation">
+                    <div class="entry-header">
+                        <div>
+                            <h3>Simplified biomechanical simulation</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#praxis-1">Praxis I</a></p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-represent">Represent</span>
+                        </div>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Definition</h4>
+                        <p>A reduced model that turns prototype parameters into visible consequences such as moment arm,
+                            curvature, pressure, and deviation.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Evidence</h4>
+                        <p>The MATLAB tool modeled the lumbar region as a beam and exposed how different prototype
+                            parameters influenced deflection-related metrics.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Utility and fit</h4>
+                        <p>It helped because it gave the team a common language for comparing concepts. It fits my
+                            style well, but precisely because of that it needs discipline: representation can feel more
+                            certain than the evidence justifies.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Failure modes and reminder</h4>
+                        <p>This CTMF fails when the simplification is mistaken for direct user evidence. Use it to bound
+                            a decision, not to claim final ergonomic truth.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-card reveal">
+            <div class="section-header">
+                <p class="section-kicker">CIV102 CTMFs</p>
+                <h2>Bridge project</h2>
+            </div>
+            <div class="entry-grid">
+                <article class="entry-card" id="ctmf-failure-mode-framing">
+                    <div class="entry-header">
+                        <div>
+                            <h3>Failure-mode decomposition</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#civ102-bridge">CIV102</a>
+                            </p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-frame">Frame</span>
+                        </div>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Definition</h4>
+                        <p>Breaking a structural design into distinct modes such as flexural tension, compression,
+                            buckling, shear, and glue failure before optimizing geometry.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Evidence</h4>
+                        <p>The hand calculations and Python analysis both tracked separate factors of safety across
+                            multiple modes and positions along the bridge.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Utility and fit</h4>
+                        <p>This CTMF made the bridge more legible because it turned "make it stronger" into specific
+                            mechanisms. It fits my analytical tendencies well, which is useful, but it can also make me
+                            underestimate fabrication as its own failure source.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Failure modes and reminder</h4>
+                        <p>If the decomposition ignores assembly quality or tolerance, the frame still remains too
+                            narrow. Use it together with an equally explicit constructability picture.</p>
+                    </div>
+                </article>
+
+                <article class="entry-card" id="ctmf-cross-section-iteration">
+                    <div class="entry-header">
+                        <div>
+                            <h3>Cross-section tradeoff iteration</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#civ102-bridge">CIV102</a>
+                            </p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-converge">Converge</span>
+                        </div>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Definition</h4>
+                        <p>Iterating geometry by comparing competing consequences such as moment of inertia, shear flow,
+                            buckling risk, glue demand, and diaphragm spacing rather than optimizing one quantity.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Evidence</h4>
+                        <p>The section files and bridge analysis code treat geometry as a tunable design object whose
+                            properties can be recalculated across iterations.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Utility and fit</h4>
+                        <p>This CTMF is useful because it slows down single-metric optimization. It supports my natural
+                            tendency toward structure while forcing several capacities to be seen at once.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Failure modes and reminder</h4>
+                        <p>Iteration becomes false rigor if each geometry update is judged only analytically and never
+                            against the realities of cutting and gluing. Pair each iteration with a buildability check.</p>
+                    </div>
+                </article>
+
+                <article class="entry-card" id="ctmf-engineering-drawings">
+                    <div class="entry-header">
+                        <div>
+                            <h3>Engineering drawings as representation</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#civ102-bridge">CIV102</a>
+                            </p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-represent">Represent</span>
+                        </div>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Definition</h4>
+                        <p>Using drawings to make the assumed geometry, dimensions, and assembly relationships visible
+                            enough for a team to build from the same picture.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Evidence</h4>
+                        <p>The final bridge drawings translate section assumptions and spacing into an artifact the team
+                            could fabricate from rather than infer.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Utility and fit</h4>
+                        <p>This CTMF helped because it turned hidden assumptions into shared geometry. It also corrects a
+                            weakness in my process by forcing communication, not just calculation.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Failure modes and reminder</h4>
+                        <p>Drawings can look complete even when they omit assembly difficulty or tolerance risk. Use
+                            them early enough that they still have the power to change the design.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-card reveal">
+            <div class="section-header">
+                <p class="section-kicker">Gaussian Project CTMFs</p>
+                <h2>Independent analytic work</h2>
+            </div>
+            <div class="entry-grid">
+                <article class="entry-card" id="ctmf-invariant-reduction">
+                    <div class="entry-header">
+                        <div>
+                            <h3>Invariant reduction under symmetry</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#gaussian-project">Gaussian
+                                    project</a></p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-frame">Frame</span>
+                        </div>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Definition</h4>
+                        <p>Reframing the problem so a symmetric setting reduces the entanglement condition to a simpler,
+                            analytically invertible form.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Evidence</h4>
+                        <p>The project README and benchmark code both center the move from repeated spectrum evaluation
+                            to parameter-level threshold expressions.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Utility and fit</h4>
+                        <p>This CTMF is one of my strongest natural tools. It created the main research leverage in the
+                            project by turning a computational task into a design constraint. It also embodies a risk: I
+                            can narrow scope too quickly when a symmetry is available.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Failure modes and reminder</h4>
+                        <p>Reduction fails when its assumptions are left implicit or treated as universal. State what
+                            the symmetry buys, and state what it excludes.</p>
+                    </div>
+                </article>
+
+                <article class="entry-card" id="ctmf-parameter-sweeps">
+                    <div class="entry-header">
+                        <div>
+                            <h3>Parameter sweeps across channel regimes</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#gaussian-project">Gaussian
+                                    project</a></p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-diverge">Diverge</span>
+                        </div>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Definition</h4>
+                        <p>Exploring ranges of transmissivity, thermal occupancy, gain, and squeezing instead of relying
+                            on a few selected parameter points.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Evidence</h4>
+                        <p>The benchmark script generates multiple scenario families and heatmaps, making variation
+                            itself part of the argument.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Utility and fit</h4>
+                        <p>This CTMF widens the space after a strong abstraction has already appeared. It is especially
+                            helpful for me because it resists premature closure by forcing the reduced representation to
+                            survive more than one hand-picked example.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Failure modes and reminder</h4>
+                        <p>Sweeps can create false confidence if the ranges are arbitrary or too convenient. Pick ranges
+                            that reflect the real question you are asking, not just what makes a clean figure.</p>
+                    </div>
+                </article>
+
+                <article class="entry-card" id="ctmf-benchmark-comparison">
+                    <div class="entry-header">
+                        <div>
+                            <h3>Exact-versus-bound benchmarking</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#gaussian-project">Gaussian
+                                    project</a></p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-converge">Converge</span>
+                        </div>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Definition</h4>
+                        <p>Testing whether a simpler bound is good enough by comparing it directly to an exact quantity
+                            before using it as a design shortcut.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Evidence</h4>
+                        <p>The pure-loss and thermal-loss plots compare exact log-negativity to the reference bound and
+                            show where the approximation has visible slack.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Utility and fit</h4>
+                        <p>This CTMF is what makes the abstraction accountable. It is useful because it forces my
+                            preferred simplifications to earn permission rather than taking it for granted.</p>
+                    </div>
+                    <div class="entry-block">
+                        <h4>Failure modes and reminder</h4>
+                        <p>Benchmarking fails if the comparison family is too narrow. Any shortcut that will guide later
+                            decisions needs to be tested against the regime where it will actually be used.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="page-footer__inner">
+            <p>CTMF handbook for the ESC102 assignment edition.</p>
+            <p><span data-year></span> Mohamed Elsayed</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

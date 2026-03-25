@@ -1,0 +1,15 @@
+{
+    "name": "Mohamed Elsayed",
+    "short_name": "Mohamed",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#050508",
+    "theme_color": "#9d4edd",
+    "icons": [
+        {
+            "src": "assets/profile.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

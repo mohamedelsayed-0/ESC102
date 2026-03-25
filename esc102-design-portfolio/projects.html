@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Project summaries for the Praxis I, CIV102 Bridge, and Gaussian Entanglement work in Mohamed Elsayed's ESC102 portfolio.">
+    <title>Projects | Mohamed Elsayed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/profile.png">
+    <meta name="theme-color" content="#10151c">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="nav-shell">
+            <a class="site-mark" href="index.html">
+                <span class="site-mark__eyebrow">ESC102 20261</span>
+                <span class="site-mark__title">Student Engineer Design Portfolio</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation"
+                data-nav-toggle>Menu</button>
+            <nav class="site-nav" data-nav>
+                <a href="index.html">Home</a>
+                <a href="position.html">Position</a>
+                <a href="projects.html">Projects</a>
+                <a href="ctmfs.html">CTMF Handbook</a>
+                <a href="references.html">References</a>
+                <a href="pdf-submission.html">PDF Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-shell page-stack">
+        <section class="hero-band reveal">
+            <div class="hero-layout">
+                <div>
+                    <p class="eyebrow">Projects</p>
+                    <h1>Three project sections, one structure</h1>
+                    <p class="hero-lead">
+                        Each project below uses the same pattern: snapshot, summary, process annotation, evidence,
+                        contribution credit, CTMF links, and reflection. That consistency makes it easier to compare how
+                        my design position appears under different conditions.
+                    </p>
+                </div>
+                <aside class="hero-side-note">
+                    <dl>
+                        <div>
+                            <dt>Section order</dt>
+                            <dd>Praxis I, CIV102 Bridge, Gaussian Entanglement</dd>
+                        </div>
+                        <div>
+                            <dt>Cross-links</dt>
+                            <dd>Each project links directly to the relevant CTMF entries and evidence files</dd>
+                        </div>
+                        <div>
+                            <dt>Project format</dt>
+                            <dd>Common projects page with anchored sections rather than separate microsites</dd>
+                        </div>
+                    </dl>
+                </aside>
+            </div>
+            <div class="hero-actions" style="margin-top: 1.75rem;">
+                <a class="button button-primary" href="#praxis-1">Jump to Praxis I</a>
+                <a class="button button-secondary" href="#civ102-bridge">Jump to CIV102</a>
+                <a class="button button-secondary" href="#gaussian-project">Jump to Gaussian</a>
+            </div>
+        </section>
+
+        <section class="section-card reveal" id="praxis-1">
+            <div class="project-section">
+                <div class="project-header">
+                    <div class="project-title-row">
+                        <div>
+                            <p class="section-kicker">Project 01</p>
+                            <h2>Praxis I: Backpack Strap Design</h2>
+                        </div>
+                        <p class="project-meta-inline">ESC101 Praxis I | Fall 2025 | Team project</p>
+                    </div>
+                    <div class="snapshot-grid">
+                        <div class="snapshot-item">
+                            <p class="meta-label">Stakeholders</p>
+                            <p class="meta-value">Students carrying heavy backpacks, teammates, prototype evaluators</p>
+                        </div>
+                        <div class="snapshot-item">
+                            <p class="meta-label">Main challenge</p>
+                            <p class="meta-value">Reduce excess-strap snagging without losing adjustability or comfort
+                            </p>
+                        </div>
+                        <div class="snapshot-item">
+                            <p class="meta-label">Outcome</p>
+                            <p class="meta-value">Three concept directions compared with a simplified ergonomic
+                                simulation and explicit performance metrics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-columns">
+                    <article class="info-card">
+                        <span class="card-label">One-page summary</span>
+                        <h3>Summary</h3>
+                        <p>
+                            The project started as a redesign problem around excess backpack straps catching on external
+                            objects. The more useful framing was broader: the loose strap was only one symptom of a
+                            system that also involved comfort, access to the bag, adjustability, and manufacturability.
+                            The team explored three concept directions, including elastic and relocated-adjustment
+                            variants, and I supported that comparison by building a simplified lumbar-deviation model
+                            that converted prototype parameters into legible metrics.
+                        </p>
+                        <p>
+                            The value of the project was not in claiming an exact human-body model. It was in creating a
+                            structured way to compare directions that otherwise would have remained qualitative. Once the
+                            metrics were explicit, the conversation could move from "which idea seems cleaner" to "which
+                            idea changes load distance, pressure, or obstruction in a defensible way."
+                        </p>
+                    </article>
+                    <aside class="note-panel">
+                        <p class="meta-label">Source files</p>
+                        <div class="download-links">
+                            <a href="assets/evidence/evidence-sheet-praxis-final.pdf">Evidence sheet PDF</a>
+                            <a href="assets/evidence/praxis-project.m">MATLAB source</a>
+                        </div>
+                    </aside>
+                </div>
+
+                <article class="section-card" style="padding: 1.3rem 1.4rem;">
+                    <div class="section-header">
+                        <p class="section-kicker">Process Annotation</p>
+                        <h3>What changed during the design process</h3>
+                    </div>
+                    <p>
+                        My first instinct was to treat the strap problem as a visible nuisance that could be solved by a
+                        clever fastening mechanism. The project got stronger once the team treated it as a design
+                        problem with multiple consequences: snagging, posture, load path, ease of adjustment, and the
+                        practicality of fabrication. That reframing changed the kind of evidence we needed.
+                    </p>
+                    <p>
+                        The divergence phase was productive because the concepts were kept distinct for long enough to
+                        compare them instead of collapsing immediately into a single hybrid idea. My contribution was to
+                        represent those concepts through parameters that could be varied: excess strap, load distance,
+                        pack weight, and pressures. The simulation was a representation tool, but it was also a framing
+                        tool because it forced the team to decide which quantities were actually meant to represent
+                        success.
+                    </p>
+                    <p>
+                        The most important lesson for me was that modeling only helped after the criteria became clear.
+                        Before that, a simulation would have produced numbers without a decision. After the criteria were
+                        visible, even a simplified model could expose where a concept likely failed an ergonomic
+                        requirement or shifted the burden somewhere else.
+                    </p>
+                </article>
+
+                <div class="figure-grid">
+                    <figure class="figure-card">
+                        <img src="assets/project-figures/praxis-evidence.png"
+                            alt="Praxis evidence sheet showing discussion and simulation interface">
+                        <div class="figure-body">
+                            <figcaption class="figure-caption">Figure 1. Evidence-sheet capture and simulation
+                                interface</figcaption>
+                            <p class="figure-annotation">
+                                This artifact shows the jump from an unresolved requirement concern to a concrete
+                                simulation interface. It mattered because it converted a team uncertainty into something
+                                that could be explored rather than argued abstractly.
+                            </p>
+                        </div>
+                    </figure>
+                    <figure class="artifact-card">
+                        <div class="artifact-body">
+                            <figcaption class="figure-caption">Figure 2. MATLAB excerpt from the backpack model</figcaption>
+                            <pre class="code-snippet">% PROTOTYPES:
+% - Elastic Strap
+% - Inside-Bag Adjustment
+% - Shoulder-Side Adjustment
+
+loadDistance = baseDistance + excessStrap * 0.5;
+M0 = totalWeight * 9.81 * (loadDistance / 100);
+M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
+                            <p class="figure-annotation">
+                                The excerpt is useful because it shows how concept directions became comparable
+                                parameters. This was the point where the project shifted from a list of ideas to a
+                                model-backed comparison.
+                            </p>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="grid-2">
+                    <article class="info-card">
+                        <span class="card-label">Team contribution and credit</span>
+                        <h3>My role</h3>
+                        <ul>
+                            <li>Concept generation and design direction were shared team work.</li>
+                            <li>I built the simulation-based comparison tool and helped define the measurable criteria
+                                used to compare concepts.</li>
+                            <li>The final interpretation of prototype directions and requirements was collaborative, not
+                                individual.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card">
+                        <span class="card-label">CTMFs used in this project</span>
+                        <h3>Linked CTMF entries</h3>
+                        <div class="project-links">
+                            <a href="ctmfs.html#ctmf-stakeholder-framing">Stakeholder and requirement framing</a>
+                            <a href="ctmfs.html#ctmf-prototype-branching">Prototype branching</a>
+                            <a href="ctmfs.html#ctmf-biomechanical-simulation">Simplified biomechanical simulation</a>
+                        </div>
+                    </article>
+                </div>
+
+                <article class="callout">
+                    <p>
+                        Reflection: I rely on models quickly when build evidence is incomplete. In this project that was
+                        useful because it created a disciplined comparison. It was also a warning sign, because a model
+                        can look more certain than the evidence behind its assumptions. Next time I would pair the early
+                        simulation with faster physical checks rather than letting representation carry the whole burden.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-card reveal" id="civ102-bridge">
+            <div class="project-section">
+                <div class="project-header">
+                    <div class="project-title-row">
+                        <div>
+                            <p class="section-kicker">Project 02</p>
+                            <h2>CIV102 Bridge</h2>
+                        </div>
+                        <p class="project-meta-inline">CIV102 | Fall 2025 | Team 404</p>
+                    </div>
+                    <div class="snapshot-grid">
+                        <div class="snapshot-item">
+                            <p class="meta-label">Stakeholders</p>
+                            <p class="meta-value">Bridge team members, course load test, fabrication constraints</p>
+                        </div>
+                        <div class="snapshot-item">
+                            <p class="meta-label">Main challenge</p>
+                            <p class="meta-value">Design a matboard bridge that survives the moving train load within
+                                geometry and material limits</p>
+                        </div>
+                        <div class="snapshot-item">
+                            <p class="meta-label">Outcome</p>
+                            <p class="meta-value">Engineering drawings, hand calculations, and analysis code for load
+                                envelopes, section properties, and failure modes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-columns">
+                    <article class="info-card">
+                        <span class="card-label">One-page summary</span>
+                        <h3>Summary</h3>
+                        <p>
+                            The CIV102 bridge required a design that could survive a specified moving train load under
+                            tight material and fabrication constraints. The analytical work centered on finding the
+                            critical bending and shear regions, computing section properties, and mapping likely failure
+                            modes such as tension, compression, web buckling, shear, and glue failure.
+                        </p>
+                        <p>
+                            What makes the project important in this portfolio is not that it contains many calculations.
+                            It is that the calculations had to be tied to buildable geometry. The final bridge could not
+                            be treated as an abstract optimum. It had to be drawn, cut, glued, and assembled with the
+                            same logic that the analysis assumed.
+                        </p>
+                    </article>
+                    <aside class="note-panel">
+                        <p class="meta-label">Source files</p>
+                        <div class="download-links">
+                            <a href="assets/evidence/civ102-design-report-team-404.pdf">Design report PDF</a>
+                            <a href="assets/evidence/civ102-engineering-drawings-team-404.pdf">Engineering drawings</a>
+                            <a href="assets/evidence/civ102-design-calculations-team-404.pdf">Calculation package</a>
+                            <a href="assets/evidence/civ102-bridge-analysis.py">Python analysis</a>
+                        </div>
+                    </aside>
+                </div>
+
+                <article class="section-card" style="padding: 1.3rem 1.4rem;">
+                    <div class="section-header">
+                        <p class="section-kicker">Process Annotation</p>
+                        <h3>Why the analytical frame had to widen</h3>
+                    </div>
+                    <p>
+                        Early on, the project invited a familiar failure mode in my own process: treating the bridge as
+                        a problem of numerical optimization around material efficiency. That framing was attractive
+                        because it offered clean variables and crisp output metrics. It was incomplete.
+                    </p>
+                    <p>
+                        The work improved once the bridge was represented as a set of interacting failure modes under a
+                        moving load rather than a single strength number. That shift made the envelope analysis, section
+                        properties, and buckling checks more useful because they were tied to actual regions of the
+                        bridge and specific construction decisions such as splice placement and diaphragm spacing.
+                    </p>
+                    <p>
+                        The project also made visible a design lesson that pure analysis can hide: constructability is
+                        not a downstream concern. Drawings, glue strategy, fit tolerances, and assembly quality needed
+                        to be represented early enough to affect convergence. This is the clearest project in the
+                        portfolio where I can see myself converging too early around what was easiest to quantify.
+                    </p>
+                </article>
+
+                <div class="figure-grid">
+                    <figure class="figure-card">
+                        <img src="assets/project-figures/civ102-drawings.png"
+                            alt="Preview of CIV102 bridge engineering drawings">
+                        <div class="figure-body">
+                            <figcaption class="figure-caption">Figure 3. Final bridge drawings</figcaption>
+                            <p class="figure-annotation">
+                                The drawings matter because they translate section assumptions into build instructions.
+                                In this project, representation was not cosmetic documentation; it was the bridge
+                                between analysis and fabrication.
+                            </p>
+                        </div>
+                    </figure>
+                    <figure class="figure-card">
+                        <img src="assets/project-figures/civ102-calculations.png"
+                            alt="Preview of CIV102 bridge calculation sheet">
+                        <div class="figure-body">
+                            <figcaption class="figure-caption">Figure 4. Hand calculations and factor-of-safety
+                                checks</figcaption>
+                            <p class="figure-annotation">
+                                This calculation page is useful because it breaks the design into specific modes of
+                                failure rather than a single pass-fail number. That decomposition changed where the team
+                                looked for weakness.
+                            </p>
+                        </div>
+                    </figure>
+                    <figure class="artifact-card">
+                        <div class="artifact-body">
+                            <figcaption class="figure-caption">Figure 5. Envelope-analysis code excerpt</figcaption>
+                            <pre class="code-snippet">for idx, p0 in enumerate(start_positions):
+    load_positions = p0 + offsets
+    V = compute_SFD(load_positions, loads_magnitudes)
+    M = compute_BMD_from_SFD(V)
+    envelope_M_pos = np.maximum(envelope_M_pos, M)</pre>
+                            <p class="figure-annotation">
+                                The computational envelope prevented the design from being judged on a single train
+                                position. It mattered because critical sections and splice decisions depend on the worst
+                                case, not the easiest case to sketch by hand.
+                            </p>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="grid-2">
+                    <article class="info-card">
+                        <span class="card-label">Team contribution and credit</span>
+                        <h3>My role</h3>
+                        <ul>
+                            <li>Bridge geometry selection, report production, and fabrication were shared team work.
+                            </li>
+                            <li>I contributed analytical modeling, section-property work, load-envelope reasoning, and
+                                failure-mode interpretation through code and calculations.</li>
+                            <li>The drawings and final bridge were collective outputs and should be read that way.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card">
+                        <span class="card-label">CTMFs used in this project</span>
+                        <h3>Linked CTMF entries</h3>
+                        <div class="project-links">
+                            <a href="ctmfs.html#ctmf-failure-mode-framing">Failure-mode decomposition</a>
+                            <a href="ctmfs.html#ctmf-cross-section-iteration">Cross-section tradeoff iteration</a>
+                            <a href="ctmfs.html#ctmf-engineering-drawings">Engineering drawings as representation</a>
+                        </div>
+                    </article>
+                </div>
+
+                <article class="callout">
+                    <p>
+                        Reflection: this project showed me that I can mistake analytic neatness for design completeness.
+                        I had good tools for capacity and failure analysis, but the bridge still depended on how clearly
+                        those assumptions were carried into fabrication. The design habit I most need to correct is
+                        converging around the cleanest quantitative objective before constructability has been made
+                        equally explicit.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-card reveal" id="gaussian-project">
+            <div class="project-section">
+                <div class="project-header">
+                    <div class="project-title-row">
+                        <div>
+                            <p class="section-kicker">Project 03</p>
+                            <h2>Gaussian Entanglement Project</h2>
+                        </div>
+                        <p class="project-meta-inline">Independent research | Winter 2026 | Individual</p>
+                    </div>
+                    <div class="snapshot-grid">
+                        <div class="snapshot-item">
+                            <p class="meta-label">Stakeholders</p>
+                            <p class="meta-value">Myself as researcher, future collaborators, technical readers</p>
+                        </div>
+                        <div class="snapshot-item">
+                            <p class="meta-label">Main challenge</p>
+                            <p class="meta-value">Derive and test closed-form entanglement thresholds for symmetric
+                                Gaussian channels</p>
+                        </div>
+                        <div class="snapshot-item">
+                            <p class="meta-label">Outcome</p>
+                            <p class="meta-value">Analytic threshold expressions, benchmark figures, and parameter
+                                sweeps across multiple channel regimes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-columns">
+                    <article class="info-card">
+                        <span class="card-label">One-page summary</span>
+                        <h3>Summary</h3>
+                        <p>
+                            This project studies when entanglement survives after a two-mode squeezed vacuum state
+                            passes through symmetric phase-insensitive Gaussian channels. The central design move was to
+                            change the representation of the problem so the partially transposed eigenvalue condition
+                            could be treated as an explicit inequality in the channel parameters.
+                        </p>
+                        <p>
+                            In portfolio terms, this is not a conventional product-design artifact. It is a method
+                            design problem. The challenge was to decide what structure to preserve, what symmetry to
+                            exploit, and how to benchmark the cleaner formulation against exact computation before
+                            trusting it. That makes it a useful counterpoint to the more physical design projects in the
+                            portfolio.
+                        </p>
+                    </article>
+                    <aside class="note-panel">
+                        <p class="meta-label">Source files</p>
+                        <div class="download-links">
+                            <a href="assets/evidence/finalrevision-gaussian-states.pdf">Long note PDF</a>
+                            <a href="assets/evidence/gaussian-en-bound.py">Benchmark script</a>
+                        </div>
+                    </aside>
+                </div>
+
+                <article class="section-card" style="padding: 1.3rem 1.4rem;">
+                    <div class="section-header">
+                        <p class="section-kicker">Process Annotation</p>
+                        <h3>Why abstraction was the main design decision</h3>
+                    </div>
+                    <p>
+                        The first version of the problem could have remained a repeated numerical evaluation of the full
+                        symplectic spectrum. That would have produced answers, but not much design leverage. The better
+                        framing was to ask whether symmetry could be used to reduce the condition to something
+                        invertible and interpretable at the parameter level.
+                    </p>
+                    <p>
+                        Once the invariant reduction was in place, divergence happened analytically rather than through
+                        physical prototypes. I explored pure-loss, thermal-loss, and amplifier regimes, then used
+                        parameter sweeps and validation against exact quantities to see where the simpler representation
+                        preserved the right structure and where it introduced slack.
+                    </p>
+                    <p>
+                        The main tradeoff was generality versus tractability. The reduced condition is powerful because
+                        it gives direct threshold statements, but it only earns that power under the symmetric setting.
+                        This project therefore reflects both a strength and a caution in my design approach: I am very
+                        willing to redesign the problem itself, but I have to keep stating what that redesign excludes.
+                    </p>
+                </article>
+
+                <div class="figure-grid">
+                    <figure class="figure-card">
+                        <img src="assets/project-figures/gaussian-pure-loss.png"
+                            alt="Gaussian project plot comparing exact entanglement negativity and reference bound">
+                        <div class="figure-body">
+                            <figcaption class="figure-caption">Figure 6. Exact versus bound under symmetric pure loss
+                            </figcaption>
+                            <p class="figure-annotation">
+                                This figure matters because it shows whether the cleaner representation preserves the
+                                relevant trend or merely produces a prettier formula. The decision was not to trust the
+                                bound blindly, but to benchmark it.
+                            </p>
+                        </div>
+                    </figure>
+                    <figure class="figure-card">
+                        <img src="assets/project-figures/gaussian-heatmap.png"
+                            alt="Gaussian project heatmap of bound slack over squeezing and transmissivity">
+                        <div class="figure-body">
+                            <figcaption class="figure-caption">Figure 7. Slack heatmap across parameter space</figcaption>
+                            <p class="figure-annotation">
+                                The sweep is useful because it makes approximation error a visible landscape instead of
+                                a single hand-picked example. That widened the problem enough to judge where the reduced
+                                method was genuinely informative.
+                            </p>
+                        </div>
+                    </figure>
+                    <figure class="artifact-card">
+                        <div class="artifact-body">
+                            <figcaption class="figure-caption">Figure 8. Threshold function from the benchmark script
+                            </figcaption>
+                            <pre class="code-snippet">def rc_thermal(eta, Nth):
+    denom = 1.0 - (1.0 - eta) * (2.0 * Nth + 1.0)
+    if denom &lt;= 0:
+        return np.inf
+    ratio = eta / denom
+    return 0.5 * np.log(ratio)</pre>
+                            <p class="figure-annotation">
+                                This code fragment captures the point of the project: turning an abstract condition into
+                                an explicit threshold that can be read directly at the parameter level.
+                            </p>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="grid-2">
+                    <article class="info-card">
+                        <span class="card-label">Contribution and credit</span>
+                        <h3>My role</h3>
+                        <ul>
+                            <li>This is an individual research project.</li>
+                            <li>I carried out the analytic framing, coding, parameter sweeps, figure generation, and
+                                draft write-up.</li>
+                            <li>Any future extension toward publication would require a clearer collaboration structure,
+                                but the work presented here is mine.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card">
+                        <span class="card-label">CTMFs used in this project</span>
+                        <h3>Linked CTMF entries</h3>
+                        <div class="project-links">
+                            <a href="ctmfs.html#ctmf-invariant-reduction">Invariant reduction under symmetry</a>
+                            <a href="ctmfs.html#ctmf-parameter-sweeps">Parameter sweeps across channel regimes</a>
+                            <a href="ctmfs.html#ctmf-benchmark-comparison">Exact-versus-bound benchmarking</a>
+                        </div>
+                    </article>
+                </div>
+
+                <article class="callout">
+                    <p>
+                        Reflection: this project is the clearest example of my tendency to value elegant abstraction. It
+                        is also where I handled that tendency best, because the simpler formulation was forced to answer
+                        to exact comparisons and sweep-based error analysis. The growth here is learning that a good
+                        reduction must come with an equally explicit statement of where it stops being trustworthy.
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="page-footer__inner">
+            <p>Projects page for the ESC102 assignment edition.</p>
+            <p><span data-year></span> Mohamed Elsayed</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
