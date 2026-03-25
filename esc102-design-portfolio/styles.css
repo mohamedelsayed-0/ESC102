@@ -266,6 +266,39 @@ code {
     margin-top: 1.5rem;
 }
 
+.hero-marker-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    max-width: 42rem;
+}
+
+.hero-marker {
+    display: grid;
+    gap: 0.45rem;
+    padding: 0.95rem 1rem;
+    border-radius: 1.25rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.hero-marker p {
+    margin: 0;
+    color: var(--text-inverse);
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.hero-marker__index {
+    color: rgba(245, 239, 228, 0.68);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
 .button,
 .tag-link,
 .download-link {
@@ -955,6 +988,7 @@ code {
     }
 
     .hero-layout,
+    .hero-marker-grid,
     .grid-2,
     .grid-3,
     .grid-4,
