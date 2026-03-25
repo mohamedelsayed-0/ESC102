@@ -393,6 +393,12 @@ code {
     color: var(--text-soft);
 }
 
+.hero-band .chip {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(245, 239, 228, 0.88);
+}
+
 .section-card--dark .chip {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.12);
@@ -593,6 +599,11 @@ code {
     border: 1px solid rgba(16, 21, 28, 0.08);
 }
 
+.note-panel ul {
+    display: grid;
+    gap: 0.7rem;
+}
+
 .figure-grid {
     align-items: start;
 }
@@ -626,6 +637,11 @@ code {
 .figure-annotation,
 .support-text {
     font-size: 0.95rem;
+}
+
+.figure-body .download-links,
+.artifact-body .download-links {
+    margin-top: 0.1rem;
 }
 
 .code-snippet {

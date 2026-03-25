@@ -28,11 +28,10 @@
                 data-nav-toggle>Menu</button>
             <nav class="site-nav" data-nav>
                 <a href="index.html">Home</a>
-                <a href="position.html">Position</a>
+                <a href="position.html">Position Statement</a>
                 <a href="projects.html">Projects</a>
                 <a href="ctmfs.html">CTMF Handbook</a>
                 <a href="references.html">References</a>
-                <a href="pdf-submission.html">PDF Support</a>
             </nav>
         </div>
     </header>
@@ -42,26 +41,36 @@
             <div class="hero-layout">
                 <div>
                     <p class="eyebrow">Projects</p>
-                    <h1>Three project sections, one structure</h1>
+                    <h1>Three projects, arranged the same way</h1>
                     <p class="hero-lead">
-                        Each project below uses the same pattern: snapshot, summary, process annotation, evidence,
-                        contribution credit, CTMF links, and reflection. That consistency makes it easier to compare how
-                        my design position appears under different conditions.
+                        Each section follows the same order: quick snapshot, summary, process notes, evidence,
+                        contribution credit, CTMF links, and reflection. Keeping that structure steady makes it easier
+                        to compare how my design habits change from Praxis to CIV102 to the Gaussian project.
                     </p>
+                    <div class="chip-row">
+                        <span class="chip">Snapshot</span>
+                        <span class="chip">Summary</span>
+                        <span class="chip">Process notes</span>
+                        <span class="chip">Evidence</span>
+                        <span class="chip">Contribution</span>
+                        <span class="chip">CTMF links</span>
+                        <span class="chip">Reflection</span>
+                    </div>
                 </div>
                 <aside class="hero-side-note">
                     <dl>
                         <div>
                             <dt>Section order</dt>
-                            <dd>Praxis I, CIV102 Bridge, Gaussian Entanglement</dd>
+                            <dd>Praxis I, CIV102 bridge, Gaussian entanglement</dd>
                         </div>
                         <div>
                             <dt>Cross-links</dt>
-                            <dd>Each project links directly to the relevant CTMF entries and evidence files</dd>
+                            <dd>Every project links directly to the CTMF concepts and source files that support it</dd>
                         </div>
                         <div>
-                            <dt>Project format</dt>
-                            <dd>Common projects page with anchored sections rather than separate microsites</dd>
+                            <dt>Why the layout repeats</dt>
+                            <dd>The repeated structure keeps the comparisons readable instead of making each project a
+                                separate design language</dd>
                         </div>
                     </dl>
                 </aside>
@@ -109,9 +118,8 @@
                             The project started as a redesign problem around excess backpack straps catching on external
                             objects. The more useful framing was broader: the loose strap was only one symptom of a
                             system that also involved comfort, access to the bag, adjustability, and manufacturability.
-                            The team explored three concept directions, including elastic and relocated-adjustment
-                            variants, and I supported that comparison by building a simplified lumbar-deviation model
-                            that converted prototype parameters into legible metrics.
+                            The team explored three concept directions, and I supported that comparison by building a
+                            simplified lumbar-deviation model that converted prototype parameters into legible metrics.
                         </p>
                         <p>
                             The value of the project was not in claiming an exact human-body model. It was in creating a
@@ -121,17 +129,19 @@
                         </p>
                     </article>
                     <aside class="note-panel">
-                        <p class="meta-label">Source files</p>
-                        <div class="download-links">
-                            <a href="assets/evidence/evidence-sheet-praxis-final.pdf">Evidence sheet PDF</a>
-                            <a href="assets/evidence/praxis-project.m">MATLAB source</a>
-                        </div>
+                        <p class="meta-label">Evidence to open first</p>
+                        <ul>
+                            <li><a href="assets/evidence/evidence-sheet-praxis-final.pdf">Evidence sheet PDF</a> for
+                                concept notes, criteria, and simulation captures.</li>
+                            <li><a href="assets/evidence/praxis-project.m">MATLAB source</a> for the comparison model
+                                and parameter choices.</li>
+                        </ul>
                     </aside>
                 </div>
 
                 <article class="section-card" style="padding: 1.3rem 1.4rem;">
                     <div class="section-header">
-                        <p class="section-kicker">Process Annotation</p>
+                        <p class="section-kicker">Process Notes</p>
                         <h3>What changed during the design process</h3>
                     </div>
                     <p>
@@ -141,12 +151,12 @@
                         practicality of fabrication. That reframing changed the kind of evidence we needed.
                     </p>
                     <p>
-                        The divergence phase was productive because the concepts were kept distinct for long enough to
-                        compare them instead of collapsing immediately into a single hybrid idea. My contribution was to
+                        The divergence phase was useful because the concepts were kept distinct long enough to compare
+                        them instead of collapsing immediately into a single hybrid idea. My contribution was to
                         represent those concepts through parameters that could be varied: excess strap, load distance,
-                        pack weight, and pressures. The simulation was a representation tool, but it was also a framing
-                        tool because it forced the team to decide which quantities were actually meant to represent
-                        success.
+                        pack weight, and pressures. The simulation worked as a representation tool, but it also acted as
+                        a framing tool because it forced the team to decide which quantities were actually meant to
+                        represent success.
                     </p>
                     <p>
                         The most important lesson for me was that modeling only helped after the criteria became clear.
@@ -168,11 +178,16 @@
                                 simulation interface. It mattered because it converted a team uncertainty into something
                                 that could be explored rather than argued abstractly.
                             </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/evidence-sheet-praxis-final.pdf">Open evidence sheet</a>
+                                <a href="assets/evidence/praxis-project.m">Open MATLAB file</a>
+                            </div>
                         </div>
                     </figure>
                     <figure class="artifact-card">
                         <div class="artifact-body">
-                            <figcaption class="figure-caption">Figure 2. MATLAB excerpt from the backpack model</figcaption>
+                            <figcaption class="figure-caption">Figure 2. MATLAB excerpt from the backpack model
+                            </figcaption>
                             <pre class="code-snippet">% PROTOTYPES:
 % - Elastic Strap
 % - Inside-Bag Adjustment
@@ -186,6 +201,9 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 parameters. This was the point where the project shifted from a list of ideas to a
                                 model-backed comparison.
                             </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/praxis-project.m">Open full source</a>
+                            </div>
                         </div>
                     </figure>
                 </div>
@@ -204,11 +222,11 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </article>
                     <article class="info-card">
                         <span class="card-label">CTMFs used in this project</span>
-                        <h3>Linked CTMF entries</h3>
+                        <h3>Linked concepts</h3>
                         <div class="project-links">
-                            <a href="ctmfs.html#ctmf-stakeholder-framing">Stakeholder and requirement framing</a>
-                            <a href="ctmfs.html#ctmf-prototype-branching">Prototype branching</a>
-                            <a href="ctmfs.html#ctmf-biomechanical-simulation">Simplified biomechanical simulation</a>
+                            <a href="ctmfs.html#ctmf-backpack-framing">Framing</a>
+                            <a href="ctmfs.html#ctmf-backpack-prototyping">Prototyping</a>
+                            <a href="ctmfs.html#ctmf-backpack-diverging">Diverging</a>
                         </div>
                     </article>
                 </div>
@@ -270,19 +288,23 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         </p>
                     </article>
                     <aside class="note-panel">
-                        <p class="meta-label">Source files</p>
-                        <div class="download-links">
-                            <a href="assets/evidence/civ102-design-report-team-404.pdf">Design report PDF</a>
-                            <a href="assets/evidence/civ102-engineering-drawings-team-404.pdf">Engineering drawings</a>
-                            <a href="assets/evidence/civ102-design-calculations-team-404.pdf">Calculation package</a>
-                            <a href="assets/evidence/civ102-bridge-analysis.py">Python analysis</a>
-                        </div>
+                        <p class="meta-label">Evidence to open first</p>
+                        <ul>
+                            <li><a href="assets/evidence/civ102-design-report-team-404.pdf">Design report PDF</a> for
+                                the full design rationale and summary.</li>
+                            <li><a href="assets/evidence/civ102-engineering-drawings-team-404.pdf">Engineering
+                                    drawings</a> for geometry, spacing, and assembly logic.</li>
+                            <li><a href="assets/evidence/civ102-design-calculations-team-404.pdf">Calculation
+                                    package</a> for failure checks and factor-of-safety work.</li>
+                            <li><a href="assets/evidence/civ102-bridge-analysis.py">Python analysis</a> for moving-load
+                                envelopes and section comparisons.</li>
+                        </ul>
                     </aside>
                 </div>
 
                 <article class="section-card" style="padding: 1.3rem 1.4rem;">
                     <div class="section-header">
-                        <p class="section-kicker">Process Annotation</p>
+                        <p class="section-kicker">Process Notes</p>
                         <h3>Why the analytical frame had to widen</h3>
                     </div>
                     <p>
@@ -315,6 +337,9 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 In this project, representation was not cosmetic documentation; it was the bridge
                                 between analysis and fabrication.
                             </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/civ102-engineering-drawings-team-404.pdf">Open drawings</a>
+                            </div>
                         </div>
                     </figure>
                     <figure class="figure-card">
@@ -328,6 +353,10 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 failure rather than a single pass-fail number. That decomposition changed where the team
                                 looked for weakness.
                             </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/civ102-design-calculations-team-404.pdf">Open calculation
+                                    package</a>
+                            </div>
                         </div>
                     </figure>
                     <figure class="artifact-card">
@@ -343,6 +372,9 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 position. It mattered because critical sections and splice decisions depend on the worst
                                 case, not the easiest case to sketch by hand.
                             </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/civ102-bridge-analysis.py">Open analysis code</a>
+                            </div>
                         </div>
                     </figure>
                 </div>
@@ -361,11 +393,11 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </article>
                     <article class="info-card">
                         <span class="card-label">CTMFs used in this project</span>
-                        <h3>Linked CTMF entries</h3>
+                        <h3>Linked concepts</h3>
                         <div class="project-links">
-                            <a href="ctmfs.html#ctmf-failure-mode-framing">Failure-mode decomposition</a>
-                            <a href="ctmfs.html#ctmf-cross-section-iteration">Cross-section tradeoff iteration</a>
-                            <a href="ctmfs.html#ctmf-engineering-drawings">Engineering drawings as representation</a>
+                            <a href="ctmfs.html#ctmf-bridge-framing">Failure-mode framing</a>
+                            <a href="ctmfs.html#ctmf-bridge-iteration">Tradeoff iteration</a>
+                            <a href="ctmfs.html#ctmf-bridge-representing">Representing</a>
                         </div>
                     </article>
                 </div>
@@ -429,17 +461,19 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         </p>
                     </article>
                     <aside class="note-panel">
-                        <p class="meta-label">Source files</p>
-                        <div class="download-links">
-                            <a href="assets/evidence/finalrevision-gaussian-states.pdf">Long note PDF</a>
-                            <a href="assets/evidence/gaussian-en-bound.py">Benchmark script</a>
-                        </div>
+                        <p class="meta-label">Evidence to open first</p>
+                        <ul>
+                            <li><a href="assets/evidence/finalrevision-gaussian-states.pdf">Long note PDF</a> for the
+                                derivation and framing of the problem.</li>
+                            <li><a href="assets/evidence/gaussian-en-bound.py">Benchmark script</a> for exact-versus-
+                                bound comparisons, sweeps, and figures.</li>
+                        </ul>
                     </aside>
                 </div>
 
                 <article class="section-card" style="padding: 1.3rem 1.4rem;">
                     <div class="section-header">
-                        <p class="section-kicker">Process Annotation</p>
+                        <p class="section-kicker">Process Notes</p>
                         <h3>Why abstraction was the main design decision</h3>
                     </div>
                     <p>
@@ -474,18 +508,25 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 relevant trend or merely produces a prettier formula. The decision was not to trust the
                                 bound blindly, but to benchmark it.
                             </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/gaussian-en-bound.py">Open benchmark code</a>
+                            </div>
                         </div>
                     </figure>
                     <figure class="figure-card">
                         <img src="assets/project-figures/gaussian-heatmap.png"
                             alt="Gaussian project heatmap of bound slack over squeezing and transmissivity">
                         <div class="figure-body">
-                            <figcaption class="figure-caption">Figure 7. Slack heatmap across parameter space</figcaption>
+                            <figcaption class="figure-caption">Figure 7. Slack heatmap across parameter space
+                            </figcaption>
                             <p class="figure-annotation">
                                 The sweep is useful because it makes approximation error a visible landscape instead of
                                 a single hand-picked example. That widened the problem enough to judge where the reduced
                                 method was genuinely informative.
                             </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/gaussian-en-bound.py">Open sweep code</a>
+                            </div>
                         </div>
                     </figure>
                     <figure class="artifact-card">
@@ -502,6 +543,10 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 This code fragment captures the point of the project: turning an abstract condition into
                                 an explicit threshold that can be read directly at the parameter level.
                             </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/gaussian-en-bound.py">Open full script</a>
+                                <a href="assets/evidence/finalrevision-gaussian-states.pdf">Open long note</a>
+                            </div>
                         </div>
                     </figure>
                 </div>
@@ -520,21 +565,20 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </article>
                     <article class="info-card">
                         <span class="card-label">CTMFs used in this project</span>
-                        <h3>Linked CTMF entries</h3>
+                        <h3>Linked concepts</h3>
                         <div class="project-links">
-                            <a href="ctmfs.html#ctmf-invariant-reduction">Invariant reduction under symmetry</a>
-                            <a href="ctmfs.html#ctmf-parameter-sweeps">Parameter sweeps across channel regimes</a>
-                            <a href="ctmfs.html#ctmf-benchmark-comparison">Exact-versus-bound benchmarking</a>
+                            <a href="ctmfs.html#ctmf-gaussian-reduction">Reduction</a>
+                            <a href="ctmfs.html#ctmf-gaussian-sweeps">Sweeps</a>
+                            <a href="ctmfs.html#ctmf-gaussian-benchmarking">Benchmarking</a>
                         </div>
                     </article>
                 </div>
 
                 <article class="callout">
                     <p>
-                        Reflection: this project is the clearest example of my tendency to value elegant abstraction. It
-                        is also where I handled that tendency best, because the simpler formulation was forced to answer
-                        to exact comparisons and sweep-based error analysis. The growth here is learning that a good
-                        reduction must come with an equally explicit statement of where it stops being trustworthy.
+                        Reflection: this project is where my preference for abstraction is most visible. That preference
+                        is productive when it creates a clearer decision surface. It becomes dangerous if the reduced
+                        setting starts being treated as the whole problem rather than a disciplined slice of it.
                     </p>
                 </article>
             </div>
@@ -543,7 +587,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
 
     <footer class="page-footer">
         <div class="page-footer__inner">
-            <p>Projects page for the ESC102 assignment edition.</p>
+            <p>Project pages for the ESC102 assignment edition.</p>
             <p><span data-year></span> Mohamed Elsayed</p>
         </div>
     </footer>
