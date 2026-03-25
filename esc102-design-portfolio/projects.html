@@ -43,19 +43,10 @@
                     <p class="eyebrow">Projects</p>
                     <h1>Three projects, arranged the same way</h1>
                     <p class="hero-lead">
-                        Each section follows the same order: quick snapshot, summary, process notes, evidence,
-                        contribution credit, CTMF links, and reflection. Keeping that structure steady makes it easier
-                        to compare how my design habits change from Praxis to CIV102 to the Gaussian project.
+                        Each project keeps a common structure so the comparisons stay readable. That makes it easier to
+                        see what changes in my process from Praxis to CIV102 to the Gaussian project without turning the
+                        page into three unrelated layouts.
                     </p>
-                    <div class="chip-row">
-                        <span class="chip">Snapshot</span>
-                        <span class="chip">Summary</span>
-                        <span class="chip">Process notes</span>
-                        <span class="chip">Evidence</span>
-                        <span class="chip">Contribution</span>
-                        <span class="chip">CTMF links</span>
-                        <span class="chip">Reflection</span>
-                    </div>
                 </div>
                 <aside class="hero-side-note">
                     <dl>
@@ -66,11 +57,6 @@
                         <div>
                             <dt>Cross-links</dt>
                             <dd>Every project links directly to the CTMF concepts and source files that support it</dd>
-                        </div>
-                        <div>
-                            <dt>Why the layout repeats</dt>
-                            <dd>The repeated structure keeps the comparisons readable instead of making each project a
-                                separate design language</dd>
                         </div>
                     </dl>
                 </aside>
@@ -112,7 +98,6 @@
 
                 <div class="text-columns">
                     <article class="info-card">
-                        <span class="card-label">One-page summary</span>
                         <h3>Summary</h3>
                         <p>
                             The project started as a redesign problem around excess backpack straps catching on external
@@ -139,8 +124,8 @@
                     </aside>
                 </div>
 
-                <article class="section-card" style="padding: 1.3rem 1.4rem;">
-                    <div class="section-header">
+                <article class="process-panel">
+                    <div class="section-header process-panel__header">
                         <p class="section-kicker">Process Notes</p>
                         <h3>What changed during the design process</h3>
                     </div>
@@ -184,9 +169,25 @@
                             </div>
                         </div>
                     </figure>
+                    <figure class="figure-card">
+                        <img src="assets/project-figures/praxis-submission-figure3.png"
+                            alt="Submitted Praxis simulation page showing prototype-specific performance metrics">
+                        <div class="figure-body">
+                            <figcaption class="figure-caption">Figure 2. Submitted simulation-results page from the
+                                Praxis document</figcaption>
+                            <p class="figure-annotation">
+                                This page from the submitted document shows the prototype-specific metrics, thresholds,
+                                and research basis that turned the simulation from an internal tool into part of the
+                                final argument.
+                            </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/evidence-sheet-praxis-final.pdf">Open submitted PDF</a>
+                            </div>
+                        </div>
+                    </figure>
                     <figure class="artifact-card">
                         <div class="artifact-body">
-                            <figcaption class="figure-caption">Figure 2. MATLAB excerpt from the backpack model
+                            <figcaption class="figure-caption">Figure 3. MATLAB excerpt from the backpack model
                             </figcaption>
                             <pre class="code-snippet">% PROTOTYPES:
 % - Elastic Strap
@@ -209,9 +210,9 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                 </div>
 
                 <div class="grid-2">
-                    <article class="info-card">
-                        <span class="card-label">Team contribution and credit</span>
+                    <article class="info-card project-role-card">
                         <h3>My role</h3>
+                        <p class="project-role-note">Team contribution and credit</p>
                         <ul>
                             <li>Concept generation and design direction were shared team work.</li>
                             <li>I built the simulation-based comparison tool and helped define the measurable criteria
@@ -220,13 +221,24 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 individual.</li>
                         </ul>
                     </article>
-                    <article class="info-card">
-                        <span class="card-label">CTMFs used in this project</span>
+                    <article class="info-card project-ctmf-card">
+                        <p class="meta-label">CTMFs used in this project</p>
                         <h3>Linked concepts</h3>
+                        <p class="support-text">These handbook entries do the most work in explaining the design moves
+                            above.</p>
                         <div class="project-links">
-                            <a href="ctmfs.html#ctmf-backpack-framing">Framing</a>
-                            <a href="ctmfs.html#ctmf-backpack-prototyping">Prototyping</a>
-                            <a href="ctmfs.html#ctmf-backpack-diverging">Diverging</a>
+                            <a href="ctmfs.html#ctmf-backpack-framing">
+                                <span>Framing</span>
+                                <small>Open handbook entry</small>
+                            </a>
+                            <a href="ctmfs.html#ctmf-backpack-prototyping">
+                                <span>Prototyping</span>
+                                <small>Open handbook entry</small>
+                            </a>
+                            <a href="ctmfs.html#ctmf-backpack-diverging">
+                                <span>Diverging</span>
+                                <small>Open handbook entry</small>
+                            </a>
                         </div>
                     </article>
                 </div>
@@ -272,7 +284,6 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
 
                 <div class="text-columns">
                     <article class="info-card">
-                        <span class="card-label">One-page summary</span>
                         <h3>Summary</h3>
                         <p>
                             The CIV102 bridge required a design that could survive a specified moving train load under
@@ -302,8 +313,8 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </aside>
                 </div>
 
-                <article class="section-card" style="padding: 1.3rem 1.4rem;">
-                    <div class="section-header">
+                <article class="process-panel">
+                    <div class="section-header process-panel__header">
                         <p class="section-kicker">Process Notes</p>
                         <h3>Why the analytical frame had to widen</h3>
                     </div>
@@ -331,7 +342,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         <img src="assets/project-figures/civ102-drawings.png"
                             alt="Preview of CIV102 bridge engineering drawings">
                         <div class="figure-body">
-                            <figcaption class="figure-caption">Figure 3. Final bridge drawings</figcaption>
+                            <figcaption class="figure-caption">Figure 4. Final bridge drawings</figcaption>
                             <p class="figure-annotation">
                                 The drawings matter because they translate section assumptions into build instructions.
                                 In this project, representation was not cosmetic documentation; it was the bridge
@@ -346,7 +357,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         <img src="assets/project-figures/civ102-calculations.png"
                             alt="Preview of CIV102 bridge calculation sheet">
                         <div class="figure-body">
-                            <figcaption class="figure-caption">Figure 4. Hand calculations and factor-of-safety
+                            <figcaption class="figure-caption">Figure 5. Hand calculations and factor-of-safety
                                 checks</figcaption>
                             <p class="figure-annotation">
                                 This calculation page is useful because it breaks the design into specific modes of
@@ -361,7 +372,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </figure>
                     <figure class="artifact-card">
                         <div class="artifact-body">
-                            <figcaption class="figure-caption">Figure 5. Envelope-analysis code excerpt</figcaption>
+                            <figcaption class="figure-caption">Figure 6. Envelope-analysis code excerpt</figcaption>
                             <pre class="code-snippet">for idx, p0 in enumerate(start_positions):
     load_positions = p0 + offsets
     V = compute_SFD(load_positions, loads_magnitudes)
@@ -380,9 +391,9 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                 </div>
 
                 <div class="grid-2">
-                    <article class="info-card">
-                        <span class="card-label">Team contribution and credit</span>
+                    <article class="info-card project-role-card">
                         <h3>My role</h3>
+                        <p class="project-role-note">Team contribution and credit</p>
                         <ul>
                             <li>Bridge geometry selection, report production, and fabrication were shared team work.
                             </li>
@@ -391,13 +402,24 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                             <li>The drawings and final bridge were collective outputs and should be read that way.</li>
                         </ul>
                     </article>
-                    <article class="info-card">
-                        <span class="card-label">CTMFs used in this project</span>
+                    <article class="info-card project-ctmf-card">
+                        <p class="meta-label">CTMFs used in this project</p>
                         <h3>Linked concepts</h3>
+                        <p class="support-text">These are the handbook entries that make the bridge decisions and
+                            tradeoffs easier to read.</p>
                         <div class="project-links">
-                            <a href="ctmfs.html#ctmf-bridge-framing">Failure-mode framing</a>
-                            <a href="ctmfs.html#ctmf-bridge-iteration">Tradeoff iteration</a>
-                            <a href="ctmfs.html#ctmf-bridge-representing">Representing</a>
+                            <a href="ctmfs.html#ctmf-bridge-framing">
+                                <span>Failure-mode framing</span>
+                                <small>Open handbook entry</small>
+                            </a>
+                            <a href="ctmfs.html#ctmf-bridge-iteration">
+                                <span>Tradeoff iteration</span>
+                                <small>Open handbook entry</small>
+                            </a>
+                            <a href="ctmfs.html#ctmf-bridge-representing">
+                                <span>Representing</span>
+                                <small>Open handbook entry</small>
+                            </a>
                         </div>
                     </article>
                 </div>
@@ -444,7 +466,6 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
 
                 <div class="text-columns">
                     <article class="info-card">
-                        <span class="card-label">One-page summary</span>
                         <h3>Summary</h3>
                         <p>
                             This project studies when entanglement survives after a two-mode squeezed vacuum state
@@ -471,8 +492,8 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </aside>
                 </div>
 
-                <article class="section-card" style="padding: 1.3rem 1.4rem;">
-                    <div class="section-header">
+                <article class="process-panel">
+                    <div class="section-header process-panel__header">
                         <p class="section-kicker">Process Notes</p>
                         <h3>Why abstraction was the main design decision</h3>
                     </div>
@@ -501,7 +522,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         <img src="assets/project-figures/gaussian-pure-loss.png"
                             alt="Gaussian project plot comparing exact entanglement negativity and reference bound">
                         <div class="figure-body">
-                            <figcaption class="figure-caption">Figure 6. Exact versus bound under symmetric pure loss
+                            <figcaption class="figure-caption">Figure 7. Exact versus bound under symmetric pure loss
                             </figcaption>
                             <p class="figure-annotation">
                                 This figure matters because it shows whether the cleaner representation preserves the
@@ -517,7 +538,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         <img src="assets/project-figures/gaussian-heatmap.png"
                             alt="Gaussian project heatmap of bound slack over squeezing and transmissivity">
                         <div class="figure-body">
-                            <figcaption class="figure-caption">Figure 7. Slack heatmap across parameter space
+                            <figcaption class="figure-caption">Figure 8. Slack heatmap across parameter space
                             </figcaption>
                             <p class="figure-annotation">
                                 The sweep is useful because it makes approximation error a visible landscape instead of
@@ -531,7 +552,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </figure>
                     <figure class="artifact-card">
                         <div class="artifact-body">
-                            <figcaption class="figure-caption">Figure 8. Threshold function from the benchmark script
+                            <figcaption class="figure-caption">Figure 9. Threshold function from the benchmark script
                             </figcaption>
                             <pre class="code-snippet">def rc_thermal(eta, Nth):
     denom = 1.0 - (1.0 - eta) * (2.0 * Nth + 1.0)
@@ -552,9 +573,9 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                 </div>
 
                 <div class="grid-2">
-                    <article class="info-card">
-                        <span class="card-label">Contribution and credit</span>
+                    <article class="info-card project-role-card">
                         <h3>My role</h3>
+                        <p class="project-role-note">Contribution and credit</p>
                         <ul>
                             <li>This is an individual research project.</li>
                             <li>I carried out the analytic framing, coding, parameter sweeps, figure generation, and
@@ -563,13 +584,24 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 but the work presented here is mine.</li>
                         </ul>
                     </article>
-                    <article class="info-card">
-                        <span class="card-label">CTMFs used in this project</span>
+                    <article class="info-card project-ctmf-card">
+                        <p class="meta-label">CTMFs used in this project</p>
                         <h3>Linked concepts</h3>
+                        <p class="support-text">These entries explain the abstraction, range checking, and validation
+                            moves that hold the project together.</p>
                         <div class="project-links">
-                            <a href="ctmfs.html#ctmf-gaussian-reduction">Reduction</a>
-                            <a href="ctmfs.html#ctmf-gaussian-sweeps">Sweeps</a>
-                            <a href="ctmfs.html#ctmf-gaussian-benchmarking">Benchmarking</a>
+                            <a href="ctmfs.html#ctmf-gaussian-reduction">
+                                <span>Reduction</span>
+                                <small>Open handbook entry</small>
+                            </a>
+                            <a href="ctmfs.html#ctmf-gaussian-sweeps">
+                                <span>Sweeps</span>
+                                <small>Open handbook entry</small>
+                            </a>
+                            <a href="ctmfs.html#ctmf-gaussian-benchmarking">
+                                <span>Benchmarking</span>
+                                <small>Open handbook entry</small>
+                            </a>
                         </div>
                     </article>
                 </div>
