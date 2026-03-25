@@ -523,6 +523,75 @@ code {
     border-color: rgba(37, 93, 103, 0.25);
 }
 
+.project-map-grid,
+.why-three-panel__grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.project-map-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-map-card {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line-soft);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.project-map-card:hover,
+.project-map-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 32px rgba(10, 14, 18, 0.14);
+    border-color: rgba(37, 93, 103, 0.26);
+    outline: none;
+}
+
+.project-map-card h3 {
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
+}
+
+.project-map-card p {
+    margin: 0;
+}
+
+.project-map-card__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.2rem;
+    margin-top: 0.35rem;
+    color: var(--accent-teal);
+    font-weight: 600;
+}
+
+.why-three-panel {
+    margin-top: 1rem;
+    padding: 1.2rem;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(16, 21, 28, 0.04), rgba(37, 93, 103, 0.06));
+    border: 1px solid rgba(16, 21, 28, 0.08);
+}
+
+.why-three-panel__intro {
+    display: grid;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.why-three-panel__intro p {
+    margin: 0;
+    max-width: 52rem;
+}
+
+.why-three-panel__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .card-label,
 .strand-label,
 .small-label {
@@ -932,6 +1001,8 @@ code {
     .reference-grid,
     .timeline-grid,
     .resource-grid,
+    .project-map-grid,
+    .why-three-panel__grid,
     .meta-grid,
     .snapshot-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1003,6 +1074,8 @@ code {
     .timeline-grid,
     .check-grid,
     .resource-grid,
+    .project-map-grid,
+    .why-three-panel__grid,
     .meta-grid,
     .snapshot-grid,
     .text-columns {
