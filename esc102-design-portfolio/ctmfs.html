@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="CTMF Handbook for Mohamed Elsayed's ESC102 Student Engineer Design Portfolio.">
+        content="CTMF Handbook for Mohamed Elsayed's ESC102 Engineering Design Portfolio.">
     <title>CTMF Handbook | Mohamed Elsayed</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +21,8 @@
     <header class="site-header">
         <div class="nav-shell">
             <a class="site-mark" href="index.html">
-                <span class="site-mark__eyebrow">ESC102 20261</span>
-                <span class="site-mark__title">Student Engineer Design Portfolio</span>
+                <span class="site-mark__eyebrow">Mohamed Elsayed | ESC102 20261</span>
+                <span class="site-mark__title">Engineering Design Portfolio</span>
             </a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation"
                 data-nav-toggle>Menu</button>
@@ -43,9 +43,9 @@
                     <p class="eyebrow">CTMF Handbook</p>
                     <h1>Nine concepts tied to real design moves</h1>
                     <p class="hero-lead">
-                        This handbook is organized concept first. Each entry names the concept, explains what I
-                        actually did with it in a project, shows the evidence it connects to, and states why it
-                        mattered to the decision.
+                        This handbook is organized concept first. Each entry says what the concept meant in the
+                        project, what I actually did with it, what evidence makes that claim visible, where the concept
+                        helped, and where it still fell short.
                     </p>
                 </div>
                 <aside class="hero-side-note">
@@ -56,12 +56,12 @@
                         </div>
                         <div>
                             <dt>Reading pattern</dt>
-                            <dd>Concept, what I did, evidence, why it mattered, what I would watch next time</dd>
+                            <dd>Meaning in project, application, evidence, reveal, limitation, next move</dd>
                         </div>
                         <div>
                             <dt>Purpose</dt>
-                            <dd>Show how ideas and tools changed the work rather than listing methods in the abstract
-                            </dd>
+                            <dd>Show how a concept changed a decision instead of leaving it as a method name on its
+                                own</dd>
                         </div>
                     </dl>
                 </aside>
@@ -71,45 +71,78 @@
         <section class="section-card reveal">
             <div class="section-header">
                 <p class="section-kicker">Concept Map</p>
-                <h2>How the handbook is grouped</h2>
+                <h2>Each project carries a different CTMF cluster</h2>
                 <p class="section-description">
-                    Each project carries three concepts. Looking across them makes it easier to see what stayed
-                    consistent in my process and what had to change under different design pressures.
+                    The colors track the design strand each concept belongs to. Reading across the three clusters shows
+                    where my process keeps repeating and where the pressure of the project forces a different move.
                 </p>
+                <div class="chip-row">
+                    <span class="strand-pill strand-frame">Frame</span>
+                    <span class="strand-pill strand-diverge">Diverge</span>
+                    <span class="strand-pill strand-converge">Converge</span>
+                    <span class="strand-pill strand-represent">Represent</span>
+                </div>
             </div>
-            <div class="reference-grid">
-                <article class="reference-card">
+            <div class="ctmf-cluster-grid">
+                <article class="ctmf-cluster-card">
                     <span class="card-label">Praxis I</span>
-                    <h3>Backpack Strap</h3>
-                    <div class="chip-row">
-                        <a class="chip" href="#ctmf-backpack-framing">Framing</a>
-                        <a class="chip" href="#ctmf-backpack-prototyping">Prototyping</a>
-                        <a class="chip" href="#ctmf-backpack-diverging">Diverging</a>
+                    <h3>Backpack Strap Design</h3>
+                    <p>The project began as a visible annoyance and only became useful once the frame widened enough to
+                        support an actual comparison.</p>
+                    <div class="ctmf-cluster-list">
+                        <a class="ctmf-cluster-link" href="#ctmf-backpack-framing">
+                            <span class="strand-pill strand-frame">Framing</span>
+                            <p>Widened the problem before any metric or model was allowed to decide the work.</p>
+                        </a>
+                        <a class="ctmf-cluster-link" href="#ctmf-backpack-prototyping">
+                            <span class="strand-pill strand-represent">Prototyping</span>
+                            <p>Kept the concepts concrete enough to compare instead of leaving them as verbal ideas.</p>
+                        </a>
+                        <a class="ctmf-cluster-link" href="#ctmf-backpack-diverging">
+                            <span class="strand-pill strand-diverge">Diverging</span>
+                            <p>Held several directions open long enough to expose different strengths and weaknesses.</p>
+                        </a>
                     </div>
-                    <p>These concepts carried the project from a vague annoyance to a comparison between concrete
-                        options.</p>
                 </article>
-                <article class="reference-card">
+                <article class="ctmf-cluster-card">
                     <span class="card-label">CIV102</span>
-                    <h3>Bridge</h3>
-                    <div class="chip-row">
-                        <a class="chip" href="#ctmf-bridge-framing">Failure-mode framing</a>
-                        <a class="chip" href="#ctmf-bridge-iteration">Tradeoff iteration</a>
-                        <a class="chip" href="#ctmf-bridge-representing">Representing</a>
+                    <h3>Bridge Design</h3>
+                    <p>This case pushed the analytical work into contact with geometry, glue, spacing, and fabrication
+                        logic.</p>
+                    <div class="ctmf-cluster-list">
+                        <a class="ctmf-cluster-link" href="#ctmf-bridge-framing">
+                            <span class="strand-pill strand-frame">Failure-mode framing</span>
+                            <p>Treated the bridge as a map of risks instead of one overall strength target.</p>
+                        </a>
+                        <a class="ctmf-cluster-link" href="#ctmf-bridge-iteration">
+                            <span class="strand-pill strand-converge">Tradeoff iteration</span>
+                            <p>Revised geometry under competing demands from stiffness, buckling, shear, and glue.</p>
+                        </a>
+                        <a class="ctmf-cluster-link" href="#ctmf-bridge-representing">
+                            <span class="strand-pill strand-represent">Representing</span>
+                            <p>Used drawings to test whether the analytical bridge could actually be built as assumed.</p>
+                        </a>
                     </div>
-                    <p>Here the concepts show where analysis helped and where drawings and constructability had to carry
-                        equal weight.</p>
                 </article>
-                <article class="reference-card">
-                    <span class="card-label">Gaussian</span>
-                    <h3>Independent Study</h3>
-                    <div class="chip-row">
-                        <a class="chip" href="#ctmf-gaussian-reduction">Reduction</a>
-                        <a class="chip" href="#ctmf-gaussian-sweeps">Sweeps</a>
-                        <a class="chip" href="#ctmf-gaussian-benchmarking">Benchmarking</a>
+                <article class="ctmf-cluster-card">
+                    <span class="card-label">Independent Study</span>
+                    <h3>Gaussian Entanglement Project</h3>
+                    <p>The central pressure here was whether abstraction could produce leverage without hiding where it
+                        stopped being trustworthy.</p>
+                    <div class="ctmf-cluster-list">
+                        <a class="ctmf-cluster-link" href="#ctmf-gaussian-reduction">
+                            <span class="strand-pill strand-frame">Reduction</span>
+                            <p>Reframed the problem so thresholds could be written directly in channel parameters.</p>
+                        </a>
+                        <a class="ctmf-cluster-link" href="#ctmf-gaussian-sweeps">
+                            <span class="strand-pill strand-diverge">Sweeps</span>
+                            <p>Explored parameter space broadly enough to reveal where the shortcut stayed informative.</p>
+                        </a>
+                        <a class="ctmf-cluster-link" href="#ctmf-gaussian-benchmarking">
+                            <span class="strand-pill strand-converge">Benchmarking</span>
+                            <p>Compared the cleaner result against exact quantities before letting it carry conclusions.</p>
+                        </a>
                     </div>
-                    <p>The concepts in this project center on abstraction, range checking, and making a shortcut earn
-                        permission.</p>
                 </article>
             </div>
         </section>
@@ -118,9 +151,13 @@
             <div class="section-header">
                 <p class="section-kicker">Praxis I Concepts</p>
                 <h2>Backpack strap project</h2>
+                <p class="section-description">
+                    These notes show how the project moved from a vague complaint about loose straps to a structured
+                    comparison between concept directions.
+                </p>
             </div>
             <div class="entry-grid">
-                <article class="entry-card" id="ctmf-backpack-framing">
+                <article class="entry-card" id="ctmf-backpack-framing" data-strand="frame">
                     <div class="entry-header">
                         <div>
                             <span class="card-label">Concept</span>
@@ -131,29 +168,53 @@
                             <span class="strand-pill strand-frame">Frame</span>
                         </div>
                     </div>
-                    <div class="entry-block">
-                        <h4>What I did</h4>
-                        <p>I helped widen the problem from "loose straps are annoying" to a fuller set of consequences:
-                            snagging, comfort, access to the bag, adjustability, and manufacturability.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Evidence</h4>
-                        <p>The evidence sheet and later simulation parameters both reflect that wider frame, because the
-                            criteria had to exist before the model meant anything.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Why it mattered</h4>
-                        <p>This prevented the project from collapsing into a superficial fastening fix. It also slowed
-                            down my habit of reaching for a model before the decision criteria were visible.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>What I would watch next time</h4>
-                        <p>If the frame narrows too early, later metrics will only optimize one kind of user
-                            experience. I would revisit the frame explicitly before each major comparison step.</p>
+                    <p class="entry-claim">Framing was the move that kept the project from turning into a neat strap
+                        clip fix. Once the problem widened, the later model had an actual decision to support.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Framing meant deciding what counted as the problem before treating any concept as a
+                                solution. In this project that meant refusing to treat the loose strap as an isolated
+                                nuisance.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I helped widen the discussion from snagging alone to a linked set of concerns:
+                                adjustability, comfort, access to the bag, and manufacturability. That wider frame then
+                                informed the criteria and variables used in the comparison model.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The clearest trace is the shift from requirement notes to explicit simulation inputs and
+                                prototype-specific metrics.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#praxis-1">Project section</a>
+                                <a href="assets/evidence/evidence-sheet-praxis-final.pdf">Evidence sheet PDF</a>
+                                <a href="assets/evidence/praxis-project.m">MATLAB model</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>The wider frame made it obvious that a concept could reduce snagging while making access
+                                or comfort worse. That stopped the project from rewarding the cleanest-looking fix
+                                instead of the best overall direction.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>The frame still leaned toward what could be parameterized. Physical handling, quick-use
+                                behavior, and build effort were present, but not represented as strongly as the
+                                modeled quantities.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would revisit the frame explicitly after the first round of concept comparisons and add
+                                a small physical-use test sooner so the frame is not shaped mostly by what the model can
+                                express.</p>
+                        </section>
                     </div>
                 </article>
 
-                <article class="entry-card" id="ctmf-backpack-prototyping">
+                <article class="entry-card" id="ctmf-backpack-prototyping" data-strand="represent">
                     <div class="entry-header">
                         <div>
                             <span class="card-label">Concept</span>
@@ -164,31 +225,53 @@
                             <span class="strand-pill strand-represent">Represent</span>
                         </div>
                     </div>
-                    <div class="entry-block">
-                        <h4>What I did</h4>
-                        <p>I supported the team in keeping the elastic, inside-bag adjustment, and shoulder-side
-                            adjustment ideas concrete enough to compare instead of letting them stay as loose verbal
-                            suggestions.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Evidence</h4>
-                        <p>The evidence sheet and MATLAB model both preserve those directions as distinct options with
-                            parameters that can be varied and compared.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Why it mattered</h4>
-                        <p>Prototyping gave the project something tangible to reason about. It turned discussion from
-                            taste and intuition into tradeoffs the team could actually inspect.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>What I would watch next time</h4>
-                        <p>A prototype only helps if it is tied to the right question. I would pair the early model
-                            with faster physical checks so the representation does not carry the full burden by itself.
-                        </p>
+                    <p class="entry-claim">Prototyping mattered because it made the concept directions inspectable.
+                        Without that move, the team would have been comparing narratives instead of design proposals.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Here prototyping was less about polished physical build quality and more about keeping an
+                                idea concrete enough to be questioned. A rough representation was still better than a
+                                loose verbal claim.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I supported the team in preserving three distinct directions, then built a simplified
+                                comparison model so each direction could be expressed through parameters such as excess
+                                strap, load distance, and pressure rather than just intuition.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The submission page and MATLAB file show the concepts being carried into metrics rather
+                                than left as sketches with no test structure.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#praxis-1">Project section</a>
+                                <a href="assets/evidence/evidence-sheet-praxis-final.pdf">Submitted PDF</a>
+                                <a href="assets/evidence/praxis-project.m">MATLAB model</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>Prototyping turned concept comparison into something the team could actually argue with.
+                                It exposed differences in load path and obstruction that were not visible when the
+                                concepts were only described verbally.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>The project relied more on representational prototyping than on quick physical checks. A
+                                model can clarify structure, but it can also hide how incomplete the supporting evidence
+                                still is.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would pair the early model with faster physical rig tests or mockups. That would keep
+                                the representation useful while making sure the prototype still answers to real use
+                                conditions.</p>
+                        </section>
                     </div>
                 </article>
 
-                <article class="entry-card" id="ctmf-backpack-diverging">
+                <article class="entry-card" id="ctmf-backpack-diverging" data-strand="diverge">
                     <div class="entry-header">
                         <div>
                             <span class="card-label">Concept</span>
@@ -199,26 +282,47 @@
                             <span class="strand-pill strand-diverge">Diverge</span>
                         </div>
                     </div>
-                    <div class="entry-block">
-                        <h4>What I did</h4>
-                        <p>I helped keep multiple concept directions alive long enough to see what each one solved
-                            differently before the team narrowed toward a preferred direction.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Evidence</h4>
-                        <p>The project record shows three concept paths, not a single hybrid from the start. That is
-                            what made later comparison meaningful.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Why it mattered</h4>
-                        <p>Diverging kept the problem open long enough for better distinctions to appear. It also taught
-                            me that divergence needs an endpoint, because in this project it ran too long and squeezed
-                            convergence time later.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>What I would watch next time</h4>
-                        <p>I would define what divergence is supposed to uncover before it starts and decide in advance
-                            what evidence is enough to begin closing options.</p>
+                    <p class="entry-claim">Diverging was useful because it protected the differences between concepts.
+                        It also exposed one of my weak points: I can keep options open longer than the schedule can
+                        afford.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Diverging did not mean generating as many ideas as possible. It meant holding several
+                                plausible directions open long enough to learn what each one solved differently.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I helped keep the elastic, inside-bag adjustment, and shoulder-side adjustment concepts
+                                distinct while the team clarified comparison criteria. That preserved meaningful
+                                differences instead of collapsing everything into an early hybrid.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The evidence sheet and project summary show three separable concept directions being
+                                compared against explicit metrics rather than one merged answer from the start.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#praxis-1">Project section</a>
+                                <a href="assets/evidence/evidence-sheet-praxis-final.pdf">Evidence sheet PDF</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>Divergence made it possible to see that the concepts did not fail for the same reason.
+                                One direction handled obstruction better, another protected adjustability, and another
+                                raised stronger manufacturability questions.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>In this project divergence lasted slightly too long. By the time the concepts were well
+                                understood, the remaining convergence time was tighter than it should have been.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would set an exit condition before diverging begins: what evidence is needed, what
+                                distinction each concept is supposed to reveal, and when the team is required to start
+                                closing options.</p>
+                        </section>
                     </div>
                 </article>
             </div>
@@ -228,108 +332,182 @@
             <div class="section-header">
                 <p class="section-kicker">CIV102 Concepts</p>
                 <h2>Bridge project</h2>
+                <p class="section-description">
+                    These entries show where the bridge stopped being a clean analytical exercise and became a design
+                    problem tied to geometry, assembly, and build quality.
+                </p>
             </div>
             <div class="entry-grid">
-                <article class="entry-card" id="ctmf-bridge-framing">
+                <article class="entry-card" id="ctmf-bridge-framing" data-strand="frame">
                     <div class="entry-header">
                         <div>
                             <span class="card-label">Concept</span>
                             <h3>Failure-mode framing</h3>
-                            <p class="project-meta-inline">Used in <a href="projects.html#civ102-bridge">CIV102</a>
-                            </p>
+                            <p class="project-meta-inline">Used in <a href="projects.html#civ102-bridge">CIV102</a></p>
                         </div>
                         <div class="entry-meta">
                             <span class="strand-pill strand-frame">Frame</span>
                         </div>
                     </div>
-                    <div class="entry-block">
-                        <h4>What I did</h4>
-                        <p>I treated the bridge as a system of distinct failure modes, including tension, compression,
-                            buckling, shear, and glue-related failure, rather than one overall strength problem.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Evidence</h4>
-                        <p>The hand calculations and analysis code both track separate safety factors across positions
-                            on the bridge instead of collapsing the design into one number.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Why it mattered</h4>
-                        <p>This made the bridge more legible and showed where geometry decisions actually changed risk.
-                            It was also the point where analytical clarity became genuinely useful to the team.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>What I would watch next time</h4>
-                        <p>Framing by failure mode is incomplete if fabrication quality stays implicit. I would pair it
-                            with an equally explicit constructability frame from the start.</p>
+                    <p class="entry-claim">Failure-mode framing made the bridge legible. Instead of asking whether the
+                        bridge was “strong,” the design work became a question of where and how it was most likely to
+                        fail.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Framing meant decomposing the bridge into tension, compression, buckling, shear, glue,
+                                and local stability concerns. That decomposition created a map of design pressure
+                                rather than a single pass-fail target.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I used calculations and code to treat different bridge regions and different failure
+                                types explicitly. That kept the team from reading one strong number as proof that the
+                                whole design was well resolved.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The calculations and analysis script both separate capacities and safety factors by mode
+                                and location instead of collapsing the bridge into one metric.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#civ102-bridge">Project section</a>
+                                <a href="assets/evidence/civ102-design-calculations-team-404.pdf">Calculation package</a>
+                                <a href="assets/evidence/civ102-bridge-analysis.py">Analysis code</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>This frame showed that several geometry choices were not making the bridge universally
+                                better; they were shifting weakness from one mode to another. That made splice
+                                placement, diaphragm spacing, and flange decisions much easier to read.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>The frame still underrepresented fabrication quality. Glue application, cutting
+                                precision, and assembly consistency were acknowledged, but they were not modeled with
+                                the same explicitness as the structural modes.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would add a parallel constructability frame at the start: expected tolerance risk,
+                                glue-critical joints, and steps in the build sequence that could invalidate an otherwise
+                                strong analytical design.</p>
+                        </section>
                     </div>
                 </article>
 
-                <article class="entry-card" id="ctmf-bridge-iteration">
+                <article class="entry-card" id="ctmf-bridge-iteration" data-strand="converge">
                     <div class="entry-header">
                         <div>
                             <span class="card-label">Concept</span>
                             <h3>Tradeoff iteration</h3>
-                            <p class="project-meta-inline">Used in <a href="projects.html#civ102-bridge">CIV102</a>
-                            </p>
+                            <p class="project-meta-inline">Used in <a href="projects.html#civ102-bridge">CIV102</a></p>
                         </div>
                         <div class="entry-meta">
                             <span class="strand-pill strand-converge">Converge</span>
                         </div>
                     </div>
-                    <div class="entry-block">
-                        <h4>What I did</h4>
-                        <p>I treated bridge geometry as something to iterate, comparing competing effects such as
-                            stiffness, buckling resistance, shear flow, glue demand, and diaphragm spacing.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Evidence</h4>
-                        <p>The section-property work and the Python envelope analysis show geometry being recalculated
-                            and judged through multiple consequences rather than one optimization target.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Why it mattered</h4>
-                        <p>Iteration slowed down the temptation to lock onto a single efficient-looking cross-section too
-                            early. It forced several capacities to stay visible at the same time.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>What I would watch next time</h4>
-                        <p>Iteration becomes false rigor if each revision is judged only analytically. I would attach a
-                            buildability check to every major geometry change.</p>
+                    <p class="entry-claim">Iteration was the convergence tool in this project. The bridge only improved
+                        when geometry was treated as revisable under several competing effects instead of optimized once
+                        against a single clean criterion.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Tradeoff iteration meant revising the bridge while keeping several capacities visible at
+                                once: bending, shear, buckling, stiffness, glue demand, and the practical cost of the
+                                section shape.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I used section-property work and load-envelope reasoning to compare geometry choices and
+                                track how each revision improved one condition while often making another condition
+                                tighter.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The design calculations and envelope-analysis script show repeated recalculation around
+                                changing geometry rather than a one-pass optimization.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#civ102-bridge">Project section</a>
+                                <a href="assets/evidence/civ102-design-calculations-team-404.pdf">Calculation package</a>
+                                <a href="assets/evidence/civ102-bridge-analysis.py">Analysis code</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>Iteration exposed how quickly an efficient-looking section could become risky once
+                                buckling resistance, glue lines, or local stability were brought back into view. It
+                                helped convergence resist false neatness.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>Most of the iteration still happened numerically before the drawings fully pushed back.
+                                That meant some revisions were analytically justified earlier than they were buildably
+                                justified.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would require a buildability check at each major revision. If a geometry change cannot
+                                survive a drawing or assembly review, it should not count as a genuine design
+                                improvement.</p>
+                        </section>
                     </div>
                 </article>
 
-                <article class="entry-card" id="ctmf-bridge-representing">
+                <article class="entry-card" id="ctmf-bridge-representing" data-strand="represent">
                     <div class="entry-header">
                         <div>
                             <span class="card-label">Concept</span>
                             <h3>Representing</h3>
-                            <p class="project-meta-inline">Used in <a href="projects.html#civ102-bridge">CIV102</a>
-                            </p>
+                            <p class="project-meta-inline">Used in <a href="projects.html#civ102-bridge">CIV102</a></p>
                         </div>
                         <div class="entry-meta">
                             <span class="strand-pill strand-represent">Represent</span>
                         </div>
                     </div>
-                    <div class="entry-block">
-                        <h4>What I did</h4>
-                        <p>I treated the drawings as design work, not as something to produce after the bridge was
-                            already decided. They made assumptions about geometry, spacing, and assembly visible to the
-                            whole team.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Evidence</h4>
-                        <p>The final drawing package translates the analytical bridge into something that could be cut,
-                            glued, and assembled from a shared picture.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Why it mattered</h4>
-                        <p>This concept corrected a blind spot in my own process. It showed that communication and
-                            constructability are not downstream from design; they are part of design.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>What I would watch next time</h4>
-                        <p>Drawings can still look complete while hiding tolerance risk or assembly difficulty. I would
-                            bring them into the iteration earlier, while they still have power to change the design.</p>
+                    <p class="entry-claim">Representing mattered because the bridge was never complete as an analysis
+                        alone. The drawings were the point where geometry, spacing, and assembly assumptions became
+                        visible enough to challenge.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Representing meant treating drawings as part of the design process rather than as
+                                downstream documentation. A drawing was useful only if it could expose hidden
+                                assumptions in the analysis.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I used the drawing package as a way to test whether the analytical bridge could actually
+                                be cut, aligned, glued, and assembled with the relationships the calculations assumed.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The engineering drawings and design report show the analytical design translated into
+                                dimensions, spacing logic, and assembly decisions that other teammates could act on.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#civ102-bridge">Project section</a>
+                                <a href="assets/evidence/civ102-engineering-drawings-team-404.pdf">Engineering drawings</a>
+                                <a href="assets/evidence/civ102-design-report-team-404.pdf">Design report</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>Representation exposed where the bridge was relying on idealized geometry. Once the
+                                design had to be drawn for actual construction, tolerance, sequence, and accessibility
+                                stopped being background issues.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>Drawings can still look resolved while hiding how difficult assembly will be in practice.
+                                Clean lines on a page are not yet proof that fabrication friction has been accounted
+                                for.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would bring drawings into the project earlier and annotate them with tolerance
+                                concerns, glue sequence, and handoff points so representation starts shaping the design
+                                before convergence hardens.</p>
+                        </section>
                     </div>
                 </article>
             </div>
@@ -339,108 +517,177 @@
             <div class="section-header">
                 <p class="section-kicker">Gaussian Concepts</p>
                 <h2>Independent analytic work</h2>
+                <p class="section-description">
+                    These notes focus on method design: what abstraction bought, where it risked overclaiming, and how
+                    benchmarking kept the cleaner result accountable.
+                </p>
             </div>
             <div class="entry-grid">
-                <article class="entry-card" id="ctmf-gaussian-reduction">
+                <article class="entry-card" id="ctmf-gaussian-reduction" data-strand="frame">
                     <div class="entry-header">
                         <div>
                             <span class="card-label">Concept</span>
                             <h3>Reduction</h3>
-                            <p class="project-meta-inline">Used in <a href="projects.html#gaussian-project">Gaussian
-                                    project</a></p>
+                            <p class="project-meta-inline">Used in <a href="projects.html#gaussian-project">Gaussian project</a></p>
                         </div>
                         <div class="entry-meta">
                             <span class="strand-pill strand-frame">Frame</span>
                         </div>
                     </div>
-                    <div class="entry-block">
-                        <h4>What I did</h4>
-                        <p>I reframed the entanglement problem under a symmetric setting so the threshold condition
-                            could be expressed directly in the channel parameters instead of left as repeated numerical
-                            evaluation.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Evidence</h4>
-                        <p>The long note and benchmark code both center the move from full-spectrum computation toward
-                            a reduced, analytically invertible form.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Why it mattered</h4>
-                        <p>This created the main leverage in the project. It turned an abstract technical task into a
-                            designable representation that could be interpreted and tested.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>What I would watch next time</h4>
-                        <p>Reduction is powerful only if the assumptions remain visible. I would keep stating what the
-                            symmetry buys and what it excludes whenever the result is presented.</p>
+                    <p class="entry-claim">Reduction was the key framing move in this project. It turned a repeated
+                        numerical condition into something interpretable at the parameter level, which is where the
+                        project started producing design leverage.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Reduction meant redesigning the problem under a symmetric setting so the entanglement
+                                threshold could be written directly in transmissivity, noise, gain, and squeezing
+                                parameters.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I reframed the partially transposed eigenvalue condition into an analytically cleaner
+                                form and then organized the rest of the work around what that new representation made
+                                visible.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The long note and benchmark code both center the move from full-spectrum evaluation to a
+                                reduced threshold expression.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#gaussian-project">Project section</a>
+                                <a href="assets/evidence/finalrevision-gaussian-states.pdf">Long note PDF</a>
+                                <a href="assets/evidence/gaussian-en-bound.py">Benchmark script</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>The reduction created direct threshold statements instead of leaving the project at the
+                                level of repeated computation. That made regime comparison, plotting, and later
+                                benchmarking much more informative.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>The leverage comes from symmetry, which also means the method excludes broader channel
+                                settings. If that boundary is not stated explicitly, the cleaner result can start
+                                looking more universal than it is.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would state the validity boundary more aggressively, ideally with a short map of which
+                                asymmetric or more general cases are outside the reduction and why.</p>
+                        </section>
                     </div>
                 </article>
 
-                <article class="entry-card" id="ctmf-gaussian-sweeps">
+                <article class="entry-card" id="ctmf-gaussian-sweeps" data-strand="diverge">
                     <div class="entry-header">
                         <div>
                             <span class="card-label">Concept</span>
                             <h3>Sweeps</h3>
-                            <p class="project-meta-inline">Used in <a href="projects.html#gaussian-project">Gaussian
-                                    project</a></p>
+                            <p class="project-meta-inline">Used in <a href="projects.html#gaussian-project">Gaussian project</a></p>
                         </div>
                         <div class="entry-meta">
                             <span class="strand-pill strand-diverge">Diverge</span>
                         </div>
                     </div>
-                    <div class="entry-block">
-                        <h4>What I did</h4>
-                        <p>I explored transmissivity, thermal occupancy, gain, and squeezing across multiple regimes
-                            instead of relying on a few convenient examples.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Evidence</h4>
-                        <p>The heatmaps and benchmark figures are generated from those sweeps, which make variation
-                            itself part of the argument.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Why it mattered</h4>
-                        <p>Sweeps widened the project after the abstraction was already in place. They stopped the
-                            reduced method from being judged only on the nicest-looking cases.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>What I would watch next time</h4>
-                        <p>I would keep checking that the sweep ranges are chosen for the real technical question, not
-                            just because they produce a cleaner figure.</p>
+                    <p class="entry-claim">Sweeps were the divergence move after the reduction was in place. They kept
+                        one elegant example from doing the argumentative work of an entire parameter regime.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Sweeps meant exploring parameter space systematically enough that variation itself became
+                                evidence. In this project divergence happened across regimes, not across physical
+                                product concepts.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I explored transmissivity, thermal occupancy, gain, and squeezing across pure-loss,
+                                thermal-loss, and amplifier settings to see where the reduced condition preserved the
+                                relevant structure and where slack accumulated.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The heatmaps and regime plots come directly from the sweep logic in the benchmark
+                                script.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#gaussian-project">Project section</a>
+                                <a href="assets/evidence/gaussian-en-bound.py">Benchmark script</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>The sweeps showed where the shortcut stayed informative and where it drifted. That made
+                                approximation error part of the design argument instead of an afterthought hidden
+                                behind one carefully chosen figure.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>Sweeps can still be curated to flatter the result. Range choice, resolution, and which
+                                regimes are included all shape what the reader is allowed to notice.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would justify the selected ranges more explicitly and add a short explanation of which
+                                regimes are physically or mathematically important rather than letting figure aesthetics
+                                decide the sweep.</p>
+                        </section>
                     </div>
                 </article>
 
-                <article class="entry-card" id="ctmf-gaussian-benchmarking">
+                <article class="entry-card" id="ctmf-gaussian-benchmarking" data-strand="converge">
                     <div class="entry-header">
                         <div>
                             <span class="card-label">Concept</span>
                             <h3>Benchmarking</h3>
-                            <p class="project-meta-inline">Used in <a href="projects.html#gaussian-project">Gaussian
-                                    project</a></p>
+                            <p class="project-meta-inline">Used in <a href="projects.html#gaussian-project">Gaussian project</a></p>
                         </div>
                         <div class="entry-meta">
                             <span class="strand-pill strand-converge">Converge</span>
                         </div>
                     </div>
-                    <div class="entry-block">
-                        <h4>What I did</h4>
-                        <p>I compared the simplified threshold and bound against exact quantities before treating the
-                            reduction as trustworthy enough to guide conclusions.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Evidence</h4>
-                        <p>The pure-loss and thermal-loss plots directly compare exact log-negativity and the reference
-                            bound, including where visible slack appears.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>Why it mattered</h4>
-                        <p>Benchmarking is what made the abstraction accountable. It kept a preferred shortcut from
-                            being accepted just because it was elegant.</p>
-                    </div>
-                    <div class="entry-block">
-                        <h4>What I would watch next time</h4>
-                        <p>Any shortcut that will guide later reasoning needs to be benchmarked in the regime where it
-                            will actually be used, not only where it performs best.</p>
+                    <p class="entry-claim">Benchmarking is what kept the reduction honest. It forced the cleaner
+                        threshold to answer to exact quantities before I treated it as a dependable guide.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Benchmarking meant comparing the reduced threshold and associated bound against exact
+                                log-negativity behavior instead of accepting analytic elegance as proof of usefulness.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I generated comparison plots in representative regimes and used them to inspect where the
+                                simplified result tracked the trend, where it introduced slack, and where it stopped
+                                being a reliable stand-in.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The pure-loss and thermal-loss plots, together with the script that generated them, show
+                                exact-versus-bound comparison directly.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#gaussian-project">Project section</a>
+                                <a href="assets/evidence/gaussian-en-bound.py">Benchmark script</a>
+                                <a href="assets/evidence/finalrevision-gaussian-states.pdf">Long note PDF</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>Benchmarking showed that the reduction was not simply “right” or “wrong.” It exposed
+                                where the shortcut preserved the important structure and where the gap between exact and
+                                reduced behavior became large enough to matter.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>The benchmark set is still a curated sample. Even good comparison plots can create
+                                confidence too quickly if they are not paired with a clear statement about untested
+                                regimes.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would add a compact error summary across regimes and intentionally include a few harder
+                                edge cases, so the benchmark does more than confirm the method where it already looks
+                                strong.</p>
+                        </section>
                     </div>
                 </article>
             </div>
