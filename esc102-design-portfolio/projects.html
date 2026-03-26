@@ -124,31 +124,41 @@
                     </aside>
                 </div>
 
-                <article class="process-panel">
+                <article class="process-panel" id="praxis-process-notes">
                     <div class="section-header process-panel__header">
                         <p class="section-kicker">Process Notes</p>
-                        <h3>What changed during the design process</h3>
+                        <div>
+                            <h3>What changed during the design process</h3>
+                            <p class="process-panel__summary">The project improved once the strap problem was framed
+                                more widely and the representation was made answer to clearer criteria.</p>
+                        </div>
                     </div>
-                    <p>
-                        My first instinct was to treat the strap problem as a visible nuisance that could be solved by a
-                        clever fastening mechanism. The project got stronger once the team treated it as a design
-                        problem with multiple consequences: snagging, posture, load path, ease of adjustment, and the
-                        practicality of fabrication. That reframing changed the kind of evidence we needed.
-                    </p>
-                    <p>
-                        The divergence phase was useful because the concepts were kept distinct long enough to compare
-                        them instead of collapsing immediately into a single hybrid idea. My contribution was to
-                        represent those concepts through parameters that could be varied: excess strap, load distance,
-                        pack weight, and pressures. The simulation worked as a representation tool, but it also acted as
-                        a framing tool because it forced the team to decide which quantities were actually meant to
-                        represent success.
-                    </p>
-                    <p>
-                        The most important lesson for me was that modeling only helped after the criteria became clear.
-                        Before that, a simulation would have produced numbers without a decision. After the criteria were
-                        visible, even a simplified model could expose where a concept likely failed an ergonomic
-                        requirement or shifted the burden somewhere else.
-                    </p>
+                    <div class="process-panel__grid">
+                        <article class="process-step">
+                            <span class="small-label">Frame Shift</span>
+                            <h4>The problem widened before the model mattered</h4>
+                            <p>My first instinct was to treat the strap issue as a visible nuisance that needed a
+                                clever fastening mechanism. The project got stronger once the team treated it as a
+                                system of consequences involving snagging, posture, load path, ease of adjustment, and
+                                fabrication.</p>
+                        </article>
+                        <article class="process-step">
+                            <span class="small-label">Representation Shift</span>
+                            <h4>The concepts stayed separate long enough to compare</h4>
+                            <p>Divergence was useful because the concepts were kept distinct instead of collapsing into
+                                a hybrid too early. My contribution was to represent those directions through
+                                parameters such as excess strap, load distance, pack weight, and pressure, so the model
+                                could support comparison rather than replace it.</p>
+                        </article>
+                        <article class="process-step">
+                            <span class="small-label">What I Learned</span>
+                            <h4>Criteria had to exist before the simulation could help</h4>
+                            <p>Modeling only became useful after the team had made success legible. Before that, the
+                                simulation would have produced numbers without a decision. After the criteria were
+                                visible, even a simplified model could expose where a concept shifted the burden
+                                somewhere else.</p>
+                        </article>
+                    </div>
                 </article>
 
                 <div class="figure-grid">
@@ -313,28 +323,39 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </aside>
                 </div>
 
-                <article class="process-panel">
+                <article class="process-panel" id="civ102-process-notes">
                     <div class="section-header process-panel__header">
                         <p class="section-kicker">Process Notes</p>
-                        <h3>Why the analytical frame had to widen</h3>
+                        <div>
+                            <h3>Why the analytical frame had to widen</h3>
+                            <p class="process-panel__summary">The bridge only became convincing once the calculations
+                                started answering to failure modes, geometry, and build logic at the same time.</p>
+                        </div>
                     </div>
-                    <p>
-                        Early on, the project invited a familiar failure mode in my own process: treating the bridge as
-                        a problem of numerical optimization around material efficiency. That framing was attractive
-                        because it offered clean variables and crisp output metrics. It was incomplete.
-                    </p>
-                    <p>
-                        The work improved once the bridge was represented as a set of interacting failure modes under a
-                        moving load rather than a single strength number. That shift made the envelope analysis, section
-                        properties, and buckling checks more useful because they were tied to actual regions of the
-                        bridge and specific construction decisions such as splice placement and diaphragm spacing.
-                    </p>
-                    <p>
-                        The project also made visible a design lesson that pure analysis can hide: constructability is
-                        not a downstream concern. Drawings, glue strategy, fit tolerances, and assembly quality needed
-                        to be represented early enough to affect convergence. This is the clearest project in the
-                        portfolio where I can see myself converging too early around what was easiest to quantify.
-                    </p>
+                    <div class="process-panel__grid">
+                        <article class="process-step">
+                            <span class="small-label">Early Trap</span>
+                            <h4>Numerical neatness looked more complete than it was</h4>
+                            <p>Early on, the bridge invited a familiar habit in my own process: treating the design as
+                                a problem of numerical optimization around material efficiency. That framing was
+                                attractive because it produced clean variables and crisp output, but it was incomplete.</p>
+                        </article>
+                        <article class="process-step">
+                            <span class="small-label">Useful Shift</span>
+                            <h4>Failure modes made the analysis genuinely helpful</h4>
+                            <p>The work improved once the bridge was represented as interacting failure modes under a
+                                moving load rather than a single strength number. That shift made the envelope
+                                analysis, section properties, and buckling checks useful because they were tied to
+                                specific regions and construction decisions.</p>
+                        </article>
+                        <article class="process-step">
+                            <span class="small-label">Hard Lesson</span>
+                            <h4>Constructability needed equal weight before convergence</h4>
+                            <p>The project made visible a design lesson that pure analysis can hide: drawings, glue
+                                strategy, fit tolerances, and assembly quality had to be represented early enough to
+                                change the geometry, not just explain it afterward.</p>
+                        </article>
+                    </div>
                 </article>
 
                 <div class="figure-grid">
@@ -492,29 +513,39 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </aside>
                 </div>
 
-                <article class="process-panel">
+                <article class="process-panel" id="gaussian-process-notes">
                     <div class="section-header process-panel__header">
                         <p class="section-kicker">Process Notes</p>
-                        <h3>Why abstraction was the main design decision</h3>
+                        <div>
+                            <h3>Why abstraction was the main design decision</h3>
+                            <p class="process-panel__summary">The work only gained leverage once the problem was
+                                reduced to something interpretable, then widened again through sweeps and benchmarking.</p>
+                        </div>
                     </div>
-                    <p>
-                        The first version of the problem could have remained a repeated numerical evaluation of the full
-                        symplectic spectrum. That would have produced answers, but not much design leverage. The better
-                        framing was to ask whether symmetry could be used to reduce the condition to something
-                        invertible and interpretable at the parameter level.
-                    </p>
-                    <p>
-                        Once the invariant reduction was in place, divergence happened analytically rather than through
-                        physical prototypes. I explored pure-loss, thermal-loss, and amplifier regimes, then used
-                        parameter sweeps and validation against exact quantities to see where the simpler representation
-                        preserved the right structure and where it introduced slack.
-                    </p>
-                    <p>
-                        The main tradeoff was generality versus tractability. The reduced condition is powerful because
-                        it gives direct threshold statements, but it only earns that power under the symmetric setting.
-                        This project therefore reflects both a strength and a caution in my design approach: I am very
-                        willing to redesign the problem itself, but I have to keep stating what that redesign excludes.
-                    </p>
+                    <div class="process-panel__grid">
+                        <article class="process-step">
+                            <span class="small-label">Reframe</span>
+                            <h4>Symmetry turned the problem into something readable</h4>
+                            <p>The first version of the problem could have remained a repeated numerical evaluation of
+                                the full symplectic spectrum. The better move was to ask whether symmetry could reduce
+                                the condition to something invertible and interpretable at the parameter level.</p>
+                        </article>
+                        <article class="process-step">
+                            <span class="small-label">Test The Reduction</span>
+                            <h4>Sweeps and validation widened the method again</h4>
+                            <p>Once the invariant reduction was in place, divergence happened analytically. I explored
+                                pure-loss, thermal-loss, and amplifier regimes, then used parameter sweeps and exact
+                                comparisons to see where the simpler representation preserved the right structure and
+                                where it introduced slack.</p>
+                        </article>
+                        <article class="process-step">
+                            <span class="small-label">Responsibility</span>
+                            <h4>Leverage only counted if the exclusion stayed visible</h4>
+                            <p>The main tradeoff was generality versus tractability. The reduced condition is powerful
+                                because it gives direct threshold statements, but it only earns that power under the
+                                symmetric setting. The method had to keep stating what it excluded.</p>
+                        </article>
+                    </div>
                 </article>
 
                 <div class="figure-grid">

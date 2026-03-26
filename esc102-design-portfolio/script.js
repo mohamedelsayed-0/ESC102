@@ -29,6 +29,52 @@ document.addEventListener("DOMContentLoaded", () => {
         footerYear.textContent = new Date().getFullYear();
     }
 
+    document.querySelectorAll("[data-card-link]").forEach((card) => {
+        const destination = card.getAttribute("data-card-link");
+        if (!destination) {
+            return;
+        }
+
+        const openDestination = () => {
+            window.location.href = destination;
+        };
+
+        card.addEventListener("click", (event) => {
+            if (event.target.closest("a, button")) {
+                return;
+            }
+
+            openDestination();
+        });
+
+        card.addEventListener("keydown", (event) => {
+            if (event.target.closest("a, button")) {
+                return;
+            }
+
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openDestination();
+            }
+        });
+    });
+
+    if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+            window.requestAnimationFrame(() => {
+                setTimeout(() => {
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                    target.classList.add("hash-focus");
+                    window.setTimeout(() => target.classList.remove("hash-focus"), 1600);
+                }, 80);
+            });
+        }
+    }
+
     const expandableFigures = document.querySelectorAll("figure.figure-card, figure.artifact-card");
     if (expandableFigures.length) {
         const modal = document.createElement("div");
