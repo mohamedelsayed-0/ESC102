@@ -43,81 +43,125 @@
                     <p class="eyebrow">Mohamed Elsayed</p>
                     <h1>Engineering Design Portfolio</h1>
                     <p class="hero-lead">
-                        This site is a course-specific rebuild of my portfolio for ESC102. It is laid out to show how I
-                        frame problems, what evidence changes my decisions, and where my process still breaks down
-                        across three projects.
+                        This site is arranged as an engineering design argument for an external reader who does not
+                        already know the projects. The position statement frames the document first, the three project
+                        cases show how that position was enacted, and the CTMF handbook evaluates the concepts, tools,
+                        models, and frameworks that carried those decisions.
                     </p>
                     <div class="hero-actions">
-                        <a class="button button-primary" href="position.html">Read the full statement</a>
-                        <a class="button button-secondary" href="projects.html">Compare the projects</a>
+                        <a class="button button-primary" href="position.html">Read the position statement</a>
+                        <a class="button button-secondary" href="#table-of-contents">Use the contents guide</a>
                     </div>
                 </div>
                 <aside class="hero-side-note">
                     <dl>
                         <div>
+                            <dt>Audience</dt>
+                            <dd>Technically literate readers who need both the claim and the supporting evidence</dd>
+                        </div>
+                        <div>
                             <dt>Project set</dt>
                             <dd>Praxis I backpack strap, CIV102 bridge, Gaussian entanglement study</dd>
                         </div>
                         <div>
-                            <dt>Throughline</dt>
-                            <dd>Criteria, verification, and the point where a clean model starts hiding something important
-                            </dd>
-                        </div>
-                        <div>
-                            <dt>Reading order</dt>
-                            <dd>Start with the position statement, then compare the projects, then use the CTMF
-                                handbook and references to trace the claims</dd>
+                            <dt>Structure rule</dt>
+                            <dd>The site order is deliberate: position first, project cases second, CTMF assessment
+                                third, source trail last</dd>
                         </div>
                     </dl>
                 </aside>
             </div>
         </section>
 
-        <section class="section-card reveal">
+        <section class="section-card reveal" id="table-of-contents">
             <div class="section-header">
-                <p class="section-kicker">How To Read The Site</p>
-                <h2>Start with the claim, then follow the evidence</h2>
+                <p class="section-kicker">Table Of Contents</p>
+                <h2>Read this as a framed design argument</h2>
                 <p class="section-description">
-                    The portfolio is arranged so the argument comes first, then the project cases, then the concepts and
-                    sources behind them. I wanted the structure to make it easy to check where each point comes from
-                    instead of burying that reasoning under presentation.
+                    The order of the portfolio comes from my position on design. I begin with the claim, then show the
+                    three project cases where it is tested, then evaluate the concepts and source material behind those
+                    decisions. Different sections use different modes as needed: concise prose, lists, diagrams,
+                    annotated figures, tables, and code excerpts.
                 </p>
             </div>
-            <div class="quick-grid">
-                <a class="link-card" href="position.html">
-                    <span class="card-label">01 Statement</span>
+            <div class="contents-grid">
+                <article class="contents-card">
+                    <span class="card-label">1 Frame</span>
                     <h3>Position Statement</h3>
-                    <p>My current design position, the habits behind it, and the changes I am deliberately making.</p>
-                </a>
-                <a class="link-card" href="projects.html">
-                    <span class="card-label">02 Cases</span>
-                    <h3>Three Project Cases</h3>
-                    <p>Praxis I, CIV102, and the Gaussian project are laid out in the same order so the comparisons are
-                        easier to make.</p>
-                </a>
-                <a class="link-card" href="ctmfs.html">
-                    <span class="card-label">03 CTMFs</span>
-                    <h3>Concept-First CTMF Handbook</h3>
-                    <p>Each entry names the concept first, then explains what I actually did with it and what it
-                        changed.</p>
-                </a>
-                <a class="link-card" href="references.html">
-                    <span class="card-label">04 Sources</span>
-                    <h3>References</h3>
-                    <p>Reports, drawings, code, and notes are linked directly so the interpretation can be checked
-                        against the source material.</p>
-                </a>
+                    <p>The portfolio opens with my current position in context: what I value, how I approach
+                        ambiguity, the strengths I bring, and the bias I am actively correcting.</p>
+                    <div class="toc-links">
+                        <a href="position.html">Formal position statement</a>
+                        <a href="position.html#position-in-context">Values, strengths, biases, growth</a>
+                        <a href="position.html#position-evolution">Revision and evolution</a>
+                    </div>
+                </article>
+                <article class="contents-card">
+                    <span class="card-label">2 Represent &amp; Connect</span>
+                    <h3>Three project cases</h3>
+                    <p>The middle of the document presents the design products and explains the process in context. Each
+                        case follows the same reading logic without forcing the evidence to look identical, and each
+                        case includes explicit team credit where collaboration shaped the work.</p>
+                    <div class="toc-links">
+                        <a href="projects.html#praxis-1">Praxis I summary and process note</a>
+                        <a href="projects.html#civ102-bridge">CIV102 summary and process note</a>
+                        <a href="projects.html#gaussian-project">Gaussian summary and process note</a>
+                    </div>
+                </article>
+                <article class="contents-card">
+                    <span class="card-label">3 Represent &amp; Evaluate</span>
+                    <h3>CTMF handbook and references</h3>
+                    <p>The final sections assess the concepts, tools, models, and frameworks that did real work in the
+                        projects, then keep the evidence trail visible so the interpretation can be checked.</p>
+                    <div class="toc-links">
+                        <a href="ctmfs.html">Nine CTMF assessments</a>
+                        <a href="references.html">Project source trail</a>
+                        <a href="projects.html#praxis-1">Annotated figures and code excerpts</a>
+                    </div>
+                </article>
+            </div>
+            <div class="document-map">
+                <div class="document-map__node">Position Statement</div>
+                <div class="document-map__node">Project Cases</div>
+                <div class="document-map__node">CTMF Handbook</div>
+                <div class="document-map__node">References</div>
+            </div>
+            <p class="document-map__note">
+                The organization is not neutral. My position comes first because it sets the terms the project evidence
+                and CTMF assessments are judged against.
+            </p>
+            <div class="grid-3" style="margin-top: 1rem;">
+                <article class="info-card">
+                    <span class="card-label">Value signal</span>
+                    <h3>Clarity before polish</h3>
+                    <p>The table of contents starts with the position because the portfolio is meant to be read as an
+                        argument, not as a gallery of finished things.</p>
+                </article>
+                <article class="info-card">
+                    <span class="card-label">Value signal</span>
+                    <h3>Traceability before compression</h3>
+                    <p>Projects keep artifacts close to the prose so a reader can move from a claim to the supporting
+                        figure, drawing, code file, or report without hunting through the site.</p>
+                </article>
+                <article class="info-card">
+                    <span class="card-label">Value signal</span>
+                    <h3>Accountability before personal branding</h3>
+                    <p>Explicit teammate credit, source links, and CTMF evaluation matter here because the design work
+                        should stay inspectable instead of sounding more individual than it really was.</p>
+                </article>
+            </div>
+            <div class="quick-grid quick-grid--supporting">
                 <a class="link-card" href="projects.html#praxis-1">
-                    <span class="card-label">05 Evidence</span>
-                    <h3>Artifacts Stay Beside The Writing</h3>
-                    <p>Screenshots, drawings, plots, and code excerpts sit beside the writing instead of on a separate
-                        page of their own.</p>
+                    <span class="card-label">Evidence</span>
+                    <h3>Artifacts stay beside the writing</h3>
+                    <p>Screenshots, drawings, plots, and code excerpts sit inside the argument instead of on a separate
+                        gallery page.</p>
                 </a>
                 <a class="link-card" href="projects.html#gaussian-project">
-                    <span class="card-label">06 Growth</span>
-                    <h3>Design Growth Across Projects</h3>
-                    <p>The sequence matters: better framing in Praxis, harder lessons about constructability in CIV102,
-                        and tighter abstraction in the Gaussian work.</p>
+                    <span class="card-label">Growth</span>
+                    <h3>The sequence across projects matters</h3>
+                    <p>Praxis exposes early comparison habits, CIV102 tests constructability, and the Gaussian work
+                        stresses abstraction and argumentative discipline.</p>
                 </a>
             </div>
         </section>
@@ -305,12 +349,12 @@
         <section class="section-card reveal">
             <div class="section-header">
                 <p class="section-kicker">Praxis And CTMFs</p>
-                <h2>The framework behind the portfolio</h2>
+                <h2>The organizing logic behind the portfolio</h2>
             </div>
             <div class="grid-2">
                 <article class="info-card">
                     <span class="card-label">Praxis</span>
-                    <h3>Frame, Diverge, Converge, Represent</h3>
+                    <h3>Frame the document, then track how design moved</h3>
                     <p>Praxis is treated here as an iterative cycle rather than a neat checklist. It helps me describe
                         where a project widened, where it narrowed, and where representation changed what the team could
                         actually decide.</p>
@@ -333,7 +377,7 @@
 
     <footer class="page-footer">
         <div class="page-footer__inner">
-            <p>Assignment edition focused on process, reflection, and evidence traceability.</p>
+            <p>Portfolio homepage focused on position, evidence traceability, and engineering design process.</p>
             <p><span data-year></span> Mohamed Elsayed</p>
         </div>
     </footer>
