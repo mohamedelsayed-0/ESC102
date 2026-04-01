@@ -234,19 +234,19 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     <article class="info-card project-ctmf-card">
                         <p class="meta-label">CTMFs used in this project</p>
                         <h3>Linked concepts</h3>
-                        <p class="support-text">These handbook entries do the most work in explaining the design moves
-                            above.</p>
+                        <p class="support-text">These handbook entries explain how the concept set, the judging
+                            criteria, and the low-resource evidence worked together.</p>
                         <div class="project-links">
-                            <a href="ctmfs.html#ctmf-backpack-framing">
-                                <span>Framing</span>
+                            <a href="ctmfs.html#ctmf-backpack-design-concepts">
+                                <span>Design concepts</span>
                                 <small>Open handbook entry</small>
                             </a>
-                            <a href="ctmfs.html#ctmf-backpack-prototyping">
-                                <span>Prototyping</span>
+                            <a href="ctmfs.html#ctmf-backpack-evaluation-criteria">
+                                <span>Evaluation criteria</span>
                                 <small>Open handbook entry</small>
                             </a>
-                            <a href="ctmfs.html#ctmf-backpack-diverging">
-                                <span>Diverging</span>
+                            <a href="ctmfs.html#ctmf-backpack-proxy-testing">
+                                <span>Proxy testing</span>
                                 <small>Open handbook entry</small>
                             </a>
                         </div>
@@ -426,19 +426,19 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     <article class="info-card project-ctmf-card">
                         <p class="meta-label">CTMFs used in this project</p>
                         <h3>Linked concepts</h3>
-                        <p class="support-text">These are the handbook entries that make the bridge decisions and
-                            tradeoffs easier to read.</p>
+                        <p class="support-text">These handbook entries make the bridge decisions easier to read by
+                            tying the requirements, checks, and drawings together.</p>
                         <div class="project-links">
-                            <a href="ctmfs.html#ctmf-bridge-framing">
-                                <span>Failure-mode framing</span>
+                            <a href="ctmfs.html#ctmf-bridge-requirements">
+                                <span>Requirements</span>
                                 <small>Open handbook entry</small>
                             </a>
-                            <a href="ctmfs.html#ctmf-bridge-iteration">
-                                <span>Tradeoff iteration</span>
+                            <a href="ctmfs.html#ctmf-bridge-verification">
+                                <span>Verification</span>
                                 <small>Open handbook entry</small>
                             </a>
-                            <a href="ctmfs.html#ctmf-bridge-representing">
-                                <span>Representing</span>
+                            <a href="ctmfs.html#ctmf-bridge-graphical-prototype">
+                                <span>Prototypes: graphical</span>
                                 <small>Open handbook entry</small>
                             </a>
                         </div>
@@ -479,8 +479,8 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         </div>
                         <div class="snapshot-item">
                             <p class="meta-label">Outcome</p>
-                            <p class="meta-value">Analytic threshold expressions, benchmark figures, and parameter
-                                sweeps across multiple channel regimes</p>
+                            <p class="meta-value">Analytic threshold expressions, comparison figures, and parameter-
+                                space checks across multiple channel regimes</p>
                         </div>
                     </div>
                 </div>
@@ -496,10 +496,10 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         </p>
                         <p>
                             In portfolio terms, this is not a conventional product-design artifact. It is a method
-                            design problem. The challenge was to decide what structure to preserve, what symmetry to
-                            exploit, and how to benchmark the cleaner formulation against exact computation before
-                            trusting it. That makes it a useful counterpoint to the more physical design projects in the
-                            portfolio.
+                            design problem. The challenge was to decide what structure to preserve, how to state the
+                            analytical claim clearly, and how to use figures and exact comparisons to revise the cleaner
+                            formulation before trusting it. That makes it a useful counterpoint to the more physical
+                            design projects in the portfolio.
                         </p>
                     </article>
                     <aside class="note-panel">
@@ -507,8 +507,8 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         <ul>
                             <li><a href="assets/evidence/finalrevision-gaussian-states.pdf">Long note PDF</a> for the
                                 derivation and framing of the problem.</li>
-                            <li><a href="assets/evidence/gaussian-en-bound.py">Benchmark script</a> for exact-versus-
-                                bound comparisons, sweeps, and figures.</li>
+                            <li><a href="assets/evidence/gaussian-en-bound.py">Comparison script</a> for exact-versus-
+                                bound checks, regime scans, and figures.</li>
                         </ul>
                     </aside>
                 </div>
@@ -518,32 +518,34 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         <p class="section-kicker">Process Notes</p>
                         <div>
                             <h3>Why abstraction was the main design decision</h3>
-                            <p class="process-panel__summary">The work only gained leverage once the problem was
-                                reduced to something interpretable, then widened again through sweeps and benchmarking.</p>
+                            <p class="process-panel__summary">The work only gained leverage once the analytical claim
+                                was explicit, the supporting argument was inspectable, and the figures were used to
+                                revise the claim rather than decorate it.</p>
                         </div>
                     </div>
                     <div class="process-panel__grid">
                         <article class="process-step">
-                            <span class="small-label">Reframe</span>
-                            <h4>Symmetry turned the problem into something readable</h4>
+                            <span class="small-label">Analytical Claim</span>
+                            <h4>Symmetry turned the condition into a direct analytical statement</h4>
                             <p>The first version of the problem could have remained a repeated numerical evaluation of
                                 the full symplectic spectrum. The better move was to ask whether symmetry could reduce
                                 the condition to something invertible and interpretable at the parameter level.</p>
                         </article>
                         <article class="process-step">
-                            <span class="small-label">Test The Reduction</span>
-                            <h4>Sweeps and validation widened the method again</h4>
-                            <p>Once the invariant reduction was in place, divergence happened analytically. I explored
-                                pure-loss, thermal-loss, and amplifier regimes, then used parameter sweeps and exact
-                                comparisons to see where the simpler representation preserved the right structure and
-                                where it introduced slack.</p>
+                            <span class="small-label">PIAA Loop</span>
+                            <h4>Plots only mattered when they changed what I claimed next</h4>
+                            <p>After the cleaner condition was in place, the figures became decision tools. I used them
+                                to perceive where the bound separated from exact behavior, interpret what feature caused
+                                the gap, assess whether the shortcut was still acceptable, and act by revising the way
+                                I described the result.</p>
                         </article>
                         <article class="process-step">
-                            <span class="small-label">Responsibility</span>
-                            <h4>Leverage only counted if the exclusion stayed visible</h4>
-                            <p>The main tradeoff was generality versus tractability. The reduced condition is powerful
-                                because it gives direct threshold statements, but it only earns that power under the
-                                symmetric setting. The method had to keep stating what it excluded.</p>
+                            <span class="small-label">Argument Discipline</span>
+                            <h4>The claim only held if the grounds and warrant stayed visible</h4>
+                            <p>The main tradeoff was generality versus tractability. The cleaner statement only earned
+                                its authority when I could show the claim itself, the mathematical grounds supporting
+                                it, and the warrant that explains why the reduced setting was still informative. That
+                                discipline kept the exclusions visible.</p>
                         </article>
                     </div>
                 </article>
@@ -558,10 +560,10 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                             <p class="figure-annotation">
                                 This figure matters because it shows whether the cleaner representation preserves the
                                 relevant trend or merely produces a prettier formula. The decision was not to trust the
-                                bound blindly, but to benchmark it.
+                                bound blindly, but to compare it against exact computation.
                             </p>
                             <div class="download-links">
-                                <a href="assets/evidence/gaussian-en-bound.py">Open benchmark code</a>
+                                <a href="assets/evidence/gaussian-en-bound.py">Open comparison code</a>
                             </div>
                         </div>
                     </figure>
@@ -572,18 +574,18 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                             <figcaption class="figure-caption">Figure 8. Slack heatmap across parameter space
                             </figcaption>
                             <p class="figure-annotation">
-                                The sweep is useful because it makes approximation error a visible landscape instead of
+                                The parameter-space scan is useful because it makes approximation error a visible landscape instead of
                                 a single hand-picked example. That widened the problem enough to judge where the reduced
                                 method was genuinely informative.
                             </p>
                             <div class="download-links">
-                                <a href="assets/evidence/gaussian-en-bound.py">Open sweep code</a>
+                                <a href="assets/evidence/gaussian-en-bound.py">Open comparison code</a>
                             </div>
                         </div>
                     </figure>
                     <figure class="artifact-card">
                         <div class="artifact-body">
-                            <figcaption class="figure-caption">Figure 9. Threshold function from the benchmark script
+                            <figcaption class="figure-caption">Figure 9. Threshold function from the analysis script
                             </figcaption>
                             <pre class="code-snippet">def rc_thermal(eta, Nth):
     denom = 1.0 - (1.0 - eta) * (2.0 * Nth + 1.0)
@@ -618,19 +620,19 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     <article class="info-card project-ctmf-card">
                         <p class="meta-label">CTMFs used in this project</p>
                         <h3>Linked concepts</h3>
-                        <p class="support-text">These entries explain the abstraction, range checking, and validation
-                            moves that hold the project together.</p>
+                        <p class="support-text">These entries explain the analytical claim, the argument structure, and
+                            the figure-reading loop that hold the project together.</p>
                         <div class="project-links">
-                            <a href="ctmfs.html#ctmf-gaussian-reduction">
-                                <span>Reduction</span>
+                            <a href="ctmfs.html#ctmf-gaussian-analytical">
+                                <span>Analytical</span>
                                 <small>Open handbook entry</small>
                             </a>
-                            <a href="ctmfs.html#ctmf-gaussian-sweeps">
-                                <span>Sweeps</span>
+                            <a href="ctmfs.html#ctmf-gaussian-toulman">
+                                <span>Toulman’s structure of argument</span>
                                 <small>Open handbook entry</small>
                             </a>
-                            <a href="ctmfs.html#ctmf-gaussian-benchmarking">
-                                <span>Benchmarking</span>
+                            <a href="ctmfs.html#ctmf-gaussian-piaa">
+                                <span>PIAA</span>
                                 <small>Open handbook entry</small>
                             </a>
                         </div>
