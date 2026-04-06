@@ -1,0 +1,197 @@
+/* ============================================
+   WALKTHROUGH STYLES — Portfolio Edition
+   ============================================ */
+
+:root {
+    --wt-accent: #aa5a32; /* Rust accent from portfolio */
+    --wt-accent-soft: rgba(170, 90, 50, 0.12);
+    --wt-bg: rgba(16, 21, 28, 0.94); /* Ink 950 base */
+    --wt-border: rgba(170, 90, 50, 0.22);
+    --wt-text-primary: #fbf6ee; /* Paper 50 */
+    --wt-text-secondary: rgba(251, 246, 238, 0.7);
+}
+
+/* --- THE MASK --- */
+.wt-mask {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(8, 12, 18, 0.65); /* Dimmed backdrop */
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    pointer-events: all;
+    clip-path: none; /* Set dynamically via JS */
+    transition: clip-path 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- THE SPOTLIGHT RING --- */
+.wt-ring {
+    position: fixed;
+    z-index: 10001;
+    pointer-events: none;
+    border: 2px solid var(--wt-accent);
+    box-shadow: 0 0 0 9999px rgba(8, 12, 18, 0), 0 0 20px var(--wt-accent);
+    border-radius: 8px;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- THE FLOATING CARD --- */
+.wt-float-card {
+    position: fixed;
+    width: 380px;
+    max-width: calc(100vw - 40px);
+    background: var(--wt-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--wt-border);
+    border-radius: 1.5rem;
+    padding: 24px 28px;
+    z-index: 10100;
+    pointer-events: all;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(170, 90, 50, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease, left 0.4s cubic-bezier(0.22, 1, 0.36, 1), top 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    font-family: var(--font-body);
+}
+
+.wt-float-card.wt-visible {
+    opacity: 1;
+}
+
+.wt-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.wt-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.wt-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wt-arrow-btn {
+    background: rgba(251, 246, 238, 0.08);
+    border: 1px solid rgba(251, 246, 238, 0.1);
+    color: var(--wt-text-primary);
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.wt-arrow-btn:hover:not(:disabled) {
+    background: var(--wt-accent);
+    border-color: var(--wt-accent);
+    transform: translateY(-1px);
+}
+
+.wt-arrow-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.wt-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(251, 246, 238, 0.15);
+    transition: all 0.3s ease;
+}
+
+.wt-dot-active {
+    background: var(--wt-accent);
+    box-shadow: 0 0 8px var(--wt-accent);
+    transform: scale(1.2);
+}
+
+.wt-count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--wt-text-secondary);
+    letter-spacing: 0.1em;
+}
+
+.wt-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--wt-text-primary);
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+.wt-body {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--wt-text-secondary);
+    margin-bottom: 24px;
+}
+
+.wt-body strong {
+    color: var(--wt-text-primary);
+    font-weight: 600;
+}
+
+.wt-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wt-next-btn {
+    padding: 10px 24px;
+    background: var(--wt-accent);
+    border: none;
+    border-radius: 0.8rem;
+    color: var(--text-inverse);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wt-next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(170, 90, 50, 0.4);
+}
+
+.wt-skip-btn {
+    background: transparent;
+    border: none;
+    color: var(--wt-text-secondary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+}
+
+.wt-skip-btn:hover {
+    color: var(--wt-text-primary);
+}
+
+/* --- STATE CLASSES --- */
+body.wt-active {
+    overflow: hidden !important;
+}
+
+.wt-target-highlighted {
+    position: relative;
+    z-index: 10002 !important;
+    pointer-events: all !important;
+}
