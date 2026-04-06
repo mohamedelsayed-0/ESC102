@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Project summaries for the Praxis I, CIV102 Bridge, and Gaussian Entanglement work in Mohamed Elsayed's ESC102 portfolio.">
+        content="Project summaries for Praxis I, CIV102 Bridge, Praxis II, and Gaussian Entanglement work in Mohamed Elsayed's ESC102 portfolio.">
     <title>Projects | Mohamed Elsayed</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,20 +42,21 @@
             <div class="hero-layout">
                 <div>
                     <p class="eyebrow">Projects</p>
-                    <h1>Three project cases, read with the same logic</h1>
+                    <h1>Four project cases, spaced to read as separate arguments</h1>
                     <p class="hero-lead">
-                        This page is the represent-and-connect core of the portfolio. Each case balances a concise
-                        summary, a process annotation, annotated evidence, and credit, so a reader can see both what
-                        was designed and how my position showed up in the design process. The cases share a navigation
-                        structure, but the dominant artifacts change by project: simulation evidence in Praxis,
-                        drawings and calculations in CIV102, and plots plus code in the Gaussian work.
+                        This page is the represent-and-connect core of the portfolio. The first three cases are the
+                        primary ESC102 course design activities: Praxis I, CIV102, and Praxis II. I keep the Gaussian
+                        project as an additional comparison case because it shows the same design position under a more
+                        abstract pressure. Each section now uses longer discussion beats, clearer figure placement, and
+                        direct evidence links so the reader can tell what changed, what evidence mattered, and where my
+                        contribution sits.
                     </p>
                 </div>
                 <aside class="hero-side-note">
                     <dl>
                         <div>
                             <dt>Section order</dt>
-                            <dd>Praxis I, CIV102 bridge, Gaussian entanglement</dd>
+                            <dd>Praxis I, CIV102 bridge, Praxis II wristband workflow, Gaussian entanglement</dd>
                         </div>
                         <div>
                             <dt>Cross-links</dt>
@@ -75,6 +76,7 @@
             <div class="hero-actions" style="margin-top: 1.75rem;">
                 <a class="button button-primary" href="#praxis-1">Jump to Praxis I</a>
                 <a class="button button-secondary" href="#civ102-bridge">Jump to CIV102</a>
+                <a class="button button-secondary" href="#praxis-2">Jump to Praxis II</a>
                 <a class="button button-secondary" href="#gaussian-project">Jump to Gaussian</a>
             </div>
         </section>
@@ -140,35 +142,31 @@
                         <p class="section-kicker">Process Notes</p>
                         <div>
                             <h3>What changed during the design process</h3>
-                            <p class="process-panel__summary">The project improved once the strap problem was framed
-                                more widely and the representation was made answer to clearer criteria. This is where my
-                                position first becomes legible in the work.</p>
+                            <p class="process-panel__summary">The project improved once the strap problem was widened
+                                into a carrying-system problem and the comparison model was made answer to explicit
+                                criteria. This is the first case where my preference for structure helps the team, but
+                                also shows its limits.</p>
                         </div>
                     </div>
                     <div class="process-panel__grid">
                         <article class="process-step">
-                            <span class="small-label">Frame Shift</span>
-                            <h4>The problem widened before the model mattered</h4>
-                            <p>My first instinct was to treat the strap issue as a visible nuisance that needed a
-                                clever fastening mechanism. The project got stronger once the team treated it as a
-                                system of consequences involving snagging, posture, load path, ease of adjustment, and
-                                fabrication.</p>
+                            <span class="small-label">Reframe</span>
+                            <h4>The loose strap was only one visible symptom of a larger carrying problem</h4>
+                            <p>My first instinct was to hunt for a neat fastening mechanism. The project got stronger
+                                once the team treated the issue as a system of consequences involving snagging,
+                                posture, load path, ease of adjustment, and manufacturability. That wider frame is
+                                what justified keeping three concept directions open long enough to compare them
+                                meaningfully instead of converging on the cleanest-looking fix.</p>
                         </article>
                         <article class="process-step">
-                            <span class="small-label">Representation Shift</span>
-                            <h4>The concepts stayed separate long enough to compare</h4>
-                            <p>Divergence was useful because the concepts were kept distinct instead of collapsing into
-                                a hybrid too early. My contribution was to represent those directions through
-                                parameters such as excess strap, load distance, pack weight, and pressure, so the model
-                                could support comparison rather than replace it.</p>
-                        </article>
-                        <article class="process-step">
-                            <span class="small-label">What I Learned</span>
-                            <h4>Criteria had to exist before the simulation could help</h4>
-                            <p>Modeling only became useful after the team had made success legible. Before that, the
-                                simulation would have produced numbers without a decision. After the criteria were
-                                visible, even a simplified model could expose where a concept shifted the burden
-                                somewhere else.</p>
+                            <span class="small-label">Design Lesson</span>
+                            <h4>The simulation helped because it disciplined comparison, not because it was exact</h4>
+                            <p>My contribution was to translate each concept into comparable parameters such as excess
+                                strap, load distance, and pressure, then tie those outputs back to explicit criteria.
+                                That made the model useful, but it also exposed a recurring risk in my own process:
+                                when build evidence is thin, representation can start looking more certain than the
+                                assumptions behind it. The project would have been stronger still if the early model
+                                had been paired with faster physical checks.</p>
                         </article>
                     </div>
                 </article>
@@ -347,31 +345,29 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                             <h3>Why the analytical frame had to widen</h3>
                             <p class="process-panel__summary">The bridge only became convincing once the calculations
                                 started answering to failure modes, geometry, and build logic at the same time. This is
-                                where my tendency to over-trust neat numbers became visible.</p>
+                                where my attraction to clean quantitative structure was most obviously incomplete.</p>
                         </div>
                     </div>
                     <div class="process-panel__grid">
                         <article class="process-step">
-                            <span class="small-label">Early Trap</span>
-                            <h4>Numerical neatness looked more complete than it was</h4>
-                            <p>Early on, the bridge invited a familiar habit in my own process: treating the design as
-                                a problem of numerical optimization around material efficiency. That framing was
-                                attractive because it produced clean variables and crisp output, but it was incomplete.</p>
+                            <span class="small-label">Reframe</span>
+                            <h4>The bridge stopped being a neat optimization problem once failure modes and build logic entered</h4>
+                            <p>Early on, the project invited a familiar habit: treating the bridge as a problem of
+                                material efficiency with a clean numerical objective. The work got stronger once the
+                                design was represented instead as interacting failure modes under a moving load, with
+                                drawings and assembly decisions counted as part of the same reasoning chain. That shift
+                                made the calculations useful because they were answering to specific regions,
+                                connections, and fabrication consequences.</p>
                         </article>
                         <article class="process-step">
-                            <span class="small-label">Useful Shift</span>
-                            <h4>Failure modes made the analysis genuinely helpful</h4>
-                            <p>The work improved once the bridge was represented as interacting failure modes under a
-                                moving load rather than a single strength number. That shift made the envelope
-                                analysis, section properties, and buckling checks useful because they were tied to
-                                specific regions and construction decisions.</p>
-                        </article>
-                        <article class="process-step">
-                            <span class="small-label">Hard Lesson</span>
-                            <h4>Constructability needed equal weight before convergence</h4>
-                            <p>The project made visible a design lesson that pure analysis can hide: drawings, glue
-                                strategy, fit tolerances, and assembly quality had to be represented early enough to
-                                change the geometry, not just explain it afterward.</p>
+                            <span class="small-label">Design Lesson</span>
+                            <h4>Constructability needed to influence the geometry before convergence, not after it</h4>
+                            <p>The hardest lesson here was that drawings, glue strategy, fit tolerances, and assembly
+                                quality could not stay downstream of the math. If those build conditions are only used
+                                to explain the bridge afterward, then the cleanest section on paper gets too much
+                                authority. This case made visible that verification had to include the way the bridge
+                                would actually be cut, glued, and assembled, not just the way it looked inside the
+                                analytical model.</p>
                         </article>
                     </div>
                 </article>
@@ -480,12 +476,214 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
             </div>
         </section>
 
-        <section class="section-card reveal" id="gaussian-project">
+        <section class="section-card reveal" id="praxis-2">
             <div class="project-section">
                 <div class="project-header">
                     <div class="project-title-row">
                         <div>
                             <p class="section-kicker">Project 03</p>
+                            <h2>Praxis II: Daycare Wristband Workflow</h2>
+                        </div>
+                        <p class="project-meta-inline">ESC102 Praxis II | Winter 2026 | Team project</p>
+                    </div>
+                    <div class="snapshot-grid">
+                        <div class="snapshot-item">
+                            <p class="meta-label">Stakeholders</p>
+                            <p class="meta-value">Daycare staff, parents, children, classroom check-in lines</p>
+                        </div>
+                        <div class="snapshot-item">
+                            <p class="meta-label">Main challenge</p>
+                            <p class="meta-value">Reduce wristband workload and lateness risk without shifting hidden
+                                burden back onto staff or families</p>
+                        </div>
+                        <div class="snapshot-item">
+                            <p class="meta-label">Outcome</p>
+                            <p class="meta-value">Requirement matrix, beta simulation, and threshold visualizations for
+                                parent-applied and machine-assisted concepts</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-columns">
+                    <article class="info-card">
+                        <h3>Summary</h3>
+                        <p>
+                            Praxis II centered on a daycare field-trip wristband process. The visible artifact was the
+                            wristband, but the real design problem was a morning workflow: one staff member had to
+                            manage attendance, supervision, forms, and wristband application under departure pressure.
+                            The team compared a parent-applied wristband concept against one- and two-machine
+                            dispensing concepts. My main contribution was the beta simulation and the metric logic that
+                            turned those directions into comparable operational cases.
+                        </p>
+                        <p>
+                            The simulation mattered because it separated staff-time savings from end-to-end timing risk.
+                            Under the default beta assumptions, the current process used about 34.5 active staff
+                            minutes. A parent-applied flow dropped that to about 28.4 minutes and missed actual
+                            departure in about 17% of simulated days, while two machine stations dropped active staff
+                            time to about 20.3 minutes but still kept queue-driven risk visible. That difference
+                            stopped the project from calling the fastest-looking option "better" without saying under
+                            what conditions it stayed useful.
+                        </p>
+                    </article>
+                    <aside class="note-panel">
+                        <p class="meta-label">Evidence to open first</p>
+                        <ul>
+                            <li><a href="assets/evidence/beta-simulation/beta-release.pdf">Beta release PDF</a> for
+                                the requirement table, metric choices, and justification trail.</li>
+                            <li><a href="assets/evidence/beta-simulation/index.html">Interactive beta simulation</a>
+                                for the browser model and adjustable assumptions.</li>
+                            <li><a href="assets/evidence/beta-simulation/outputs/report.html">Static report</a> for
+                                the default-case charts and summary cards.</li>
+                            <li><a href="assets/evidence/beta-simulation/simulation-core.js">Simulation core</a> for
+                                the threshold and risk logic used in the beta comparison.</li>
+                        </ul>
+                    </aside>
+                </div>
+
+                <article class="process-panel" id="praxis-2-process-notes">
+                    <div class="section-header process-panel__header">
+                        <p class="section-kicker">Process Notes</p>
+                        <div>
+                            <h3>Why the workflow frame mattered more than the device frame</h3>
+                            <p class="process-panel__summary">The project got clearer once the opportunity was treated
+                                as morning workflow risk rather than a single product idea. That shift let the beta
+                                simulation compare where each concept actually moved work, timing pressure, and failure
+                                correction.</p>
+                        </div>
+                    </div>
+                    <div class="process-panel__grid">
+                        <article class="process-step">
+                            <span class="small-label">Reframe</span>
+                            <h4>The real problem was a crowded arrival routine, not only the wristband itself</h4>
+                            <p>The requirement table helped widen the project from "make wristbands easier" to "reduce
+                                operational burden while keeping safety, intuitiveness, and setup time acceptable."
+                                That mattered because a concept could look elegant as an object but still create a bad
+                                check-in process once parents, classroom verification, and fallback staff work were
+                                included.</p>
+                        </article>
+                        <article class="process-step">
+                            <span class="small-label">Design Lesson</span>
+                            <h4>The beta simulation only helped because it split staff savings from timing risk</h4>
+                            <p>The useful move was not just running scenarios. It was tracking active staff time,
+                                completion risk, and break-even thresholds separately. That exposed results the team
+                                could actually act on: the parent concept became staff-time beneficial around 47%
+                                compliance at the default incorrect-application rate, one machine saved staff minutes
+                                but still missed departure too often, and two machines kept stronger staff savings
+                                while still forcing us to account for queue effects.</p>
+                        </article>
+                    </div>
+                </article>
+
+                <div class="figure-grid">
+                    <figure class="figure-card">
+                        <img src="assets/evidence/beta-simulation/beta-release-flowchart.svg"
+                            alt="Praxis II beta-release flowchart showing parent, machine, and fallback paths">
+                        <div class="figure-body">
+                            <figcaption class="figure-caption">Figure 7. Beta release workflow logic</figcaption>
+                            <p class="figure-annotation">
+                                The flowchart mattered because it kept the concept branches and fallback staff work
+                                visible. In this project, the decision depended on where work moved after a failure,
+                                not just on the nominal happy path.
+                            </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/beta-simulation/beta-release.pdf">Open beta release PDF</a>
+                                <a href="assets/evidence/beta-simulation/beta-release-flowchart.svg">Open flowchart</a>
+                            </div>
+                        </div>
+                    </figure>
+                    <figure class="figure-card">
+                        <img src="assets/evidence/beta-simulation/outputs/decision-dashboard.svg"
+                            alt="Praxis II beta simulation dashboard comparing current, parent, and machine cases">
+                        <div class="figure-body">
+                            <figcaption class="figure-caption">Figure 8. Default-case dashboard from the beta simulation
+                            </figcaption>
+                            <p class="figure-annotation">
+                                The dashboard is useful because it puts the current process, parent default, and
+                                machine defaults in one frame. It made the team compare staffing relief and timing
+                                performance together instead of deciding from one metric at a time.
+                            </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/beta-simulation/outputs/report.html">Open static report</a>
+                                <a href="assets/evidence/beta-simulation/outputs/summary.json">Open summary data</a>
+                            </div>
+                        </div>
+                    </figure>
+                    <figure class="figure-card figure-card--wide">
+                        <img src="assets/evidence/beta-simulation/outputs/sensitivity-atlas.svg"
+                            alt="Praxis II sensitivity atlas showing parent and machine break-even contours">
+                        <div class="figure-body">
+                            <figcaption class="figure-caption">Figure 9. Sensitivity atlas and break-even contours
+                            </figcaption>
+                            <p class="figure-annotation">
+                                The heatmaps made the argument conditional in the right way. Instead of claiming a
+                                universal winner, the project could show where parent compliance, incorrect
+                                application, or machine struggle stopped saving employee time.
+                            </p>
+                            <div class="download-links">
+                                <a href="assets/evidence/beta-simulation/outputs/sensitivity-atlas.svg">Open atlas</a>
+                                <a href="assets/evidence/beta-simulation/simulation-core.js">Open simulation core</a>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="grid-2">
+                    <article class="info-card project-role-card">
+                        <h3>My role</h3>
+                        <p class="project-role-note">My contribution</p>
+                        <ul>
+                            <li>I built the beta simulation, defined the operational metrics used in the comparison,
+                                and generated the threshold charts and summary visuals.</li>
+                            <li>I used the model to separate staff-time savings from timing risk so the team could
+                                compare concepts under stated conditions rather than from intuition alone.</li>
+                        </ul>
+                        <p class="project-role-note">Team credit</p>
+                        <ul>
+                            <li>Stakeholder framing, concept generation, and the larger design rationale were shared
+                                team work.</li>
+                            <li>The beta release argument should be read as a collaborative design effort supported by
+                                my modeling and evidence interpretation.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card project-ctmf-card">
+                        <p class="meta-label">CTMFs used in this project</p>
+                        <h3>Linked concepts</h3>
+                        <p class="support-text">These entries explain how the metric choices, simulation model, and
+                            threshold reading made the Praxis II comparison legible.</p>
+                        <div class="project-links">
+                            <a href="ctmfs.html#ctmf-wristband-evaluation-metrics">
+                                <span>Evaluation criteria</span>
+                                <small>Open handbook entry</small>
+                            </a>
+                            <a href="ctmfs.html#ctmf-wristband-simulation-model">
+                                <span>Simulation model</span>
+                                <small>Open handbook entry</small>
+                            </a>
+                            <a href="ctmfs.html#ctmf-wristband-sensitivity-analysis">
+                                <span>Sensitivity analysis</span>
+                                <small>Open handbook entry</small>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <article class="callout">
+                    <p>
+                        Reflection: this project corrected a habit I could already see in Praxis I. Saving staff
+                        seconds was not enough; the comparison only became trustworthy once timing risk, fallback work,
+                        and threshold conditions were stated separately. The useful design move here was not "more
+                        simulation," but clearer metric separation.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-card reveal" id="gaussian-project">
+            <div class="project-section">
+                <div class="project-header">
+                    <div class="project-title-row">
+                        <div>
+                            <p class="section-kicker">Project 04</p>
                             <h2>Gaussian Entanglement Project</h2>
                         </div>
                         <p class="project-meta-inline">Independent research | Winter 2026 | Individual</p>
@@ -543,33 +741,28 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                             <h3>Why abstraction was the main design decision</h3>
                             <p class="process-panel__summary">The work only gained leverage once the analytical claim
                                 was explicit, the supporting argument was inspectable, and the figures were used to
-                                revise the claim rather than decorate it. This is where my position is most visible as
-                                both a strength and a risk.</p>
+                                revise the claim rather than decorate it. This case keeps the same structure as the
+                                earlier projects, but the design pressure is mostly on reasoning rather than fabrication.</p>
                         </div>
                     </div>
                     <div class="process-panel__grid">
                         <article class="process-step">
-                            <span class="small-label">Analytical Claim</span>
-                            <h4>Symmetry turned the condition into a direct analytical statement</h4>
-                            <p>The first version of the problem could have remained a repeated numerical evaluation of
-                                the full symplectic spectrum. The better move was to ask whether symmetry could reduce
-                                the condition to something invertible and interpretable at the parameter level.</p>
+                            <span class="small-label">Abstraction Choice</span>
+                            <h4>The useful move was turning repeated computation into a readable analytical claim</h4>
+                            <p>The first version of the problem could have remained a numerical routine around the full
+                                symplectic spectrum. The stronger move was to ask whether symmetry could reduce the
+                                condition to something explicit in the channel parameters. That shift mattered for the
+                                same reason the earlier project reframings mattered: it changed what kind of decision
+                                the evidence could support.</p>
                         </article>
                         <article class="process-step">
-                            <span class="small-label">PIAA Loop</span>
-                            <h4>Plots only mattered when they changed what I claimed next</h4>
-                            <p>After the cleaner condition was in place, the figures became decision tools. I used them
-                                to perceive where the bound separated from exact behavior, interpret what feature caused
-                                the gap, assess whether the shortcut was still acceptable, and act by revising the way
-                                I described the result.</p>
-                        </article>
-                        <article class="process-step">
-                            <span class="small-label">Argument Discipline</span>
-                            <h4>The claim only held if the grounds and warrant stayed visible</h4>
-                            <p>The main tradeoff was generality versus tractability. The cleaner statement only earned
-                                its authority when I could show the claim itself, the mathematical grounds supporting
-                                it, and the warrant that explains why the reduced setting was still informative. That
-                                discipline kept the exclusions visible.</p>
+                            <span class="small-label">Design Lesson</span>
+                            <h4>The cleaner threshold only earned authority when the figures changed the argument</h4>
+                            <p>After the reduced condition was in place, the plots became decision tools rather than
+                                decorations. I used them to perceive where the bound separated from exact behavior,
+                                interpret what caused the gap, assess whether the shortcut was still acceptable, and
+                                act by tightening the claim. The real discipline here was keeping the claim, grounds,
+                                and warrant visible together so tractability did not get mistaken for completeness.</p>
                         </article>
                     </div>
                 </article>
@@ -579,7 +772,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         <img src="assets/project-figures/gaussian-pure-loss.png"
                             alt="Gaussian project plot comparing exact entanglement negativity and reference bound">
                         <div class="figure-body">
-                            <figcaption class="figure-caption">Figure 7. Exact versus bound under symmetric pure loss
+                            <figcaption class="figure-caption">Figure 10. Exact versus bound under symmetric pure loss
                             </figcaption>
                             <p class="figure-annotation">
                                 This figure matters because it shows whether the cleaner representation preserves the
@@ -595,7 +788,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         <img src="assets/project-figures/gaussian-heatmap.png"
                             alt="Gaussian project heatmap of bound slack over squeezing and transmissivity">
                         <div class="figure-body">
-                            <figcaption class="figure-caption">Figure 8. Slack heatmap across parameter space
+                            <figcaption class="figure-caption">Figure 11. Slack heatmap across parameter space
                             </figcaption>
                             <p class="figure-annotation">
                                 The parameter-space scan is useful because it makes approximation error a visible landscape instead of
@@ -609,7 +802,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </figure>
                     <figure class="artifact-card">
                         <div class="artifact-body">
-                            <figcaption class="figure-caption">Figure 9. Threshold function from the analysis script
+                            <figcaption class="figure-caption">Figure 12. Threshold function from the analysis script
                             </figcaption>
                             <pre class="code-snippet">def rc_thermal(eta, Nth):
     denom = 1.0 - (1.0 - eta) * (2.0 * Nth + 1.0)

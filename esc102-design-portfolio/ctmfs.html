@@ -42,7 +42,7 @@
             <div class="hero-layout">
                 <div>
                     <p class="eyebrow">CTMF Handbook</p>
-                    <h1>Nine concepts tied to real design moves</h1>
+                    <h1>Twelve concepts tied to real design moves</h1>
                     <p class="hero-lead">
                         This handbook is organized concept first. Each entry says what the concept meant in the
                         project, what I actually did with it, what evidence makes that claim visible, where the concept
@@ -53,7 +53,7 @@
                     <dl>
                         <div>
                             <dt>Coverage</dt>
-                            <dd>Praxis I, CIV102 bridge, and Gaussian entanglement work</dd>
+                            <dd>Praxis I, CIV102 bridge, Praxis II wristband workflow, and Gaussian entanglement work</dd>
                         </div>
                         <div>
                             <dt>Reading pattern</dt>
@@ -123,6 +123,26 @@
                         <a class="ctmf-cluster-link" href="#ctmf-bridge-graphical-prototype">
                             <span class="strand-pill strand-represent">Prototypes: graphical</span>
                             <p>The drawing package worked as a graphical prototype for geometry, spacing, and assembly.</p>
+                        </a>
+                    </div>
+                </article>
+                <article class="ctmf-cluster-card">
+                    <span class="card-label">Praxis II</span>
+                    <h3>Wristband Workflow</h3>
+                    <p>This case only became clear once the workflow metrics, simulation model, and threshold reading
+                        were made explicit together.</p>
+                    <div class="ctmf-cluster-list">
+                        <a class="ctmf-cluster-link" href="#ctmf-wristband-evaluation-metrics">
+                            <span class="strand-pill strand-frame">Evaluation criteria</span>
+                            <p>The requirement table converted a broad workflow complaint into measurable criteria.</p>
+                        </a>
+                        <a class="ctmf-cluster-link" href="#ctmf-wristband-simulation-model">
+                            <span class="strand-pill strand-represent">Simulation model</span>
+                            <p>The beta model compared parent and machine concepts without pretending staff minutes told the whole story.</p>
+                        </a>
+                        <a class="ctmf-cluster-link" href="#ctmf-wristband-sensitivity-analysis">
+                            <span class="strand-pill strand-converge">Sensitivity analysis</span>
+                            <p>The heatmaps and break-even contours showed when a concept stopped helping under changed assumptions.</p>
                         </a>
                     </div>
                 </article>
@@ -542,6 +562,189 @@
                             <p>I would bring the drawings into the project earlier and annotate them more aggressively
                                 with tolerance and assembly notes, so the graphical prototype starts changing the
                                 design sooner.</p>
+                        </section>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-card reveal">
+            <div class="section-header">
+                <p class="section-kicker">Praxis II Concepts</p>
+                <h2>Wristband workflow project</h2>
+                <p class="section-description">
+                    These entries explain how the Praxis II project moved from a broad workflow complaint to a beta
+                    comparison with explicit metrics, simulation logic, and threshold reading.
+                </p>
+            </div>
+            <div class="entry-grid entry-grid--handbook">
+                <article class="entry-card" id="ctmf-wristband-evaluation-metrics" data-strand="frame">
+                    <div class="entry-header">
+                        <div>
+                            <span class="card-label">Concept</span>
+                            <h3>Evaluation criteria</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#praxis-2">Praxis II</a></p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-frame">Frame</span>
+                        </div>
+                    </div>
+                    <p class="entry-claim">Evaluation criteria mattered because the Praxis II project needed more than
+                        "faster" to judge the wristband concepts fairly.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Here, evaluation criteria meant turning a broad workflow complaint into explicit measures
+                                around setup time, workload, ease of use, safety, and timing performance. Without that
+                                frame, the project would have treated any staff-time reduction as an automatic win.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I helped convert the requirement table into operational metrics that the beta simulation
+                                could actually compare. The key move was separating active staff time from end-to-end
+                                completion and missed-departure risk so the concepts were not judged by one number.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The beta release PDF and the report dashboard show the criteria becoming metrics instead
+                                of staying as general intentions.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#praxis-2">Project section</a>
+                                <a href="assets/evidence/beta-simulation/beta-release.pdf">Beta release PDF</a>
+                                <a href="assets/evidence/beta-simulation/outputs/report.html">Static report</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>The criteria made it visible that one concept could reduce staff minutes while still
+                                performing badly on timing or fallback correction. That stopped the project from
+                                rewarding the cleanest-looking option too quickly.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>The criteria still leaned toward what the beta model could measure quickly. Parent
+                                burden outside staff time, and some qualitative usability concerns, were only partly
+                                represented.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would pair the metric set with a short field observation or walkthrough so the
+                                criteria stay accountable to how the workflow actually feels in context.</p>
+                        </section>
+                    </div>
+                </article>
+
+                <article class="entry-card" id="ctmf-wristband-simulation-model" data-strand="represent">
+                    <div class="entry-header">
+                        <div>
+                            <span class="card-label">Concept</span>
+                            <h3>Simulation model</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#praxis-2">Praxis II</a></p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-represent">Represent</span>
+                        </div>
+                    </div>
+                    <p class="entry-claim">The simulation model mattered because the team needed a workable stand-in
+                        for a live morning workflow before any full deployment existed.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>A simulation model is a structured representation used to generate information about a
+                                design system. In this project it represented arrivals, classroom lines, failure types,
+                                and fallback staff work strongly enough to compare concepts under the same assumptions.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I built the beta model so parent-applied and machine-assisted concepts could be tested
+                                against the current process. The model split non-compliance from incorrect application,
+                                and struggle-led redo from incorrect-after-machine redo, because those differences
+                                changed what the team could conclude from the output.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The browser simulation, shared core logic, and dashboard outputs are the clearest
+                                evidence because they show the model as both a working tool and a representational
+                                argument.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#praxis-2">Project section</a>
+                                <a href="assets/evidence/beta-simulation/index.html">Interactive model</a>
+                                <a href="assets/evidence/beta-simulation/simulation-core.js">Simulation core</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>The model let the team compare where work moved after a failure instead of only
+                                comparing the ideal path. That made the machine and parent concepts easier to read as
+                                workflow changes rather than object-only solutions.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>The model is still only as trustworthy as its assumptions about arrivals, redo times,
+                                and compliance behavior. It creates disciplined comparison, not a claim that the full
+                                daycare environment has been perfectly captured.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would calibrate the inputs with observed arrival and correction data so the simulation
+                                stays closer to the real workflow it is standing in for.</p>
+                        </section>
+                    </div>
+                </article>
+
+                <article class="entry-card" id="ctmf-wristband-sensitivity-analysis" data-strand="converge">
+                    <div class="entry-header">
+                        <div>
+                            <span class="card-label">Concept</span>
+                            <h3>Sensitivity analysis</h3>
+                            <p class="project-meta-inline">Used in <a href="projects.html#praxis-2">Praxis II</a></p>
+                        </div>
+                        <div class="entry-meta">
+                            <span class="strand-pill strand-converge">Converge</span>
+                        </div>
+                    </div>
+                    <p class="entry-claim">Sensitivity analysis mattered because a single default scenario was not
+                        enough to justify a concept choice for the wristband workflow.</p>
+                    <div class="entry-analysis-grid">
+                        <section class="entry-panel">
+                            <h4>What the concept meant here</h4>
+                            <p>Here, sensitivity analysis meant deliberately varying compliance, incorrect application,
+                                and machine struggle to see where the concepts stopped helping. It was a way of testing
+                                the argument against changed assumptions before converging on a recommendation.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I applied it</h4>
+                            <p>I used heatmaps and threshold interpolation to find break-even regions against the
+                                current process. That is how the project could state claims such as the parent concept
+                                becoming useful around the mid-40% compliance range at the default incorrect-application
+                                rate, instead of just reporting one default-case output.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Evidence to inspect</h4>
+                            <p>The sensitivity atlas and summary tables are the clearest evidence because they turn the
+                                changing assumptions into something a reader can inspect directly.</p>
+                            <div class="inline-links">
+                                <a href="projects.html#praxis-2">Project section</a>
+                                <a href="assets/evidence/beta-simulation/outputs/sensitivity-atlas.svg">Sensitivity atlas</a>
+                                <a href="assets/evidence/beta-simulation/outputs/summary.json">Summary data</a>
+                            </div>
+                        </section>
+                        <section class="entry-panel entry-panel--highlight">
+                            <h4>What it helped reveal</h4>
+                            <p>Sensitivity analysis turned the project from a hunt for a single winner into a clearer
+                                conditional judgement. It showed where a concept remained useful, where it broke down,
+                                and why the recommendation depended on behavior outside the nominal default case.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>Limitation</h4>
+                            <p>The thresholds still depend on the baseline and on which metric is treated as decisive.
+                                If that decision rule stays implicit, the heatmaps can still look more authoritative
+                                than the design argument underneath them.</p>
+                        </section>
+                        <section class="entry-panel">
+                            <h4>How I would improve it</h4>
+                            <p>I would state the decision rule beside the sensitivity plots more explicitly and pair the
+                                sweep with a small set of weighted stakeholder scenarios.</p>
                         </section>
                     </div>
                 </article>

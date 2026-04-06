@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Beta Simulation Report</title>
+        <style>
+          :root {
+            --bg: #f4efe6;
+            --panel: rgba(255, 252, 247, 0.88);
+            --ink: #221f1a;
+            --muted: #6f6559;
+            --accent: #b3572f;
+            --border: rgba(60, 45, 29, 0.1);
+            --shadow: 0 22px 46px rgba(63, 49, 34, 0.12);
+          }
+          * { box-sizing: border-box; }
+          body {
+            margin: 0;
+            font-family: "Avenir Next", "Segoe UI", sans-serif;
+            color: var(--ink);
+            background:
+              radial-gradient(circle at top left, rgba(240, 197, 168, 0.75), transparent 28%),
+              linear-gradient(180deg, #f9f4eb, var(--bg));
+          }
+          .shell {
+            width: min(1280px, calc(100vw - 32px));
+            margin: 0 auto;
+            padding: 28px 0 42px;
+          }
+          .hero, .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+          }
+          .hero {
+            padding: 28px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 18px;
+            margin-bottom: 18px;
+          }
+          h1, h2 {
+            margin: 0;
+            font-family: "Iowan Old Style", "Palatino Linotype", serif;
+          }
+          h1 { font-size: 3.2rem; line-height: 0.95; }
+          h2 { font-size: 1.7rem; }
+          p { line-height: 1.6; }
+          .eyebrow {
+            margin: 0 0 10px;
+            color: var(--accent);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-weight: 700;
+          }
+          .hero-card {
+            border-radius: 22px;
+            padding: 22px;
+            background: linear-gradient(180deg, rgba(255, 247, 238, 0.94), rgba(255, 252, 249, 0.78));
+          }
+          .hero-card strong {
+            display: block;
+            font-size: 2rem;
+            margin: 12px 0 8px;
+          }
+          .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 16px;
+          }
+          .card {
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.72);
+            border: 1px solid var(--border);
+          }
+          .card h3 {
+            margin: 0 0 10px;
+            color: var(--muted);
+            font-size: 0.84rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+          }
+          .card strong {
+            display: block;
+            font-size: 1.55rem;
+            line-height: 1.2;
+            margin-bottom: 8px;
+          }
+          .panel {
+            padding: 24px;
+            margin-top: 18px;
+          }
+          img {
+            width: 100%;
+            border-radius: 22px;
+            display: block;
+            border: 1px solid var(--border);
+            background: #fff;
+          }
+          .muted { color: var(--muted); }
+          @media (max-width: 980px) {
+            .hero, .cards { grid-template-columns: 1fr; }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="shell">
+          <section class="hero">
+            <div>
+              <p class="eyebrow">ESC102 / Beta-Simulation</p>
+              <h1>Daycare Wristband Prototype Report</h1>
+              <p class="muted">
+                The upgraded simulation now tracks separate failure types, late-arrival correlation, employee minutes,
+                confidence bands, and a ready-by deadline set 5 minutes before departure.
+              </p>
+            </div>
+            <div class="hero-card">
+              <span class="muted">Current process employee time</span>
+              <strong>34m 32s</strong>
+              <p class="muted">
+                Default deadline risk: missed the ready-by target in 100%
+                of simulated days, with an average finish 19.4m past the target.
+              </p>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>Decision Summary</h2>
+            <div class="cards">
+              <article class="card">
+                <h3>Parent default</h3>
+                <strong>28m 25s active staff</strong>
+                <p class="muted">End-to-end completion 29m 06s. Useful from about 47.3% compliance. Missed the ready-by target in 100% of simulated days. Average finish was 4.1m past the target.</p>
+              </article>
+              <article class="card">
+                <h3>1 machine default</h3>
+                <strong>25m 03s active staff</strong>
+                <p class="muted">End-to-end completion 39m 25s. Useful until about 72% struggle. Missed the ready-by target in 100% of simulated days. Average finish was 14.4m past the target.</p>
+              </article>
+              <article class="card">
+                <h3>2 machines default</h3>
+                <strong>20m 15s active staff</strong>
+                <p class="muted">End-to-end completion 29m 31s. Still useful at 100% struggle. Missed the ready-by target in 100% of simulated days. Average finish was 4.5m past the target.</p>
+              </article>
+            </div>
+            <p class="muted">Active staff time excludes parent effort and machine waiting. Missed departure probability uses full end-to-end completion time. Task switching is an estimate: two switches per staffed-line interruption.</p>
+          </section>
+
+          <section class="panel">
+            <h2>Dashboard</h2>
+            <img src="./decision-dashboard.svg" alt="Simulation decision dashboard" />
+          </section>
+
+          <section class="panel">
+            <h2>Parent Employee-Time Curve</h2>
+            <img src="./parent-compliance.svg" alt="Parent compliance chart with confidence band" />
+          </section>
+
+          <section class="panel">
+            <h2>Machine Employee-Time Curve</h2>
+            <img src="./machine-threshold.svg" alt="Machine threshold chart with confidence band" />
+          </section>
+
+          <section class="panel">
+            <h2>Sensitivity Atlas</h2>
+            <img src="./sensitivity-atlas.svg" alt="Parent and machine heatmaps with break-even tables" />
+          </section>
+        </div>
+      </body>
+    </html>

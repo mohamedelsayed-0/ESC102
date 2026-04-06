@@ -1,0 +1,5 @@
+scenario,mean_employee_seconds,late_probability_percent,mean_late_minutes,p90_late_minutes
+Current process,2072.24,100,19.379,20.533
+Parent default,1704.592,100,4.103,5.139
+1 machine default,1502.911,100,14.417,15.749
+2 machine default,1215.483,100,4.524,5.338
