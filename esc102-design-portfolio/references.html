@@ -126,6 +126,87 @@
 
         <section class="section-card reveal">
             <div class="section-header">
+                <p class="section-kicker">Detailed Artifacts</p>
+                <h2>Supporting outputs behind the project claims</h2>
+                <p class="section-description">
+                    The project pages usually cite the strongest entry point first, but many of the claims rely on
+                    smaller supporting files such as screenshots, generated plots, CSV outputs, and flow diagrams. This
+                    section lists those secondary artifacts so the evidence chain stays inspectable.
+                </p>
+            </div>
+            <div class="resource-grid">
+                <article class="resource-card">
+                    <span class="card-label">Praxis I</span>
+                    <h3>Framing, comparison, and visual support</h3>
+                    <p>The Praxis I section depends on a short evidence package, so the supporting image files matter
+                        more than they would in a larger report-driven case.</p>
+                    <ul>
+                        <li><a href="assets/evidence/evidence-sheet-praxis-final.pdf">Submitted evidence sheet</a></li>
+                        <li><a href="assets/evidence/praxis-project.m">Comparison model MATLAB source</a></li>
+                        <li><a href="assets/project-figures/praxis-evidence.png">Composite evidence figure used in the
+                                portfolio</a></li>
+                        <li><a href="assets/project-figures/praxis-submission-figure3.png">Supporting submission
+                                figure</a></li>
+                    </ul>
+                </article>
+                <article class="resource-card">
+                    <span class="card-label">CIV102</span>
+                    <h3>Verification and buildability support</h3>
+                    <p>The bridge argument depends on the report, but it is checked through the relationship between
+                        drawings, calculations, and analysis outputs.</p>
+                    <ul>
+                        <li><a href="assets/evidence/civ102-design-report-team-404.pdf">Design report</a></li>
+                        <li><a href="assets/evidence/civ102-engineering-drawings-team-404.pdf">Engineering drawings</a>
+                        </li>
+                        <li><a href="assets/evidence/civ102-design-calculations-team-404.pdf">Calculation package</a>
+                        </li>
+                        <li><a href="assets/evidence/civ102-bridge-analysis.py">Verification code</a></li>
+                        <li><a href="assets/project-figures/civ102-drawings.png">Drawing preview used on the site</a>
+                        </li>
+                        <li><a href="assets/project-figures/civ102-calculations.png">Calculation preview used on the
+                                site</a></li>
+                    </ul>
+                </article>
+                <article class="resource-card">
+                    <span class="card-label">Praxis II</span>
+                    <h3>Simulation outputs and sensitivity files</h3>
+                    <p>The wristband project uses a larger evidence bundle than the other cases because the argument
+                        depends on how the simulation was structured, not only on the headline dashboard.</p>
+                    <ul>
+                        <li><a href="assets/evidence/beta-simulation/beta-release-flowchart.svg">Workflow flowchart</a>
+                        </li>
+                        <li><a href="assets/evidence/beta-simulation/outputs/decision-dashboard.svg">Decision
+                                dashboard</a></li>
+                        <li><a href="assets/evidence/beta-simulation/outputs/sensitivity-atlas.svg">Sensitivity
+                                atlas</a></li>
+                        <li><a href="assets/evidence/beta-simulation/outputs/summary.json">Summary data</a></li>
+                        <li><a href="assets/evidence/beta-simulation/outputs/parent-compliance.csv">Parent compliance
+                                data</a></li>
+                        <li><a href="assets/evidence/beta-simulation/outputs/machine-threshold.csv">Machine threshold
+                                data</a></li>
+                        <li><a href="assets/evidence/beta-simulation/README.md">Bundle README</a></li>
+                    </ul>
+                </article>
+                <article class="resource-card">
+                    <span class="card-label">Gaussian</span>
+                    <h3>Benchmark plots and threshold support</h3>
+                    <p>The Gaussian case is strongest when the derivation, the code, and the figure outputs can be read
+                        together rather than as separate kinds of evidence.</p>
+                    <ul>
+                        <li><a href="assets/evidence/finalrevision-gaussian-states.pdf">Long note and derivation</a>
+                        </li>
+                        <li><a href="assets/evidence/gaussian-en-bound.py">Benchmark script</a></li>
+                        <li><a href="assets/project-figures/gaussian-pure-loss.png">Pure-loss comparison figure</a>
+                        </li>
+                        <li><a href="assets/project-figures/gaussian-heatmap.png">Slack heatmap figure</a></li>
+                        <li><a href="assets/project-figures/gaussian-amplifier.png">Amplifier regime figure</a></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-card reveal">
+            <div class="section-header">
                 <p class="section-kicker">How These Sources Are Used</p>
                 <h2>Traceability notes</h2>
             </div>
@@ -141,6 +222,80 @@
                     <h3>Concepts stay tied to evidence</h3>
                     <p>The CTMF entries are only included when I can point to a project move, artifact, or credible
                         retrospective lesson that justifies the concept being there.</p>
+                </article>
+                <article class="info-card">
+                    <span class="card-label">Generated files</span>
+                    <h3>Some references are source files, others are outputs</h3>
+                    <p>The Praxis II dashboard, threshold charts, and sensitivity atlas are generated outputs. They are
+                        listed beside the scripts and data files that produced them so the final visual does not have
+                        to stand on trust alone.</p>
+                </article>
+                <article class="info-card">
+                    <span class="card-label">Portfolio figures</span>
+                    <h3>Site images are treated as evidence pointers, not standalone sources</h3>
+                    <p>The PNG and SVG figures used across the pages are included here because they help readers find
+                        the relevant part of a larger report or codebase quickly, but they always sit beneath a fuller
+                        source file.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-card reveal">
+            <div class="section-header">
+                <p class="section-kicker">Project Reading Paths</p>
+                <h2>Follow each case from interpretation back to source</h2>
+                <p class="section-description">
+                    If you are checking whether a project claim is justified, the fastest route is usually the project
+                    section first, then the most concentrated evidence file, then the broader package behind it.
+                </p>
+            </div>
+            <div class="resource-grid">
+                <article class="resource-card">
+                    <span class="card-label">Praxis I</span>
+                    <h3>Criteria and proxy-testing claims</h3>
+                    <ul>
+                        <li><a href="projects.html#praxis-1">Start with the Praxis I case</a></li>
+                        <li><a href="assets/project-figures/praxis-evidence.png">Open the portfolio figure</a></li>
+                        <li><a href="assets/evidence/evidence-sheet-praxis-final.pdf">Check the submitted evidence
+                                sheet</a></li>
+                        <li><a href="assets/evidence/praxis-project.m">Inspect the comparison model</a></li>
+                    </ul>
+                </article>
+                <article class="resource-card">
+                    <span class="card-label">CIV102</span>
+                    <h3>Constructability and verification claims</h3>
+                    <ul>
+                        <li><a href="projects.html#civ102-bridge">Start with the bridge case</a></li>
+                        <li><a href="assets/project-figures/civ102-drawings.png">Open the drawing preview</a></li>
+                        <li><a href="assets/evidence/civ102-engineering-drawings-team-404.pdf">Check the full drawing
+                                package</a></li>
+                        <li><a href="assets/evidence/civ102-design-calculations-team-404.pdf">Compare against the
+                                calculation package</a></li>
+                    </ul>
+                </article>
+                <article class="resource-card">
+                    <span class="card-label">Praxis II</span>
+                    <h3>Workflow and timing-risk claims</h3>
+                    <ul>
+                        <li><a href="projects.html#praxis-2">Start with the Praxis II case</a></li>
+                        <li><a href="assets/evidence/beta-simulation/outputs/decision-dashboard.svg">Open the dashboard
+                                view</a></li>
+                        <li><a href="assets/evidence/beta-simulation/outputs/report.html">Read the static report</a>
+                        </li>
+                        <li><a href="assets/evidence/beta-simulation/simulation-core.js">Inspect the simulation
+                                assumptions</a></li>
+                    </ul>
+                </article>
+                <article class="resource-card">
+                    <span class="card-label">Gaussian</span>
+                    <h3>Analytical and benchmark claims</h3>
+                    <ul>
+                        <li><a href="projects.html#gaussian-project">Start with the Gaussian case</a></li>
+                        <li><a href="assets/project-figures/gaussian-heatmap.png">Open the parameter-space figure</a>
+                        </li>
+                        <li><a href="assets/evidence/finalrevision-gaussian-states.pdf">Read the long note</a></li>
+                        <li><a href="assets/evidence/gaussian-en-bound.py">Inspect the benchmark code</a></li>
+                    </ul>
                 </article>
             </div>
         </section>
