@@ -211,7 +211,7 @@ code {
 
 .page-stack {
     display: grid;
-    gap: 1.4rem;
+    gap: 1.65rem;
 }
 
 .hero-band {
@@ -585,7 +585,7 @@ code {
 }
 
 .project-map-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .project-map-card {
@@ -680,13 +680,13 @@ code {
 }
 
 .why-three-panel__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .ctmf-cluster-grid {
     display: grid;
     gap: 1.2rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .ctmf-cluster-card {
@@ -802,7 +802,7 @@ code {
 
 .project-section {
     display: grid;
-    gap: 1.2rem;
+    gap: 1.55rem;
 }
 
 .project-header {
@@ -826,8 +826,8 @@ code {
 
 .text-columns {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
-    gap: 1rem;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.85fr);
+    gap: 1.15rem;
 }
 
 .text-columns .info-card h3 {
@@ -985,8 +985,8 @@ code {
 
 .process-panel__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.05rem;
 }
 
 .process-step {
@@ -1092,6 +1092,8 @@ code {
 
 .figure-grid {
     align-items: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
 }
 
 .figure-card,
@@ -1122,6 +1124,25 @@ code {
     aspect-ratio: 4 / 3;
     object-fit: cover;
     border-bottom: 1px solid var(--line-soft);
+}
+
+.figure-grid .artifact-card,
+.figure-grid .figure-card--wide {
+    grid-column: span 2;
+}
+
+.figure-card--document img {
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    padding: 1rem;
+    background: linear-gradient(180deg, #f9f4eb, #efe4d2);
+}
+
+.figure-card--wide img {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    padding: 0.75rem;
+    background: linear-gradient(180deg, #f9f4eb, #efe4d2);
 }
 
 .figure-body,
@@ -1438,6 +1459,10 @@ code {
     background: rgba(170, 90, 50, 0.08);
 }
 
+.resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .section-card--dark .callout {
     border-left-color: var(--paper-200);
     background: rgba(255, 255, 255, 0.06);
@@ -1604,6 +1629,11 @@ code {
 
     .entry-grid.entry-grid--handbook .entry-analysis-grid {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .figure-grid .artifact-card,
+    .figure-grid .figure-card--wide {
+        grid-column: span 1;
     }
 
     .hero-band {
