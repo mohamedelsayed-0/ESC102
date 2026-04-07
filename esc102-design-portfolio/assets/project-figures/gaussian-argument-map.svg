@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Gaussian argument map</title>
+  <desc id="desc">A diagram showing the argumentative structure of the Gaussian entanglement project from reduced claim to benchmarks to scoped conclusion.</desc>
+  <rect width="1200" height="820" fill="#f7f0e4"/>
+  <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
+  <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">GAUSSIAN ARGUMENT MAP</text>
+  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="42" fill="#18202a">The project is not just a formula. It is a claim that had to earn its scope.</text>
+  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="22" fill="#475362">This is the reasoning structure behind the plots and derivations: a reduced analytical claim, benchmark pressure, then a narrowed conclusion.</text>
+
+  <g font-family="'Public Sans', Arial, sans-serif">
+    <rect x="110" y="305" width="220" height="170" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="382" y="232" width="220" height="170" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="382" y="448" width="220" height="170" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="654" y="305" width="220" height="170" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="926" y="305" width="164" height="170" rx="26" fill="#13212a" opacity="0.97"/>
+
+    <text x="138" y="343" font-size="18" fill="#7e5a36" letter-spacing="2">FRAME</text>
+    <text x="138" y="383" font-size="28" font-weight="700" fill="#19202a">Symmetric channel</text>
+    <text x="138" y="418" font-size="20" fill="#475362">Choose a reduced setting that still</text>
+    <text x="138" y="446" font-size="20" fill="#475362">keeps the engineering question visible.</text>
+
+    <text x="410" y="270" font-size="18" fill="#7e5a36" letter-spacing="2">CLAIM</text>
+    <text x="410" y="310" font-size="28" font-weight="700" fill="#19202a">Analytical threshold</text>
+    <text x="410" y="345" font-size="20" fill="#475362">Turn the condition into a parameter-</text>
+    <text x="410" y="373" font-size="20" fill="#475362">level inequality that can be read.</text>
+
+    <text x="410" y="486" font-size="18" fill="#7e5a36" letter-spacing="2">GROUND CHECK</text>
+    <text x="410" y="526" font-size="28" font-weight="700" fill="#19202a">Exact benchmarks</text>
+    <text x="410" y="561" font-size="20" fill="#475362">Plots and scans test where the reduced</text>
+    <text x="410" y="589" font-size="20" fill="#475362">claim tracks the real computation.</text>
+
+    <text x="682" y="343" font-size="18" fill="#7e5a36" letter-spacing="2">REVISION</text>
+    <text x="682" y="383" font-size="28" font-weight="700" fill="#19202a">Tighten the scope</text>
+    <text x="682" y="418" font-size="20" fill="#475362">The result is only kept where the</text>
+    <text x="682" y="446" font-size="20" fill="#475362">comparison still supports it.</text>
+
+    <text x="954" y="343" font-size="18" fill="#d8e6e8" letter-spacing="2">OUTCOME</text>
+    <text x="954" y="383" font-size="26" font-weight="700" fill="#f5efe4">Scoped,</text>
+    <text x="954" y="416" font-size="26" font-weight="700" fill="#f5efe4">readable</text>
+    <text x="954" y="449" font-size="26" font-weight="700" fill="#f5efe4">claim</text>
+  </g>
+
+  <g stroke="#255d67" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M330 390 H382"/>
+    <path d="M602 318 H654"/>
+    <path d="M602 532 H654"/>
+    <path d="M874 390 H926"/>
+  </g>
+
+  <g stroke="#255d67" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M492 402 V448"/>
+    <path d="M478 438 L492 452 L506 438"/>
+    <path d="M644 390 C626 390 614 390 602 390"/>
+    <path d="M590 376 L604 390 L590 404"/>
+    <path d="M590 520 L604 534 L590 548"/>
+    <path d="M918 376 L932 390 L918 404"/>
+  </g>
+
+  <g>
+    <rect x="84" y="630" width="1032" height="96" rx="24" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="116" y="668" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#aa5a32" letter-spacing="2">WHY THE DIAGRAM BELONGS IN THE PORTFOLIO</text>
+    <text x="116" y="706" font-family="'Public Sans', Arial, sans-serif" font-size="22" fill="#475362">Without the argument map, the figures can look like outputs. With it, they show where tractability earned trust and where it had to be limited.</text>
+  </g>
+</svg>

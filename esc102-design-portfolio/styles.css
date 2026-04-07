@@ -802,7 +802,7 @@ code {
 
 .project-section {
     display: grid;
-    gap: 1.55rem;
+    gap: 1.9rem;
 }
 
 .project-header {
@@ -822,6 +822,32 @@ code {
     font-family: var(--font-mono);
     font-size: 0.8rem;
     color: var(--text-soft);
+}
+
+.project-rhythm {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.project-rhythm-card {
+    display: grid;
+    gap: 0.6rem;
+    padding: 1rem 1.05rem;
+    border-radius: 1rem;
+    background: rgba(16, 21, 28, 0.04);
+    border: 1px solid rgba(16, 21, 28, 0.08);
+}
+
+.project-rhythm-card p,
+.project-block-header p {
+    margin: 0;
+}
+
+.project-block-header {
+    display: grid;
+    gap: 0.5rem;
+    max-width: 56rem;
 }
 
 .text-columns {
@@ -1143,6 +1169,15 @@ code {
     object-fit: contain;
     padding: 0.75rem;
     background: linear-gradient(180deg, #f9f4eb, #efe4d2);
+}
+
+.figure-card--diagram img {
+    aspect-ratio: 16 / 10;
+    object-fit: contain;
+    padding: 0.85rem;
+    background:
+        radial-gradient(circle at top right, rgba(170, 90, 50, 0.1), transparent 18rem),
+        linear-gradient(180deg, #faf5eb, #ecdfcb);
 }
 
 .figure-body,
@@ -1523,7 +1558,8 @@ code {
     .project-map-grid,
     .why-three-panel__grid,
     .meta-grid,
-    .snapshot-grid {
+    .snapshot-grid,
+    .project-rhythm {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1616,7 +1652,8 @@ code {
     .why-three-panel__grid,
     .meta-grid,
     .snapshot-grid,
-    .text-columns {
+    .text-columns,
+    .project-rhythm {
         grid-template-columns: minmax(0, 1fr);
     }
 

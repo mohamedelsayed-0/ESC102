@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">CIV102 decision stack diagram</title>
+  <desc id="desc">A diagram showing how CIV102 bridge requirements, failure modes, drawings, and fabrication logic had to stay connected in the design process.</desc>
+  <rect width="1200" height="820" fill="#f7f0e4"/>
+  <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
+  <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">CIV102 DESIGN STACK</text>
+  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="42" fill="#18202a">Why the bridge could not stay a pure calculation problem</text>
+  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="22" fill="#475362">The bridge only became trustworthy when analysis, drawings, and fabrication logic were treated as one stack instead of separate deliverables.</text>
+
+  <g font-family="'Public Sans', Arial, sans-serif">
+    <rect x="90" y="270" width="230" height="300" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="355" y="270" width="230" height="300" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="620" y="270" width="230" height="300" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="885" y="270" width="230" height="300" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+
+    <text x="122" y="318" font-size="18" fill="#7e5a36" letter-spacing="2">1 REQUIREMENTS</text>
+    <text x="122" y="360" font-size="28" font-weight="700" fill="#19202a">Span, load,</text>
+    <text x="122" y="397" font-size="28" font-weight="700" fill="#19202a">materials, rules</text>
+    <text x="122" y="442" font-size="20" fill="#475362">The project starts with what the bridge</text>
+    <text x="122" y="470" font-size="20" fill="#475362">must survive and what it is allowed</text>
+    <text x="122" y="498" font-size="20" fill="#475362">to be made from.</text>
+
+    <text x="387" y="318" font-size="18" fill="#7e5a36" letter-spacing="2">2 FAILURE MODES</text>
+    <text x="387" y="360" font-size="28" font-weight="700" fill="#19202a">Bending, shear,</text>
+    <text x="387" y="397" font-size="28" font-weight="700" fill="#19202a">buckling, glue</text>
+    <text x="387" y="442" font-size="20" fill="#475362">The neat objective breaks into specific</text>
+    <text x="387" y="470" font-size="20" fill="#475362">ways the bridge can fail at different</text>
+    <text x="387" y="498" font-size="20" fill="#475362">regions under the moving train.</text>
+
+    <text x="652" y="318" font-size="18" fill="#7e5a36" letter-spacing="2">3 DRAWINGS</text>
+    <text x="652" y="360" font-size="28" font-weight="700" fill="#19202a">Geometry and</text>
+    <text x="652" y="397" font-size="28" font-weight="700" fill="#19202a">assembly logic</text>
+    <text x="652" y="442" font-size="20" fill="#475362">The drawings expose whether the</text>
+    <text x="652" y="470" font-size="20" fill="#475362">analytical sections can actually be cut,</text>
+    <text x="652" y="498" font-size="20" fill="#475362">spaced, and joined.</text>
+
+    <text x="917" y="318" font-size="18" fill="#7e5a36" letter-spacing="2">4 FABRICATION</text>
+    <text x="917" y="360" font-size="28" font-weight="700" fill="#19202a">Glue strategy</text>
+    <text x="917" y="397" font-size="28" font-weight="700" fill="#19202a">and tolerance</text>
+    <text x="917" y="442" font-size="20" fill="#475362">Build quality and fit control determine</text>
+    <text x="917" y="470" font-size="20" fill="#475362">whether the reasoning survives contact</text>
+    <text x="917" y="498" font-size="20" fill="#475362">with the real bridge.</text>
+  </g>
+
+  <g stroke-linecap="round" fill="none">
+    <path d="M320 420 H355" stroke="#255d67" stroke-width="8"/>
+    <path d="M585 420 H620" stroke="#255d67" stroke-width="8"/>
+    <path d="M850 420 H885" stroke="#255d67" stroke-width="8"/>
+    <path d="M347 406 L355 420 L347 434" stroke="#255d67" stroke-width="8"/>
+    <path d="M612 406 L620 420 L612 434" stroke="#255d67" stroke-width="8"/>
+    <path d="M877 406 L885 420 L877 434" stroke="#255d67" stroke-width="8"/>
+  </g>
+
+  <g>
+    <rect x="106" y="612" width="988" height="108" rx="26" fill="#13212a" opacity="0.96"/>
+    <text x="140" y="653" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#d8e6e8" letter-spacing="2">KEY LESSON</text>
+    <text x="140" y="694" font-family="'Public Sans', Arial, sans-serif" font-size="24" font-weight="700" fill="#f5efe4">Constructability had to enter before convergence. If it appears only after the calculations, the cleanest section gets too much authority.</text>
+  </g>
+</svg>

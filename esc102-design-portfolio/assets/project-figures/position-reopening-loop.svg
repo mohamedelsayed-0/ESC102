@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Position statement reopening loop</title>
+  <desc id="desc">A diagram showing the design loop described in the position statement: frame, represent, compare, reopen, with a highlighted risk zone where clean metrics can cause premature closure.</desc>
+  <rect width="1200" height="820" fill="#f7f0e4"/>
+  <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
+  <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">POSITION VISUAL</text>
+  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="42" fill="#18202a">The loop I trust, and the point where I can close the problem too quickly</text>
+  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="22" fill="#475362">This diagram turns the position statement into a visible process: clarity matters, but it has to be followed by a deliberate return to what the model excluded.</text>
+
+  <g font-family="'Public Sans', Arial, sans-serif" text-anchor="middle">
+    <circle cx="340" cy="420" r="110" fill="#aa5a32" opacity="0.12"/>
+    <circle cx="340" cy="420" r="92" fill="#aa5a32"/>
+    <text x="340" y="404" font-size="26" font-weight="700" fill="#f9f3e9">1 Frame</text>
+    <text x="340" y="438" font-size="20" fill="#f9f3e9">Make the situation</text>
+    <text x="340" y="466" font-size="20" fill="#f9f3e9">legible</text>
+
+    <circle cx="600" cy="280" r="110" fill="#255d67" opacity="0.12"/>
+    <circle cx="600" cy="280" r="92" fill="#255d67"/>
+    <text x="600" y="264" font-size="26" font-weight="700" fill="#f9f3e9">2 Represent</text>
+    <text x="600" y="298" font-size="20" fill="#f9f3e9">Choose a model,</text>
+    <text x="600" y="326" font-size="20" fill="#f9f3e9">drawing, or form</text>
+
+    <circle cx="860" cy="420" r="110" fill="#9b7b24" opacity="0.16"/>
+    <circle cx="860" cy="420" r="92" fill="#9b7b24"/>
+    <text x="860" y="404" font-size="26" font-weight="700" fill="#f9f3e9">3 Compare</text>
+    <text x="860" y="438" font-size="20" fill="#f9f3e9">Let evidence move</text>
+    <text x="860" y="466" font-size="20" fill="#f9f3e9">the decision</text>
+
+    <circle cx="600" cy="560" r="110" fill="#1c4972" opacity="0.14"/>
+    <circle cx="600" cy="560" r="92" fill="#1c4972"/>
+    <text x="600" y="544" font-size="26" font-weight="700" fill="#f9f3e9">4 Re-open</text>
+    <text x="600" y="578" font-size="20" fill="#f9f3e9">Return to what the</text>
+    <text x="600" y="606" font-size="20" fill="#f9f3e9">model left out</text>
+  </g>
+
+  <g fill="none" stroke="#255d67" stroke-width="8" stroke-linecap="round">
+    <path d="M434 366 C484 326 518 306 526 300"/>
+    <path d="M674 300 C726 304 772 334 794 360"/>
+    <path d="M796 480 C754 516 708 542 674 548"/>
+    <path d="M526 548 C482 540 434 512 404 478"/>
+  </g>
+
+  <g>
+    <path d="M694 472 C750 448 800 450 840 486 C780 548 700 546 640 496 Z" fill="#aa5a32" opacity="0.14" stroke="#aa5a32" stroke-width="3"/>
+    <text x="742" y="500" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#aa5a32" letter-spacing="2">RISK ZONE</text>
+    <text x="742" y="532" font-family="'Public Sans', Arial, sans-serif" font-size="20" font-weight="700" fill="#19202a" text-anchor="middle">Clean metrics can make me close the frame too early</text>
+  </g>
+
+  <g>
+    <rect x="84" y="650" width="1032" height="76" rx="24" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="116" y="694" font-family="'Public Sans', Arial, sans-serif" font-size="22" fill="#475362">This is the position in one sentence: clarity is useful only if it leads back to stakeholder, build, and communication reality before the result hardens.</text>
+  </g>
+</svg>

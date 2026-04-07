@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Annotated Lotus Blossom for Praxis II</title>
+  <desc id="desc">A reconstructed lotus blossom diagram showing how Praxis II used workflow framing and metrics to keep concept branches comparable earlier in the design process.</desc>
+  <rect width="1200" height="820" fill="#f7f0e4"/>
+  <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
+  <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">PRAXIS II RECONSTRUCTION</text>
+  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="42" fill="#18202a">Lotus blossom that stayed tied to the workflow instead of drifting</text>
+  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="22" fill="#475362">The second blossom is different because the branches are already judged against staff time, lateness risk, and fallback work.</text>
+
+  <g font-family="'Public Sans', Arial, sans-serif" text-anchor="middle">
+    <circle cx="600" cy="410" r="96" fill="#aa5a32" opacity="0.12"/>
+    <circle cx="600" cy="410" r="84" fill="#aa5a32"/>
+    <text x="600" y="395" font-size="22" font-weight="700" fill="#f9f3e9">Daycare trip</text>
+    <text x="600" y="425" font-size="20" fill="#f9f3e9">check-in delay</text>
+
+    <g fill="#efe1cc" stroke="#9f8766" stroke-width="3">
+      <ellipse cx="600" cy="236" rx="118" ry="66"/>
+      <ellipse cx="760" cy="300" rx="118" ry="66" transform="rotate(45 760 300)"/>
+      <ellipse cx="826" cy="410" rx="118" ry="66"/>
+      <ellipse cx="760" cy="520" rx="118" ry="66" transform="rotate(-45 760 520)"/>
+      <ellipse cx="600" cy="584" rx="118" ry="66"/>
+      <ellipse cx="440" cy="520" rx="118" ry="66" transform="rotate(45 440 520)"/>
+      <ellipse cx="374" cy="410" rx="118" ry="66"/>
+      <ellipse cx="440" cy="300" rx="118" ry="66" transform="rotate(-45 440 300)"/>
+    </g>
+
+    <g fill="#1f2a35" font-size="22" font-weight="600">
+      <text x="600" y="242">Parent-applied</text>
+      <text x="760" y="292">One machine</text>
+      <text x="760" y="320">station</text>
+      <text x="826" y="416">Two machine</text>
+      <text x="826" y="444">stations</text>
+      <text x="760" y="512">Fallback staff</text>
+      <text x="760" y="540">intervention</text>
+      <text x="600" y="590">Safety and</text>
+      <text x="600" y="618">verification</text>
+      <text x="440" y="512">Queue pressure</text>
+      <text x="440" y="540">at departure</text>
+      <text x="374" y="416">Setup burden</text>
+      <text x="440" y="292">Parent error</text>
+      <text x="440" y="320">and compliance</text>
+    </g>
+  </g>
+
+  <g>
+    <rect x="78" y="230" width="320" height="176" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="102" y="267" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#255d67" letter-spacing="2">WHY THIS ONE WORKED BETTER</text>
+    <text x="102" y="307" font-family="'Public Sans', Arial, sans-serif" font-size="22" font-weight="700" fill="#19202a">The petals were tied to a morning workflow</text>
+    <text x="102" y="342" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">The team did not only ask what wristband</text>
+    <text x="102" y="371" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">object looked elegant. It asked where work,</text>
+    <text x="102" y="400" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">delay, and rework actually moved.</text>
+    <path d="M398 352 C454 358 476 370 502 386" fill="none" stroke="#255d67" stroke-width="4"/>
+    <circle cx="502" cy="386" r="7" fill="#255d67"/>
+  </g>
+
+  <g>
+    <rect x="796" y="230" width="314" height="176" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="820" y="267" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#aa5a32" letter-spacing="2">EARLY FILTERS</text>
+    <text x="820" y="307" font-family="'Public Sans', Arial, sans-serif" font-size="22" font-weight="700" fill="#19202a">Metrics narrowed the blossom sooner</text>
+    <text x="820" y="342" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">Active staff time, completion risk, and</text>
+    <text x="820" y="371" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">fallback effort acted as comparison rails</text>
+    <text x="820" y="400" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">before the team attached to one concept.</text>
+    <path d="M796 375 C748 392 720 404 693 414" fill="none" stroke="#aa5a32" stroke-width="4"/>
+    <circle cx="693" cy="414" r="7" fill="#aa5a32"/>
+  </g>
+
+  <g>
+    <rect x="790" y="520" width="318" height="154" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="814" y="557" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#255d67" letter-spacing="2">TAKEAWAY</text>
+    <text x="814" y="597" font-family="'Public Sans', Arial, sans-serif" font-size="22" font-weight="700" fill="#19202a">The blossom became an argument map</text>
+    <text x="814" y="632" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">The annotated version shows exactly why</text>
+    <text x="814" y="661" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">Praxis II converged more responsibly.</text>
+  </g>
+</svg>

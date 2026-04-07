@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Annotated Lotus Blossom for Praxis I</title>
+  <desc id="desc">A reconstructed lotus blossom diagram showing how Praxis I divergence widened across too many backpack-strap ideas before criteria narrowed the comparison.</desc>
+  <rect width="1200" height="820" fill="#f7f0e4"/>
+  <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
+  <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">PRAXIS I RECONSTRUCTION</text>
+  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="42" fill="#18202a">Lotus blossom that kept widening before the team had a filter</text>
+  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="22" fill="#475362">The useful move was not the blossom alone. It was adding criteria early enough that the branches could stop multiplying and start being compared.</text>
+
+  <g font-family="'Public Sans', Arial, sans-serif" text-anchor="middle">
+    <circle cx="600" cy="410" r="96" fill="#255d67" opacity="0.12"/>
+    <circle cx="600" cy="410" r="84" fill="#255d67"/>
+    <text x="600" y="395" font-size="22" font-weight="700" fill="#f9f3e9">Loose strap</text>
+    <text x="600" y="425" font-size="20" fill="#f9f3e9">snagging problem</text>
+
+    <g fill="#efe1cc" stroke="#9f8766" stroke-width="3">
+      <ellipse cx="600" cy="236" rx="118" ry="66"/>
+      <ellipse cx="760" cy="300" rx="118" ry="66" transform="rotate(45 760 300)"/>
+      <ellipse cx="826" cy="410" rx="118" ry="66"/>
+      <ellipse cx="760" cy="520" rx="118" ry="66" transform="rotate(-45 760 520)"/>
+      <ellipse cx="600" cy="584" rx="118" ry="66"/>
+      <ellipse cx="440" cy="520" rx="118" ry="66" transform="rotate(45 440 520)"/>
+      <ellipse cx="374" cy="410" rx="118" ry="66"/>
+      <ellipse cx="440" cy="300" rx="118" ry="66" transform="rotate(-45 440 300)"/>
+    </g>
+
+    <g fill="#1f2a35" font-size="22" font-weight="600">
+      <text x="600" y="242">Fastener ideas</text>
+      <text x="760" y="292">Comfort and</text>
+      <text x="760" y="320">shoulder load</text>
+      <text x="826" y="416">Adjustability</text>
+      <text x="760" y="512">Bag access and</text>
+      <text x="760" y="540">daily use</text>
+      <text x="600" y="590">Manufacturing</text>
+      <text x="440" y="512">User motion and</text>
+      <text x="440" y="540">snag scenarios</text>
+      <text x="374" y="416">Extra strap</text>
+      <text x="440" y="292">Posture and</text>
+      <text x="440" y="320">load path</text>
+    </g>
+  </g>
+
+  <g>
+    <rect x="79" y="248" width="292" height="148" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="103" y="285" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#255d67" letter-spacing="2">WHAT WENT WRONG</text>
+    <text x="103" y="325" font-family="'Public Sans', Arial, sans-serif" font-size="22" font-weight="700" fill="#19202a">Divergence stayed open too long</text>
+    <text x="103" y="360" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">The team had many legitimate petals,</text>
+    <text x="103" y="389" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">but no shared stop rule yet.</text>
+    <path d="M371 322 C438 325 466 338 505 348" fill="none" stroke="#aa5a32" stroke-width="4"/>
+    <circle cx="505" cy="348" r="7" fill="#aa5a32"/>
+  </g>
+
+  <g>
+    <rect x="790" y="240" width="318" height="176" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="814" y="277" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#aa5a32" letter-spacing="2">LATER FILTER</text>
+    <text x="814" y="317" font-family="'Public Sans', Arial, sans-serif" font-size="22" font-weight="700" fill="#19202a">Criteria finally disciplined the branches</text>
+    <text x="814" y="352" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">Snagging, comfort, adjustability,</text>
+    <text x="814" y="381" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">and manufacturability created a real</text>
+    <text x="814" y="410" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">comparison instead of more idea growth.</text>
+    <path d="M790 388 C726 425 714 438 690 454" fill="none" stroke="#aa5a32" stroke-width="4"/>
+    <circle cx="690" cy="454" r="7" fill="#aa5a32"/>
+  </g>
+
+  <g>
+    <rect x="808" y="516" width="300" height="172" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="832" y="553" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#255d67" letter-spacing="2">PROJECT LESSON</text>
+    <text x="832" y="593" font-family="'Public Sans', Arial, sans-serif" font-size="22" font-weight="700" fill="#19202a">A blossom is only useful with annotations</text>
+    <text x="832" y="628" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">The visual becomes evidence when it shows</text>
+    <text x="832" y="657" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">where the team got stuck and what</text>
+    <text x="832" y="686" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">criteria reopened movement.</text>
+  </g>
+</svg>
