@@ -1055,6 +1055,237 @@ code {
     gap: 0.7rem;
 }
 
+.position-story {
+    display: grid;
+    gap: 1.05rem;
+}
+
+.quote-block {
+    padding: clamp(1.4rem, 2vw, 2rem);
+    border-radius: 1.5rem;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(245, 239, 228, 0.88)),
+        radial-gradient(circle at top right, rgba(37, 93, 103, 0.1), transparent 16rem);
+    border: 1px solid rgba(16, 21, 28, 0.08);
+    border-left: 6px solid rgba(37, 93, 103, 0.42);
+    box-shadow: 0 18px 30px rgba(10, 14, 18, 0.06);
+}
+
+.quote-text {
+    margin: 0;
+    max-width: 42rem;
+    color: var(--text-strong);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+}
+
+.intro-note {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1.15rem 1.25rem;
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(16, 21, 28, 0.08);
+}
+
+.intro-note p:last-child,
+.position-copy-card p:last-child {
+    margin-bottom: 0;
+}
+
+.split-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.position-copy-card,
+.position-process-copy {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+}
+
+.position-process-layout {
+    align-items: start;
+}
+
+.position-process-figure {
+    display: grid;
+    gap: 1rem;
+}
+
+.process-flow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 0.65rem;
+    align-items: stretch;
+    margin-top: 0.25rem;
+}
+
+.position-process-figure .process-step {
+    min-width: 0;
+    display: grid;
+    gap: 0.55rem;
+    align-content: start;
+    padding: 1rem;
+    border-radius: 1.1rem;
+    border: 1px solid rgba(16, 21, 28, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 239, 228, 0.88));
+    box-shadow: 0 12px 22px rgba(10, 14, 18, 0.05);
+}
+
+.position-process-figure .process-step__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background: rgba(16, 21, 28, 0.06);
+    color: var(--text-strong);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.position-process-figure .process-step h4 {
+    margin: 0;
+    color: var(--text-strong);
+    font-size: 1.05rem;
+}
+
+.position-process-figure .process-step p {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 0.94rem;
+    line-height: 1.55;
+}
+
+.process-step--open {
+    border-top: 4px solid rgba(170, 90, 50, 0.54);
+}
+
+.process-step--diverge {
+    border-top: 4px solid rgba(37, 93, 103, 0.6);
+}
+
+.process-step--filter {
+    border-top: 4px solid rgba(155, 123, 36, 0.62);
+}
+
+.process-step--converge {
+    border-top: 4px solid rgba(45, 77, 168, 0.54);
+}
+
+.process-arrow {
+    display: grid;
+    place-items: center;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--accent-teal);
+}
+
+.position-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.position-box {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    gap: 0.8rem;
+    padding: 1.25rem;
+    border-radius: 1.2rem;
+    border: 1px solid rgba(16, 21, 28, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 239, 228, 0.86));
+    box-shadow: 0 14px 26px rgba(10, 14, 18, 0.06);
+}
+
+.position-box::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 0.35rem;
+    background: var(--position-accent);
+}
+
+.position-box--steady {
+    --position-accent: rgba(170, 90, 50, 0.85);
+}
+
+.position-box--shift {
+    --position-accent: rgba(37, 93, 103, 0.86);
+}
+
+.position-box--now {
+    --position-accent: rgba(155, 123, 36, 0.9);
+}
+
+.timeline-meta {
+    width: fit-content;
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(16, 21, 28, 0.06);
+    border: 1px solid rgba(16, 21, 28, 0.09);
+    color: var(--text-soft);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.position-evolution-flow {
+    display: grid;
+    gap: 1rem;
+    margin-top: 0.35rem;
+}
+
+.evolution-stage {
+    position: relative;
+    display: grid;
+    gap: 0.55rem;
+    padding: 1.15rem 1.25rem 1.15rem 1.5rem;
+    border-radius: 0 1.2rem 1.2rem 0;
+    border-left: 4px solid var(--evolution-accent);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 239, 228, 0.86));
+    box-shadow: 0 12px 22px rgba(10, 14, 18, 0.05);
+}
+
+.evolution-stage::before {
+    content: "";
+    position: absolute;
+    left: -0.64rem;
+    top: 1.2rem;
+    width: 0.82rem;
+    height: 0.82rem;
+    border-radius: 999px;
+    background: var(--paper-50);
+    border: 3px solid var(--evolution-accent);
+    box-shadow: 0 0 0 4px rgba(255, 250, 242, 0.78);
+}
+
+.evolution-stage--praxis {
+    --evolution-accent: rgba(37, 93, 103, 0.86);
+}
+
+.evolution-stage--civ {
+    --evolution-accent: rgba(170, 90, 50, 0.85);
+}
+
+.evolution-stage--praxis2 {
+    --evolution-accent: rgba(155, 123, 36, 0.9);
+}
+
+.evolution-stage--gaussian {
+    --evolution-accent: rgba(45, 77, 168, 0.74);
+}
+
 .process-panel {
     padding: 1.35rem 1.45rem;
     border-radius: 1.4rem;
@@ -1775,6 +2006,7 @@ code {
 
 @media (max-width: 1024px) {
     .hero-layout,
+    .split-layout,
     .text-columns,
     .grid-4,
     .position-context-grid,
@@ -1819,8 +2051,18 @@ code {
     }
 
     .lotus-compare-grid,
+    .position-boxes,
     .handbook-band {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .process-flow {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .process-arrow {
+        transform: rotate(90deg);
+        min-height: 1.4rem;
     }
 }
 
@@ -1874,6 +2116,7 @@ code {
     }
 
     .hero-layout,
+    .split-layout,
     .grid-2,
     .grid-3,
     .grid-4,
@@ -1909,6 +2152,7 @@ code {
     }
 
     .lotus-compare-grid,
+    .position-boxes,
     .handbook-band {
         grid-template-columns: minmax(0, 1fr);
     }
@@ -1934,5 +2178,14 @@ code {
     .page-footer__inner {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .process-flow {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .process-arrow {
+        transform: rotate(90deg);
+        min-height: 1.4rem;
     }
 }
