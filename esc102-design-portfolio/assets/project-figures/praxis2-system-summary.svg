@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Praxis II parent-led system summary</title>
+  <desc id="desc">A summary diagram of the chosen Praxis II direction: a parent-led wristband process with two application stations and a loading-aid device.</desc>
+  <rect width="1200" height="820" fill="#f7f0e4"/>
+  <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
+
+  <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">PRAXIS II SOLUTION SUMMARY</text>
+  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="36" fill="#18202a">Parent-led application with two stations</text>
+  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">The chosen direction stayed focused on easier loading, clearer band orientation, and a lighter staff bottleneck at check-in.</text>
+
+  <g font-family="'Public Sans', Arial, sans-serif">
+    <rect x="88" y="238" width="260" height="448" rx="28" fill="#eef4fb" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="120" y="282" font-size="18" fill="#255d67" letter-spacing="2">OPPORTUNITY</text>
+    <text x="120" y="324" font-size="30" font-weight="700" fill="#19202a">Why the team</text>
+    <text x="120" y="360" font-size="30" font-weight="700" fill="#19202a">reopened the problem</text>
+    <text x="120" y="404" font-size="20" fill="#475362">Morning departure pressure made the</text>
+    <text x="120" y="432" font-size="20" fill="#475362">wristband task a workflow issue, not just</text>
+    <text x="120" y="460" font-size="20" fill="#475362">a device issue.</text>
+
+    <rect x="120" y="500" width="196" height="132" rx="22" fill="#fff" stroke="#cfdceb" stroke-width="2"/>
+    <text x="146" y="536" font-size="17" fill="#7e5a36" letter-spacing="2">KEY PRESSURES</text>
+    <text x="146" y="570" font-size="18" fill="#19202a">Attendance still has to happen.</text>
+    <text x="146" y="598" font-size="18" fill="#19202a">Band application cannot jam one line.</text>
+
+    <rect x="390" y="238" width="422" height="448" rx="28" fill="#f5eefc" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="424" y="282" font-size="18" fill="#255d67" letter-spacing="2">CHOSEN DIRECTION</text>
+    <text x="424" y="324" font-size="32" font-weight="700" fill="#19202a">Two parent-led stations</text>
+    <text x="424" y="364" font-size="20" fill="#475362">A loading-aid machine supports the band, but the workflow still stays readable:</text>
+
+    <rect x="430" y="418" width="150" height="154" rx="24" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="463" y="454" font-size="17" fill="#7e5a36" letter-spacing="2">STATION 1</text>
+    <text x="463" y="494" font-size="22" font-weight="700" fill="#19202a">Parent applies</text>
+    <text x="463" y="522" font-size="22" font-weight="700" fill="#19202a">the band</text>
+    <text x="463" y="550" font-size="17" fill="#475362">Loading funnel and divot</text>
+    <text x="463" y="572" font-size="17" fill="#475362">help orientation.</text>
+
+    <rect x="622" y="418" width="150" height="154" rx="24" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="655" y="454" font-size="17" fill="#7e5a36" letter-spacing="2">STATION 2</text>
+    <text x="655" y="494" font-size="22" font-weight="700" fill="#19202a">Second parent</text>
+    <text x="655" y="522" font-size="22" font-weight="700" fill="#19202a">application point</text>
+    <text x="655" y="550" font-size="17" fill="#475362">Parallel flow keeps the</text>
+    <text x="655" y="572" font-size="17" fill="#475362">line from stacking.</text>
+
+    <circle cx="600" cy="636" r="10" fill="#43a1e8"/>
+    <text x="624" y="642" font-size="18" fill="#19202a">Staff verification stays in the wider check-in flow instead of doing every band by hand.</text>
+
+    <rect x="854" y="238" width="258" height="448" rx="28" fill="#eef8f1" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="886" y="282" font-size="18" fill="#255d67" letter-spacing="2">WHY IT CONVERGED</text>
+    <text x="886" y="322" font-size="29" font-weight="700" fill="#19202a">The solution was easier</text>
+    <text x="886" y="356" font-size="29" font-weight="700" fill="#19202a">to follow as a workflow</text>
+
+    <rect x="886" y="404" width="194" height="70" rx="18" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="910" y="432" font-size="16" fill="#7e5a36" letter-spacing="2">DEVICE FEATURES</text>
+    <text x="910" y="460" font-size="18" fill="#19202a">Easy loading funnel, storage box, slide path.</text>
+
+    <rect x="886" y="494" width="194" height="70" rx="18" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="910" y="522" font-size="16" fill="#7e5a36" letter-spacing="2">WORKFLOW MOVE</text>
+    <text x="910" y="550" font-size="18" fill="#19202a">Parents apply in parallel instead of waiting on one staff task.</text>
+
+    <rect x="886" y="584" width="194" height="70" rx="18" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="910" y="612" font-size="16" fill="#7e5a36" letter-spacing="2">WHY IT HELPED</text>
+    <text x="910" y="640" font-size="18" fill="#19202a">The chosen direction reduced bottlenecks without hiding the verification step.</text>
+  </g>
+
+  <g stroke="#43a1e8" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M348 460 H390"/>
+    <path d="M580 494 H622"/>
+  </g>
+  <g stroke="#43a1e8" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M374 444 L390 460 L374 476"/>
+    <path d="M606 478 L622 494 L606 510"/>
+  </g>
+
+  <g>
+    <rect x="88" y="716" width="1024" height="48" rx="18" fill="#13212a" opacity="0.96"/>
+    <text x="118" y="746" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#f5efe4">Reading guide: left = why the project reopened, center = chosen system, right = why the team could converge on it.</text>
+  </g>
+</svg>

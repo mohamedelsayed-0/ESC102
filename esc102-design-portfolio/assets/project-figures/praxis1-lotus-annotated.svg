@@ -82,10 +82,10 @@
     <text x="748" y="749" font-size="16" fill="#475362">and what reopened movement.</text>
   </g>
 
-  <g fill="none" stroke="#aa5a32" stroke-width="4" stroke-linecap="round">
+  <g fill="none" stroke="#aa5a32" stroke-width="7" stroke-linecap="round">
     <path d="M610 392 C662 376 692 362 720 348"/>
     <path d="M610 614 C660 600 692 584 720 570"/>
   </g>
-  <circle cx="610" cy="392" r="6" fill="#aa5a32"/>
-  <circle cx="610" cy="614" r="6" fill="#aa5a32"/>
+  <circle cx="610" cy="392" r="8" fill="#aa5a32"/>
+  <circle cx="610" cy="614" r="8" fill="#aa5a32"/>
 </svg>

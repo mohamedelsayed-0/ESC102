@@ -1,50 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
   <title id="title">Gaussian argument map</title>
-  <desc id="desc">A simplified reasoning map from reduced setting to analytical claim to benchmark pressure to scoped conclusion.</desc>
+  <desc id="desc">A step-by-step reasoning map from analytical framing through benchmark pressure to a scoped conclusion.</desc>
   <rect width="1200" height="820" fill="#f7f0e4"/>
   <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
 
   <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">GAUSSIAN ARGUMENT MAP</text>
-  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="34" fill="#18202a">The claim only worked because it had to earn its scope</text>
-  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">The plots matter because they pressure the analytical shortcut.</text>
-  <text x="72" y="210" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">They do not just decorate it.</text>
+  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="35" fill="#18202a">The claim only worked because the figures could push back on it</text>
+  <text x="72" y="186" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">This map reads left to right: frame the problem, state the claim, benchmark it, then keep only the supported scope.</text>
 
   <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="120" y="304" width="280" height="180" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
-    <rect x="460" y="304" width="280" height="180" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
-    <rect x="800" y="304" width="280" height="180" rx="26" fill="#13212a" opacity="0.97"/>
+    <rect x="92" y="286" width="220" height="228" rx="28" fill="#fff7f1" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="122" y="326" font-size="18" fill="#7e5a36" letter-spacing="2">1 FRAME</text>
+    <text x="122" y="366" font-size="28" font-weight="700" fill="#19202a">Choose the</text>
+    <text x="122" y="400" font-size="28" font-weight="700" fill="#19202a">symmetric setting</text>
+    <text x="122" y="438" font-size="18" fill="#475362">The first move is deciding what</text>
+    <text x="122" y="464" font-size="18" fill="#475362">structure to preserve so the</text>
+    <text x="122" y="490" font-size="18" fill="#475362">problem stays readable.</text>
 
-    <text x="148" y="344" font-size="18" fill="#7e5a36" letter-spacing="2">REDUCE + CLAIM</text>
-    <text x="148" y="382" font-size="28" font-weight="700" fill="#19202a">Choose symmetry, then</text>
-    <text x="148" y="416" font-size="28" font-weight="700" fill="#19202a">state the threshold</text>
-    <text x="148" y="448" font-size="18" fill="#475362">Turn repeated computation into</text>
-    <text x="148" y="472" font-size="18" fill="#475362">a readable inequality.</text>
+    <rect x="350" y="286" width="220" height="228" rx="28" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="380" y="326" font-size="18" fill="#7e5a36" letter-spacing="2">2 CLAIM</text>
+    <text x="380" y="366" font-size="28" font-weight="700" fill="#19202a">Write the threshold</text>
+    <text x="380" y="400" font-size="28" font-weight="700" fill="#19202a">in parameters</text>
+    <text x="380" y="438" font-size="18" fill="#475362">Replace repeated numerical</text>
+    <text x="380" y="464" font-size="18" fill="#475362">checks with a direct condition</text>
+    <text x="380" y="490" font-size="18" fill="#475362">that can still be challenged.</text>
 
-    <text x="488" y="344" font-size="18" fill="#7e5a36" letter-spacing="2">BENCHMARK</text>
-    <text x="488" y="382" font-size="28" font-weight="700" fill="#19202a">Use plots to test</text>
-    <text x="488" y="416" font-size="28" font-weight="700" fill="#19202a">where it breaks</text>
-    <text x="488" y="448" font-size="18" fill="#475362">The figures decide where the</text>
-    <text x="488" y="472" font-size="18" fill="#475362">shortcut tracks exact behavior.</text>
+    <rect x="608" y="286" width="220" height="228" rx="28" fill="#eef7f1" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="638" y="326" font-size="18" fill="#7e5a36" letter-spacing="2">3 BENCHMARK</text>
+    <text x="638" y="366" font-size="28" font-weight="700" fill="#19202a">Use plots to test</text>
+    <text x="638" y="400" font-size="28" font-weight="700" fill="#19202a">where it drifts</text>
+    <text x="638" y="438" font-size="18" fill="#475362">The figures act as pressure:</text>
+    <text x="638" y="464" font-size="18" fill="#475362">they show where the shorter</text>
+    <text x="638" y="490" font-size="18" fill="#475362">argument stops tracking well.</text>
 
-    <text x="828" y="344" font-size="18" fill="#d8e6e8" letter-spacing="2">OUTCOME</text>
-    <text x="828" y="382" font-size="28" font-weight="700" fill="#f5efe4">Keep only the</text>
-    <text x="828" y="416" font-size="28" font-weight="700" fill="#f5efe4">scoped claim</text>
-    <text x="828" y="446" font-size="17" fill="#d8e6e8">Only where plots support it.</text>
+    <rect x="866" y="286" width="242" height="228" rx="28" fill="#13212a" opacity="0.97"/>
+    <text x="896" y="326" font-size="18" fill="#d8e6e8" letter-spacing="2">4 KEEP</text>
+    <text x="896" y="366" font-size="28" font-weight="700" fill="#f5efe4">State only the</text>
+    <text x="896" y="400" font-size="28" font-weight="700" fill="#f5efe4">supported range</text>
+    <text x="896" y="438" font-size="18" fill="#d8e6e8">The final claim narrows to the</text>
+    <text x="896" y="464" font-size="18" fill="#d8e6e8">regimes where the benchmark</text>
+    <text x="896" y="490" font-size="18" fill="#d8e6e8">still justifies the shortcut.</text>
   </g>
 
-  <g stroke="#255d67" stroke-width="8" stroke-linecap="round" fill="none">
-    <path d="M400 394 H460"/>
-    <path d="M740 394 H800"/>
+  <g stroke="#255d67" stroke-width="12" stroke-linecap="round" fill="none">
+    <path d="M312 400 H350"/>
+    <path d="M570 400 H608"/>
+    <path d="M828 400 H866"/>
   </g>
 
-  <g stroke="#255d67" stroke-width="6" stroke-linecap="round" fill="none">
-    <path d="M446 380 L460 394 L446 408"/>
-    <path d="M786 380 L800 394 L786 408"/>
+  <g stroke="#255d67" stroke-width="9" stroke-linecap="round" fill="none">
+    <path d="M332 382 L350 400 L332 418"/>
+    <path d="M590 382 L608 400 L590 418"/>
+    <path d="M848 382 L866 400 L848 418"/>
   </g>
 
   <g>
-    <rect x="96" y="622" width="1008" height="88" rx="24" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="128" y="670" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#aa5a32" letter-spacing="2">WHY THIS VISUAL HELPS</text>
-    <text x="128" y="700" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#475362">With the map, the figures read as pressure on the claim and a reason to narrow its scope.</text>
+    <rect x="92" y="592" width="1016" height="104" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="124" y="638" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#aa5a32" letter-spacing="2">READING GUIDE</text>
+    <text x="124" y="674" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">The plots do not sit beside the claim as decoration. They are the step that decides whether the reduced result gets to stay broad or has to narrow.</text>
   </g>
 </svg>

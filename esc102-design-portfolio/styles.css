@@ -1474,6 +1474,13 @@ code {
     font-weight: 600;
 }
 
+.pugh-table td {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
 .pugh-mark {
     display: inline-flex;
     align-items: center;
@@ -1623,6 +1630,10 @@ code {
 .entry-grid.entry-grid--handbook .entry-analysis-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
+}
+
+.entry-grid.entry-grid--handbook .entry-analysis-grid .entry-panel:nth-child(n+5) {
+    display: none;
 }
 
 .entry-grid.entry-grid--handbook .entry-panel {

@@ -82,10 +82,10 @@
     <text x="748" y="740" font-size="13" fill="#475362">It explains why Praxis II converged responsibly.</text>
   </g>
 
-  <g fill="none" stroke="#aa5a32" stroke-width="4" stroke-linecap="round">
+  <g fill="none" stroke="#aa5a32" stroke-width="7" stroke-linecap="round">
     <path d="M610 392 C662 376 692 362 720 348"/>
     <path d="M610 504 C662 508 692 528 720 540"/>
   </g>
-  <circle cx="610" cy="392" r="6" fill="#aa5a32"/>
-  <circle cx="610" cy="504" r="6" fill="#aa5a32"/>
+  <circle cx="610" cy="392" r="8" fill="#aa5a32"/>
+  <circle cx="610" cy="504" r="8" fill="#aa5a32"/>
 </svg>
