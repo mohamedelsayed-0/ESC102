@@ -5,15 +5,17 @@
   <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
 
   <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">FINAL PROTOTYPE VIEW</text>
-  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="38" fill="#18202a">Praxis II working prototype, redrawn from the supplied build photo</text>
-  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="21" fill="#475362">The portfolio figure keeps the build legible: a white housing, a blue sliding tray, and the wristband strip loaded through the device.</text>
+  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="36" fill="#18202a">Praxis II working prototype</text>
+  <text x="72" y="188" font-family="'Fraunces', Georgia, serif" font-size="36" fill="#18202a">redrawn from the supplied build photo</text>
+  <text x="72" y="226" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">The portfolio figure keeps the build legible: white housing, blue tray, and the</text>
+  <text x="72" y="252" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">wristband strip loaded through the device.</text>
 
   <g>
-    <ellipse cx="584" cy="602" rx="376" ry="96" fill="#efe5d4"/>
-    <ellipse cx="584" cy="616" rx="336" ry="74" fill="#f8f2e9"/>
+    <ellipse cx="584" cy="622" rx="376" ry="96" fill="#efe5d4"/>
+    <ellipse cx="584" cy="636" rx="336" ry="74" fill="#f8f2e9"/>
   </g>
 
-  <g transform="translate(206 240)">
+  <g transform="translate(206 268)">
     <path d="M168 8 H452 Q470 8 482 20 L562 102 Q574 114 574 132 V232 Q574 250 562 262 L502 322 Q490 334 472 334 H206 Q188 334 176 322 L148 294 Q136 282 136 264 V44 Q136 26 148 14 Q158 8 168 8 Z" fill="#f8f8fb" stroke="#d0d0d6" stroke-width="4"/>
     <path d="M176 32 H440 Q456 32 466 42 L522 98 Q532 108 532 124 V208 Q532 224 522 234 L478 278 Q468 288 452 288 H212 Q196 288 186 278 L182 274 Q176 268 176 258 Z" fill="#ffffff" stroke="#dedee4" stroke-width="2"/>
     <rect x="212" y="52" width="258" height="42" rx="10" fill="#e9eef7" stroke="#d0d6e3" stroke-width="2"/>
@@ -39,25 +41,25 @@
   </g>
 
   <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="796" y="270" width="250" height="104" rx="20" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="824" y="304" font-size="17" fill="#7e5a36" letter-spacing="2">HOUSING</text>
-    <text x="824" y="338" font-size="24" font-weight="700" fill="#19202a">White body keeps the</text>
-    <text x="824" y="366" font-size="24" font-weight="700" fill="#19202a">loading path aligned</text>
+    <rect x="786" y="286" width="300" height="112" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="814" y="320" font-size="17" fill="#7e5a36" letter-spacing="2">HOUSING</text>
+    <text x="814" y="356" font-size="22" font-weight="700" fill="#19202a">White body keeps the</text>
+    <text x="814" y="382" font-size="22" font-weight="700" fill="#19202a">loading path aligned</text>
 
-    <rect x="832" y="426" width="214" height="92" rx="20" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="860" y="458" font-size="17" fill="#7e5a36" letter-spacing="2">TRAY</text>
-    <text x="860" y="490" font-size="23" font-weight="700" fill="#19202a">Blue tray supports</text>
-    <text x="860" y="516" font-size="23" font-weight="700" fill="#19202a">the wristband strip</text>
+    <rect x="786" y="428" width="300" height="112" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="814" y="462" font-size="17" fill="#7e5a36" letter-spacing="2">TRAY</text>
+    <text x="814" y="498" font-size="22" font-weight="700" fill="#19202a">Blue tray supports</text>
+    <text x="814" y="524" font-size="22" font-weight="700" fill="#19202a">the wristband strip</text>
 
-    <rect x="774" y="560" width="272" height="104" rx="20" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="802" y="594" font-size="17" fill="#7e5a36" letter-spacing="2">LOADED BAND</text>
-    <text x="802" y="628" font-size="24" font-weight="700" fill="#19202a">The strip and punch holes</text>
-    <text x="802" y="656" font-size="24" font-weight="700" fill="#19202a">stay visible during loading</text>
+    <rect x="786" y="570" width="300" height="112" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="814" y="604" font-size="17" fill="#7e5a36" letter-spacing="2">LOADED BAND</text>
+    <text x="814" y="640" font-size="22" font-weight="700" fill="#19202a">The strip and punch holes</text>
+    <text x="814" y="666" font-size="22" font-weight="700" fill="#19202a">stay visible during loading</text>
   </g>
 
   <g stroke="#aa5a32" stroke-width="4" stroke-linecap="round" fill="none">
-    <path d="M782 322 C726 322 676 324 640 336"/>
-    <path d="M818 462 C760 458 702 444 648 424"/>
-    <path d="M760 608 C688 584 624 544 584 512"/>
+    <path d="M786 344 C734 344 686 350 644 364"/>
+    <path d="M786 486 C736 478 692 462 644 448"/>
+    <path d="M786 628 C706 606 640 570 598 540"/>
   </g>
 </svg>
