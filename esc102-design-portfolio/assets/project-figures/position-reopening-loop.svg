@@ -1,53 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
-  <title id="title">Position statement reopening loop</title>
-  <desc id="desc">A diagram showing the design loop described in the position statement: frame, represent, compare, reopen, with a highlighted risk zone where clean metrics can cause premature closure.</desc>
+  <title id="title">Divergence as bias removal</title>
+  <desc id="desc">A position-statement diagram showing divergence used to remove first-solution bias, surface several viable directions, and then narrow with criteria.</desc>
   <rect width="1200" height="820" fill="#f7f0e4"/>
   <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
+
   <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">POSITION VISUAL</text>
-  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="42" fill="#18202a">The loop I trust, and the point where I can close the problem too quickly</text>
-  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="22" fill="#475362">This diagram turns the position statement into a visible process: clarity matters, but it has to be followed by a deliberate return to what the model excluded.</text>
+  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="36" fill="#18202a">Why I now use divergence on purpose</text>
+  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">Divergence is there to remove first-solution bias, open several viable directions,</text>
+  <text x="72" y="210" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">and make the opportunity more constructive before convergence starts.</text>
 
-  <g font-family="'Public Sans', Arial, sans-serif" text-anchor="middle">
-    <circle cx="340" cy="420" r="110" fill="#aa5a32" opacity="0.12"/>
-    <circle cx="340" cy="420" r="92" fill="#aa5a32"/>
-    <text x="340" y="404" font-size="26" font-weight="700" fill="#f9f3e9">1 Frame</text>
-    <text x="340" y="438" font-size="20" fill="#f9f3e9">Make the situation</text>
-    <text x="340" y="466" font-size="20" fill="#f9f3e9">legible</text>
+  <g font-family="'Public Sans', Arial, sans-serif">
+    <rect x="90" y="304" width="220" height="176" rx="28" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="350" y="304" width="220" height="176" rx="28" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="610" y="304" width="220" height="176" rx="28" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="870" y="304" width="220" height="176" rx="28" fill="#13212a" opacity="0.97"/>
 
-    <circle cx="600" cy="280" r="110" fill="#255d67" opacity="0.12"/>
-    <circle cx="600" cy="280" r="92" fill="#255d67"/>
-    <text x="600" y="264" font-size="26" font-weight="700" fill="#f9f3e9">2 Represent</text>
-    <text x="600" y="298" font-size="20" fill="#f9f3e9">Choose a model,</text>
-    <text x="600" y="326" font-size="20" fill="#f9f3e9">drawing, or form</text>
+    <text x="118" y="344" font-size="18" fill="#7e5a36" letter-spacing="2">1 FIRST READ</text>
+    <text x="118" y="382" font-size="28" font-weight="700" fill="#19202a">One idea, or</text>
+    <text x="118" y="416" font-size="28" font-weight="700" fill="#19202a">no idea yet</text>
+    <text x="118" y="446" font-size="17" fill="#475362">Bias is still high here.</text>
 
-    <circle cx="860" cy="420" r="110" fill="#9b7b24" opacity="0.16"/>
-    <circle cx="860" cy="420" r="92" fill="#9b7b24"/>
-    <text x="860" y="404" font-size="26" font-weight="700" fill="#f9f3e9">3 Compare</text>
-    <text x="860" y="438" font-size="20" fill="#f9f3e9">Let evidence move</text>
-    <text x="860" y="466" font-size="20" fill="#f9f3e9">the decision</text>
+    <text x="378" y="344" font-size="18" fill="#7e5a36" letter-spacing="2">2 DIVERGE</text>
+    <text x="378" y="382" font-size="28" font-weight="700" fill="#19202a">Name branches</text>
+    <text x="378" y="416" font-size="28" font-weight="700" fill="#19202a">and risks</text>
+    <text x="378" y="446" font-size="17" fill="#475362">This prevents default closure.</text>
 
-    <circle cx="600" cy="560" r="110" fill="#1c4972" opacity="0.14"/>
-    <circle cx="600" cy="560" r="92" fill="#1c4972"/>
-    <text x="600" y="544" font-size="26" font-weight="700" fill="#f9f3e9">4 Re-open</text>
-    <text x="600" y="578" font-size="20" fill="#f9f3e9">Return to what the</text>
-    <text x="600" y="606" font-size="20" fill="#f9f3e9">model left out</text>
+    <text x="638" y="344" font-size="18" fill="#7e5a36" letter-spacing="2">3 VIABLE ROUTES</text>
+    <text x="638" y="382" font-size="28" font-weight="700" fill="#19202a">Several viable</text>
+    <text x="638" y="416" font-size="28" font-weight="700" fill="#19202a">routes appear</text>
+    <text x="638" y="446" font-size="17" fill="#475362">Now the team can compare.</text>
+
+    <text x="898" y="344" font-size="18" fill="#d8e6e8" letter-spacing="2">4 CONVERGE</text>
+    <text x="898" y="382" font-size="28" font-weight="700" fill="#f5efe4">Filter with</text>
+    <text x="898" y="416" font-size="28" font-weight="700" fill="#f5efe4">criteria</text>
+    <text x="898" y="446" font-size="17" fill="#d8e6e8">Now the set can narrow.</text>
   </g>
 
-  <g fill="none" stroke="#255d67" stroke-width="8" stroke-linecap="round">
-    <path d="M434 366 C484 326 518 306 526 300"/>
-    <path d="M674 300 C726 304 772 334 794 360"/>
-    <path d="M796 480 C754 516 708 542 674 548"/>
-    <path d="M526 548 C482 540 434 512 404 478"/>
+  <g stroke="#255d67" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M310 396 H350"/>
+    <path d="M570 396 H610"/>
+    <path d="M830 396 H870"/>
+  </g>
+
+  <g stroke="#255d67" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M336 382 L350 396 L336 410"/>
+    <path d="M596 382 L610 396 L596 410"/>
+    <path d="M856 382 L870 396 L856 410"/>
   </g>
 
   <g>
-    <path d="M694 472 C750 448 800 450 840 486 C780 548 700 546 640 496 Z" fill="#aa5a32" opacity="0.14" stroke="#aa5a32" stroke-width="3"/>
-    <text x="742" y="500" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#aa5a32" letter-spacing="2">RISK ZONE</text>
-    <text x="742" y="532" font-family="'Public Sans', Arial, sans-serif" font-size="20" font-weight="700" fill="#19202a" text-anchor="middle">Clean metrics can make me close the frame too early</text>
-  </g>
-
-  <g>
-    <rect x="84" y="650" width="1032" height="76" rx="24" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="116" y="694" font-family="'Public Sans', Arial, sans-serif" font-size="22" fill="#475362">This is the position in one sentence: clarity is useful only if it leads back to stakeholder, build, and communication reality before the result hardens.</text>
+    <rect x="84" y="596" width="1032" height="94" rx="24" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="116" y="646" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#aa5a32" letter-spacing="2">WHY THIS MATTERS</text>
+    <text x="116" y="680" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#475362">Praxis I stayed open too long. Praxis II used divergence as a bias check before convergence.</text>
   </g>
 </svg>

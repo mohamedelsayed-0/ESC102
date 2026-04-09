@@ -81,7 +81,7 @@
             </div>
         </section>
 
-        <section class="section-card reveal" id="praxis-1">
+        <section class="section-card section-card--project-case reveal" id="praxis-1">
             <div class="project-section">
                 <div class="project-header">
                     <div class="project-title-row">
@@ -144,16 +144,18 @@
                         <h3>Summary</h3>
                         <p>
                             The project started as a redesign problem around excess backpack straps catching on external
-                            objects. The more useful framing was broader: the loose strap was only one symptom of a
-                            system that also involved comfort, access to the bag, adjustability, and manufacturability.
-                            The team explored three concept directions, and I supported that comparison by building a
-                            simplified lumbar-deviation model that converted prototype parameters into legible metrics.
+                            objects. The team first diverged across several possible directions, then stabilized around
+                            three concept paths: elastic control, inside-bag adjustment, and shoulder-side adjustment.
+                            The more useful framing was broader than the original complaint. The loose strap was only
+                            one symptom of a carrying-system problem that also involved comfort, access, adjustability,
+                            snagging, and manufacturability.
                         </p>
                         <p>
-                            The value of the project was not in claiming an exact human-body model. It was in creating a
-                            structured way to compare directions that otherwise would have remained qualitative. Once the
-                            metrics were explicit, the conversation could move from "which idea seems cleaner" to "which
-                            idea changes load distance, pressure, or obstruction in a defensible way."
+                            Convergence started only once the team had explicit criteria and a structure for
+                            comparison. My contribution was the simplified lumbar-deviation model that converted
+                            prototype parameters into legible metrics, but the larger design move was collective: the
+                            team stopped asking which idea looked neatest and started asking which direction handled
+                            load distance, comfort, access, and obstruction most defensibly.
                         </p>
                     </article>
                     <aside class="note-panel">
@@ -180,7 +182,7 @@
                     </div>
                     <div class="process-panel__grid">
                         <article class="process-step">
-                            <span class="small-label">Reframe</span>
+                            <span class="small-label">Divergence</span>
                             <h4>The loose strap was only one visible symptom of a larger carrying problem</h4>
                             <p>My first instinct was to hunt for a neat fastening mechanism. The project got stronger
                                 once the team treated the issue as a system of consequences involving snagging,
@@ -189,7 +191,7 @@
                                 meaningfully instead of converging on the cleanest-looking fix.</p>
                         </article>
                         <article class="process-step">
-                            <span class="small-label">Design Lesson</span>
+                            <span class="small-label">Convergence</span>
                             <h4>The simulation helped because it disciplined comparison, not because it was exact</h4>
                             <p>My contribution was to translate each concept into comparable parameters such as excess
                                 strap, load distance, and pressure, then tie those outputs back to explicit criteria.
@@ -220,6 +222,7 @@
                                 point where divergence was still generating ideas but no longer helping the team decide
                                 between them.
                             </p>
+                            <p class="figure-note">Restructured/redrawn from paper to allow for ease of visibility but idea is sitll the same.</p>
                             <div class="download-links">
                                 <a href="assets/project-figures/praxis1-lotus-annotated.svg">Open annotated diagram</a>
                                 <a href="ctmfs.html#ctmf-backpack-design-concepts">Open related CTMF</a>
@@ -340,7 +343,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
             </div>
         </section>
 
-        <section class="section-card reveal" id="civ102-bridge">
+        <section class="section-card section-card--project-case reveal" id="civ102-bridge">
             <div class="project-section">
                 <div class="project-header">
                     <div class="project-title-row">
@@ -403,9 +406,10 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         <h3>Summary</h3>
                         <p>
                             The CIV102 bridge required a design that could survive a specified moving train load under
-                            tight material and fabrication constraints. The analytical work centered on finding the
-                            critical bending and shear regions, computing section properties, and mapping likely failure
-                            modes such as tension, compression, web buckling, shear, and glue failure.
+                            tight material and fabrication constraints. The team did not move straight from equations to
+                            one final geometry. The project diverged through possible section layouts, reinforcement
+                            choices, and assembly logic, then narrowed those options through moving-load analysis,
+                            likely failure modes, and the buildability visible in the drawings.
                         </p>
                         <p>
                             What makes the project important in this portfolio is not that it contains many calculations.
@@ -441,7 +445,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </div>
                     <div class="process-panel__grid">
                         <article class="process-step">
-                            <span class="small-label">Reframe</span>
+                            <span class="small-label">Divergence</span>
                             <h4>The bridge stopped being a neat optimization problem once failure modes and build logic entered</h4>
                             <p>Early on, the project invited a familiar habit: treating the bridge as a problem of
                                 material efficiency with a clean numerical objective. The work got stronger once the
@@ -451,7 +455,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 connections, and fabrication consequences.</p>
                         </article>
                         <article class="process-step">
-                            <span class="small-label">Design Lesson</span>
+                            <span class="small-label">Convergence</span>
                             <h4>Constructability needed to influence the geometry before convergence, not after it</h4>
                             <p>The hardest lesson here was that drawings, glue strategy, fit tolerances, and assembly
                                 quality could not stay downstream of the math. If those build conditions are only used
@@ -488,7 +492,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                             </div>
                         </div>
                     </figure>
-                    <figure class="figure-card">
+                    <figure class="figure-card figure-card--document">
                         <img src="assets/project-figures/civ102-drawings.png"
                             alt="Preview of CIV102 bridge engineering drawings">
                         <div class="figure-body">
@@ -503,7 +507,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                             </div>
                         </div>
                     </figure>
-                    <figure class="figure-card">
+                    <figure class="figure-card figure-card--document">
                         <img src="assets/project-figures/civ102-calculations.png"
                             alt="Preview of CIV102 bridge calculation sheet">
                         <div class="figure-body">
@@ -598,7 +602,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
             </div>
         </section>
 
-        <section class="section-card reveal" id="praxis-2">
+        <section class="section-card section-card--project-case reveal" id="praxis-2">
             <div class="project-section">
                 <div class="project-header">
                     <div class="project-title-row">
@@ -620,8 +624,8 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         </div>
                         <div class="snapshot-item">
                             <p class="meta-label">Outcome</p>
-                            <p class="meta-value">Requirement matrix, beta simulation, and threshold visualizations for
-                                parent-applied and machine-assisted concepts</p>
+                            <p class="meta-value">Requirement matrix, final prototype reconstruction, and threshold
+                                visualizations for parent-applied and machine-assisted concepts</p>
                         </div>
                     </div>
                 </div>
@@ -639,8 +643,8 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </article>
                     <article class="project-rhythm-card">
                         <span class="small-label">Evidence</span>
-                        <p>The annotated lotus, workflow chart, dashboard, and sensitivity atlas show why the
-                            comparison stayed conditional and useful.</p>
+                        <p>The annotated lotus, final prototype view, dashboard, and sensitivity atlas show how the
+                            project moved from open concept work to a conditional but buildable proposal.</p>
                     </article>
                     <article class="project-rhythm-card">
                         <span class="small-label">Reflection</span>
@@ -652,8 +656,8 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                 <div class="project-block-header">
                     <p class="section-kicker">Context</p>
                     <h3>How the project widened from a device idea to a workflow question</h3>
-                    <p>The first block keeps the scenario framing and the beta evidence together so the reader sees the
-                        project as an operational redesign rather than a standalone wristband concept.</p>
+                    <p>The first block keeps the scenario framing and the evaluation evidence together so the reader
+                        sees the project as an operational redesign rather than a standalone wristband concept.</p>
                 </div>
 
                 <div class="text-columns">
@@ -663,9 +667,10 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                             Praxis II centered on a daycare field-trip wristband process. The visible artifact was the
                             wristband, but the real design problem was a morning workflow: one staff member had to
                             manage attendance, supervision, forms, and wristband application under departure pressure.
-                            The team compared a parent-applied wristband concept against one- and two-machine
-                            dispensing concepts. My main contribution was the beta simulation and the metric logic that
-                            turned those directions into comparable operational cases.
+                            The team diverged across parent-applied, one-machine, and two-machine directions instead of
+                            assuming the right answer was obvious from the start. My main contribution was the
+                            simulation and metric logic that helped turn those workflow directions into comparable
+                            operational cases.
                         </p>
                         <p>
                             The simulation mattered because it separated staff-time savings from end-to-end timing risk.
@@ -674,7 +679,9 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                             departure in about 17% of simulated days, while two machine stations dropped active staff
                             time to about 20.3 minutes but still kept queue-driven risk visible. That difference
                             stopped the project from calling the fastest-looking option "better" without saying under
-                            what conditions it stayed useful.
+                            what conditions it stayed useful. Convergence, in other words, happened through metric
+                            separation and prototype logic together rather than through a single winning-looking
+                            concept.
                         </p>
                     </article>
                     <aside class="note-panel">
@@ -705,7 +712,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </div>
                     <div class="process-panel__grid">
                         <article class="process-step">
-                            <span class="small-label">Reframe</span>
+                            <span class="small-label">Divergence</span>
                             <h4>The real problem was a crowded arrival routine, not only the wristband itself</h4>
                             <p>The requirement table helped widen the project from "make wristbands easier" to "reduce
                                 operational burden while keeping safety, intuitiveness, and setup time acceptable."
@@ -714,7 +721,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 included.</p>
                         </article>
                         <article class="process-step">
-                            <span class="small-label">Design Lesson</span>
+                            <span class="small-label">Convergence</span>
                             <h4>The beta simulation only helped because it split staff savings from timing risk</h4>
                             <p>The useful move was not just running scenarios. It was tracking active staff time,
                                 completion risk, and break-even thresholds separately. That exposed results the team
@@ -730,7 +737,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     <p class="section-kicker">Evidence</p>
                     <h3>The visual trail from concept blossom to threshold evidence</h3>
                     <p>The evidence block starts with an annotated reconstruction of the concept space, then moves into
-                        the workflow logic and simulation outputs that made the comparison defensible.</p>
+                        the final prototype view and simulation outputs that made the comparison defensible.</p>
                 </div>
 
                 <div class="figure-grid">
@@ -745,6 +752,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 how the project differed from Praxis I: the branches are already tied to workflow
                                 pressure and operational metrics instead of just naming more ideas.
                             </p>
+                            <p class="figure-note">Restructured/redrawn from paper to allow for ease of visibility but idea is sitll the same.</p>
                             <div class="download-links">
                                 <a href="assets/project-figures/praxis2-lotus-annotated.svg">Open annotated diagram</a>
                                 <a href="ctmfs.html#ctmf-wristband-evaluation-metrics">Open related CTMF</a>
@@ -752,18 +760,19 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                         </div>
                     </figure>
                     <figure class="figure-card">
-                        <img src="assets/evidence/beta-simulation/beta-release-flowchart.svg"
-                            alt="Praxis II beta-release flowchart showing parent, machine, and fallback paths">
+                        <img src="assets/project-figures/praxis2-final-prototype.svg"
+                            alt="Redrawn final Praxis II working prototype showing the white housing, blue tray, and loaded wristband strip">
                         <div class="figure-body">
-                            <figcaption class="figure-caption">Figure 10. Beta release workflow logic</figcaption>
+                            <figcaption class="figure-caption">Figure 10. Final working prototype reconstructed for the site</figcaption>
                             <p class="figure-annotation">
-                                The flowchart mattered because it kept the concept branches and fallback staff work
-                                visible. In this project, the decision depended on where work moved after a failure,
-                                not just on the nominal happy path.
+                                This figure matters because the project did not end as an abstract workflow diagram. It
+                                converged into a physical prototype direction that had to be handled, loaded, and
+                                explained as a real object inside the larger workflow argument.
                             </p>
+                            <p class="figure-note">Redrawn from the final working prototype photo provided for this portfolio so the build can be read clearly on the page.</p>
                             <div class="download-links">
-                                <a href="assets/evidence/beta-simulation/beta-release.pdf">Open beta release PDF</a>
-                                <a href="assets/evidence/beta-simulation/beta-release-flowchart.svg">Open flowchart</a>
+                                <a href="assets/project-figures/praxis2-final-prototype.svg">Open prototype figure</a>
+                                <a href="projects.html#praxis-2-process-notes">Open Praxis II process note</a>
                             </div>
                         </div>
                     </figure>
@@ -861,7 +870,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
             </div>
         </section>
 
-        <section class="section-card reveal" id="gaussian-project">
+        <section class="section-card section-card--project-case reveal" id="gaussian-project">
             <div class="project-section">
                 <div class="project-header">
                     <div class="project-title-row">
@@ -926,7 +935,10 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                             This project studies when entanglement survives after a two-mode squeezed vacuum state
                             passes through symmetric phase-insensitive Gaussian channels. The central design move was to
                             change the representation of the problem so the partially transposed eigenvalue condition
-                            could be treated as an explicit inequality in the channel parameters.
+                            could be treated as an explicit inequality in the channel parameters. Even as an
+                            individual research project, the work still had a divergence and convergence structure: I
+                            had to open several ways of framing the analytical claim before narrowing to the one that
+                            remained benchmarkable.
                         </p>
                         <p>
                             In portfolio terms, this is not a conventional product-design artifact. It is a method
@@ -960,7 +972,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                     </div>
                     <div class="process-panel__grid">
                         <article class="process-step">
-                            <span class="small-label">Abstraction Choice</span>
+                            <span class="small-label">Divergence</span>
                             <h4>The useful move was turning repeated computation into a readable analytical claim</h4>
                             <p>The first version of the problem could have remained a numerical routine around the full
                                 symplectic spectrum. The stronger move was to ask whether symmetry could reduce the
@@ -969,7 +981,7 @@ M_dist = M0 * (1 - x / spineLength).^2.2;</pre>
                                 the evidence could support.</p>
                         </article>
                         <article class="process-step">
-                            <span class="small-label">Design Lesson</span>
+                            <span class="small-label">Convergence</span>
                             <h4>The cleaner threshold only earned authority when the figures changed the argument</h4>
                             <p>After the reduced condition was in place, the plots became decision tools rather than
                                 decorations. I used them to perceive where the bound separated from exact behavior,

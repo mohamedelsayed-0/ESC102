@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Praxis II final prototype reconstruction</title>
+  <desc id="desc">A reconstructed illustration of the final Praxis II working prototype, showing the white housing, blue loading tray, and the wristband strip in place.</desc>
+  <rect width="1200" height="820" fill="#f7f0e4"/>
+  <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
+
+  <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">FINAL PROTOTYPE VIEW</text>
+  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="38" fill="#18202a">Praxis II working prototype, redrawn from the supplied build photo</text>
+  <text x="72" y="184" font-family="'Public Sans', Arial, sans-serif" font-size="21" fill="#475362">The portfolio figure keeps the build legible: a white housing, a blue sliding tray, and the wristband strip loaded through the device.</text>
+
+  <g>
+    <ellipse cx="584" cy="602" rx="376" ry="96" fill="#efe5d4"/>
+    <ellipse cx="584" cy="616" rx="336" ry="74" fill="#f8f2e9"/>
+  </g>
+
+  <g transform="translate(206 240)">
+    <path d="M168 8 H452 Q470 8 482 20 L562 102 Q574 114 574 132 V232 Q574 250 562 262 L502 322 Q490 334 472 334 H206 Q188 334 176 322 L148 294 Q136 282 136 264 V44 Q136 26 148 14 Q158 8 168 8 Z" fill="#f8f8fb" stroke="#d0d0d6" stroke-width="4"/>
+    <path d="M176 32 H440 Q456 32 466 42 L522 98 Q532 108 532 124 V208 Q532 224 522 234 L478 278 Q468 288 452 288 H212 Q196 288 186 278 L182 274 Q176 268 176 258 Z" fill="#ffffff" stroke="#dedee4" stroke-width="2"/>
+    <rect x="212" y="52" width="258" height="42" rx="10" fill="#e9eef7" stroke="#d0d6e3" stroke-width="2"/>
+
+    <path d="M0 254 L226 190 Q242 186 254 196 L322 254 Q338 268 336 288 L328 352 Q324 372 306 380 L74 454 Q52 460 38 446 L10 418 Q-4 404 0 384 Z" fill="#1e56c9" stroke="#174aa9" stroke-width="4"/>
+    <path d="M28 274 L220 220 Q232 216 242 224 L292 268 Q302 276 300 288 L292 334 Q288 346 276 350 L80 412 Q66 416 56 408 L34 390 Q24 382 26 368 Z" fill="#2b67df" stroke="#2b67df" stroke-width="2"/>
+    <path d="M110 244 L314 194 Q326 190 338 198 L410 244 Q424 252 424 268 V312 Q424 326 410 334 L178 458 Q162 466 148 456 L92 414 Q78 404 80 388 L88 266 Q90 250 110 244 Z" fill="#2257c8" stroke="#1843a5" stroke-width="4"/>
+    <path d="M132 258 L306 216 Q314 214 322 220 L378 256 Q386 262 386 272 V302 Q386 312 378 316 L182 438 Q174 442 166 438 L124 406 Q114 398 114 388 V270 Q114 262 132 258 Z" fill="#2f74e2" stroke="#2f74e2" stroke-width="2"/>
+
+    <path d="M160 274 L354 228 Q362 226 368 232 L392 254 Q398 260 398 268 V290 Q398 298 390 302 L196 420 Q188 424 182 420 L162 404 Q154 398 154 388 V282 Q154 276 160 274 Z" fill="#f8fbff" stroke="#cfd8e7" stroke-width="3"/>
+    <path d="M196 280 L348 244" stroke="#d8e1ee" stroke-width="3" stroke-dasharray="8 8"/>
+    <path d="M182 372 L344 278" stroke="#3d3f46" stroke-width="8" stroke-linecap="round"/>
+    <path d="M204 360 L372 260" stroke="#ffffff" stroke-width="20" stroke-linecap="round"/>
+    <g fill="#60708d">
+      <circle cx="244" cy="336" r="5"/>
+      <circle cx="268" cy="322" r="5"/>
+      <circle cx="292" cy="308" r="5"/>
+      <circle cx="316" cy="294" r="5"/>
+      <circle cx="340" cy="280" r="5"/>
+    </g>
+
+    <path d="M406 412 Q456 390 520 360 Q546 348 562 362 Q572 372 566 388 Q560 404 538 416 L470 452 Q454 460 442 456 Q426 452 418 438 Z" fill="#1949b4" stroke="#12398e" stroke-width="4"/>
+  </g>
+
+  <g font-family="'Public Sans', Arial, sans-serif">
+    <rect x="796" y="270" width="250" height="104" rx="20" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="824" y="304" font-size="17" fill="#7e5a36" letter-spacing="2">HOUSING</text>
+    <text x="824" y="338" font-size="24" font-weight="700" fill="#19202a">White body keeps the</text>
+    <text x="824" y="366" font-size="24" font-weight="700" fill="#19202a">loading path aligned</text>
+
+    <rect x="832" y="426" width="214" height="92" rx="20" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="860" y="458" font-size="17" fill="#7e5a36" letter-spacing="2">TRAY</text>
+    <text x="860" y="490" font-size="23" font-weight="700" fill="#19202a">Blue tray supports</text>
+    <text x="860" y="516" font-size="23" font-weight="700" fill="#19202a">the wristband strip</text>
+
+    <rect x="774" y="560" width="272" height="104" rx="20" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="802" y="594" font-size="17" fill="#7e5a36" letter-spacing="2">LOADED BAND</text>
+    <text x="802" y="628" font-size="24" font-weight="700" fill="#19202a">The strip and punch holes</text>
+    <text x="802" y="656" font-size="24" font-weight="700" fill="#19202a">stay visible during loading</text>
+  </g>
+
+  <g stroke="#aa5a32" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M782 322 C726 322 676 324 640 336"/>
+    <path d="M818 462 C760 458 702 444 648 424"/>
+    <path d="M760 608 C688 584 624 544 584 512"/>
+  </g>
+</svg>

@@ -339,7 +339,9 @@ code {
 .section-card {
     padding: clamp(1.4rem, 3vw, 2.3rem);
     border-radius: var(--radius-lg);
-    background: var(--paper-50);
+    background:
+        linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(247, 240, 228, 0.92)),
+        radial-gradient(circle at top right, rgba(155, 123, 36, 0.08), transparent 18rem);
     border: 1px solid var(--line-soft);
     box-shadow: var(--shadow-soft);
 }
@@ -467,8 +469,9 @@ code {
 .artifact-card {
     border-radius: var(--radius-md);
     border: 1px solid var(--line-soft);
-    background: rgba(255, 255, 255, 0.72);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(247, 240, 228, 0.84));
     padding: 1.2rem;
+    box-shadow: 0 14px 28px rgba(10, 14, 18, 0.06);
 }
 
 .section-card--dark .info-card,
@@ -784,10 +787,22 @@ code {
 
 .snapshot-item,
 .meta-item {
-    padding: 0.95rem 1rem;
-    border-radius: 1rem;
-    background: rgba(16, 21, 28, 0.04);
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 1.05rem;
+    border-radius: 1.1rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 239, 228, 0.82));
     border: 1px solid rgba(16, 21, 28, 0.08);
+    box-shadow: 0 14px 24px rgba(10, 14, 18, 0.05);
+}
+
+.snapshot-item::before,
+.meta-item::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 0.28rem;
+    background: linear-gradient(90deg, rgba(37, 93, 103, 0.7), rgba(170, 90, 50, 0.55));
 }
 
 .meta-label {
@@ -805,9 +820,29 @@ code {
     gap: 1.9rem;
 }
 
+.section-card--project-case {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-card--project-case::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 0.5rem;
+    background: linear-gradient(90deg, rgba(37, 93, 103, 0.82), rgba(170, 90, 50, 0.76), rgba(155, 123, 36, 0.68));
+}
+
 .project-header {
     display: grid;
     gap: 0.8rem;
+    padding: 1.4rem;
+    border-radius: 1.4rem;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(243, 232, 215, 0.9)),
+        radial-gradient(circle at top right, rgba(37, 93, 103, 0.08), transparent 18rem);
+    border: 1px solid rgba(16, 21, 28, 0.08);
+    box-shadow: 0 18px 32px rgba(10, 14, 18, 0.06);
 }
 
 .project-title-row {
@@ -833,10 +868,11 @@ code {
 .project-rhythm-card {
     display: grid;
     gap: 0.6rem;
-    padding: 1rem 1.05rem;
-    border-radius: 1rem;
-    background: rgba(16, 21, 28, 0.04);
+    padding: 1.05rem 1.1rem;
+    border-radius: 1.15rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(242, 234, 219, 0.84));
     border: 1px solid rgba(16, 21, 28, 0.08);
+    box-shadow: 0 14px 24px rgba(10, 14, 18, 0.05);
 }
 
 .project-rhythm-card p,
@@ -848,6 +884,8 @@ code {
     display: grid;
     gap: 0.5rem;
     max-width: 56rem;
+    padding-left: 1rem;
+    border-left: 4px solid rgba(37, 93, 103, 0.35);
 }
 
 .text-columns {
@@ -964,6 +1002,52 @@ code {
     border-radius: 1rem;
     background: rgba(16, 21, 28, 0.05);
     border: 1px solid rgba(16, 21, 28, 0.08);
+}
+
+#praxis-1 .project-header,
+#praxis-1 .project-rhythm-card,
+#praxis-1 .snapshot-item,
+.handbook-section--praxis {
+    --case-glow: rgba(37, 93, 103, 0.1);
+}
+
+#civ102-bridge .project-header,
+#civ102-bridge .project-rhythm-card,
+#civ102-bridge .snapshot-item,
+.handbook-section--civ102 {
+    --case-glow: rgba(170, 90, 50, 0.11);
+}
+
+#praxis-2 .project-header,
+#praxis-2 .project-rhythm-card,
+#praxis-2 .snapshot-item,
+.handbook-section--praxis2 {
+    --case-glow: rgba(155, 123, 36, 0.12);
+}
+
+#gaussian-project .project-header,
+#gaussian-project .project-rhythm-card,
+#gaussian-project .snapshot-item,
+.handbook-section--gaussian {
+    --case-glow: rgba(45, 77, 168, 0.1);
+}
+
+#praxis-1 .project-header,
+#civ102-bridge .project-header,
+#praxis-2 .project-header,
+#gaussian-project .project-header {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(243, 232, 215, 0.88)),
+        radial-gradient(circle at top right, var(--case-glow), transparent 18rem);
+}
+
+#praxis-1 .project-rhythm-card,
+#civ102-bridge .project-rhythm-card,
+#praxis-2 .project-rhythm-card,
+#gaussian-project .project-rhythm-card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 239, 228, 0.84)),
+        radial-gradient(circle at top right, var(--case-glow), transparent 12rem);
 }
 
 .note-panel ul {
@@ -1192,6 +1276,15 @@ code {
     font-weight: 700;
 }
 
+.figure-note {
+    margin: -0.1rem 0 0;
+    color: var(--accent-rust);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
 .figure-annotation,
 .support-text {
     font-size: 0.95rem;
@@ -1320,6 +1413,139 @@ code {
 .entry-card {
     display: grid;
     gap: 0.85rem;
+}
+
+.lotus-compare-grid,
+.position-divergence-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.lotus-compare-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 1rem;
+}
+
+.lotus-compare-card {
+    align-content: start;
+}
+
+.pugh-card {
+    display: grid;
+    gap: 0.95rem;
+    align-content: start;
+}
+
+.pugh-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid rgba(16, 21, 28, 0.08);
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.pugh-table th,
+.pugh-table td {
+    padding: 0.8rem 0.9rem;
+    border-bottom: 1px solid rgba(16, 21, 28, 0.08);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.pugh-table thead th {
+    background: rgba(16, 21, 28, 0.06);
+    color: var(--text-strong);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pugh-table tbody tr:last-child th,
+.pugh-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.pugh-table tbody th {
+    color: var(--text-soft);
+    font-weight: 600;
+}
+
+.pugh-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    padding: 0.28rem 0.52rem;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.pugh-mark.is-plus {
+    background: rgba(37, 93, 103, 0.12);
+    color: var(--accent-teal);
+}
+
+.pugh-mark.is-same {
+    background: rgba(155, 123, 36, 0.14);
+    color: var(--accent-gold);
+}
+
+.pugh-mark.is-minus {
+    background: rgba(170, 90, 50, 0.12);
+    color: var(--accent-rust);
+}
+
+.handbook-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.handbook-section::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 0.45rem;
+    background: linear-gradient(90deg, rgba(37, 93, 103, 0.8), rgba(170, 90, 50, 0.7));
+}
+
+.handbook-section--praxis,
+.handbook-section--civ102,
+.handbook-section--praxis2,
+.handbook-section--gaussian {
+    background:
+        linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(247, 240, 228, 0.92)),
+        radial-gradient(circle at top right, var(--case-glow), transparent 18rem);
+}
+
+.handbook-band {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    gap: 0.9rem;
+    align-items: stretch;
+    padding: 1rem 1.05rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(16, 21, 28, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 239, 228, 0.84));
+    box-shadow: 0 14px 24px rgba(10, 14, 18, 0.05);
+}
+
+.handbook-band__item {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.handbook-band__item p {
+    margin: 0;
+    color: var(--text-strong);
+}
+
+.handbook-band__link {
+    align-self: center;
+    justify-self: start;
 }
 
 .entry-grid.entry-grid--handbook {
@@ -1491,7 +1717,7 @@ code {
     padding: 1.15rem 1.2rem;
     border-left: 4px solid var(--accent-rust);
     border-radius: 1rem;
-    background: rgba(170, 90, 50, 0.08);
+    background: linear-gradient(180deg, rgba(170, 90, 50, 0.1), rgba(170, 90, 50, 0.06));
 }
 
 .resource-grid {
@@ -1578,6 +1804,11 @@ code {
     .entry-analysis-grid {
         grid-template-columns: minmax(0, 1fr);
     }
+
+    .lotus-compare-grid,
+    .handbook-band {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 @media (max-width: 760px) {
@@ -1661,6 +1892,11 @@ code {
     .position-bridge,
     .document-map,
     .revision-bridge {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lotus-compare-grid,
+    .handbook-band {
         grid-template-columns: minmax(0, 1fr);
     }
 
