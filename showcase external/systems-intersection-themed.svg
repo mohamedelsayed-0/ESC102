@@ -1,0 +1,469 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1660" height="980" viewBox="0 0 1660 980">
+      <defs>
+        <linearGradient id="intersection-bg" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#eef6ff" />
+          <stop offset="100%" stop-color="#dceafb" />
+        </linearGradient>
+        <radialGradient id="intersection-top-glow" cx="18%" cy="10%" r="60%">
+          <stop offset="0%" stop-color="#8d6dff" stop-opacity="0.25" />
+          <stop offset="48%" stop-color="#6ea0ff" stop-opacity="0.1" />
+          <stop offset="100%" stop-color="#6ea0ff" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="intersection-bottom-glow" cx="86%" cy="84%" r="44%">
+          <stop offset="0%" stop-color="#46a7f2" stop-opacity="0.22" />
+          <stop offset="100%" stop-color="#46a7f2" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="intersection-parent" x1="0%" x2="100%" y1="0%" y2="0%">
+          <stop offset="0%" stop-color="#6c37f2" />
+          <stop offset="55%" stop-color="#5b62f3" />
+          <stop offset="100%" stop-color="#45a8f2" />
+        </linearGradient>
+        <linearGradient id="intersection-band" x1="0%" x2="100%" y1="0%" y2="0%">
+          <stop offset="0%" stop-color="#6c37f2" stop-opacity="0.13" />
+          <stop offset="100%" stop-color="#45a8f2" stop-opacity="0.11" />
+        </linearGradient>
+        <linearGradient id="intersection-machine-one" x1="0%" x2="100%" y1="0%" y2="0%">
+          <stop offset="0%" stop-color="#1497cc" />
+          <stop offset="100%" stop-color="#7ae1ff" />
+        </linearGradient>
+        <linearGradient id="intersection-machine-two" x1="0%" x2="100%" y1="0%" y2="0%">
+          <stop offset="0%" stop-color="#0f63ff" />
+          <stop offset="100%" stop-color="#36c0ff" />
+        </linearGradient>
+        <filter id="intersection-card-shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#6d87b7" flood-opacity="0.14" />
+        </filter>
+        <clipPath id="intersection-plot-clip">
+          <rect x="108" y="208" width="1440" height="668" rx="28" />
+        </clipPath>
+      </defs>
+      <rect width="1660" height="980" rx="40" fill="url(#intersection-bg)" />
+      <rect width="1660" height="980" rx="40" fill="url(#intersection-top-glow)" />
+      <circle cx="1450" cy="190" r="116" fill="rgba(110, 137, 255, 0.1)" />
+      <circle cx="1400" cy="820" r="194" fill="url(#intersection-bottom-glow)" />
+      <rect x="28" y="28" width="1604" height="924" rx="32" fill="#f9fcff" stroke="rgba(123, 153, 218, 0.28)" stroke-width="2" filter="url(#intersection-card-shadow)" />
+      
+        <text
+          x="830"
+          y="88"
+          fill="#113b79"
+          font-family="Iowan Old Style, Palatino Linotype, serif"
+          font-size="50"
+          font-weight="700"
+          text-anchor="middle"
+          letter-spacing="0"
+        >
+          System Intersection
+        </text>
+      
+      
+    
+      <rect
+        x="405"
+        y="112"
+        width="190"
+        height="60"
+        rx="22"
+        fill="rgba(246, 247, 255, 0.96)"
+        stroke="rgba(122, 127, 217, 0.16)"
+        stroke-width="2"
+      />
+      <text
+        x="423"
+        y="134"
+        fill="#5f64bd"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-size="15"
+        font-weight="700"
+        letter-spacing="1.6"
+      >
+        BASELINE
+      </text>
+      <text
+        x="423"
+        y="157"
+        fill="#5e64bf"
+        font-family="Iowan Old Style, Palatino Linotype, serif"
+        font-size="24"
+        font-weight="700"
+      >
+        34m 32s
+      </text>
+    
+    
+      <rect
+        x="611"
+        y="112"
+        width="184"
+        height="60"
+        rx="22"
+        fill="rgba(245, 246, 255, 0.9)"
+        stroke="rgba(95, 70, 243, 0.16)"
+        stroke-width="2"
+      />
+      <text
+        x="629"
+        y="134"
+        fill="#5f47dd"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-size="15"
+        font-weight="700"
+        letter-spacing="1.6"
+      >
+        PARENT
+      </text>
+      <text
+        x="629"
+        y="157"
+        fill="#1c4f9c"
+        font-family="Iowan Old Style, Palatino Linotype, serif"
+        font-size="24"
+        font-weight="700"
+      >
+        16m 21s
+      </text>
+    
+    
+      <rect
+        x="811"
+        y="112"
+        width="212"
+        height="60"
+        rx="22"
+        fill="rgba(236, 250, 252, 0.94)"
+        stroke="rgba(26, 162, 216, 0.2)"
+        stroke-width="2"
+      />
+      <text
+        x="829"
+        y="134"
+        fill="#1b98c9"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-size="15"
+        font-weight="700"
+        letter-spacing="1.6"
+      >
+        1 MACHINE
+      </text>
+      <text
+        x="829"
+        y="157"
+        fill="#0f6184"
+        font-family="Iowan Old Style, Palatino Linotype, serif"
+        font-size="24"
+        font-weight="700"
+      >
+        12m 34s
+      </text>
+    
+    
+      <rect
+        x="1039"
+        y="112"
+        width="216"
+        height="60"
+        rx="22"
+        fill="rgba(230, 245, 255, 0.98)"
+        stroke="rgba(31, 120, 239, 0.34)"
+        stroke-width="2"
+      />
+      <text
+        x="1057"
+        y="134"
+        fill="#1f78ef"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-size="15"
+        font-weight="700"
+        letter-spacing="1.6"
+      >
+        2 MACHINES
+      </text>
+      <text
+        x="1057"
+        y="157"
+        fill="#14528f"
+        font-family="Iowan Old Style, Palatino Linotype, serif"
+        font-size="24"
+        font-weight="700"
+      >
+        11m 34s
+      </text>
+    
+  
+      <rect x="108" y="208" width="1440" height="668" rx="28" fill="rgba(197, 208, 255, 0.2)" stroke="rgba(123, 153, 218, 0.16)" stroke-width="1.5" />
+      
+        <text
+          x="108"
+          y="194"
+          fill="#214d8f"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="21"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          Active staff time (minutes)
+        </text>
+      
+      
+      <line x1="108" y1="876" x2="1548" y2="876" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="90"
+        y="882"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        10m
+      </text>
+    
+      <line x1="108" y1="780.5714285714286" x2="1548" y2="780.5714285714286" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="90"
+        y="786.5714285714286"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        15m
+      </text>
+    
+      <line x1="108" y1="685.1428571428571" x2="1548" y2="685.1428571428571" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="90"
+        y="691.1428571428571"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        20m
+      </text>
+    
+      <line x1="108" y1="589.7142857142858" x2="1548" y2="589.7142857142858" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="90"
+        y="595.7142857142858"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        25m
+      </text>
+    
+      <line x1="108" y1="494.28571428571433" x2="1548" y2="494.28571428571433" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="90"
+        y="500.28571428571433"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        30m
+      </text>
+    
+      <line x1="108" y1="398.85714285714283" x2="1548" y2="398.85714285714283" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="90"
+        y="404.85714285714283"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        35m
+      </text>
+    
+      <line x1="108" y1="303.42857142857144" x2="1548" y2="303.42857142857144" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="90"
+        y="309.42857142857144"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        40m
+      </text>
+    
+      <line x1="108" y1="208" x2="1548" y2="208" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="90"
+        y="214"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        45m
+      </text>
+    
+      <line x1="108" y1="208" x2="108" y2="876" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="" />
+      <text
+        x="108"
+        y="918"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        0%
+      </text>
+    
+      <line x1="396" y1="208" x2="396" y2="876" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="8 12" />
+      <text
+        x="396"
+        y="918"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        20%
+      </text>
+    
+      <line x1="684" y1="208" x2="684" y2="876" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="8 12" />
+      <text
+        x="684"
+        y="918"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        40%
+      </text>
+    
+      <line x1="972" y1="208" x2="972" y2="876" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="8 12" />
+      <text
+        x="972"
+        y="918"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        60%
+      </text>
+    
+      <line x1="1260" y1="208" x2="1260" y2="876" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="8 12" />
+      <text
+        x="1260"
+        y="918"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        80%
+      </text>
+    
+      <line x1="1548" y1="208" x2="1548" y2="876" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="8 12" />
+      <text
+        x="1548"
+        y="918"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        100%
+      </text>
+    
+      <g clip-path="url(#intersection-plot-clip)">
+        
+    <polygon
+      points="108,234.60389764386446 180,245.92539208358016 252,275.8038388516221 324,294.1703385535835 396,326.00962834815266 468,347.1682222066777 540,377.6416024334796 612,411.5846232132871 684,435.06808300117024 756,459.53757718409435 828,488.14478898377786 900.0000000000001,528.6682513304859 972,553.891282976531 1044,585.9318602319862 1116,613.36034855917 1188,648.814105626139 1260,678.6162700147311 1332,711.5313453448524 1404,748.5860104817972 1476,777.1000332553064 1548,808.760064807957 1548,877.8255446134535 1476,856.5766858580043 1404,825.5124617450562 1332,796.5492596295641 1260,762.7685711787495 1188,737.5898279656753 1116,705.6785737476657 1044,682.5061492780162 972,650.6357166057693 900.0000000000001,616.9936739298669 828,586.0600032186533 756,561.4317931987475 684,523.6669671626053 612,498.7119008194007 540,460.25016094749463 468,427.34501246805235 396,397.5139483020726 324,358.8869523471528 252,322.17472938219214 180,289.0095901829377 108,238.74864428966976"
+      fill="url(#intersection-band)"
+      stroke="none"
+    />
+  
+        <path
+          d="M 108 236.6707424387546 L 180 266.74970846068913 L 252 298.69800744319537 L 324 327.5011961748381 L 396 361.5607601251188 L 468 386.95316645560735 L 540 415.9907522928499 L 612 453.85204151429457 L 684 480.940663750601 L 756 509.58436098805834 L 828 538.3143408962146 L 900.0000000000001 570.2443254918431 L 972 602.6889282918528 L 1044 631.9952009640423 L 1116 659.925460448942 L 1188 692.8719425107593 L 1260 722.6243936797762 L 1332 754.9025200748777 L 1404 786.1990840677869 L 1476 816.4959807503974 L 1548 843.1178464441048"
+          fill="none"
+          stroke="rgba(104, 55, 242, 0.28)"
+          stroke-width="4.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M 108 236.6707424387546 L 180 266.74970846068913 L 252 298.69800744319537 L 324 327.5011961748381 L 396 361.5607601251188 L 468 386.95316645560735 L 540 415.9907522928499 L 612 453.85204151429457 L 684 480.940663750601 L 756 509.58436098805834 L 828 538.3143408962146 L 900.0000000000001 570.2443254918431 L 972 602.6889282918528 L 1044 631.9952009640423 L 1116 659.925460448942 L 1188 692.8719425107593 L 1260 722.6243936797762 L 1332 754.9025200748777 L 1404 786.1990840677869 L 1476 816.4959807503974 L 1548 843.1178464441048"
+          fill="none"
+          stroke="url(#intersection-parent)"
+          stroke-width="3"
+          opacity="0.65"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        
+    <line
+      x1="108"
+      y1="407.68741141331793"
+      x2="1548"
+      y2="407.68741141331793"
+      stroke="#a5acf3"
+      stroke-width="4.5"
+      stroke-dasharray="18 12"
+      stroke-linecap="round"
+      opacity="0.95"
+    />
+  
+        
+    <path
+      d="M 108 737.2713336539763 L 180 744.4252951870975 L 252 750.7655540126755 L 324 752.9150580711344 L 396 755.9137718462152 L 468 764.5019735642702 L 540 767.6315983811973 L 612 770.4814081621031 L 684 780.5204822133867 L 756 785.2656803488076 L 828 787.8218020143013 L 900.0000000000001 793.4436278010548 L 972 801.8307060111379 L 1044 805.5238140907504 L 1116 814.0413478801028 L 1188 816.7895882977435 L 1260 823.1237580118271 L 1332 827.1151516992309 L 1404 835.0618218932548 L 1476 839.8921730171674 L 1548 844.7305956125819"
+      fill="none"
+      stroke="url(#intersection-machine-one)"
+      stroke-width="6"
+      stroke-dasharray="16 10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      opacity="0.98"
+    />
+    <path
+      d="M 108 771.6796715808895 L 180 772.9483087835656 L 252 778.4668111035598 L 324 784.951430175569 L 396 789.0258556682836 L 468 793.2584117294373 L 540 794.7988308772424 L 612 803.237016613167 L 684 806.833507557673 L 756 809.6100681293038 L 828 813.2299477853575 L 900.0000000000001 819.34391233816 L 972 823.8094236450102 L 1044 826.8667389328465 L 1116 831.5736277080542 L 1188 838.6898730442501 L 1260 840.4532994113048 L 1332 846.0811714712853 L 1404 851.4771210408311 L 1476 856.7012751627595 L 1548 858.5544587015418"
+      fill="none"
+      stroke="rgba(31, 120, 239, 0.18)"
+      stroke-width="14"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M 108 771.6796715808895 L 180 772.9483087835656 L 252 778.4668111035598 L 324 784.951430175569 L 396 789.0258556682836 L 468 793.2584117294373 L 540 794.7988308772424 L 612 803.237016613167 L 684 806.833507557673 L 756 809.6100681293038 L 828 813.2299477853575 L 900.0000000000001 819.34391233816 L 972 823.8094236450102 L 1044 826.8667389328465 L 1116 831.5736277080542 L 1188 838.6898730442501 L 1260 840.4532994113048 L 1332 846.0811714712853 L 1404 851.4771210408311 L 1476 856.7012751627595 L 1548 858.5544587015418"
+      fill="none"
+      stroke="url(#intersection-machine-two)"
+      stroke-width="8.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  
+        <line
+          x1="1332"
+          y1="208"
+          x2="1332"
+          y2="876"
+          stroke="#46a7f2"
+          stroke-width="3"
+          stroke-dasharray="12 12"
+        />
+      </g>
+      <text
+        x="828"
+        y="944"
+        text-anchor="middle"
+        font-size="24"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        Across-system success (%)
+      </text>
+    </svg>

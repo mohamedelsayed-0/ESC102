@@ -1,0 +1,331 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1660" height="940" viewBox="0 0 1660 940">
+      <defs>
+        <linearGradient id="two-machine-bg" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#eef6ff" />
+          <stop offset="100%" stop-color="#dceafb" />
+        </linearGradient>
+        <radialGradient id="two-machine-top-glow" cx="18%" cy="10%" r="60%">
+          <stop offset="0%" stop-color="#8d6dff" stop-opacity="0.24" />
+          <stop offset="48%" stop-color="#6ea0ff" stop-opacity="0.1" />
+          <stop offset="100%" stop-color="#6ea0ff" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="two-machine-bottom-glow" cx="86%" cy="84%" r="44%">
+          <stop offset="0%" stop-color="#46a7f2" stop-opacity="0.22" />
+          <stop offset="100%" stop-color="#46a7f2" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="two-machine-curve" x1="0%" x2="100%" y1="0%" y2="0%">
+          <stop offset="0%" stop-color="#2f6ef2" />
+          <stop offset="100%" stop-color="#42b6f4" />
+        </linearGradient>
+        <linearGradient id="two-machine-band" x1="0%" x2="100%" y1="0%" y2="0%">
+          <stop offset="0%" stop-color="#8da9ff" stop-opacity="0.2" />
+          <stop offset="100%" stop-color="#42b6f4" stop-opacity="0.16" />
+        </linearGradient>
+        <filter id="two-machine-card-shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#6d87b7" flood-opacity="0.14" />
+        </filter>
+      </defs>
+      <rect width="1660" height="940" rx="40" fill="url(#two-machine-bg)" />
+      <rect width="1660" height="940" rx="40" fill="url(#two-machine-top-glow)" />
+      <circle cx="1450" cy="190" r="116" fill="rgba(110, 137, 255, 0.1)" />
+      <circle cx="1400" cy="780" r="194" fill="url(#two-machine-bottom-glow)" />
+      <rect x="28" y="28" width="1604" height="884" rx="32" fill="#f9fcff" stroke="rgba(123, 153, 218, 0.28)" stroke-width="2" filter="url(#two-machine-card-shadow)" />
+      
+        <text
+          x="830"
+          y="122"
+          fill="#113b79"
+          font-family="Iowan Old Style, Palatino Linotype, serif"
+          font-size="52"
+          font-weight="700"
+          text-anchor="middle"
+          letter-spacing="0"
+        >
+          2-Machine System
+        </text>
+      
+      
+      <rect x="673" y="148" width="152" height="60" rx="22" fill="rgba(246, 247, 255, 0.94)" stroke="rgba(122, 127, 217, 0.16)" stroke-width="2" />
+      <text
+        x="691"
+        y="170"
+        fill="#5f64bd"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-size="15"
+        font-weight="700"
+        letter-spacing="1.6"
+      >
+        BASELINE
+      </text>
+      <text
+        x="691"
+        y="193"
+        fill="#5e64bf"
+        font-family="Iowan Old Style, Palatino Linotype, serif"
+        font-size="24"
+        font-weight="700"
+      >
+        34m 32s
+      </text>
+    
+      
+      <rect x="847" y="148" width="140" height="60" rx="22" fill="rgba(236, 247, 255, 0.94)" stroke="rgba(70, 167, 242, 0.16)" stroke-width="2" />
+      <text
+        x="865"
+        y="170"
+        fill="#2a88cf"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-size="15"
+        font-weight="700"
+        letter-spacing="1.6"
+      >
+        2 MACHINES
+      </text>
+      <text
+        x="865"
+        y="193"
+        fill="#1b6fab"
+        font-family="Iowan Old Style, Palatino Linotype, serif"
+        font-size="24"
+        font-weight="700"
+      >
+        11m 34s
+      </text>
+    
+      <rect x="120" y="258" width="1360" height="548" rx="28" fill="rgba(197, 208, 255, 0.2)" stroke="rgba(124, 156, 223, 0.14)" stroke-width="2" />
+      
+        <text
+          x="120"
+          y="244"
+          fill="#214d8f"
+          font-family="Avenir Next, Segoe UI, sans-serif"
+          font-size="21"
+          font-weight="700"
+          text-anchor="start"
+          letter-spacing="0"
+        >
+          Active staff time (minutes)
+        </text>
+      
+      
+      <line x1="120" y1="806" x2="1480" y2="806" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="102"
+        y="812"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        10m
+      </text>
+    
+      <line x1="120" y1="714.6666666666666" x2="1480" y2="714.6666666666666" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="102"
+        y="720.6666666666666"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        15m
+      </text>
+    
+      <line x1="120" y1="623.3333333333334" x2="1480" y2="623.3333333333334" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="102"
+        y="629.3333333333334"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        20m
+      </text>
+    
+      <line x1="120" y1="532" x2="1480" y2="532" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="102"
+        y="538"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        25m
+      </text>
+    
+      <line x1="120" y1="440.6666666666667" x2="1480" y2="440.6666666666667" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="102"
+        y="446.6666666666667"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        30m
+      </text>
+    
+      <line x1="120" y1="349.3333333333333" x2="1480" y2="349.3333333333333" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="102"
+        y="355.3333333333333"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        35m
+      </text>
+    
+      <line x1="120" y1="258" x2="1480" y2="258" stroke="rgba(20, 62, 126, 0.11)" />
+      <text
+        x="102"
+        y="264"
+        text-anchor="end"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        40m
+      </text>
+    
+      <line x1="120" y1="258" x2="120" y2="806" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="" />
+      <text
+        x="120"
+        y="846"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        0%
+      </text>
+    
+      <line x1="392" y1="258" x2="392" y2="806" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="8 12" />
+      <text
+        x="392"
+        y="846"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        20%
+      </text>
+    
+      <line x1="664" y1="258" x2="664" y2="806" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="8 12" />
+      <text
+        x="664"
+        y="846"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        40%
+      </text>
+    
+      <line x1="936" y1="258" x2="936" y2="806" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="8 12" />
+      <text
+        x="936"
+        y="846"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        60%
+      </text>
+    
+      <line x1="1208" y1="258" x2="1208" y2="806" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="8 12" />
+      <text
+        x="1208"
+        y="846"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        80%
+      </text>
+    
+      <line x1="1480" y1="258" x2="1480" y2="806" stroke="rgba(20, 62, 126, 0.11)" stroke-dasharray="8 12" />
+      <text
+        x="1480"
+        y="846"
+        text-anchor="middle"
+        font-size="22"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+        font-weight="600"
+      >
+        100%
+      </text>
+    
+      <polygon points="120,757.5170492136685 188,756.1750973789661 256,745.3125776337656 324,742.1295217117773 392,736.4020579074488 460,739.5788157392442 528,728.186061890006 596,723.4094200350241 664,720.1273315391431 732,718.3649707307558 800,708.9321034542876 868.0000000000001,705.7304131891946 936,702.820480958972 1004,697.7928318966707 1072,688.4643331845298 1140,689.6619230384025 1208,687.1698377991005 1276,680.7985052001923 1344,675.7356339290681 1412,666.3902452050718 1480,664.8005467544773 1480,747.0803477981469 1412,749.7505783535621 1344,754.8318214072038 1276,754.1356141603708 1208,760.0790728407702 1140,764.9798103959056 1072,765.7145127905839 1004,773.5005969596631 936,779.0177796323968 868.0000000000001,780.5449123557586 800,782.3242065608487 732,787.3785590948871 664,788.9950919571698 596,795.2758658118212 528,795.6329400002186 460,804.1129197895725 392,803.934117520911 324,809.9693483515333 256,817.0186350400315 188,818.5096725198442 120,819.1202503872372" fill="url(#two-machine-band)" stroke="none" />
+      <line
+        x1="120"
+        y1="357.7846582289141"
+        x2="1480"
+        y2="357.7846582289141"
+        stroke="rgba(255,255,255,0.92)"
+        stroke-width="10"
+        stroke-dasharray="18 10"
+        stroke-linecap="round"
+      />
+      <line
+        x1="120"
+        y1="357.7846582289141"
+        x2="1480"
+        y2="357.7846582289141"
+        stroke="#a5acf3"
+        stroke-width="6"
+        stroke-dasharray="18 10"
+        stroke-linecap="round"
+      />
+      <path
+        d="M 120 789.3031196554675 L 188 787.52946395318 L 256 782.529500078001 L 324 777.3651132145335 L 392 771.9787566221969 L 460 770.291006236962 L 528 763.4801486746746 L 596 758.9752521323352 L 664 756.0491389975696 L 732 751.7752614094765 L 800 745.9236725809958 L 868.0000000000001 742.4591370618787 L 936 739.801730287234 L 1004 736.3595797724822 L 1072 728.2835117877 L 1140 726.809198451627 L 1208 722.7582790278283 L 1276 718.8587041301105 L 1344 712.6523671140857 L 1412 707.3706867499395 L 1480 706.156492061949"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="12"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M 120 789.3031196554675 L 188 787.52946395318 L 256 782.529500078001 L 324 777.3651132145335 L 392 771.9787566221969 L 460 770.291006236962 L 528 763.4801486746746 L 596 758.9752521323352 L 664 756.0491389975696 L 732 751.7752614094765 L 800 745.9236725809958 L 868.0000000000001 742.4591370618787 L 936 739.801730287234 L 1004 736.3595797724822 L 1072 728.2835117877 L 1140 726.809198451627 L 1208 722.7582790278283 L 1276 718.8587041301105 L 1344 712.6523671140857 L 1412 707.3706867499395 L 1480 706.156492061949"
+        fill="none"
+        stroke="url(#two-machine-curve)"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <line
+        x1="324"
+        y1="258"
+        x2="324"
+        y2="806"
+        stroke="#46a7f2"
+        stroke-width="4"
+        stroke-dasharray="12 12"
+      />
+      <circle cx="324" cy="777.3651132145335" r="14" fill="rgba(66, 182, 244, 0.18)" />
+      <circle cx="324" cy="777.3651132145335" r="7" fill="#1f78ef" />
+      <text
+        x="800"
+        y="876"
+        text-anchor="middle"
+        font-size="24"
+        fill="#214d8f"
+        font-family="Avenir Next, Segoe UI, sans-serif"
+      >
+        Parents who struggle at the machine (%)
+      </text>
+    </svg>
