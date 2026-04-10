@@ -1,52 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840" role="img" aria-labelledby="title desc">
   <title id="title">CIV102 decision stack</title>
-  <desc id="desc">An annotated bridge-design diagram showing how requirements, option space, and constructability checks had to stay connected.</desc>
-  <rect width="1200" height="820" fill="#f7f0e4"/>
-  <rect x="40" y="40" width="1120" height="740" rx="36" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
+  <desc id="desc">A roomier CIV102 bridge-design diagram showing the project moving from the design brief to comparison, verification, drawings, and fabrication logic.</desc>
+  <rect width="1200" height="840" fill="#f4eddf"/>
+  <rect x="38" y="38" width="1124" height="764" rx="34" fill="#fffaf2" stroke="#d9c7ae" stroke-width="3"/>
 
-  <text x="72" y="104" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#7e5a36" letter-spacing="3">CIV102 DESIGN STACK</text>
-  <text x="72" y="146" font-family="'Fraunces', Georgia, serif" font-size="36" fill="#18202a">Why the bridge could not stay a pure calculation problem</text>
-  <text x="72" y="186" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">Requirements, options, checks, and build reality had to stay connected as one design chain.</text>
+  <text x="82" y="100" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#7e5a36" letter-spacing="3">CIV102 DECISION STACK</text>
+  <text x="82" y="146" font-family="'Fraunces', Georgia, serif" font-size="37" fill="#18202a">The bridge argument only worked when analysis and build logic stayed linked</text>
+  <text x="82" y="186" font-family="'Public Sans', Arial, sans-serif" font-size="21" fill="#475362">This project became readable once the brief, comparison logic, checks, drawings, and fabrication were treated as one chain.</text>
 
   <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="150" y="234" width="900" height="140" rx="26" fill="#fff7f1" stroke="#d8c7b0" stroke-width="2"/>
-    <rect x="150" y="394" width="900" height="140" rx="26" fill="#f4faf7" stroke="#d8c7b0" stroke-width="2"/>
-    <rect x="150" y="554" width="900" height="140" rx="26" fill="#faf5e8" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="82" y="248" width="690" height="142" rx="28" fill="#fff7f1" stroke="#d8c7b0" stroke-width="2"/>
+    <circle cx="136" cy="319" r="28" fill="#aa5a32"/>
+    <text x="136" y="328" text-anchor="middle" font-size="23" font-weight="700" fill="#f8f1e7">1</text>
+    <text x="184" y="290" font-size="18" fill="#7e5a36" letter-spacing="2">FRAME</text>
+    <text x="184" y="324" font-size="27" font-weight="700" fill="#19202a">The design brief defined the real problem</text>
+    <text x="184" y="356" font-size="19" fill="#475362">Span, moving load, matboard limits, and course rules set the</text>
+    <text x="184" y="382" font-size="19" fill="#475362">space before any section looked good on paper.</text>
 
-    <circle cx="210" cy="304" r="32" fill="#aa5a32"/>
-    <text x="210" y="312" text-anchor="middle" font-size="26" font-weight="700" fill="#f9f3e9">1</text>
-    <text x="266" y="276" font-size="18" fill="#7e5a36" letter-spacing="2">FRAME</text>
-    <text x="266" y="312" font-size="25" font-weight="700" fill="#19202a">Requirements define the real problem</text>
-    <text x="266" y="344" font-size="18" fill="#475362">Span, moving load, matboard limits, and course rules</text>
-    <text x="266" y="368" font-size="18" fill="#475362">set the option space before any section looked persuasive.</text>
+    <rect x="82" y="434" width="690" height="148" rx="28" fill="#eef7f2" stroke="#d8c7b0" stroke-width="2"/>
+    <circle cx="136" cy="508" r="28" fill="#255d67"/>
+    <text x="136" y="517" text-anchor="middle" font-size="23" font-weight="700" fill="#f8f1e7">2</text>
+    <text x="184" y="478" font-size="18" fill="#7e5a36" letter-spacing="2">COMPARE</text>
+    <text x="184" y="512" font-size="27" font-weight="700" fill="#19202a">Section options had to answer to</text>
+    <text x="184" y="544" font-size="27" font-weight="700" fill="#19202a">failure and assembly</text>
+    <text x="184" y="574" font-size="18.5" fill="#475362">Possible layouts were only useful if they could survive the moving load</text>
+    <text x="184" y="598" font-size="18.5" fill="#475362">and still make sense once the bridge had to be cut, glued, and aligned.</text>
 
-    <circle cx="210" cy="464" r="32" fill="#255d67"/>
-    <text x="210" y="472" text-anchor="middle" font-size="26" font-weight="700" fill="#f9f3e9">2</text>
-    <text x="266" y="436" font-size="18" fill="#7e5a36" letter-spacing="2">DIVERGE</text>
-    <text x="266" y="472" font-size="25" font-weight="700" fill="#19202a">Sections, webs, and glue paths stayed open</text>
-    <text x="266" y="504" font-size="18" fill="#475362">Possible arrangements remained live until load checks,</text>
-    <text x="266" y="528" font-size="18" fill="#475362">fit, and fabrication logic started ruling them out.</text>
-
-    <circle cx="210" cy="624" r="32" fill="#9b7b24"/>
-    <text x="210" y="632" text-anchor="middle" font-size="26" font-weight="700" fill="#f9f3e9">3</text>
-    <text x="266" y="596" font-size="18" fill="#7e5a36" letter-spacing="2">CONVERGE</text>
-    <text x="266" y="632" font-size="23" font-weight="700" fill="#19202a">Checks only narrow the design if the build still matches</text>
-    <text x="266" y="664" font-size="18" fill="#475362">Failure modes, drawings, fit, and constructability had to</text>
-    <text x="266" y="688" font-size="18" fill="#475362">agree before the bridge was disciplined enough to finalize.</text>
+    <rect x="82" y="626" width="690" height="126" rx="28" fill="#faf5e8" stroke="#d8c7b0" stroke-width="2"/>
+    <circle cx="136" cy="689" r="28" fill="#9b7b24"/>
+    <text x="136" y="698" text-anchor="middle" font-size="23" font-weight="700" fill="#f8f1e7">3</text>
+    <text x="184" y="660" font-size="18" fill="#7e5a36" letter-spacing="2">VERIFY + BUILD</text>
+    <text x="184" y="692" font-size="25.5" font-weight="700" fill="#19202a">The cleanest math still had to survive</text>
+    <text x="184" y="721" font-size="25.5" font-weight="700" fill="#19202a">drawings and fabrication</text>
+    <text x="184" y="744" font-size="17.5" fill="#475362">Analysis only kept authority if the same logic still worked in the build sequence.</text>
   </g>
 
+  <g stroke="#255d67" stroke-width="12" stroke-linecap="round" fill="none">
+    <path d="M426 390 V434"/>
+    <path d="M426 582 V626"/>
+  </g>
   <g stroke="#255d67" stroke-width="8" stroke-linecap="round" fill="none">
-    <path d="M600 374 V394"/>
-    <path d="M600 534 V554"/>
+    <path d="M410 418 L426 434 L442 418"/>
+    <path d="M410 610 L426 626 L442 610"/>
   </g>
 
-  <g stroke="#255d67" stroke-width="6" stroke-linecap="round" fill="none">
-    <path d="M586 386 L600 394 L614 386"/>
-    <path d="M586 546 L600 554 L614 546"/>
+  <g font-family="'Public Sans', Arial, sans-serif">
+    <rect x="816" y="248" width="306" height="504" rx="30" fill="#f5f8fc" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="850" y="290" font-size="18" fill="#255d67" letter-spacing="2">WHAT STAYED CONNECTED</text>
+    <text x="850" y="326" font-size="29" font-weight="700" fill="#19202a">Three checks</text>
+    <text x="850" y="358" font-size="29" font-weight="700" fill="#19202a">had to agree</text>
+
+    <rect x="850" y="368" width="238" height="94" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="874" y="398" font-size="16" fill="#7e5a36" letter-spacing="2">LOAD PATH</text>
+    <text x="874" y="426" font-size="18" fill="#19202a">Failure checks had to match the</text>
+    <text x="874" y="450" font-size="18" fill="#19202a">actual section arrangement.</text>
+
+    <rect x="850" y="488" width="238" height="94" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="874" y="518" font-size="16" fill="#7e5a36" letter-spacing="2">DRAWINGS</text>
+    <text x="874" y="546" font-size="18" fill="#19202a">The drawings translated analysis</text>
+    <text x="874" y="570" font-size="18" fill="#19202a">into spacing and glue decisions.</text>
+
+    <rect x="850" y="608" width="238" height="94" rx="22" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="874" y="638" font-size="16" fill="#7e5a36" letter-spacing="2">FABRICATION</text>
+    <text x="874" y="666" font-size="18" fill="#19202a">If the build sequence failed, the</text>
+    <text x="874" y="690" font-size="18" fill="#19202a">neatest calculation lost authority.</text>
   </g>
 
-  <g>
-    <rect x="120" y="716" width="960" height="48" rx="20" fill="#13212a" opacity="0.96"/>
-    <text x="150" y="746" font-family="'Public Sans', Arial, sans-serif" font-size="18" fill="#f5efe4">Key lesson: if constructability arrives late, the cleanest section gets too much authority.</text>
+  <g stroke="#255d67" stroke-width="7" stroke-linecap="round" fill="none">
+    <path d="M772 320 C820 320 826 400 850 414"/>
+    <path d="M772 508 C820 508 826 534 850 536"/>
+    <path d="M772 690 C820 690 826 670 850 656"/>
   </g>
+
+  <rect x="82" y="772" width="1040" height="14" rx="7" fill="#13212a" opacity="0.9"/>
 </svg>

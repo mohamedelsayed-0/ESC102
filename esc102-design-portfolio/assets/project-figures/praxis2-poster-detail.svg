@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Praxis II parent-led system poster detail</title>
+  <desc id="desc">A poster-style detail showing the parent-led two-station wristband workflow with entrance, two application stations, and staff taking attendance.</desc>
+  <rect width="1200" height="720" fill="#eef4ff"/>
+  <path d="M890 0 H1200 V720 H1038 Z" fill="#dfe8ff"/>
+  <path d="M0 720 V460 L130 720 Z" fill="#e2ecff"/>
+
+  <text x="218" y="118" font-family="'Public Sans', Arial, sans-serif" font-size="72" font-weight="800" fill="#5a4be5">Parent-Led System</text>
+
+  <text x="96" y="396" font-family="'Public Sans', Arial, sans-serif" font-size="38" fill="#17356f">Entrance</text>
+  <text x="1008" y="338" font-family="'Public Sans', Arial, sans-serif" font-size="36" fill="#17356f">Staff taking</text>
+  <text x="1008" y="388" font-family="'Public Sans', Arial, sans-serif" font-size="36" fill="#17356f">attendance</text>
+
+  <text x="506" y="248" text-anchor="middle" font-family="'Public Sans', Arial, sans-serif" font-size="34" fill="#17356f">Wristband application</text>
+  <text x="506" y="296" text-anchor="middle" font-family="'Public Sans', Arial, sans-serif" font-size="34" fill="#17356f">station #1</text>
+
+  <text x="560" y="384" text-anchor="middle" font-family="'Public Sans', Arial, sans-serif" font-size="34" font-style="italic" font-weight="700" fill="#6a50ff">Parents apply band</text>
+
+  <text x="514" y="500" text-anchor="middle" font-family="'Public Sans', Arial, sans-serif" font-size="34" fill="#17356f">Wristband application</text>
+  <text x="514" y="548" text-anchor="middle" font-family="'Public Sans', Arial, sans-serif" font-size="34" fill="#17356f">station #2</text>
+
+  <g stroke="#6a50ff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M286 350 C320 326 352 302 384 276"/>
+    <path d="M320 438 C352 458 384 478 416 500"/>
+    <path d="M760 280 C804 292 848 314 884 340"/>
+    <path d="M770 516 C816 496 852 470 884 438"/>
+  </g>
+
+  <g fill="#6a50ff">
+    <path d="M392 250 l-22 40 47-2z"/>
+    <path d="M424 526 l-47-2 22 40z"/>
+    <path d="M910 354 l-44 -17 10 46z"/>
+    <path d="M905 421 l-39 28 45 11z"/>
+  </g>
+
+  <text x="78" y="670" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#5a4be5" letter-spacing="2">DETAIL USED IN FINAL POSTER</text>
+</svg>
