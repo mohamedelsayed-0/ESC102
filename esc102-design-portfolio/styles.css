@@ -666,11 +666,20 @@ code {
 .project-map-card__list li {
     display: grid;
     gap: 0.38rem;
+    min-width: 0;
+}
+
+.project-map-card__list .strand-pill {
+    width: fit-content;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.35;
 }
 
 .project-map-card__list li span:last-child {
     color: var(--text-soft);
     line-height: 1.6;
+    overflow-wrap: anywhere;
 }
 
 .project-map-card__footer {
@@ -1715,6 +1724,22 @@ code {
     object-fit: contain;
     padding: 1rem;
     background: linear-gradient(180deg, #f9f4eb, #efe4d2);
+}
+
+.figure-card--centered {
+    justify-self: center;
+}
+
+.figure-card--centered img {
+    object-position: center center;
+}
+
+.figure-card--centered .figure-body {
+    text-align: center;
+}
+
+.figure-card--centered .download-links {
+    justify-content: center;
 }
 
 .figure-card--wide img {

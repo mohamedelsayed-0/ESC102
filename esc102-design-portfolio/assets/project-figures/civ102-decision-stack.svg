@@ -45,13 +45,16 @@
   <g opacity="0.55" stroke="#255d67" stroke-width="5" stroke-linecap="round">
     <path d="M410 330 H432"/>
     <path d="M766 330 H788"/>
-    <path d="M600 430 V490"/>
-    <path d="M574 596 H626"/>
+    <path d="M956 430 V470"/>
+    <path d="M956 470 H382"/>
+    <path d="M382 470 V490"/>
+    <path d="M572 596 H626"/>
   </g>
   <g fill="#255d67" opacity="0.72">
     <circle cx="421" cy="330" r="8"/>
     <circle cx="777" cy="330" r="8"/>
-    <circle cx="600" cy="460" r="8"/>
+    <circle cx="956" cy="470" r="8"/>
+    <circle cx="382" cy="480" r="8"/>
     <circle cx="600" cy="596" r="8"/>
   </g>
 

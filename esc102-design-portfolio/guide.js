@@ -145,7 +145,7 @@ const STEPS = [
     },
     {
         page: 'references.html',
-        title: 'IEEE Reference List',
+        title: 'Reference List',
         body: "This page lists the cited artifacts in IEEE-style numbered format.",
         highlight: '.resource-card:first-child',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
