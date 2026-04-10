@@ -1,73 +1,67 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840" role="img" aria-labelledby="title desc">
-  <title id="title">Gaussian argument map</title>
-  <desc id="desc">A clearer research-note style diagram showing the Gaussian entanglement project moving from analytical framing to claim, benchmarking, and a narrowed conclusion.</desc>
-  <rect width="1200" height="840" fill="#f3ede2"/>
-  <rect x="40" y="40" width="1120" height="760" rx="34" fill="#fffaf1" stroke="#d7c7af" stroke-width="3"/>
+  <title id="title">Gaussian research notebook map</title>
+  <desc id="desc">A natural notebook-style visual showing how the Gaussian project moved from a question to a shortcut, benchmark checks, and a scoped conclusion.</desc>
+  <defs>
+    <marker id="note-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#255d67"/>
+    </marker>
+  </defs>
 
-  <g opacity="0.18" stroke="#d9ccb9" stroke-width="1">
-    <path d="M90 248 H1110"/>
-    <path d="M90 292 H1110"/>
-    <path d="M90 336 H1110"/>
-    <path d="M90 380 H1110"/>
-    <path d="M90 424 H1110"/>
-    <path d="M90 468 H1110"/>
-    <path d="M90 512 H1110"/>
-    <path d="M90 556 H1110"/>
-    <path d="M90 600 H1110"/>
-    <path d="M90 644 H1110"/>
-    <path d="M90 688 H1110"/>
+  <rect width="1200" height="840" fill="#efe6d7"/>
+  <rect x="54" y="46" width="1092" height="748" rx="32" fill="#fffaf1" stroke="#d1bea4" stroke-width="3"/>
+
+  <g opacity="0.22" stroke="#d9ccb8" stroke-width="1">
+    <path d="M96 176 H1104"/>
+    <path d="M96 224 H1104"/>
+    <path d="M96 272 H1104"/>
+    <path d="M96 320 H1104"/>
+    <path d="M96 368 H1104"/>
+    <path d="M96 416 H1104"/>
+    <path d="M96 464 H1104"/>
+    <path d="M96 512 H1104"/>
+    <path d="M96 560 H1104"/>
+    <path d="M96 608 H1104"/>
+    <path d="M96 656 H1104"/>
   </g>
 
-  <text x="78" y="102" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#7e5a36" letter-spacing="3">GAUSSIAN ARGUMENT MAP</text>
-  <text x="78" y="146" font-family="'Fraunces', Georgia, serif" font-size="35" fill="#18202a">The claim only stayed strong when the benchmark figures</text>
-  <text x="78" y="184" font-family="'Fraunces', Georgia, serif" font-size="35" fill="#18202a">were allowed to push back</text>
-  <text x="78" y="224" font-family="'Public Sans', Arial, sans-serif" font-size="20.5" fill="#475362">This project reads like a research note: choose a tractable frame, write the claim,</text>
-  <text x="78" y="250" font-family="'Public Sans', Arial, sans-serif" font-size="20.5" fill="#475362">test it against exact behavior, then keep only the scope that still holds.</text>
+  <text x="92" y="106" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#7e5a36" letter-spacing="3">GAUSSIAN NOTEBOOK</text>
+  <text x="92" y="154" font-family="'Fraunces', Georgia, serif" font-size="40" fill="#18202a">How the argument narrowed</text>
+
+  <g stroke="#255d67" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.68">
+    <path d="M364 296 C406 268 424 256 456 256" marker-end="url(#note-arrow)"/>
+    <path d="M742 256 C784 256 810 276 834 296" marker-end="url(#note-arrow)"/>
+    <path d="M976 402 C976 462 842 482 806 500" marker-end="url(#note-arrow)"/>
+  </g>
 
   <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="86" y="286" width="490" height="172" rx="26" fill="#fff7f1" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="118" y="328" font-size="18" fill="#7e5a36" letter-spacing="2">1 FRAME</text>
-    <text x="118" y="366" font-size="28" font-weight="700" fill="#19202a">Choose the most readable</text>
-    <text x="118" y="398" font-size="28" font-weight="700" fill="#19202a">symmetric setting</text>
-    <text x="118" y="428" font-size="18.5" fill="#475362">The first move was to keep enough structure to matter</text>
-    <text x="118" y="452" font-size="18.5" fill="#475362">without making the problem too wide to argue clearly.</text>
+    <rect x="96" y="224" width="256" height="166" rx="22" fill="#fff7c9" stroke="#d7c477" stroke-width="2"/>
+    <text x="124" y="268" font-size="17" fill="#7e5a36" letter-spacing="2">QUESTION</text>
+    <text x="124" y="308" font-size="28" font-weight="700" fill="#19202a">What can symmetry</text>
+    <text x="124" y="340" font-size="28" font-weight="700" fill="#19202a">let me simplify?</text>
+    <text x="124" y="372" font-size="18" fill="#475362">Start with a tractable frame.</text>
 
-    <rect x="624" y="286" width="490" height="172" rx="26" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="656" y="328" font-size="18" fill="#7e5a36" letter-spacing="2">2 CLAIM</text>
-    <text x="656" y="366" font-size="28" font-weight="700" fill="#19202a">Write the threshold directly in</text>
-    <text x="656" y="398" font-size="28" font-weight="700" fill="#19202a">the channel parameters</text>
-    <text x="656" y="428" font-size="18.5" fill="#475362">The analytical shortcut mattered because it replaced repeated</text>
-    <text x="656" y="452" font-size="18.5" fill="#475362">numerical checks with something a reader could inspect.</text>
+    <rect x="472" y="184" width="256" height="166" rx="22" fill="#dceee4" stroke="#9bbca8" stroke-width="2"/>
+    <text x="500" y="228" font-size="17" fill="#255d67" letter-spacing="2">SHORTCUT</text>
+    <text x="500" y="268" font-size="28" font-weight="700" fill="#19202a">Threshold written</text>
+    <text x="500" y="300" font-size="28" font-weight="700" fill="#19202a">in parameters</text>
+    <text x="500" y="332" font-size="18" fill="#475362">Make the claim inspectable.</text>
 
-    <rect x="86" y="510" width="490" height="190" rx="26" fill="#eef7f2" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="118" y="552" font-size="18" fill="#7e5a36" letter-spacing="2">3 PRESSURE TEST</text>
-    <text x="118" y="590" font-size="28" font-weight="700" fill="#19202a">Use the plots to expose where</text>
-    <text x="118" y="622" font-size="28" font-weight="700" fill="#19202a">the shortcut drifts</text>
-    <text x="118" y="650" font-size="18.5" fill="#475362">The figures were decision tools, not decoration. They showed</text>
-    <text x="118" y="674" font-size="18.5" fill="#475362">where the reduced argument stopped tracking the exact result well.</text>
+    <rect x="848" y="224" width="256" height="166" rx="22" fill="#e2e8ff" stroke="#aab8dd" stroke-width="2"/>
+    <text x="876" y="268" font-size="17" fill="#2d4da8" letter-spacing="2">BENCHMARK</text>
+    <text x="876" y="308" font-size="28" font-weight="700" fill="#19202a">Exact plots push</text>
+    <text x="876" y="340" font-size="28" font-weight="700" fill="#19202a">back on the claim</text>
+    <text x="876" y="372" font-size="18" fill="#475362">Find where it drifts.</text>
 
-    <rect x="624" y="510" width="490" height="190" rx="26" fill="#13212a" opacity="0.97"/>
-    <text x="656" y="552" font-size="18" fill="#dce6e8" letter-spacing="2">4 KEEP</text>
-    <text x="656" y="590" font-size="28" font-weight="700" fill="#f5efe4">State only the supported</text>
-    <text x="656" y="622" font-size="28" font-weight="700" fill="#f5efe4">conclusion</text>
-    <text x="656" y="650" font-size="18.5" fill="#dce6e8">The final claim stays strongest when it narrows to the regimes</text>
-    <text x="656" y="674" font-size="18.5" fill="#dce6e8">where the benchmark still justifies the shorter argument.</text>
-  </g>
-
-  <g stroke="#255d67" stroke-width="12" stroke-linecap="round" fill="none">
-    <path d="M576 372 H624"/>
-    <path d="M870 458 V510"/>
-    <path d="M576 606 H624"/>
-  </g>
-  <g stroke="#255d67" stroke-width="8" stroke-linecap="round" fill="none">
-    <path d="M604 356 L624 372 L604 388"/>
-    <path d="M854 486 L870 510 L886 486"/>
-    <path d="M604 590 L624 606 L604 622"/>
+    <rect x="284" y="508" width="632" height="176" rx="26" fill="#13212a"/>
+    <text x="326" y="556" font-size="17" fill="#dce6e8" letter-spacing="2">KEEP ONLY WHAT HOLDS</text>
+    <text x="326" y="596" font-size="30" font-weight="700" fill="#f5efe4">Final conclusion is narrower</text>
+    <text x="326" y="630" font-size="30" font-weight="700" fill="#f5efe4">and easier to defend</text>
+    <text x="326" y="664" font-size="18" fill="#dce6e8">The model is useful because the limits stay visible.</text>
   </g>
 
   <g font-family="'IBM Plex Mono', monospace">
-    <rect x="86" y="730" width="1028" height="48" rx="18" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="114" y="760" font-size="17" fill="#255d67" letter-spacing="2">RESULT</text>
-    <text x="212" y="760" font-size="16.5" fill="#475362">An elegant analytical result is only worth keeping if the exact figures still agree with its limits.</text>
+    <rect x="92" y="712" width="1016" height="48" rx="18" fill="#fff" stroke="#d1bea4" stroke-width="2"/>
+    <text x="120" y="742" font-size="16" fill="#255d67" letter-spacing="2">READING GUIDE</text>
+    <text x="306" y="742" font-size="16" fill="#475362">This is a research process sketch, not a polished proof diagram.</text>
   </g>
 </svg>

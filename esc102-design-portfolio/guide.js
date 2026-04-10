@@ -48,7 +48,7 @@ const STEPS = [
     {
         page: 'index.html',
         title: 'The Document Map',
-        body: "This map shows how the portfolio is connected. My position frames the rest of the document, so every project and CTMF entry is judged against explicit values like <strong>Clarity before Polish</strong>.",
+        body: "This map shows the reading order after the homepage cleanup: the position frames the portfolio, the project cases show the evidence, the handbook explains the concepts, and the references keep the source trail checkable.",
         highlight: '.document-map',
         highlightPad: { top: 20, right: 20, bottom: 20, left: 20 },
         scrollTarget: () => document.querySelector('.document-map'),
@@ -56,12 +56,12 @@ const STEPS = [
     },
     {
         page: 'index.html',
-        title: 'Visual Signposting',
-        body: "These tags are part of the reading system. Labels like <strong>Value signal</strong>, <strong>Evidence</strong>, and <strong>Growth</strong> tell you why a section is there before you read the full prose.",
-        highlight: '.quick-grid--supporting .link-card:first-child',
+        title: 'Project Map Cards',
+        body: "The removed support-card strip has been replaced by the project map. These cards now do the visual signposting: each one names the project, previews the concept trail, and jumps into the relevant case.",
+        highlight: '.project-map-card:first-child',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
-        hintSelector: () => document.querySelector('.quick-grid--supporting .link-card:first-child'),
-        scrollTarget: () => document.querySelector('.quick-grid--supporting .link-card:first-child'),
+        hintSelector: () => document.querySelector('.project-map-card:first-child'),
+        scrollTarget: () => document.querySelector('.project-map-card:first-child'),
         scrollAlignment: 'start'
     },
     {
@@ -75,18 +75,18 @@ const STEPS = [
     },
     {
         page: 'position.html',
-        title: 'Jump Straight To Supporting Notes',
-        body: "These proof cards are clickable. Each one jumps to the exact project note and CTMF trail that supports the claim made on this page, so the position never floats free from the evidence.",
-        highlight: '.position-proof-card:first-child',
+        title: 'Formal Position First',
+        body: "The old proof-card target was removed during the rewrite, so the guide now starts with the formal position block. This is the claim the rest of the page and project evidence are meant to support.",
+        highlight: '.position-story',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
-        hintSelector: () => document.querySelector('.position-proof-card:first-child'),
-        scrollTarget: () => document.querySelector('.position-proof-card:first-child'),
+        hintSelector: () => document.querySelector('.position-story'),
+        scrollTarget: () => document.querySelector('.position-story'),
         scrollAlignment: 'start'
     },
     {
         page: 'projects.html',
         title: 'Jump Between Project Cases',
-        body: "The project page keeps the three cases in one repeated reading pattern, and these buttons let you jump straight to a case without losing the overall structure.",
+        body: "The project page keeps the four cases in one repeated reading pattern, and these buttons let you jump straight to a case without losing the overall structure.",
         highlight: '.hero-actions',
         highlightPad: { top: 12, right: 12, bottom: 12, left: 12 },
         hintSelector: () => document.querySelector('.hero-actions')
@@ -245,6 +245,13 @@ function showStep(idx) {
     }
 
     const step = STEPS[idx];
+    const target = getStepTarget(step);
+
+    if (step.highlight && !target) {
+        goToStep(idx + 1);
+        return;
+    }
+
     const scrollTarget = step.autoScroll === false ? null : getStepTarget(step);
 
     if (scrollTarget) {
@@ -489,6 +496,7 @@ function positionCard(step) {
     const cw = _card.offsetWidth || 380;
     const ch = _card.offsetHeight || 300;
     const gap = 50;
+    const edge = 20;
     const topBound = Math.max(20, getStickyHeaderOffset());
     const target = step.hintSelector ? step.hintSelector() : document.querySelector(step.highlight);
     const rect = target ? target.getBoundingClientRect() : {
@@ -498,34 +506,55 @@ function positionCard(step) {
         bottom: vh / 2
     };
 
-    let x;
-    let y;
-
-    if (currentStep === 0) {
-        x = (vw - cw) / 2;
-        y = vh - ch - 40;
-    } else if (rect.bottom + gap + ch < vh - 20) {
-        x = (vw - cw) / 2;
-        y = rect.bottom + gap;
-    } else if (rect.top - gap - ch > 20) {
-        x = (vw - cw) / 2;
-        y = rect.top - gap - ch;
-    } else if (rect.right + gap + cw < vw - 20) {
-        x = rect.right + gap;
-        y = Math.max(20, Math.min(vh - ch - 20, rect.top));
-    } else if (rect.left - gap - cw > 20) {
-        x = rect.left - gap - cw;
-        y = Math.max(20, Math.min(vh - ch - 20, rect.top));
-    } else {
-        x = (vw - cw) / 2;
-        y = vh - ch - 20;
-    }
-
-    x = Math.max(20, Math.min(vw - cw - 20, x));
-    y = Math.max(topBound, Math.min(vh - ch - 20, y));
+    const clampX = (value) => Math.max(edge, Math.min(vw - cw - edge, value));
+    const clampY = (value) => Math.max(topBound, Math.min(vh - ch - edge, value));
+    const centeredX = clampX((vw - cw) / 2);
+    const alignToTarget = clampX(rect.left + (rect.width - cw) / 2);
+    const candidates = [
+        { x: alignToTarget, y: clampY(rect.bottom + gap) },
+        { x: alignToTarget, y: clampY(rect.top - gap - ch) },
+        { x: clampX(rect.right + gap), y: clampY(rect.top + (rect.height - ch) / 2) },
+        { x: clampX(rect.left - gap - cw), y: clampY(rect.top + (rect.height - ch) / 2) },
+        { x: centeredX, y: clampY(vh - ch - edge) },
+        { x: centeredX, y: topBound }
+    ];
+    const safePlacement = candidates.find((candidate) => !rectsOverlap(
+        { left: candidate.x, top: candidate.y, right: candidate.x + cw, bottom: candidate.y + ch },
+        expandRect(rect, gap * 0.55)
+    ));
+    const placement = safePlacement || candidates
+        .map((candidate) => ({
+            ...candidate,
+            overlapArea: getOverlapArea(
+                { left: candidate.x, top: candidate.y, right: candidate.x + cw, bottom: candidate.y + ch },
+                rect
+            )
+        }))
+        .sort((a, b) => a.overlapArea - b.overlapArea)[0];
+    const x = placement.x;
+    const y = placement.y;
 
     _card.style.left = `${x}px`;
     _card.style.top = `${y}px`;
+}
+
+function expandRect(rect, amount) {
+    return {
+        top: rect.top - amount,
+        right: rect.right + amount,
+        bottom: rect.bottom + amount,
+        left: rect.left - amount
+    };
+}
+
+function rectsOverlap(a, b) {
+    return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+}
+
+function getOverlapArea(a, b) {
+    const width = Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left));
+    const height = Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
+    return width * height;
 }
 
 function endTour(options = {}) {
