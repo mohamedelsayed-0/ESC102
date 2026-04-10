@@ -1,49 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">Praxis II parent-led workflow summary</title>
-  <desc id="desc">A three-step summary showing how the Praxis II team moved from a staff bottleneck to a parent-led two-station wristband workflow.</desc>
+  <title id="title">Praxis II workflow summary</title>
+  <desc id="desc">A summary of the parent-led wristband workflow showing the problem frame, the two-station decision, and the role of the dispenser prototype.</desc>
+  <defs>
+    <marker id="summary-arrow" viewBox="0 0 14 14" refX="11" refY="7" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M2 1.5 L12 7 L2 12.5 Z" fill="#43a1e8"/>
+    </marker>
+  </defs>
+
   <rect width="1200" height="760" fill="#f7f0e4"/>
-  <rect x="48" y="44" width="1104" height="672" rx="34" fill="#fffaf2" stroke="#d8c7b0" stroke-width="3"/>
+  <rect x="44" y="42" width="1112" height="676" rx="34" fill="#fffaf2" stroke="#d8c7b0" stroke-width="3"/>
 
-  <text x="88" y="104" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#255d67" letter-spacing="3">PRAXIS II SOLUTION SUMMARY</text>
-  <text x="88" y="154" font-family="'Fraunces', Georgia, serif" font-size="42" fill="#18202a">Parent-led wristband application</text>
-  <text x="88" y="196" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">The final direction moved wristband application away from one staff bottleneck and into two parallel parent stations.</text>
-
-  <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="86" y="260" width="300" height="258" rx="28" fill="#eef4fb" stroke="#cbd8e2" stroke-width="2"/>
-    <text x="120" y="306" font-size="17" fill="#255d67" letter-spacing="2">1. REOPEN</text>
-    <text x="120" y="350" font-size="30" font-weight="700" fill="#19202a">Staff bottleneck</text>
-    <text x="120" y="388" font-size="19" fill="#475362">Wristbands were not only a</text>
-    <text x="120" y="418" font-size="19" fill="#475362">device problem. They were part</text>
-    <text x="120" y="448" font-size="19" fill="#475362">of a crowded check-in routine.</text>
-
-    <rect x="450" y="240" width="300" height="298" rx="28" fill="#f3ebff" stroke="#d3c0e7" stroke-width="2"/>
-    <text x="484" y="286" font-size="17" fill="#255d67" letter-spacing="2">2. CONVERGE</text>
-    <text x="484" y="330" font-size="30" font-weight="700" fill="#19202a">Two parent stations</text>
-    <text x="484" y="368" font-size="19" fill="#475362">Parents apply bands in parallel.</text>
-    <text x="484" y="398" font-size="19" fill="#475362">Staff stay in attendance,</text>
-    <text x="484" y="428" font-size="19" fill="#475362">verification, and correction.</text>
-    <rect x="492" y="464" width="216" height="40" rx="20" fill="#ffffff" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="524" y="490" font-size="17" font-weight="700" fill="#19202a">Easier to follow</text>
-
-    <rect x="814" y="260" width="300" height="258" rx="28" fill="#eef8f1" stroke="#bed8c7" stroke-width="2"/>
-    <text x="848" y="306" font-size="17" fill="#255d67" letter-spacing="2">3. PROTOTYPE</text>
-    <text x="848" y="350" font-size="30" font-weight="700" fill="#19202a">One band dispensed</text>
-    <text x="848" y="388" font-size="19" fill="#475362">The sliding tray presents one</text>
-    <text x="848" y="418" font-size="19" fill="#475362">wristband clearly so a parent</text>
-    <text x="848" y="448" font-size="19" fill="#475362">can apply it to the child.</text>
-  </g>
-
-  <g fill="none" stroke="#43a1e8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M404 388 H430"/>
-    <path d="M770 388 H796"/>
-  </g>
-  <g fill="#43a1e8">
-    <path d="M432 388 L408 372 L408 404 Z"/>
-    <path d="M798 388 L774 372 L774 404 Z"/>
-  </g>
+  <text x="82" y="102" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#255d67" letter-spacing="3">PRAXIS II SOLUTION SUMMARY</text>
+  <text x="82" y="154" font-family="'Fraunces', Georgia, serif" font-size="42" fill="#18202a">Parent-led wristband workflow</text>
+  <text x="82" y="194" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">The final solution reduced a staff bottleneck by shifting application into two parent stations</text>
+  <text x="82" y="222" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">while keeping staff in attendance, verification, and correction.</text>
 
   <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="132" y="590" width="936" height="68" rx="22" fill="#13212a"/>
-    <text x="176" y="632" font-size="19" fill="#f5efe4">Reading guide: the device supports the workflow; it is not the whole solution by itself.</text>
+    <rect x="82" y="276" width="296" height="262" rx="28" fill="#eef5fb" stroke="#cadeea" stroke-width="2"/>
+    <text x="116" y="320" font-size="17" fill="#255d67" letter-spacing="2">1 REFRAME THE PROBLEM</text>
+    <text x="116" y="366" font-size="31" font-weight="700" fill="#19202a">Morning workflow</text>
+    <text x="116" y="402" font-size="19" fill="#475362">The issue was bigger than one band.</text>
+    <text x="116" y="432" font-size="19" fill="#475362">Staff had to juggle check-in,</text>
+    <text x="116" y="460" font-size="19" fill="#475362">attendance, forms, and application</text>
+    <text x="116" y="488" font-size="19" fill="#475362">during departure pressure.</text>
+
+    <rect x="448" y="246" width="304" height="322" rx="28" fill="#f3ebff" stroke="#d7c8ea" stroke-width="2"/>
+    <text x="482" y="290" font-size="17" fill="#255d67" letter-spacing="2">2 CHOOSE THE FLOW</text>
+    <text x="482" y="336" font-size="31" font-weight="700" fill="#19202a">Two parent stations</text>
+    <rect x="494" y="388" width="90" height="64" rx="18" fill="#ffffff" stroke="#d8c7b0" stroke-width="2"/>
+    <rect x="616" y="388" width="90" height="64" rx="18" fill="#ffffff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="539" y="427" text-anchor="middle" font-size="18" font-weight="700" fill="#6a50ff">Station 1</text>
+    <text x="661" y="427" text-anchor="middle" font-size="18" font-weight="700" fill="#6a50ff">Station 2</text>
+    <text x="600" y="484" text-anchor="middle" font-size="21" font-weight="700" fill="#6a50ff">Parents apply band in parallel</text>
+    <text x="600" y="514" text-anchor="middle" font-size="18" fill="#475362">The workflow became easier to follow</text>
+    <text x="600" y="540" text-anchor="middle" font-size="18" fill="#475362">because application was no longer</text>
+    <text x="600" y="564" text-anchor="middle" font-size="18" fill="#475362">one staff-only line.</text>
+
+    <rect x="822" y="276" width="296" height="262" rx="28" fill="#eef8f1" stroke="#c6dece" stroke-width="2"/>
+    <text x="850" y="320" font-size="17" fill="#255d67" letter-spacing="2">3 SUPPORT WITH A PROTOTYPE</text>
+    <text x="850" y="366" font-size="31" font-weight="700" fill="#19202a">Single-band dispensing</text>
+    <text x="850" y="402" font-size="19" fill="#475362">The sliding tray presents one band</text>
+    <text x="850" y="430" font-size="19" fill="#475362">cleanly so a parent can apply it</text>
+    <text x="850" y="458" font-size="19" fill="#475362">without sorting through the strip.</text>
+    <rect x="850" y="486" width="176" height="34" rx="17" fill="#ffffff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="938" y="509" text-anchor="middle" font-size="16" font-weight="700" fill="#19202a">Prototype supports workflow</text>
+  </g>
+
+  <g fill="none" stroke="#43a1e8" stroke-width="7" stroke-linecap="round" marker-end="url(#summary-arrow)">
+    <path d="M390 406 H426"/>
+    <path d="M772 406 H808"/>
+  </g>
+
+  <g font-family="'Public Sans', Arial, sans-serif">
+    <rect x="120" y="606" width="960" height="72" rx="24" fill="#13212a"/>
+    <text x="600" y="649" text-anchor="middle" font-size="21" fill="#f5efe4">Reading guide: the device matters because it makes the parent-led system easier to run.</text>
   </g>
 </svg>

@@ -1,48 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Praxis II parent-led system poster detail</title>
-  <desc id="desc">A simplified poster-detail diagram of the parent-led two-station wristband workflow.</desc>
+  <title id="title">Parent-led system detail from the final poster</title>
+  <desc id="desc">A cleaned poster-style workflow diagram showing arrival, two parent application stations, and the staff role.</desc>
   <defs>
-    <marker id="poster-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto">
-      <path d="M2 2 L10 6 L2 10 Z" fill="#6a50ff"/>
+    <marker id="poster-arrow" viewBox="0 0 14 14" refX="11" refY="7" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M2 1.5 L12 7 L2 12.5 Z" fill="#6a50ff"/>
     </marker>
   </defs>
 
   <rect width="1200" height="720" fill="#edf5ff"/>
-  <path d="M0 720 L0 480 L152 720 Z" fill="#dcecff"/>
-  <path d="M1010 0 H1200 V720 H1088 Z" fill="#e1e9ff"/>
+  <rect x="48" y="42" width="1104" height="636" rx="32" fill="#f8fbff" stroke="#cad7f1" stroke-width="3"/>
 
-  <text x="86" y="94" font-family="'Public Sans', Arial, sans-serif" font-size="22" font-weight="700" fill="#5a4be5" letter-spacing="2">DETAIL FROM FINAL POSTER</text>
-  <text x="86" y="150" font-family="'Fraunces', Georgia, serif" font-size="54" font-weight="700" fill="#14356f">Parent-Led System</text>
-  <text x="86" y="190" font-family="'Public Sans', Arial, sans-serif" font-size="23" fill="#17356f">Parents apply wristbands in parallel while staff keep attendance and verification moving.</text>
+  <text x="84" y="96" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#5a4be5" letter-spacing="2.5">TAKEN FROM FINAL POSTER</text>
+  <text x="84" y="154" font-family="'Fraunces', Georgia, serif" font-size="50" fill="#17356f">Parent-Led System</text>
+  <text x="84" y="194" font-family="'Public Sans', Arial, sans-serif" font-size="22" fill="#506182">Parents apply wristbands in parallel while staff stay focused on attendance and correction.</text>
 
   <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="86" y="300" width="230" height="150" rx="30" fill="#ffffff" stroke="#c8d6f4" stroke-width="3"/>
-    <text x="201" y="358" text-anchor="middle" font-size="32" font-weight="700" fill="#17356f">Entrance</text>
-    <text x="201" y="396" text-anchor="middle" font-size="19" fill="#506182">Families arrive</text>
-    <text x="201" y="424" text-anchor="middle" font-size="19" fill="#506182">with children</text>
+    <rect x="84" y="286" width="270" height="174" rx="28" fill="#ffffff" stroke="#c8d6f4" stroke-width="3"/>
+    <text x="219" y="338" text-anchor="middle" font-size="17" fill="#5a4be5" letter-spacing="2">ARRIVAL</text>
+    <text x="219" y="386" text-anchor="middle" font-size="30" font-weight="700" fill="#17356f">Entrance</text>
+    <text x="219" y="418" text-anchor="middle" font-size="18" fill="#506182">Families move toward</text>
+    <text x="219" y="446" text-anchor="middle" font-size="18" fill="#506182">wristband application.</text>
 
-    <rect x="422" y="260" width="332" height="230" rx="34" fill="#ffffff" stroke="#c8d6f4" stroke-width="3"/>
-    <text x="588" y="316" text-anchor="middle" font-size="32" font-weight="700" fill="#17356f">Two stations</text>
-    <line x1="470" y1="346" x2="706" y2="346" stroke="#d6def8" stroke-width="3"/>
-    <rect x="466" y="376" width="108" height="56" rx="18" fill="#e9efff"/>
-    <rect x="602" y="376" width="108" height="56" rx="18" fill="#e9efff"/>
-    <text x="520" y="410" text-anchor="middle" font-size="18" font-weight="700" fill="#5a4be5">#1</text>
-    <text x="656" y="410" text-anchor="middle" font-size="18" font-weight="700" fill="#5a4be5">#2</text>
-    <text x="588" y="462" text-anchor="middle" font-size="21" font-weight="700" fill="#6a50ff">Parents apply band</text>
+    <rect x="420" y="246" width="360" height="254" rx="30" fill="#ffffff" stroke="#c8d6f4" stroke-width="3"/>
+    <text x="600" y="298" text-anchor="middle" font-size="17" fill="#5a4be5" letter-spacing="2">PARENT APPLICATION</text>
+    <text x="600" y="346" text-anchor="middle" font-size="32" font-weight="700" fill="#17356f">Two stations</text>
+    <rect x="472" y="390" width="104" height="62" rx="18" fill="#edf2ff"/>
+    <rect x="624" y="390" width="104" height="62" rx="18" fill="#edf2ff"/>
+    <text x="524" y="429" text-anchor="middle" font-size="18" font-weight="700" fill="#5a4be5">Station 1</text>
+    <text x="676" y="429" text-anchor="middle" font-size="18" font-weight="700" fill="#5a4be5">Station 2</text>
+    <text x="600" y="478" text-anchor="middle" font-size="22" font-weight="700" fill="#6a50ff">Parents apply band</text>
 
-    <rect x="860" y="300" width="254" height="150" rx="30" fill="#ffffff" stroke="#c8d6f4" stroke-width="3"/>
-    <text x="987" y="352" text-anchor="middle" font-size="31" font-weight="700" fill="#17356f">Staff role</text>
-    <text x="987" y="390" text-anchor="middle" font-size="19" fill="#506182">Attendance</text>
-    <text x="987" y="418" text-anchor="middle" font-size="19" fill="#506182">and correction</text>
+    <rect x="872" y="286" width="244" height="174" rx="28" fill="#ffffff" stroke="#c8d6f4" stroke-width="3"/>
+    <text x="994" y="338" text-anchor="middle" font-size="17" fill="#5a4be5" letter-spacing="2">STAFF ROLE</text>
+    <text x="994" y="386" text-anchor="middle" font-size="30" font-weight="700" fill="#17356f">Attendance</text>
+    <text x="994" y="420" text-anchor="middle" font-size="19" fill="#506182">Verification, correction,</text>
+    <text x="994" y="448" text-anchor="middle" font-size="19" fill="#506182">and exception handling.</text>
   </g>
 
-  <g stroke="#6a50ff" stroke-width="13" stroke-linecap="round" fill="none">
-    <path d="M334 376 H398" marker-end="url(#poster-arrow)"/>
-    <path d="M774 376 H836" marker-end="url(#poster-arrow)"/>
+  <g fill="none" stroke="#6a50ff" stroke-width="8" stroke-linecap="round" marker-end="url(#poster-arrow)">
+    <path d="M364 372 H408"/>
+    <path d="M792 372 H836"/>
   </g>
 
-  <g font-family="'IBM Plex Mono', monospace">
-    <rect x="242" y="564" width="716" height="60" rx="20" fill="#ffffff" stroke="#c8d6f4" stroke-width="2"/>
-    <text x="600" y="600" text-anchor="middle" font-size="18" fill="#17356f" letter-spacing="1.5">ONE CHECK-IN LINE BECOMES TWO PARENT-APPLIED LANES</text>
+  <g font-family="'Public Sans', Arial, sans-serif">
+    <rect x="188" y="542" width="824" height="82" rx="24" fill="#e6efff" stroke="#c8d6f4" stroke-width="2"/>
+    <text x="600" y="578" text-anchor="middle" font-size="17" fill="#5a4be5" letter-spacing="2">WORKFLOW CLAIM</text>
+    <text x="600" y="610" text-anchor="middle" font-size="22" font-weight="700" fill="#17356f">One staff-driven line becomes two parent-applied lanes.</text>
   </g>
 </svg>

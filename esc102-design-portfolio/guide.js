@@ -29,21 +29,13 @@ const STEPS = [
     },
     {
         page: 'index.html',
-        title: 'Start With The Position Statement',
-        body: 'The Position Statement explains the values, strengths, biases, and framing ideas behind the project work.',
-        highlight: '.contents-card:first-child',
+        title: 'Table Of Contents',
+        body: 'This is the Table of Contents. Use it to navigate the portfolio.',
+        highlight: '#table-of-contents',
         highlightPad: { top: 18, right: 18, bottom: 18, left: 18 },
-        hintSelector: () => document.querySelector('.contents-card:first-child'),
-        scrollTarget: () => document.querySelector('.contents-card:first-child'),
+        hintSelector: () => document.querySelector('#table-of-contents'),
+        scrollTarget: () => document.querySelector('#table-of-contents'),
         scrollAlignment: 'start'
-    },
-    {
-        page: 'index.html',
-        title: 'Design Focus',
-        body: "This panel names the main focus areas: divergence, convergence, representation, feasibility, and stakeholder interpretation.",
-        highlight: '.hero-side-note',
-        highlightPad: { top: 20, right: 20, bottom: 20, left: 20 },
-        hintSelector: () => document.querySelector('.hero-side-note')
     },
     {
         page: 'index.html',
@@ -149,16 +141,6 @@ const STEPS = [
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
         hintSelector: () => document.querySelector('#ctmf-backpack-design-concepts'),
         scrollTarget: () => document.querySelector('#ctmf-backpack-design-concepts'),
-        scrollAlignment: 'start'
-    },
-    {
-        page: 'ctmfs.html',
-        title: 'Synthesis At The End',
-        body: "The handbook closes with a short synthesis of the cross-tool insight.",
-        highlight: '#ctmf-synthesis',
-        highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
-        hintSelector: () => document.querySelector('#ctmf-synthesis'),
-        scrollTarget: () => document.querySelector('#ctmf-synthesis'),
         scrollAlignment: 'start'
     },
     {
