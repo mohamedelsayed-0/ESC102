@@ -482,6 +482,10 @@ code {
     box-shadow: 0 14px 28px rgba(10, 14, 18, 0.06);
 }
 
+.resource-card--wide {
+    grid-column: 1 / -1;
+}
+
 .section-card--dark .info-card,
 .section-card--dark .link-card,
 .section-card--dark .coverage-card,
@@ -1624,6 +1628,16 @@ code {
     margin: 0;
 }
 
+.ieee-list {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.ieee-list p {
+    margin: 0;
+    line-height: 1.55;
+}
+
 .synthesis-card {
     align-content: start;
 }
@@ -2119,7 +2133,7 @@ code {
     gap: 1rem;
 }
 
-.entry-grid.entry-grid--handbook .entry-analysis-grid .entry-panel:nth-child(n+5) {
+.entry-grid.entry-grid--handbook .entry-analysis-grid .entry-panel:nth-child(n+6) {
     display: none;
 }
 
@@ -2145,6 +2159,13 @@ code {
 .entry-panel p {
     margin: 0;
     line-height: 1.65;
+}
+
+.entry-panel ul {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0;
+    padding-left: 1.1rem;
 }
 
 .entry-panel .inline-links {

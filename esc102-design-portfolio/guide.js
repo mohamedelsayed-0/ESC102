@@ -22,15 +22,15 @@ const PAGE_LABELS = {
 const STEPS = [
     {
         page: 'index.html',
-        title: 'The Design Argument',
-        body: 'This serves as a guide for whoever is viewing this to learn about key features and understand the structure / placement of key aspects of the portfolio.',
+        title: 'Portfolio Guide',
+        body: 'Use this guide to find the key sections quickly.',
         highlight: '.hero-band h1',
         highlightPad: { top: 10, right: 20, bottom: 10, left: 20 }
     },
     {
         page: 'index.html',
         title: 'Start With The Position Statement',
-        body: 'This is the first key stop in the portfolio. The Position Statement explains the values, strengths, biases, and framing ideas that the rest of the projects and handbook entries should be read against.',
+        body: 'The Position Statement explains the values, strengths, biases, and framing ideas behind the project work.',
         highlight: '.contents-card:first-child',
         highlightPad: { top: 18, right: 18, bottom: 18, left: 18 },
         hintSelector: () => document.querySelector('.contents-card:first-child'),
@@ -39,8 +39,8 @@ const STEPS = [
     },
     {
         page: 'index.html',
-        title: 'Deliberate Structure',
-        body: "The order is intentional. The <strong>Position Statement</strong> sets the test, the <strong>Projects</strong> show that test under pressure, and the <strong>CTMF Handbook</strong> explains the concepts that changed decisions.",
+        title: 'Design Focus',
+        body: "This panel names the main focus areas: divergence, convergence, representation, feasibility, and stakeholder interpretation.",
         highlight: '.hero-side-note',
         highlightPad: { top: 20, right: 20, bottom: 20, left: 20 },
         hintSelector: () => document.querySelector('.hero-side-note')
@@ -48,7 +48,7 @@ const STEPS = [
     {
         page: 'index.html',
         title: 'The Document Map',
-        body: "This map shows the reading order after the homepage cleanup: the position frames the portfolio, the project cases show the evidence, the handbook explains the concepts, and the references keep the source trail checkable.",
+        body: "This map provides quick access to the main sections.",
         highlight: '.document-map',
         highlightPad: { top: 20, right: 20, bottom: 20, left: 20 },
         scrollTarget: () => document.querySelector('.document-map'),
@@ -67,7 +67,7 @@ const STEPS = [
     {
         page: 'index.html',
         title: 'Navigation Across The Site',
-        body: "The navigation stays fixed across every page. The rest of this tour will use those same pages to show how the argument continues from the statement, into the project cases, then into the handbook and source trail.",
+        body: "The navigation stays fixed across every page.",
         highlight: '.site-nav',
         highlightPad: { top: 5, right: 10, bottom: 5, left: 10 },
         autoScroll: false,
@@ -76,7 +76,7 @@ const STEPS = [
     {
         page: 'position.html',
         title: 'Formal Position First',
-        body: "The guide starts with the formal position block because it is the claim the rest of the page and project evidence are meant to support.",
+        body: "The position block states what engineering design means to me now.",
         highlight: '.position-story',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
         hintSelector: () => document.querySelector('.position-story'),
@@ -86,7 +86,7 @@ const STEPS = [
     {
         page: 'projects.html',
         title: 'Jump Between Project Cases',
-        body: "The project page keeps the four cases in one repeated reading pattern. The jump buttons let you read one project at a time without losing the overall structure.",
+        body: "The jump buttons let you move directly to one project case.",
         highlight: '.hero-actions',
         highlightPad: { top: 12, right: 12, bottom: 12, left: 12 },
         hintSelector: () => document.querySelector('.hero-actions')
@@ -94,7 +94,7 @@ const STEPS = [
     {
         page: 'projects.html',
         title: 'CTMF Lens For Each Case',
-        body: "Each project now opens with a compact CTMF lens. These links identify the concepts doing the most work before the detailed evidence appears.",
+        body: "Each project includes a compact CTMF lens before the detailed discussion.",
         highlight: '#praxis-1 .project-ctmf-strip',
         highlightPad: { top: 14, right: 14, bottom: 14, left: 14 },
         hintSelector: () => document.querySelector('#praxis-1 .project-ctmf-strip'),
@@ -104,7 +104,7 @@ const STEPS = [
     {
         page: 'projects.html',
         title: 'Open Figures And Code',
-        body: "Click any image figure or code artifact card to expand it. The lightbox works throughout the project page, so you can inspect visual evidence, drawings, plots, and code without leaving the argument.",
+        body: "Click any image figure or code artifact card to expand it.",
         highlight: '#praxis-1 .figure-card:first-of-type',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
         hintSelector: () => document.querySelector('#praxis-1 .figure-card:first-of-type'),
@@ -114,7 +114,7 @@ const STEPS = [
     {
         page: 'projects.html',
         title: 'Open The Original Source Files',
-        body: "Under each artifact, these links open the original PDF, drawing, report, or source code file. That keeps the writing tied directly to the underlying evidence package.",
+        body: "Under each artifact, these links open the original PDF, drawing, report, or source code file.",
         highlight: '#praxis-1 .download-links',
         highlightPad: { top: 12, right: 12, bottom: 12, left: 12 },
         hintSelector: () => document.querySelector('#praxis-1 .download-links'),
@@ -124,7 +124,7 @@ const STEPS = [
     {
         page: 'projects.html',
         title: 'Trace Into The Handbook',
-        body: "The CTMF lens links move from a project case into the exact handbook entries that explain the concepts behind the evidence. The site is built to keep that jump short.",
+        body: "The CTMF lens links move from a project case into the related handbook entries.",
         highlight: '#praxis-1 .project-ctmf-pill:first-child',
         highlightPad: { top: 12, right: 12, bottom: 12, left: 12 },
         hintSelector: () => document.querySelector('#praxis-1 .project-ctmf-pill:first-child'),
@@ -144,7 +144,7 @@ const STEPS = [
     {
         page: 'ctmfs.html',
         title: 'What Every CTMF Entry Shows',
-        body: "Each entry follows the same logic: what the concept meant here, how it was applied, what evidence supports it, what it revealed, where it fell short, and what I would do next.",
+        body: "Each entry explains the concept, application, artifact links, what it revealed, and a short assessment.",
         highlight: '#ctmf-backpack-design-concepts',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
         hintSelector: () => document.querySelector('#ctmf-backpack-design-concepts'),
@@ -154,7 +154,7 @@ const STEPS = [
     {
         page: 'ctmfs.html',
         title: 'Synthesis At The End',
-        body: "The handbook closes by naming the design beliefs that the CTMF entries support. This is where the concepts connect back to the position statement.",
+        body: "The handbook closes with a short synthesis of the cross-tool insight.",
         highlight: '#ctmf-synthesis',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
         hintSelector: () => document.querySelector('#ctmf-synthesis'),
@@ -163,8 +163,8 @@ const STEPS = [
     },
     {
         page: 'references.html',
-        title: 'The Source Trail',
-        body: "This page is the audit trail for the portfolio. These resource cards collect the full evidence packages, so the interpretation on the other pages can always be checked against the underlying files.",
+        title: 'IEEE Reference List',
+        body: "This page lists the cited artifacts in IEEE-style numbered format.",
         highlight: '.resource-card:first-child',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
         hintSelector: () => document.querySelector('.resource-card:first-child'),
@@ -174,7 +174,7 @@ const STEPS = [
     {
         page: 'references.html',
         title: 'Structured Source Extracts',
-        body: 'This section explains how each source supports a claim, so the references page is not just a list of files.',
+        body: 'This section states that cited artifacts are linked inline as evidence and identifies the main source extracts.',
         highlight: '.source-extract-card:first-child',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
         hintSelector: () => document.querySelector('.source-extract-card:first-child'),
