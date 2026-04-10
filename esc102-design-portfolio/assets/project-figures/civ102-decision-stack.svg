@@ -1,12 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840" role="img" aria-labelledby="title desc">
   <title id="title">CIV102 bridge decision stack</title>
   <desc id="desc">A clean CIV102 diagram showing how the design brief, section comparison, verification, drawings, and fabrication logic stayed connected.</desc>
-  <defs>
-    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M2 2 L10 6 L2 10 Z" fill="#255d67"/>
-    </marker>
-  </defs>
-
   <rect width="1200" height="840" fill="#f4eddf"/>
   <rect x="42" y="42" width="1116" height="756" rx="34" fill="#fffaf2" stroke="#d8c7b0" stroke-width="3"/>
 
@@ -15,48 +9,55 @@
   <text x="82" y="188" font-family="'Public Sans', Arial, sans-serif" font-size="21" fill="#475362">The bridge design only made sense when requirements, analysis, drawings, and fabrication stayed connected.</text>
 
   <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="88" y="250" width="312" height="160" rx="28" fill="#fff7f1" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="120" y="294" font-size="17" fill="#7e5a36" letter-spacing="2">1 FRAME</text>
+    <rect x="88" y="248" width="312" height="164" rx="28" fill="#fff7f1" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="120" y="292" font-size="17" fill="#7e5a36" letter-spacing="2">STEP 1</text>
     <text x="120" y="334" font-size="31" font-weight="700" fill="#19202a">Design brief</text>
     <text x="120" y="370" font-size="19" fill="#475362">Span, load, matboard,</text>
-    <text x="120" y="396" font-size="19" fill="#475362">and course constraints.</text>
+    <text x="120" y="398" font-size="19" fill="#475362">and course constraints.</text>
 
-    <rect x="444" y="250" width="312" height="160" rx="28" fill="#eef7f2" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="476" y="294" font-size="17" fill="#7e5a36" letter-spacing="2">2 COMPARE</text>
+    <rect x="444" y="248" width="312" height="164" rx="28" fill="#eef7f2" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="476" y="292" font-size="17" fill="#7e5a36" letter-spacing="2">STEP 2</text>
     <text x="476" y="334" font-size="31" font-weight="700" fill="#19202a">Section options</text>
-    <text x="476" y="370" font-size="19" fill="#475362">Different layouts stayed</text>
-    <text x="476" y="396" font-size="19" fill="#475362">open for comparison.</text>
+    <text x="476" y="370" font-size="19" fill="#475362">Different cross sections</text>
+    <text x="476" y="398" font-size="19" fill="#475362">stayed comparable.</text>
 
-    <rect x="800" y="250" width="312" height="160" rx="28" fill="#faf5e8" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="832" y="294" font-size="17" fill="#7e5a36" letter-spacing="2">3 VERIFY</text>
+    <rect x="800" y="248" width="312" height="164" rx="28" fill="#faf5e8" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="832" y="292" font-size="17" fill="#7e5a36" letter-spacing="2">STEP 3</text>
     <text x="832" y="334" font-size="31" font-weight="700" fill="#19202a">Failure checks</text>
     <text x="832" y="370" font-size="19" fill="#475362">Moving-load envelopes</text>
-    <text x="832" y="396" font-size="19" fill="#475362">tested weak regions.</text>
+    <text x="832" y="398" font-size="19" fill="#475362">tested weak regions.</text>
 
-    <path d="M410 330 H432" stroke="#255d67" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)" fill="none"/>
-    <path d="M766 330 H788" stroke="#255d67" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)" fill="none"/>
+    <rect x="202" y="500" width="360" height="196" rx="28" fill="#f5f8fc" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="234" y="554" font-size="17" fill="#255d67" letter-spacing="2">STEP 4</text>
+    <text x="234" y="594" font-size="30" font-weight="700" fill="#19202a">Drawings carried</text>
+    <text x="234" y="630" font-size="30" font-weight="700" fill="#19202a">the math</text>
+    <text x="234" y="660" font-size="18" fill="#475362">Geometry and glue paths had</text>
+    <text x="234" y="684" font-size="18" fill="#475362">to match the assumptions.</text>
 
-    <rect x="156" y="500" width="392" height="184" rx="28" fill="#f5f8fc" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="188" y="542" font-size="17" fill="#255d67" letter-spacing="2">4 REPRESENT</text>
-    <text x="188" y="580" font-size="30" font-weight="700" fill="#19202a">Drawings carried</text>
-    <text x="188" y="614" font-size="30" font-weight="700" fill="#19202a">the math</text>
-    <text x="188" y="650" font-size="18" fill="#475362">Geometry, spacing, and glue paths</text>
-    <text x="188" y="674" font-size="18" fill="#475362">had to match the assumptions.</text>
+    <rect x="638" y="500" width="360" height="196" rx="28" fill="#13212a"/>
+    <text x="670" y="554" font-size="17" fill="#dce6e8" letter-spacing="2">STEP 5</text>
+    <text x="670" y="594" font-size="30" font-weight="700" fill="#f5efe4">Fabrication</text>
+    <text x="670" y="630" font-size="30" font-weight="700" fill="#f5efe4">reality check</text>
+    <text x="670" y="660" font-size="18" fill="#dce6e8">The final bridge had to be cut,</text>
+    <text x="670" y="684" font-size="18" fill="#dce6e8">glued, aligned, and tested.</text>
+  </g>
 
-    <rect x="652" y="500" width="392" height="184" rx="28" fill="#13212a"/>
-    <text x="684" y="542" font-size="17" fill="#dce6e8" letter-spacing="2">5 BUILD</text>
-    <text x="684" y="580" font-size="30" font-weight="700" fill="#f5efe4">Fabrication</text>
-    <text x="684" y="614" font-size="30" font-weight="700" fill="#f5efe4">reality check</text>
-    <text x="684" y="650" font-size="19" fill="#dce6e8">The final bridge had to be cut,</text>
-    <text x="684" y="676" font-size="19" fill="#dce6e8">glued, aligned, and tested.</text>
-
-    <path d="M956 410 C956 470 456 456 354 488" stroke="#255d67" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)" fill="none"/>
-    <path d="M560 592 H632" stroke="#255d67" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)" fill="none"/>
+  <g opacity="0.55" stroke="#255d67" stroke-width="5" stroke-linecap="round">
+    <path d="M410 330 H432"/>
+    <path d="M766 330 H788"/>
+    <path d="M600 430 V490"/>
+    <path d="M574 596 H626"/>
+  </g>
+  <g fill="#255d67" opacity="0.72">
+    <circle cx="421" cy="330" r="8"/>
+    <circle cx="777" cy="330" r="8"/>
+    <circle cx="600" cy="460" r="8"/>
+    <circle cx="600" cy="596" r="8"/>
   </g>
 
   <g font-family="'IBM Plex Mono', monospace">
     <rect x="88" y="724" width="1024" height="44" rx="18" fill="#fff" stroke="#d8c7b0" stroke-width="2"/>
     <text x="118" y="752" font-size="16" fill="#255d67" letter-spacing="2">READING GUIDE</text>
-    <text x="302" y="752" font-size="16" fill="#475362">Each step depends on the previous one; none of the boxes is a separate deliverable.</text>
+    <text x="302" y="752" font-size="16" fill="#475362">The numbered steps show one connected reasoning chain, not separate deliverables.</text>
   </g>
 </svg>

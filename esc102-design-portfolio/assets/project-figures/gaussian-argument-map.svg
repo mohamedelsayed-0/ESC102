@@ -1,67 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
   <title id="title">Gaussian research notebook map</title>
-  <desc id="desc">A natural notebook-style visual showing how the Gaussian project moved from a question to a shortcut, benchmark checks, and a scoped conclusion.</desc>
-  <defs>
-    <marker id="note-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M2 2 L10 6 L2 10 Z" fill="#255d67"/>
-    </marker>
-  </defs>
-
-  <rect width="1200" height="840" fill="#efe6d7"/>
-  <rect x="54" y="46" width="1092" height="748" rx="32" fill="#fffaf1" stroke="#d1bea4" stroke-width="3"/>
+  <desc id="desc">A notebook-style map showing how expert advice, simplification, benchmarking, and scoping shaped the Gaussian project.</desc>
+  <rect width="1200" height="820" fill="#efe6d7"/>
+  <rect x="54" y="46" width="1092" height="728" rx="34" fill="#fffaf1" stroke="#d1bea4" stroke-width="3"/>
 
   <g opacity="0.22" stroke="#d9ccb8" stroke-width="1">
-    <path d="M96 176 H1104"/>
-    <path d="M96 224 H1104"/>
-    <path d="M96 272 H1104"/>
-    <path d="M96 320 H1104"/>
-    <path d="M96 368 H1104"/>
-    <path d="M96 416 H1104"/>
-    <path d="M96 464 H1104"/>
-    <path d="M96 512 H1104"/>
-    <path d="M96 560 H1104"/>
-    <path d="M96 608 H1104"/>
-    <path d="M96 656 H1104"/>
+    <path d="M96 190 H1104"/>
+    <path d="M96 238 H1104"/>
+    <path d="M96 286 H1104"/>
+    <path d="M96 334 H1104"/>
+    <path d="M96 382 H1104"/>
+    <path d="M96 430 H1104"/>
+    <path d="M96 478 H1104"/>
+    <path d="M96 526 H1104"/>
+    <path d="M96 574 H1104"/>
+    <path d="M96 622 H1104"/>
+    <path d="M96 670 H1104"/>
   </g>
 
   <text x="92" y="106" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#7e5a36" letter-spacing="3">GAUSSIAN NOTEBOOK</text>
-  <text x="92" y="154" font-family="'Fraunces', Georgia, serif" font-size="40" fill="#18202a">How the argument narrowed</text>
-
-  <g stroke="#255d67" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.68">
-    <path d="M364 296 C406 268 424 256 456 256" marker-end="url(#note-arrow)"/>
-    <path d="M742 256 C784 256 810 276 834 296" marker-end="url(#note-arrow)"/>
-    <path d="M976 402 C976 462 842 482 806 500" marker-end="url(#note-arrow)"/>
-  </g>
+  <text x="92" y="154" font-family="'Fraunces', Georgia, serif" font-size="40" fill="#18202a">How the claim became easier to defend</text>
 
   <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="96" y="224" width="256" height="166" rx="22" fill="#fff7c9" stroke="#d7c477" stroke-width="2"/>
-    <text x="124" y="268" font-size="17" fill="#7e5a36" letter-spacing="2">QUESTION</text>
-    <text x="124" y="308" font-size="28" font-weight="700" fill="#19202a">What can symmetry</text>
-    <text x="124" y="340" font-size="28" font-weight="700" fill="#19202a">let me simplify?</text>
-    <text x="124" y="372" font-size="18" fill="#475362">Start with a tractable frame.</text>
+    <rect x="102" y="226" width="430" height="184" rx="24" fill="#fff7c9" stroke="#d7c477" stroke-width="2"/>
+    <text x="136" y="270" font-size="17" fill="#7e5a36" letter-spacing="2">1. BROAD START</text>
+    <text x="136" y="314" font-size="30" font-weight="700" fill="#19202a">Too much could hide</text>
+    <text x="136" y="350" font-size="30" font-weight="700" fill="#19202a">inside the equations</text>
+    <text x="136" y="382" font-size="18" fill="#475362">The first frame needed a clearer boundary.</text>
 
-    <rect x="472" y="184" width="256" height="166" rx="22" fill="#dceee4" stroke="#9bbca8" stroke-width="2"/>
-    <text x="500" y="228" font-size="17" fill="#255d67" letter-spacing="2">SHORTCUT</text>
-    <text x="500" y="268" font-size="28" font-weight="700" fill="#19202a">Threshold written</text>
-    <text x="500" y="300" font-size="28" font-weight="700" fill="#19202a">in parameters</text>
-    <text x="500" y="332" font-size="18" fill="#475362">Make the claim inspectable.</text>
+    <rect x="668" y="226" width="430" height="184" rx="24" fill="#dceee4" stroke="#9bbca8" stroke-width="2"/>
+    <text x="702" y="270" font-size="17" fill="#255d67" letter-spacing="2">2. EXPERT ADVICE</text>
+    <text x="702" y="314" font-size="30" font-weight="700" fill="#19202a">Narrow the question</text>
+    <text x="702" y="350" font-size="30" font-weight="700" fill="#19202a">before trusting it</text>
+    <text x="702" y="382" font-size="18" fill="#475362">A smaller claim became more inspectable.</text>
 
-    <rect x="848" y="224" width="256" height="166" rx="22" fill="#e2e8ff" stroke="#aab8dd" stroke-width="2"/>
-    <text x="876" y="268" font-size="17" fill="#2d4da8" letter-spacing="2">BENCHMARK</text>
-    <text x="876" y="308" font-size="28" font-weight="700" fill="#19202a">Exact plots push</text>
-    <text x="876" y="340" font-size="28" font-weight="700" fill="#19202a">back on the claim</text>
-    <text x="876" y="372" font-size="18" fill="#475362">Find where it drifts.</text>
+    <rect x="102" y="500" width="430" height="184" rx="24" fill="#e2e8ff" stroke="#aab8dd" stroke-width="2"/>
+    <text x="136" y="544" font-size="17" fill="#2d4da8" letter-spacing="2">3. BENCHMARK CHECK</text>
+    <text x="136" y="588" font-size="30" font-weight="700" fill="#19202a">Compare simplified</text>
+    <text x="136" y="624" font-size="30" font-weight="700" fill="#19202a">and exact behavior</text>
+    <text x="136" y="656" font-size="18" fill="#475362">Plots showed where the shortcut drifted.</text>
 
-    <rect x="284" y="508" width="632" height="176" rx="26" fill="#13212a"/>
-    <text x="326" y="556" font-size="17" fill="#dce6e8" letter-spacing="2">KEEP ONLY WHAT HOLDS</text>
-    <text x="326" y="596" font-size="30" font-weight="700" fill="#f5efe4">Final conclusion is narrower</text>
-    <text x="326" y="630" font-size="30" font-weight="700" fill="#f5efe4">and easier to defend</text>
-    <text x="326" y="664" font-size="18" fill="#dce6e8">The model is useful because the limits stay visible.</text>
+    <rect x="668" y="500" width="430" height="184" rx="24" fill="#13212a"/>
+    <text x="702" y="544" font-size="17" fill="#dce6e8" letter-spacing="2">4. SCOPED CLAIM</text>
+    <text x="702" y="588" font-size="30" font-weight="700" fill="#f5efe4">Keep the result useful</text>
+    <text x="702" y="624" font-size="30" font-weight="700" fill="#f5efe4">without overstating it</text>
+    <text x="702" y="656" font-size="18" fill="#dce6e8">The limits stay visible beside the claim.</text>
+  </g>
+
+  <g stroke="#255d67" stroke-width="6" stroke-linecap="round" opacity="0.42">
+    <path d="M548 318 H650"/>
+    <path d="M883 430 V482"/>
+    <path d="M650 592 H548"/>
+    <path d="M317 430 V482"/>
+  </g>
+  <g fill="#255d67" opacity="0.62">
+    <circle cx="600" cy="318" r="9"/>
+    <circle cx="883" cy="456" r="9"/>
+    <circle cx="600" cy="592" r="9"/>
+    <circle cx="317" cy="456" r="9"/>
   </g>
 
   <g font-family="'IBM Plex Mono', monospace">
-    <rect x="92" y="712" width="1016" height="48" rx="18" fill="#fff" stroke="#d1bea4" stroke-width="2"/>
-    <text x="120" y="742" font-size="16" fill="#255d67" letter-spacing="2">READING GUIDE</text>
-    <text x="306" y="742" font-size="16" fill="#475362">This is a research process sketch, not a polished proof diagram.</text>
+    <rect x="92" y="710" width="1016" height="42" rx="18" fill="#fff" stroke="#d1bea4" stroke-width="2"/>
+    <text x="120" y="737" font-size="15" fill="#255d67" letter-spacing="2">READING GUIDE</text>
+    <text x="304" y="737" font-size="15" fill="#475362">This is a research process sketch, not a polished proof diagram.</text>
   </g>
 </svg>

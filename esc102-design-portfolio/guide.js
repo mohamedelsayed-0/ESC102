@@ -94,7 +94,7 @@ const STEPS = [
     {
         page: 'projects.html',
         title: 'Open Figures And Code',
-        body: "Click any image figure or code artifact card to expand it. The lightbox works throughout the project page, so you can inspect screenshots, drawings, plots, and code without leaving the argument.",
+        body: "Click any image figure or code artifact card to expand it. The lightbox works throughout the project page, so you can inspect visual evidence, drawings, plots, and code without leaving the argument.",
         highlight: '#praxis-1 .figure-card:first-of-type',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
         hintSelector: () => document.querySelector('#praxis-1 .figure-card:first-of-type'),
@@ -124,11 +124,11 @@ const STEPS = [
     {
         page: 'ctmfs.html',
         title: 'Project-To-Concept Shortcuts',
-        body: "These cluster cards are shortcuts through the handbook. They group concepts by project, so you can move from a case to the specific ideas that actually changed the work.",
-        highlight: '.ctmf-cluster-card:first-child',
+        body: "This clickable concept map is a shortcut through the handbook. Each node jumps to the specific idea that changed the project work.",
+        highlight: '.ctmf-map-row:first-child',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
-        hintSelector: () => document.querySelector('.ctmf-cluster-card:first-child'),
-        scrollTarget: () => document.querySelector('.ctmf-cluster-card:first-child'),
+        hintSelector: () => document.querySelector('.ctmf-map-row:first-child'),
+        scrollTarget: () => document.querySelector('.ctmf-map-row:first-child'),
         scrollAlignment: 'start'
     },
     {
@@ -155,10 +155,10 @@ const STEPS = [
         page: 'references.html',
         title: 'How To Check Any Claim',
         body: 'This is the last part of the source trail. From here, the guide will take you back to the landing page so you can begin the portfolio from the start with the full structure in mind.',
-        highlight: '.page-stack > .section-card:last-of-type .info-card:first-child',
+        highlight: '.page-stack > .section-card:last-of-type .resource-card:first-child',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
-        hintSelector: () => document.querySelector('.page-stack > .section-card:last-of-type .info-card:first-child'),
-        scrollTarget: () => document.querySelector('.page-stack > .section-card:last-of-type .info-card:first-child'),
+        hintSelector: () => document.querySelector('.page-stack > .section-card:last-of-type .resource-card:first-child'),
+        scrollTarget: () => document.querySelector('.page-stack > .section-card:last-of-type .resource-card:first-child'),
         scrollAlignment: 'start'
     },
     {
