@@ -713,18 +713,6 @@ code {
     align-items: stretch;
 }
 
-.ctmf-map-row::before {
-    content: "";
-    position: absolute;
-    left: calc(28% + 0.5rem);
-    right: 0.8rem;
-    top: 50%;
-    height: 2px;
-    background: linear-gradient(90deg, rgba(37, 93, 103, 0.34), rgba(37, 93, 103, 0.08));
-    transform: translateY(-50%);
-    pointer-events: none;
-}
-
 .ctmf-map-project,
 .ctmf-map-node {
     position: relative;
@@ -884,7 +872,7 @@ code {
 
 .project-section {
     display: grid;
-    gap: 1.9rem;
+    gap: clamp(2.05rem, 3vw, 2.75rem);
 }
 
 .section-card--project-case {
@@ -937,18 +925,28 @@ code {
 
 .project-rhythm {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.9rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
 }
 
 .project-rhythm-card {
+    position: relative;
     display: grid;
     gap: 0.6rem;
-    padding: 1.05rem 1.1rem;
+    padding: 1.2rem 1.25rem 1.25rem;
     border-radius: 1.15rem;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(242, 234, 219, 0.84));
     border: 1px solid rgba(16, 21, 28, 0.08);
     box-shadow: 0 14px 24px rgba(10, 14, 18, 0.05);
+}
+
+.project-rhythm-card::after {
+    content: "";
+    position: absolute;
+    inset: auto 1.25rem 0;
+    height: 3px;
+    border-radius: 99px 99px 0 0;
+    background: linear-gradient(90deg, rgba(37, 93, 103, 0.55), rgba(170, 90, 50, 0.4));
 }
 
 .project-rhythm-card p,
@@ -959,9 +957,57 @@ code {
 .project-block-header {
     display: grid;
     gap: 0.5rem;
-    max-width: 56rem;
-    padding-left: 1rem;
+    max-width: 62rem;
+    padding: 0.9rem 1.05rem;
     border-left: 4px solid rgba(37, 93, 103, 0.35);
+    border-radius: 0 1rem 1rem 0;
+    background: rgba(255, 250, 242, 0.58);
+}
+
+.project-ctmf-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+    padding: 0.75rem;
+    border-radius: 1.25rem;
+    background:
+        linear-gradient(135deg, rgba(19, 31, 40, 0.96), rgba(26, 38, 48, 0.92)),
+        radial-gradient(circle at top right, rgba(170, 90, 50, 0.16), transparent 18rem);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 34px rgba(5, 9, 13, 0.16);
+}
+
+.project-ctmf-pill {
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.95rem 1rem;
+    min-height: 7rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-inverse);
+    transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.project-ctmf-pill span {
+    color: rgba(245, 239, 228, 0.7);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.project-ctmf-pill strong {
+    color: var(--text-inverse);
+    line-height: 1.25;
+}
+
+.project-ctmf-pill:hover,
+.project-ctmf-pill:focus-visible {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(245, 239, 228, 0.22);
+    outline: none;
 }
 
 .text-columns {
@@ -1524,10 +1570,85 @@ code {
     text-transform: uppercase;
 }
 
+.source-extract-grid,
+.synthesis-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.35rem);
+}
+
+.source-extract-card,
+.synthesis-card {
+    position: relative;
+    display: grid;
+    gap: 0.8rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(16, 21, 28, 0.08);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 239, 228, 0.82)),
+        radial-gradient(circle at top right, rgba(37, 93, 103, 0.08), transparent 16rem);
+    box-shadow: 0 16px 30px rgba(10, 14, 18, 0.06);
+}
+
+.source-extract-card::before,
+.synthesis-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.35rem;
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    background: linear-gradient(180deg, rgba(37, 93, 103, 0.76), rgba(170, 90, 50, 0.55));
+}
+
+.source-extract-card dl {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.source-extract-card dl div {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.source-extract-card dt {
+    color: var(--text-soft);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.source-extract-card dd {
+    margin: 0;
+}
+
+.synthesis-card {
+    align-content: start;
+}
+
+.synthesis-card--wide {
+    grid-column: span 2;
+    background:
+        linear-gradient(135deg, rgba(19, 31, 40, 0.96), rgba(26, 38, 48, 0.92)),
+        radial-gradient(circle at top right, rgba(155, 123, 36, 0.18), transparent 18rem);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.synthesis-card--wide h3,
+.synthesis-card--wide p {
+    color: var(--text-inverse);
+}
+
+.synthesis-card--wide .card-label {
+    color: rgba(245, 239, 228, 0.64);
+}
+
 .figure-grid {
     align-items: start;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.15rem;
+    gap: clamp(1.25rem, 2vw, 1.65rem);
 }
 
 .figure-card,
@@ -1592,9 +1713,9 @@ code {
 
 .figure-body,
 .artifact-body {
-    padding: 1rem 1rem 1.1rem;
+    padding: 1.15rem 1.2rem 1.25rem;
     display: grid;
-    gap: 0.7rem;
+    gap: 0.8rem;
 }
 
 .figure-caption {
@@ -2056,6 +2177,7 @@ code {
 
 .resource-card a,
 .reference-card a,
+.source-extract-card a,
 .entry-card a,
 .note-panel a {
     color: var(--accent-teal);
@@ -2064,6 +2186,7 @@ code {
 
 .resource-card a:hover,
 .reference-card a:hover,
+.source-extract-card a:hover,
 .entry-card a:hover,
 .note-panel a:hover {
     color: var(--accent-rust);
@@ -2182,8 +2305,11 @@ code {
     .reference-grid,
     .timeline-grid,
     .resource-grid,
+    .source-extract-grid,
+    .synthesis-grid,
     .ctmf-map-links,
     .project-map-grid,
+    .project-ctmf-strip,
     .why-three-panel__grid,
     .meta-grid,
     .snapshot-grid,
@@ -2215,10 +2341,6 @@ code {
 
     .process-flow {
         grid-template-columns: minmax(0, 1fr);
-    }
-
-    .ctmf-map-row::before {
-        display: none;
     }
 
 }
@@ -2291,9 +2413,12 @@ code {
     .timeline-grid,
     .check-grid,
     .resource-grid,
+    .source-extract-grid,
+    .synthesis-grid,
     .ctmf-map-row,
     .ctmf-map-links,
     .project-map-grid,
+    .project-ctmf-strip,
     .why-three-panel__grid,
     .meta-grid,
     .snapshot-grid,
@@ -2321,6 +2446,10 @@ code {
 
     .figure-grid .artifact-card,
     .figure-grid .figure-card--wide {
+        grid-column: span 1;
+    }
+
+    .synthesis-card--wide {
         grid-column: span 1;
     }
 

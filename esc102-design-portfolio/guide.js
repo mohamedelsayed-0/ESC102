@@ -57,7 +57,7 @@ const STEPS = [
     {
         page: 'index.html',
         title: 'Project Map Cards',
-        body: "The removed support-card strip has been replaced by the project map. These cards now do the visual signposting: each one names the project, previews the concept trail, and jumps into the relevant case.",
+        body: "The project map does the visual signposting: each card names the project, previews the concept trail, and jumps into the relevant case.",
         highlight: '.project-map-card:first-child',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
         hintSelector: () => document.querySelector('.project-map-card:first-child'),
@@ -76,7 +76,7 @@ const STEPS = [
     {
         page: 'position.html',
         title: 'Formal Position First',
-        body: "The old proof-card target was removed during the rewrite, so the guide now starts with the formal position block. This is the claim the rest of the page and project evidence are meant to support.",
+        body: "The guide starts with the formal position block because it is the claim the rest of the page and project evidence are meant to support.",
         highlight: '.position-story',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
         hintSelector: () => document.querySelector('.position-story'),
@@ -86,10 +86,20 @@ const STEPS = [
     {
         page: 'projects.html',
         title: 'Jump Between Project Cases',
-        body: "The project page keeps the four cases in one repeated reading pattern, and these buttons let you jump straight to a case without losing the overall structure.",
+        body: "The project page keeps the four cases in one repeated reading pattern. The jump buttons let you read one project at a time without losing the overall structure.",
         highlight: '.hero-actions',
         highlightPad: { top: 12, right: 12, bottom: 12, left: 12 },
         hintSelector: () => document.querySelector('.hero-actions')
+    },
+    {
+        page: 'projects.html',
+        title: 'CTMF Lens For Each Case',
+        body: "Each project now opens with a compact CTMF lens. These links identify the concepts doing the most work before the detailed evidence appears.",
+        highlight: '#praxis-1 .project-ctmf-strip',
+        highlightPad: { top: 14, right: 14, bottom: 14, left: 14 },
+        hintSelector: () => document.querySelector('#praxis-1 .project-ctmf-strip'),
+        scrollTarget: () => document.querySelector('#praxis-1 .project-ctmf-strip'),
+        scrollAlignment: 'center'
     },
     {
         page: 'projects.html',
@@ -114,11 +124,11 @@ const STEPS = [
     {
         page: 'projects.html',
         title: 'Trace Into The Handbook',
-        body: "These CTMF links move from a project case into the exact handbook entries that explain the concepts behind the evidence. The site is built to keep that jump short.",
-        highlight: '#praxis-1 .project-links a:first-child',
+        body: "The CTMF lens links move from a project case into the exact handbook entries that explain the concepts behind the evidence. The site is built to keep that jump short.",
+        highlight: '#praxis-1 .project-ctmf-pill:first-child',
         highlightPad: { top: 12, right: 12, bottom: 12, left: 12 },
-        hintSelector: () => document.querySelector('#praxis-1 .project-links a:first-child'),
-        scrollTarget: () => document.querySelector('#praxis-1 .project-links a:first-child'),
+        hintSelector: () => document.querySelector('#praxis-1 .project-ctmf-pill:first-child'),
+        scrollTarget: () => document.querySelector('#praxis-1 .project-ctmf-pill:first-child'),
         scrollAlignment: 'center'
     },
     {
@@ -142,6 +152,16 @@ const STEPS = [
         scrollAlignment: 'start'
     },
     {
+        page: 'ctmfs.html',
+        title: 'Synthesis At The End',
+        body: "The handbook closes by naming the design beliefs that the CTMF entries support. This is where the concepts connect back to the position statement.",
+        highlight: '#ctmf-synthesis',
+        highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
+        hintSelector: () => document.querySelector('#ctmf-synthesis'),
+        scrollTarget: () => document.querySelector('#ctmf-synthesis'),
+        scrollAlignment: 'start'
+    },
+    {
         page: 'references.html',
         title: 'The Source Trail',
         body: "This page is the audit trail for the portfolio. These resource cards collect the full evidence packages, so the interpretation on the other pages can always be checked against the underlying files.",
@@ -153,12 +173,12 @@ const STEPS = [
     },
     {
         page: 'references.html',
-        title: 'How To Check Any Claim',
-        body: 'This is the last part of the source trail. From here, the guide will take you back to the landing page so you can begin the portfolio from the start with the full structure in mind.',
-        highlight: '.page-stack > .section-card:last-of-type .resource-card:first-child',
+        title: 'Structured Source Extracts',
+        body: 'This section explains how each source supports a claim, so the references page is not just a list of files.',
+        highlight: '.source-extract-card:first-child',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
-        hintSelector: () => document.querySelector('.page-stack > .section-card:last-of-type .resource-card:first-child'),
-        scrollTarget: () => document.querySelector('.page-stack > .section-card:last-of-type .resource-card:first-child'),
+        hintSelector: () => document.querySelector('.source-extract-card:first-child'),
+        scrollTarget: () => document.querySelector('.source-extract-card:first-child'),
         scrollAlignment: 'start'
     },
     {
