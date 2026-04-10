@@ -204,6 +204,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const revealItems = document.querySelectorAll(".reveal");
     if (revealItems.length) {
+        if (!("IntersectionObserver" in window)) {
+            revealItems.forEach((item) => item.classList.add("is-visible"));
+            return;
+        }
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -214,8 +219,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             },
             {
-                threshold: 0.12,
-                rootMargin: "0px 0px -40px 0px",
+                threshold: 0.01,
+                rootMargin: "0px 0px 120px 0px",
             },
         );
 
