@@ -155,12 +155,12 @@ const STEPS = [
     },
     {
         page: 'references.html',
-        title: 'Structured Source Extracts',
-        body: 'This section states that cited artifacts are linked inline as evidence and identifies the main source extracts.',
-        highlight: '.source-extract-card:first-child',
+        title: 'Reference Links',
+        body: 'These entries link directly to the cited PDFs, images, source files, and repositories.',
+        highlight: '.ieee-list',
         highlightPad: { top: 15, right: 15, bottom: 15, left: 15 },
-        hintSelector: () => document.querySelector('.source-extract-card:first-child'),
-        scrollTarget: () => document.querySelector('.source-extract-card:first-child'),
+        hintSelector: () => document.querySelector('.ieee-list'),
+        scrollTarget: () => document.querySelector('.ieee-list'),
         scrollAlignment: 'start'
     },
     {
@@ -584,6 +584,10 @@ function endTour(options = {}) {
 }
 
 function shouldAutoStartTour() {
+    if (isCaptureMode()) {
+        return false;
+    }
+
     if (getCurrentPage() !== HOME_PAGE) {
         return false;
     }
@@ -668,6 +672,10 @@ function initializeTourEntry() {
         return;
     }
 
+    if (isCaptureMode()) {
+        return;
+    }
+
     handleTourCompletionReturn();
 
     const pendingStep = getTourState();
@@ -680,6 +688,15 @@ function initializeTourEntry() {
     if (shouldAutoStartTour()) {
         _entryInitialized = true;
         setTimeout(() => startTourAt(0), AUTO_START_DELAY_MS);
+    }
+}
+
+function isCaptureMode() {
+    try {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('capture') === '1';
+    } catch (error) {
+        return false;
     }
 }
 

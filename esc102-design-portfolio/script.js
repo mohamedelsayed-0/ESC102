@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const isCaptureMode = (() => {
+        try {
+            return new URLSearchParams(window.location.search).get("capture") === "1";
+        } catch (error) {
+            return false;
+        }
+    })();
+
     const navToggle = document.querySelector("[data-nav-toggle]");
     const siteNav = document.querySelector("[data-nav]");
 
@@ -204,6 +212,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const revealItems = document.querySelectorAll(".reveal");
     if (revealItems.length) {
+        if (isCaptureMode) {
+            revealItems.forEach((item) => item.classList.add("is-visible"));
+            return;
+        }
+
         if (!("IntersectionObserver" in window)) {
             revealItems.forEach((item) => item.classList.add("is-visible"));
             return;
