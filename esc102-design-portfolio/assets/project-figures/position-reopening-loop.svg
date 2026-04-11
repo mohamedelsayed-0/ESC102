@@ -2,7 +2,7 @@
   <title id="title">Divergence loop for the position statement</title>
   <desc id="desc">A cyclical design loop showing how reading context, diverging, comparing routes, and converging with tests work together.</desc>
   <defs>
-    <marker id="loop-arrow" viewBox="0 0 14 14" refX="11" refY="7" markerWidth="10" markerHeight="10" orient="auto">
+    <marker id="loop-arrow" viewBox="0 0 14 14" refX="11" refY="7" markerWidth="9" markerHeight="9" orient="auto">
       <path d="M2 1.5 L12 7 L2 12.5 Z" fill="#255d67"/>
     </marker>
   </defs>
@@ -15,46 +15,45 @@
   <text x="82" y="196" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">I use divergence to reduce first-solution bias, open the opportunity constructively,</text>
   <text x="82" y="224" font-family="'Public Sans', Arial, sans-serif" font-size="20" fill="#475362">and then narrow with criteria and testing.</text>
 
-  <g fill="none" stroke="#255d67" stroke-width="8" stroke-linecap="round" marker-end="url(#loop-arrow)">
-    <path d="M360 286 C520 190, 680 190, 840 286"/>
-    <path d="M904 360 C968 432, 968 532, 904 604"/>
-    <path d="M840 660 C680 748, 520 748, 360 660"/>
-    <path d="M296 604 C232 532, 232 432, 296 360"/>
+  <g fill="none" stroke="#255d67" stroke-width="7" stroke-linecap="round" opacity="0.9">
+    <path d="M394 296 C520 244, 680 244, 806 296" marker-end="url(#loop-arrow)"/>
+    <path d="M872 364 C912 426, 912 506, 872 568" marker-end="url(#loop-arrow)"/>
+    <path d="M806 624 C680 676, 520 676, 394 624" marker-end="url(#loop-arrow)"/>
+    <path d="M328 568 C288 506, 288 426, 328 364" marker-end="url(#loop-arrow)"/>
   </g>
 
   <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="450" y="290" width="300" height="240" rx="150" fill="#13212a"/>
-    <text x="600" y="360" text-anchor="middle" font-size="18" fill="#d7e6e9" letter-spacing="2">WHY THE LOOP MATTERS</text>
-    <text x="600" y="406" text-anchor="middle" font-size="32" font-weight="700" fill="#f5efe4">Bias removal</text>
-    <text x="600" y="444" text-anchor="middle" font-size="19" fill="#d7e6e9">The point is not to wander.</text>
-    <text x="600" y="472" text-anchor="middle" font-size="19" fill="#d7e6e9">It is to reopen the problem,</text>
-    <text x="600" y="500" text-anchor="middle" font-size="19" fill="#d7e6e9">compare routes fairly,</text>
-    <text x="600" y="528" text-anchor="middle" font-size="19" fill="#d7e6e9">and return to reality checks.</text>
+    <rect x="420" y="304" width="360" height="228" rx="114" fill="#13212a"/>
+    <text x="600" y="364" text-anchor="middle" font-size="18" fill="#d7e6e9" letter-spacing="2">WHY THE LOOP MATTERS</text>
+    <text x="600" y="410" text-anchor="middle" font-size="32" font-weight="700" fill="#f5efe4">Bias removal</text>
+    <text x="600" y="448" text-anchor="middle" font-size="19" fill="#d7e6e9">The loop is about reopening the problem,</text>
+    <text x="600" y="476" text-anchor="middle" font-size="19" fill="#d7e6e9">comparing routes fairly,</text>
+    <text x="600" y="504" text-anchor="middle" font-size="19" fill="#d7e6e9">and returning to reality checks.</text>
   </g>
 
   <g font-family="'Public Sans', Arial, sans-serif">
-    <rect x="86" y="242" width="248" height="140" rx="28" fill="#ffffff" stroke="#d8c7b0" stroke-width="2"/>
-    <text x="210" y="282" text-anchor="middle" font-size="17" fill="#7e5a36" letter-spacing="2">1 READ CONTEXT</text>
-    <text x="210" y="326" text-anchor="middle" font-size="28" font-weight="700" fill="#19202a">Who is affected?</text>
-    <text x="210" y="358" text-anchor="middle" font-size="18" fill="#475362">Map stakeholders, active</text>
-    <text x="210" y="384" text-anchor="middle" font-size="18" fill="#475362">constraints, and unknowns.</text>
+    <rect x="98" y="272" width="254" height="144" rx="26" fill="#ffffff" stroke="#d8c7b0" stroke-width="2"/>
+    <text x="225" y="310" text-anchor="middle" font-size="16" fill="#7e5a36" letter-spacing="2">1 READ CONTEXT</text>
+    <text x="225" y="352" text-anchor="middle" font-size="27" font-weight="700" fill="#19202a">Who is affected?</text>
+    <text x="225" y="382" text-anchor="middle" font-size="17" fill="#475362">Map stakeholders, active</text>
+    <text x="225" y="406" text-anchor="middle" font-size="17" fill="#475362">constraints, and unknowns.</text>
 
-    <rect x="866" y="242" width="248" height="140" rx="28" fill="#eef6f8" stroke="#bed6dc" stroke-width="2"/>
-    <text x="990" y="282" text-anchor="middle" font-size="17" fill="#255d67" letter-spacing="2">2 DIVERGE</text>
-    <text x="990" y="326" text-anchor="middle" font-size="28" font-weight="700" fill="#19202a">Open branches</text>
-    <text x="990" y="358" text-anchor="middle" font-size="18" fill="#475362">Name several directions</text>
-    <text x="990" y="384" text-anchor="middle" font-size="18" fill="#475362">before any one hardens.</text>
+    <rect x="848" y="272" width="254" height="144" rx="26" fill="#eef6f8" stroke="#bed6dc" stroke-width="2"/>
+    <text x="975" y="310" text-anchor="middle" font-size="16" fill="#255d67" letter-spacing="2">2 DIVERGE</text>
+    <text x="975" y="352" text-anchor="middle" font-size="27" font-weight="700" fill="#19202a">Open branches</text>
+    <text x="975" y="382" text-anchor="middle" font-size="17" fill="#475362">Name several directions</text>
+    <text x="975" y="406" text-anchor="middle" font-size="17" fill="#475362">before one hardens.</text>
 
-    <rect x="866" y="562" width="248" height="140" rx="28" fill="#f7f1df" stroke="#decfa1" stroke-width="2"/>
-    <text x="990" y="602" text-anchor="middle" font-size="17" fill="#8b6d18" letter-spacing="2">3 COMPARE ROUTES</text>
-    <text x="990" y="646" text-anchor="middle" font-size="28" font-weight="700" fill="#19202a">Set filters</text>
-    <text x="990" y="678" text-anchor="middle" font-size="18" fill="#475362">Use shared criteria so</text>
-    <text x="990" y="704" text-anchor="middle" font-size="18" fill="#475362">comparison becomes fair.</text>
+    <rect x="848" y="542" width="254" height="144" rx="26" fill="#f7f1df" stroke="#decfa1" stroke-width="2"/>
+    <text x="975" y="580" text-anchor="middle" font-size="16" fill="#8b6d18" letter-spacing="2">3 COMPARE ROUTES</text>
+    <text x="975" y="622" text-anchor="middle" font-size="27" font-weight="700" fill="#19202a">Set filters</text>
+    <text x="975" y="652" text-anchor="middle" font-size="17" fill="#475362">Use shared criteria so</text>
+    <text x="975" y="676" text-anchor="middle" font-size="17" fill="#475362">comparison becomes fair.</text>
 
-    <rect x="86" y="562" width="248" height="140" rx="28" fill="#f7eef0" stroke="#dfc0c6" stroke-width="2"/>
-    <text x="210" y="602" text-anchor="middle" font-size="17" fill="#aa5a32" letter-spacing="2">4 CONVERGE AND TEST</text>
-    <text x="210" y="646" text-anchor="middle" font-size="28" font-weight="700" fill="#19202a">Narrow carefully</text>
-    <text x="210" y="678" text-anchor="middle" font-size="18" fill="#475362">Choose the strongest route,</text>
-    <text x="210" y="704" text-anchor="middle" font-size="18" fill="#475362">then check what it leaves out.</text>
+    <rect x="98" y="542" width="254" height="144" rx="26" fill="#f7eef0" stroke="#dfc0c6" stroke-width="2"/>
+    <text x="225" y="580" text-anchor="middle" font-size="16" fill="#aa5a32" letter-spacing="2">4 CONVERGE AND TEST</text>
+    <text x="225" y="622" text-anchor="middle" font-size="27" font-weight="700" fill="#19202a">Narrow carefully</text>
+    <text x="225" y="652" text-anchor="middle" font-size="17" fill="#475362">Choose the strongest route,</text>
+    <text x="225" y="676" text-anchor="middle" font-size="17" fill="#475362">then check what it leaves out.</text>
   </g>
 </svg>

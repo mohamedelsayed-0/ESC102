@@ -35,13 +35,13 @@
     <text x="702" y="382" font-size="18" fill="#475362">A smaller claim became more inspectable.</text>
 
     <rect x="102" y="500" width="430" height="184" rx="24" fill="#e2e8ff" stroke="#aab8dd" stroke-width="2"/>
-    <text x="136" y="544" font-size="17" fill="#2d4da8" letter-spacing="2">3. BENCHMARK CHECK</text>
+    <text x="136" y="544" font-size="17" fill="#2d4da8" letter-spacing="2">4. BENCHMARK CHECK</text>
     <text x="136" y="588" font-size="30" font-weight="700" fill="#19202a">Compare simplified</text>
     <text x="136" y="624" font-size="30" font-weight="700" fill="#19202a">and exact behavior</text>
     <text x="136" y="656" font-size="18" fill="#475362">Plots showed where the shortcut drifted.</text>
 
     <rect x="668" y="500" width="430" height="184" rx="24" fill="#13212a"/>
-    <text x="702" y="544" font-size="17" fill="#dce6e8" letter-spacing="2">4. SCOPED CLAIM</text>
+    <text x="702" y="544" font-size="17" fill="#dce6e8" letter-spacing="2">3. SCOPED CLAIM</text>
     <text x="702" y="588" font-size="30" font-weight="700" fill="#f5efe4">Keep the result useful</text>
     <text x="702" y="624" font-size="30" font-weight="700" fill="#f5efe4">without overstating it</text>
     <text x="702" y="656" font-size="18" fill="#dce6e8">The limits stay visible beside the claim.</text>
